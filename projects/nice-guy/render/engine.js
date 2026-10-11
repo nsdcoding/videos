@@ -142,10 +142,18 @@ function Guy(parent, x, y, s, opts = {}) {
   const g = el('div', parent, { position: 'absolute', left: (x - 124.5) + 'px', top: (y - 618) + 'px', width: '249px', height: '618px', transformOrigin: '50% 100%' });
   gsap.set(g, { scale: s });
   const P = (n, css) => el('img', g, Object.assign({ position: 'absolute' }, css), { src: A(n) });
-  const armL = P('armL_bare', { left: '-8px', top: '116px', width: '73px', transformOrigin: '50% 3%' });
-  const armR = P('armR_bare', { left: '184px', top: '116px', width: '73px', transformOrigin: '50% 3%' });
-  const armX = P('armR_explain_bare', { left: '214px', top: '150px', width: '110px', transformOrigin: '0% 70%', visibility: 'hidden' });
-  const armP = P('armR_point_bare', { left: '196px', top: '96px', width: '185px', transformOrigin: '0% 45%', visibility: 'hidden' });
+  // jointed arms: shoulder -> upper arm -> elbow -> forearm+hand (always connected)
+  const ARM = (side, left) => {
+    const sh = el('div', g, { position: 'absolute', left, top: '116px', width: '73px', height: '133px', transformOrigin: '50% 4%' });
+    el('img', sh, { position: 'absolute', left: 0, top: 0, width: '73px' }, { src: A(side + '_up') });
+    const el_ = el('div', sh, { position: 'absolute', left: 0, top: '123px', width: '73px', height: '110px', transformOrigin: '50% 0%' });
+    el('img', el_, { position: 'absolute', left: 0, top: '-9px', width: '73px' }, { src: A(side + '_lo') });
+    // forearm sits under the upper arm so the elbow overlap is hidden
+    sh.insertBefore(el_, sh.firstChild);
+    sh.fore = el_;
+    return sh;
+  };
+  const armL = ARM('armL', '-8px'), armR = ARM('armR', '184px');
   const hg = el('div', g, { position: 'absolute', left: '59px', top: '-150px', width: '482px', height: '708px', transformOrigin: '0 0' });
   const hk = 0.27; gsap.set(hg, { scale: hk });
   const headPivot = el('div', hg, { position: 'absolute', inset: 0, transformOrigin: '50% 90%' });
@@ -155,16 +163,14 @@ function Guy(parent, x, y, s, opts = {}) {
   lids.innerHTML = [[151, 318], [333, 318]].map(([cx, cy]) =>
     `<ellipse cx="${cx}" cy="${cy}" rx="52" ry="24" fill="${SKIN}"/><path d="M${cx - 50} ${cy + 2} Q${cx} ${cy + 18} ${cx + 50} ${cy + 2}" stroke="${INK}" stroke-width="8" fill="none" stroke-linecap="round"/>`).join('');
   const body = P('body', { left: 0, top: 0, width: '249px' });
-  const guy = { g, armL, armR, armX, armP, hg, headPivot, head, mouth, lids, body, talks: [], expr: [[0, opts.mouth || 'smile']], heads: [], lastM: '' };
+  const guy = { g, armL, armR, hg, headPivot, head, mouth, lids, body, talks: [], expr: [[0, opts.mouth || 'smile']], heads: [], lastM: '' };
   guy.say = (t0, t1) => guy.talks.push([t0, t1]);
   guy.face = (t, m) => guy.expr.push([t, m]);
   guy.headSwap = (t, n) => TL.set(head, { attr: { src: A(n) } }, t);
-  guy.pose = (t, kind, dur = 0.35) => {   // 'down' | 'explain' | 'point'
-    TL.set([armR, armX, armP], { visibility: 'hidden' }, t);
-    const a = kind === 'explain' ? armX : kind === 'point' ? armP : armR;
-    TL.set(a, { visibility: 'inherit' }, t);
-    const r = kind === 'point' ? -14 : kind === 'explain' ? -38 : 0;
-    TL.fromTo(a, { rotation: kind === 'down' ? -20 : 30 }, { rotation: r, duration: dur, ease: 'back.out(2)', immediateRender: false }, t);
+  guy.pose = (t, kind, dur = 0.45) => {   // 'down' | 'explain' | 'point'
+    const P_ = { down: [0, 0], explain: [-42, -92], point: [-102, -8] }[kind];
+    TL.to(armR, { rotation: P_[0], duration: dur, ease: 'back.out(1.6)' }, t);
+    TL.to(armR.fore, { rotation: P_[1], duration: dur, ease: 'back.out(1.6)' }, t + 0.05);
   };
   guy.walk = (t0, t1, fromX) => {
     TL.fromTo(g, { x: fromX - x }, { x: 0, duration: t1 - t0, ease: 'power1.out' }, t0);
