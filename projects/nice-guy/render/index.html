@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+html,body{margin:0;background:#000}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#c9a04a}
+#world{position:absolute;inset:0}
+#grain{position:absolute;inset:0;background:url(grain.png);mix-blend-mode:overlay;opacity:.28;pointer-events:none;z-index:900000}
+#vig{position:absolute;inset:0;pointer-events:none;z-index:900001;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 60%,rgba(30,25,10,.35) 100%)}
+#subs{position:absolute;left:0;right:0;bottom:46px;height:60px;z-index:900002;font-family:'Mukta';font-weight:700;font-size:38px;color:#f6ecd6}
+#subs div{background:rgba(32,46,35,.86);padding:4px 26px 2px;border-radius:12px;line-height:1.35}
+svg{overflow:visible}
+</style></head><body>
+<div id="stage"><div id="world"></div><div id="grain"></div><div id="vig"></div><div id="subs"></div></div>
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<script src="engine.js"></script>
+<script src="scenes.js"></script>
+<script>
+Promise.all([fetch('timing.json').then(r=>r.json()),fetch('env.json').then(r=>r.json())]).then(async ([t,e])=>{
+  TIMING=t; ENV=e; build(); await document.fonts.ready;
+  await Promise.all([...document.images].map(i=>i.complete?0:new Promise(r=>{i.onload=i.onerror=r})));
+  const u=new URLSearchParams(location.search); renderFrame(+(u.get('t')||0)); window.READY=true;
+});
+</script></body></html>

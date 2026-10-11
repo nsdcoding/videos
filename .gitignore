@@ -1,3 +1,10 @@
 sa.json
 *-key.json
 __pycache__/
+projects/*/out/seg/
+projects/*/out/*.mp4
+!projects/*/out/*_720p.mp4
+projects/*/out/list.txt
+projects/*/render/node_modules/
+projects/*/render/fonts/raw.css
+projects/*/out/sample_v1*
