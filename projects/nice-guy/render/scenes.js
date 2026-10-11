@@ -306,5 +306,6 @@ function build() {
     camMove(L, { scale: 1.0 }, { scale: 1.05 });
   }
 
-  buildSubs(SAMPLE_END);
+  buildRest();
+  buildSubs(1e9);
 }

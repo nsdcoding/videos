@@ -9,3 +9,4 @@ projects/*/render/node_modules/
 projects/*/render/fonts/raw.css
 projects/*/out/sample_v1*
 projects/*/out/sample_v2*
+projects/*/out/full/

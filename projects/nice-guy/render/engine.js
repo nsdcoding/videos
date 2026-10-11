@@ -167,15 +167,11 @@ function Guy(parent, x, y, s, opts = {}) {
   guy.say = (t0, t1) => guy.talks.push([t0, t1]);
   guy.face = (t, m) => guy.expr.push([t, m]);
   guy.headSwap = (t, n) => TL.set(head, { attr: { src: A(n) } }, t);
-  guy.pose = (t, kind, dur = 0.45) => {   // 'down' | 'explain' | 'point'
-    const P_ = { down: [0, 0], explain: [-42, -92], point: [-102, -8] }[kind];
-    TL.to(armR, { rotation: P_[0], duration: dur, ease: 'back.out(1.6)' }, t);
-    TL.to(armR.fore, { rotation: P_[1], duration: dur, ease: 'back.out(1.6)' }, t + 0.05);
-  };
+  guy.pose = () => {};   // arm gestures disabled by request: arms stay relaxed
   guy.walk = (t0, t1, fromX) => {
     TL.fromTo(g, { x: fromX - x }, { x: 0, duration: t1 - t0, ease: 'power1.out' }, t0);
     HOOKS.push(t => { if (t < t0 || t > t1) return; const p = (t - t0) * 9;
-      gsap.set(g, { y: -Math.abs(Math.sin(p)) * 14 }); gsap.set(armL, { rotation: Math.sin(p) * 16 }); gsap.set(armR, { rotation: -Math.sin(p) * 16 }); });
+      gsap.set(g, { y: -Math.abs(Math.sin(p)) * 14 }); });
   };
   HOOKS.push(t => {
     if (g.closest('[style*="visibility: hidden"]') && 0) return;
@@ -189,7 +185,7 @@ function Guy(parent, x, y, s, opts = {}) {
     // mouth
     let m = guy.expr[0][1];
     for (const [tt, mm] of guy.expr) if (t >= tt) m = mm;
-    const tired = head.getAttribute('src').includes('tired');
+    const tired = !head.getAttribute('src').endsWith('/head.png');
     let html = tired ? '' : MOUTH[m];
     for (const [a, b] of guy.talks) if (t >= a && t <= b) {
       const e = envAt(t);
