@@ -11,3 +11,7 @@ projects/*/out/sample_v1*
 projects/*/out/sample_v2*
 projects/*/out/full/
 projects/*/out/no_more_mr_nice_guy_hindi_720p.mp4
+projects/mind-tricks/render/node_modules/
+projects/mind-tricks/vo2/
+projects/mind-tricks/out/full/
+projects/mind-tricks/out/*.mp4
