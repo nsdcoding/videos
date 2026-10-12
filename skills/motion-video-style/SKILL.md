@@ -81,3 +81,11 @@ python3 $S batch scenes.json assets/ --voice Kore --ref assets/style_ref.png
   respectful delivery and no music.
 - For the approval sample, generate only the first 3–5 scenes, render, and share before batching the rest.
 - On 429/5xx the script retries with backoff; if a call keeps failing, report the error text.
+
+# Uploading to YouTube
+- Use `youtube/youtube_upload.py` in the videos repo (setup in `youtube/SETUP.md`).
+  It needs `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`; never print or commit them.
+- Write a `video.json` (see `youtube/video.example.json`): Hindi title/description, tags,
+  `language: "hi"`, and `ai_generated: true` for Nano Banana / Gemini TTS content.
+- Run `--dry-run` first and show him the details before the real upload.
+- Uploads stay private until the API project passes Google's audit; tell him to publish in YouTube Studio.

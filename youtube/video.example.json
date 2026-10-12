@@ -1,0 +1,14 @@
+{
+  "video": "../out/final.mp4",
+  "thumbnail": "../out/thumb.png",
+  "title": "वीडियो का शीर्षक यहाँ",
+  "description": "हिंदी में विवरण यहाँ लिखें।",
+  "tags": ["हिंदी", "explainer"],
+  "category": 27,
+  "language": "hi",
+  "privacy": "private",
+  "publish_at": null,
+  "playlist": null,
+  "made_for_kids": false,
+  "ai_generated": true
+}
