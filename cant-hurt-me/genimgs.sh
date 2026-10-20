@@ -5,4 +5,4 @@ python3 -c "import json,sys; [print(k+'\t'+v) for k,v in json.load(open(sys.argv
 while IFS=$'\t' read -r k p; do
   [ -f "assets/$k.png" ] && continue
   echo "$k"; echo "$p"
-done | paste - - | xargs -P 4 -d '\n' -I{} bash -c 'k=$(cut -f1 <<<"$1"); p=$(cut -f2 <<<"$1"); python3 ../gen.py image "$p $0" "assets/$k.png" --ref assets/cover.png' "$STYLE" {}
+done | paste - - | xargs -P ${JOBS:-4} -d '\n' -I{} bash -c 'k=$(cut -f1 <<<"$1"); p=$(cut -f2 <<<"$1"); python3 ../gen.py image "$p $0" "assets/$k.png" --ref assets/cover.png' "$STYLE" {}

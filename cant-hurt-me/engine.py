@@ -127,7 +127,12 @@ def feather_mask(size, kind="rect", f=0.12):
 
 @lru_cache(maxsize=None)
 def load_image(path, mask="rect", feather=0.12, match=True):
-    im = Image.open(os.path.join(HERE, path))
+    full = os.path.join(HERE, path)
+    if not os.path.exists(full):  # layout preview while images are still generating
+        im = Image.new("RGB", (1344, 768), (170, 160, 150))
+        ImageDraw.Draw(im).text((40, 40), os.path.basename(path), font=font("num", 90), fill=(60, 60, 60))
+        return Mips(im.convert("RGBA"))
+    im = Image.open(full)
     if im.mode == "RGBA" and mask is None:
         return Mips(im)
     rgb = colour_match(im) if match else im.convert("RGB")
@@ -241,8 +246,9 @@ class Panel(Item):
     """
 
     def __init__(self, path, cx, cy, w, mask="rect", feather=0.12, match=True,
-                 reveal=None, pulse=None, z=0, t0=-1e9, t1=1e9, fade=0.6):
+                 reveal=None, pulse=None, z=0, t0=-1e9, t1=1e9, fade=0.6, pop=False):
         self.mips = load_image(path, mask, feather, match)
+        self.pop = pop
         self.cx, self.cy, self.w = cx, cy, w
         self.h = w * self.mips.h / self.mips.w
         self.reveal, self.pulse, self.z, self.t0, self.t1, self.fade = reveal, pulse, z, t0, t1, fade
@@ -258,6 +264,8 @@ class Panel(Item):
         if a <= 0.003:
             return
         w = self.w * (self.pulse(t) if self.pulse else 1)
+        if self.pop:
+            w *= 0.85 + 0.15 * back_out(ramp(t, self.t0, 0.5))
         paint_image(ctx, self.mips, self.cx, self.cy, w, a, W / cam[2])
 
 
@@ -421,8 +429,8 @@ class Runner(Item):
     path: [(t, x, y, h)] keyframes (h = figure height in world units).
     """
 
-    def __init__(self, path, flip=False, z=8, sprite="assets/runner.png"):
-        self.path, self.flip, self.z = path, flip, z
+    def __init__(self, path, flip=False, z=8, sprite="assets/runner.png", bob=1.0):
+        self.path, self.flip, self.z, self.bob = path, flip, z, bob
         self.mips = load_image(sprite, None)
         self.t0, self.t1 = path[0][0], path[-1][0]
 
@@ -451,12 +459,69 @@ class Runner(Item):
         stride = abs(math.sin(t * math.pi * 2.6))
         w = h * self.mips.w / self.mips.h
         ctx.save()
-        ctx.translate(x, y - h / 2 - h * 0.03 * stride)
+        ctx.translate(x, y - h / 2 - h * 0.03 * stride * self.bob)
         if self.flip:
             ctx.scale(-1, 1)
-        ctx.rotate(0.04 * math.sin(t * math.pi * 2.6))
+        ctx.rotate(0.04 * self.bob * math.sin(t * math.pi * 2.6))
         paint_image(ctx, self.mips, 0, 0, w, a, W / cam[2])
         ctx.restore()
+
+
+class Bar(Item):
+    """Outlined bar that fills from f0 to f1 (fractions) between t0 and t0 + dur."""
+
+    def __init__(self, x, y, w, h, t0, dur, f0=0.0, f1=1.0, color=RED, t1=1e9, z=6, steps=None):
+        self.x, self.y, self.w, self.h, self.t0, self.dur, self.f0, self.f1 = x, y, w, h, t0, dur, f0, f1
+        self.color, self.t1, self.z, self.steps = color, t1, z, steps
+
+    def bbox(self, t):
+        return (self.x, self.y, self.x + self.w, self.y + self.h)
+
+    def draw(self, ctx, t, cam):
+        if t < self.t0 or t > self.t1 + 0.5:
+            return
+        a = clamp((t - self.t0) * 3) * (1 - ramp(t, self.t1, 0.5))
+        f = self.f0 + (self.f1 - self.f0) * ease_io((t - self.t0 - 0.3) / self.dur)
+        lw = self.h * 0.08
+        ctx.set_source_rgba(*INK, a)
+        ctx.set_line_width(lw)
+        ctx.rectangle(self.x, self.y, self.w, self.h)
+        ctx.stroke()
+        pad = lw * 1.8
+        ctx.set_source_rgba(*self.color, a)
+        ctx.rectangle(self.x + pad, self.y + pad, max(0, (self.w - 2 * pad) * f), self.h - 2 * pad)
+        ctx.fill()
+
+
+class Hill(Item):
+    """The ridge he climbs: a black slope with a red band below, like the cover."""
+
+    def __init__(self, pts, depth=1700, band=550, z=-1):
+        self.pts, self.depth, self.band, self.z = pts, depth, band, z
+        xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+        self.box = (min(xs), min(ys), max(xs), max(ys) + depth + band + 3000)
+
+    def bbox(self, t):
+        return self.box
+
+    def _shape(self, ctx, off0, off1):
+        ctx.move_to(self.pts[0][0], self.pts[0][1] + off0)
+        for x, y in self.pts[1:]:
+            ctx.line_to(x, y + off0)
+        for x, y in reversed(self.pts):
+            ctx.line_to(x, y + off1)
+        ctx.close_path()
+
+    def draw(self, ctx, t, cam):
+        ctx.set_source_rgb(*INK)
+        self._shape(ctx, 0, self.depth)
+        ctx.fill()
+        ctx.set_source_rgb(0.08 * 0.6, 0.02, 0.03)
+        self._shape(ctx, self.depth, self.depth + 120)
+        ctx.fill()
+        ctx.set_source_rgb(*RED)
+        self._shape(ctx, self.depth + 120, self.depth + self.band)
+        ctx.fill()
 
 
 # ---------------------------------------------------------------- subtitles
