@@ -289,6 +289,38 @@ def rgb255(c):
     return tuple(int(v * 255) for v in c)
 
 
+SAFE_X, SAFE_TOP, SAFE_BOTTOM = 0.04, 0.05, 0.13  # frame margins; the bottom leaves room for subtitles
+
+
+def keep_in_frame(cx, cy, w, h, cam):
+    """Keep a world-space label whole: move it inside the frame's safe area (shrinking it if
+    too wide) whenever any of it is on screen, and fade it by how much of it was really in
+    view, so a label the camera is leaving slides along the edge and fades instead of being cut.
+
+    Returns (cx, cy, scale, alpha).
+    """
+    vx, vy, vw = cam
+    vh = vw * ASPECT
+    fx = clamp((min(cx + w / 2, vx + vw / 2) - max(cx - w / 2, vx - vw / 2)) / w)
+    fy = clamp((min(cy + h / 2, vy + vh / 2) - max(cy - h / 2, vy - vh / 2)) / h)
+    seen = fx * fy
+    if seen <= 0:
+        return cx, cy, 1.0, 1.0
+    x0, x1 = vx - vw / 2 + SAFE_X * vw, vx + vw / 2 - SAFE_X * vw
+    y0, y1 = vy - vh / 2 + SAFE_TOP * vh, vy + vh / 2 - SAFE_BOTTOM * vh
+    k = min(1.0, (x1 - x0) / w, (y1 - y0) / h)
+    w, h = w * k, h * k
+    if cx - w / 2 < x0:
+        cx = x0 + w / 2
+    elif cx + w / 2 > x1:
+        cx = x1 - w / 2
+    if cy - h / 2 < y0:
+        cy = y0 + h / 2
+    elif cy + h / 2 > y1:
+        cy = y1 - h / 2
+    return cx, cy, k, smooth(seen / 0.6)
+
+
 class Text(Item):
     """World-space text. anim: stamp | fade | wipe | rise. h = world height of the glyph box."""
 
@@ -313,6 +345,8 @@ class Text(Item):
         u = ramp(t, self.t0, self.dur)
         out = 1 - ramp(t, self.t1, 0.5)
         cx, cy, w, a = self._cx(), self.y, self.ww, ease_out(u) * out
+        cx, cy, k, seen = keep_in_frame(cx, cy, w, self.hh * 0.75, cam)
+        w, a, out = w * k, a * seen, out * seen
         if self.anim == "stamp":
             w *= 1 + 0.6 * (1 - back_out(u, 2.2)) if u < 1 else 1
             a = clamp(u * 3) * out
@@ -349,7 +383,8 @@ class Counter(Item):
         a = clamp((t - self.t0) * 4) * (1 - ramp(t, self.t_out, 0.5))
         w = self.hh * m.w / m.h
         bump = 1 + 0.08 * math.exp(-((t - self.t1) * 6) ** 2)
-        paint_image(ctx, m, self.x, self.y, w * bump, a, W / cam[2])
+        x, y, k, seen = keep_in_frame(self.x, self.y, w, self.hh * 0.75, cam)
+        paint_image(ctx, m, x, y, w * bump * k, a * seen, W / cam[2])
 
 
 class Stroke(Item):
