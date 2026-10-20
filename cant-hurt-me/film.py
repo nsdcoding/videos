@@ -529,7 +529,7 @@ shot(T(85), "sleepless", 0.5, 0.5, 1.0, move=0.9)
 label("sleepless", 0.5, 0.08, "बिना सोए, फिर भी काम ठीक", T(85) + 0.3)
 shot(T(86) + 0.1, "hand_in_jar", 0.5, 0.5, 1.0)
 label("hand_in_jar", 0.5, 0.08, "टूटने लगें? जार में हाथ डालिए", T(86) + 0.4)
-NOTE = at("hand_in_jar", 0.5, 0.45)
+NOTE = at("hand_in_jar", 0.64, 0.30)
 items.append(Panel("assets/pullup.png", NOTE[0], NOTE[1], 160, feather=0.2, mask="ellipse", reveal=(900, 300),
                    z=1))
 shot(T(87) + 0.8, xy=NOTE, w=170, mode="log", move=2.0)
@@ -671,7 +671,7 @@ items.append(Counter(*at("door_shoes", 0.2, 0.35), 150, T(147) + 4.0, T(147) + 5
                      color=RED))
 shot(T(149) + 0.1, "calendar", 0.5, 0.5, 1.0)
 label("calendar", 0.5, 0.94, "3. हर दिन का निशान", T(149) + 0.2, h=0.045, kind="title")
-CAL = dict(u0=0.30, u1=0.70, v0=0.25, v1=0.85, cols=7, rows=5)
+CAL = dict(u0=0.29, u1=0.68, v0=0.22, v1=0.78, cols=5, rows=6)
 
 
 def calendar_marks(name, t0, n, step=0.12, grid=CAL):
