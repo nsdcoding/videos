@@ -345,7 +345,7 @@ class Counter(Item):
             return
         u = ease_out((t - self.t0) / (self.t1 - self.t0))
         s = self.fmt.format(self.v0 + (self.v1 - self.v0) * u)
-        m = text_mips(s, "num", self.color)
+        m = text_mips(s, "num" if s.isascii() else "title", self.color)  # Hindi units need Devanagari
         a = clamp((t - self.t0) * 4) * (1 - ramp(t, self.t_out, 0.5))
         w = self.hh * m.w / m.h
         bump = 1 + 0.08 * math.exp(-((t - self.t1) * 6) ** 2)
@@ -637,7 +637,7 @@ class Film:
         draw_subs(ctx, t, self.subs)
         return surf
 
-    def render(self, out, t0, t1, crf=18):
+    def render(self, out, t0, t1, crf=int(os.environ.get("CRF", 18))):
         n0, n1 = round(t0 * FPS), round(t1 * FPS)
         p = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgra",
                               "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-c:v", "libx264",
