@@ -1,3 +1,7 @@
 sa.json
 *-key.json
 __pycache__/
+day01/audio/
+day01/images/
+day01/out/*.mp4
+day01/frames/
