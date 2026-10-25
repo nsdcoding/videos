@@ -177,7 +177,7 @@ def make_paper(size=1024, seed=3, base=(0.80, 0.77, 0.71)):
     """Tileable warm-grey paper: soft mottling plus fine grain."""
     rng = np.random.default_rng(seed)
     f = np.zeros((size, size))
-    for k, amp in ((4, 0.035), (16, 0.02), (64, 0.012), (size, 0.018)):
+    for k, amp in ((4, 0.010), (16, 0.007), (64, 0.005), (size, 0.013)):
         n = rng.normal(0, 1, (k, k))
         n = np.kron(n, np.ones((size // k, size // k)))
         if k < size:  # wrap-blur keeps it tileable
