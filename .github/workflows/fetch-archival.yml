@@ -1,0 +1,27 @@
+name: Fetch archival images
+
+# Wikimedia rate-limits the cloud build sandbox, so the original files are fetched from a
+# GitHub runner and committed to day01/archival/ (BUILD_SPEC section 3; section 7 checks apply).
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/fetch-archival.yml
+      - day01/build/fetch_from_runner.py
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 day01/build/fetch_from_runner.py
+      - name: Commit files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add day01/archival
+          git diff --cached --quiet || git commit -m "Fetch Day 01 archival originals from Wikimedia"
+          git push
