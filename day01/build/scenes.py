@@ -44,7 +44,17 @@ class Assets:
                 a[..., 3] = 255
                 self.cache[sid] = (to_skia(a), (0.3, 0.3, 0.3), True)
             else:
-                a = load_rgba(p)
+                from PIL import Image
+                im = Image.open(p)
+                if im.mode in ("RGBA", "LA", "PA") or "transparency" in im.info:
+                    # transparent scans sit on white paper; the image content is untouched
+                    bg = Image.new("RGBA", im.size, (255, 255, 255, 255))
+                    bg.alpha_composite(im.convert("RGBA"))
+                    im = bg
+                im = im.convert("RGBA")
+                if max(im.size) > 2600:  # resampling only, for render memory
+                    im.thumbnail((2600, 2600), Image.LANCZOS)
+                a = np.asarray(im)
                 self.cache[sid] = (to_skia(a), dark_tone(a), False)
         return self.cache[sid]
 
@@ -73,11 +83,12 @@ def walker(path, t_go, t_stop, stop_at=1.0, r=9):
     return draw
 
 
-def panel_layout(img, region):
-    x, y, w, h = region
-    k = min(w / img.width(), h / img.height())
-    dw = img.width() * k
-    return x + (w - dw) / 2 + dw  # right edge of the photo
+def layout(img, panel_w=520, max_w=1250, top=80, max_h=760, gap=60):
+    """Photo plus its graphic panel, centred as one composition. Returns (photo rect, panel x)."""
+    k = min(max_w / img.width(), max_h / img.height())
+    dw, dh = img.width() * k, img.height() * k
+    x0 = (W - (dw + gap + panel_w)) / 2
+    return (x0, top + (max_h - dh) / 2, dw, dh), x0 + dw + gap
 
 
 def build(tl, assets):
@@ -102,9 +113,8 @@ def build(tl, assets):
 
     # ---------------------------------------------------------- s01: the seal
     img, matte, _ = assets.archival("s01")
-    region = (90, 80, 1180, 830)
+    region, px = layout(img)
     P1.add(-99, print_photo(img, region, matte))
-    px = panel_layout(img, region) + 70
     P1.add(0.35, label("TSUTOMU YAMAGUCHI", px, 300, 30, tracking=4))
     P1.add(0.9, line_on(poly([(px, 330), (px + 400, 330)]), GREY, 2, 0.7))
     P1.add(1.5, serif_label("1916 – 2010", px, 392, 44, GREY))
@@ -174,9 +184,8 @@ def build(tl, assets):
     # ---------------------------------------------------------- s04: the tram he was walking to
     T = S("s04", 3550, 1150, 1.0)
     img, matte, _ = assets.archival("s04")
-    region = (70, 80, 1290, 840)
+    region, px = layout(img)
     T.add(-99, print_photo(img, region, matte))
-    px = panel_layout(img, region) + 60
     t = at("s04", "three months")
     T.add(t - 0.1, counter(0, 3, px, 210, 110, 0.9))
     T.add(t + 0.2, label("MONTHS", px + 80, 205, 26, tracking=4))
@@ -221,9 +230,8 @@ def build(tl, assets):
     # ---------------------------------------------------------- s05: hard cut, the second seal
     H3 = S("s05", 3550, 2350, 0.55)
     img, matte, _ = assets.archival("s05")
-    region = (110, 90, 1150, 820)
+    region, px = layout(img)
     H3.add(-99, print_photo(img, region, matte))
-    px = panel_layout(img, region) + 80
     t = st("s05")
     u = skia.Path()
     u.moveTo(px, 380)
@@ -271,9 +279,8 @@ def build(tl, assets):
     # ---------------------------------------------------------- s07: the sky above the field
     B = S("s07", 1700, 1420, 1.0)
     img, matte, _ = assets.archival("s07")
-    region = (70, 80, 1300, 840)
+    region, px = layout(img)
     B.add(-99, print_photo(img, region, matte))
-    px = panel_layout(img, region) + 60
     t = at("s07", "aircraft first")
     fly = poly([(px - 20, 210), (px + 440, 160)])
 
@@ -300,9 +307,28 @@ def build(tl, assets):
     B.add(t - 0.1, lambda c, age, d=drop, dur=nx("s07") - t - 0.2:
           c.drawCircle(*point_on(d, clamp01(age / dur) ** 1.6), 7, fill(INK)))
 
-    # ---------------------------------------------------------- camera path
-    cam = Camera()
-    plan = [  # (station, shot id, move-in window (a, b) or "cut")
+    # ---------------------------------------------------------- s08 / s36: the white (one station, revisited)
+    WHITE = S("white", -4300, 2900, 1.0)
+    WHITE.add(-99, print_plate(assets.generated("s08")[0], (0, 0, W, H), shadow=False))
+
+    # ---------------------------------------------------------- s09: title card on the white's own tone
+    TITLE = S("s09", -4300, 4250, 1.0)
+    title_bg = assets.generated("s08")[1]
+    title = json.load(open(os.path.join(DAY, "build.json")))["title"]
+    TITLE.add(-99, lambda c, age: c.drawRect(skia.Rect.MakeWH(W, H), fill(title_bg)))
+    words = title.split()
+    a0 = st("s09")
+    for li, line in enumerate([" ".join(words[:3]), " ".join(words[3:])]):
+        TITLE.add(a0 + 0.1 + li * 0.45, serif_label(line, W / 2, 430 + li * 100, 76, INK, align="center", dur=0.9, rise=14))
+    TITLE.add(a0 + 1.1, line_on(poly([(W / 2 - 260, 600), (W / 2 + 260, 600)]), RED, 3, 0.8))
+    tt = at("s09", "Three days later")
+    TITLE.add(tt + 0.2, label("6 AUG 1945", W / 2 - 180, 680, 24, GREY, align="center", tracking=3, dur=0.6))
+    TITLE.add(tt + 0.5, line_on(poly([(W / 2 - 60, 672), (W / 2 + 60, 672)]), RED, 2.5, 0.7))
+    TITLE.add(tt + 1.1, line_on(poly([(W / 2 + 48, 664), (W / 2 + 60, 672), (W / 2 + 48, 680)]), RED, 2.5, 0.2))
+    TITLE.add(tt + 1.1, label("9 AUG 1945", W / 2 + 180, 680, 24, GREY, align="center", tracking=3, dur=0.6))
+    TITLE.add(at("s09", "four hundred"), label("400 KM", W / 2, 740, 22, RED, align="center", tracking=4, dur=0.6))
+
+    plan = [  # (station, shot id, move-in window (a, b), "cut", or None for automatic)
         (P1, "s01", None),
         (MAP, "s02", (7.45, 9.05)),
         (D, "s03", (19.8, 21.2)),
@@ -310,59 +336,56 @@ def build(tl, assets):
         (H3, "s05", "cut"),
         (F, "s06", (en("s05") + 0.05, st("s06") + 0.55)),
         (B, "s07", (en("s06") - 0.7, st("s07"))),
+        (WHITE, "s08", "cut"),
+        (TITLE, "s09", "cut"),
     ]
-    shot_ids = [p[1] for p in plan] + ["s08"]
-    windows = []
+    import scenes2
+    ctx = dict(S=S, MAP=MAP, P1=P1, WHITE=WHITE, P1_local=P1_local, H_=H_, N_=N_)
+    plan += scenes2.build(tl, assets, ctx)
+    cam = make_camera(tl, plan)
+    no_subs = [(st("s08"), st("s09")), (st("s36"), st("s37"))]  # nothing on screen but white
+    return stations, cam, no_subs
+
+
+def make_camera(tl, plan):
+    """Holds per shot (spec motion over the shot's full duration) and the moves between them.
+
+    Automatic windows: arrive just before the next line; never start moving an archival photo
+    before its narration ends; after a structural silence the move starts when the voice does."""
+    st, en = tl.start, tl.end
+    cam = Camera()
+    sids = [p[1] for p in plan]
     for i, (stn, sid, mv) in enumerate(plan):
         sh = SHOT[sid]
-        t0, t1 = st(sid), st(shot_ids[i + 1])
-        fn = cam.framing(stn, sh["motion"], t0, t1, sh["type"] == "archival")
-        windows.append(mv)
-        cam.holds.append([None, None, fn])
-    for i, mv in enumerate(windows):
+        t0 = st(sid)
+        t1 = st(sids[i + 1]) if i + 1 < len(sids) else tl.total
+        motion = "still" if sid in ("s08", "s36", "s09") else sh["motion"]
+        cam.holds.append([None, None, cam.framing(stn, motion, t0, t1, sh["type"] == "archival")])
         if i == 0:
             continue
-        a, b = (st(plan[i][1]),) * 2 if mv == "cut" else mv
-        cam.moves.append((a, b))
+        if mv == "cut" or SHOT[sid].get("transition") == "cut":
+            cam.moves.append((t0, t0))
+            continue
+        if mv is None:
+            prev = SHOT[sids[i - 1]]
+            last = prev["segments"][-1]
+            end_audio, pause = en(last), tl.segs[last]["pause_after"]
+            prev_arch, next_arch = prev["type"] == "archival", sh["type"] == "archival"
+            if pause >= 2000:
+                a = t0
+                b = a + 1.5
+            else:
+                D = 1.6
+                b = t0 + (0.0 if next_arch else 0.35)
+                a = b - D
+                lo = end_audio + 0.05 if prev_arch else end_audio - 0.8
+                if a < lo:
+                    a = lo
+                    b = max(b, a + 1.1)
+            mv = (a, b)
+        cam.moves.append(mv)
     for i, h in enumerate(cam.holds):
         h[0] = cam.moves[i - 1][1] if i else -1e9
         h[1] = cam.moves[i][0] if i < len(cam.moves) else 1e9
     cam.holds = [tuple(h) for h in cam.holds]
-
-    # full-frame overlays reached by hard cuts
-    white_img, white_mean, _ = assets.generated("s08")
-    title_bg = white_mean
-
-    def overlays(c, t, ta):
-        if t >= st("s09"):
-            title_card(c, ta, title_bg)
-        elif t >= st("s08"):
-            c.drawImageRect(white_img, skia.Rect.MakeWH(W, H), SAMPLING, skia.Paint())
-
-    def title_card(c, ta, bg):
-        c.drawRect(skia.Rect.MakeWH(W, H), fill(bg))
-        a0 = st("s09")
-        title = json.load(open(os.path.join(DAY, "build.json")))["title"]
-        f = serif("Regular", 76)
-        words = title.split()
-        lines = [" ".join(words[:3]), " ".join(words[3:])]
-        for li, line in enumerate(lines):
-            p = out_cubic((ta - a0 - 0.1 - li * 0.45) / 0.9)
-            text(c, line, W / 2, 430 + li * 100 + 14 * (1 - p), f, INK, p, "center")
-        c.drawPath(partial(poly([(W / 2 - 260, 600), (W / 2 + 260, 600)]), smooth((ta - a0 - 1.1) / 0.8)),
-                   stroke(RED, 3))
-        tt = at("s09", "Three days later")
-        p = out_cubic((ta - tt - 0.2) / 0.6)
-        text(c, "6 AUG 1945", W / 2 - 180, 680 + 8 * (1 - p), sans("SemiBold", 24), GREY, p, "center", 3)
-        p2 = smooth((ta - tt - 0.5) / 0.7)
-        c.drawPath(partial(poly([(W / 2 - 60, 672), (W / 2 + 60, 672)]), p2), stroke(RED, 2.5))
-        c.drawPath(partial(poly([(W / 2 + 48, 664), (W / 2 + 60, 672), (W / 2 + 48, 680)]), smooth((ta - tt - 1.1) / 0.2)),
-                   stroke(RED, 2.5))
-        p3 = out_cubic((ta - tt - 1.1) / 0.6)
-        text(c, "9 AUG 1945", W / 2 + 180, 680 + 8 * (1 - p3), sans("SemiBold", 24), GREY, p3, "center", 3)
-        tk = at("s09", "four hundred")
-        p4 = out_cubic((ta - tk) / 0.6)
-        text(c, "400 KM", W / 2, 740 + 8 * (1 - p4), sans("SemiBold", 22), RED, p4, "center", 4)
-
-    no_subs = [(st("s08"), st("s09"))]  # s08 note: nothing on screen but white
-    return stations, cam, overlays, no_subs
+    return cam

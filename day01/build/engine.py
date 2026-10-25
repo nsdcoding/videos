@@ -542,6 +542,8 @@ class Camera:
                 z *= (1 + 0.06 * q) if archival else (1 + 0.01 * p + 0.05 * q)
             elif motion == "static" and not archival:
                 z *= 1 + 0.03 * p  # the camera never freezes on graphics (2-5%)
+            elif motion == "still":
+                pass
             elif motion == "drift":
                 z *= 1 + 0.04 * p
             return (cx, st.y, z)
@@ -619,8 +621,10 @@ def cues(tl, ids=None):
             pos = txt.find(chunk, pos) + len(chunk)
             t_end = s["start"] + (s["end"] - s["start"]) * cu[min(pos, len(txt))] / cu[-1]
             if gi == len(groups) - 1:
-                t_end = min(s["end"] + 0.35, tl.next_start(sid) - 0.05)
-            out.append({"id": sid, "start": t_prev, "end": t_end, "lines": g})
+                # before a structural silence the strip is gone when the voice stops: nothing moves in it
+                t_end = s["end"] if s["pause_after"] >= 2000 else min(s["end"] + 0.35, tl.next_start(sid) - 0.05)
+            out.append({"id": sid, "start": t_prev, "end": t_end, "lines": g,
+                        "first": gi == 0, "last": gi == len(groups) - 1})
             t_prev = t_end
     return out
 
@@ -639,7 +643,8 @@ def write_srt(cs, path, offset=0.0):
 
 def draw_subtitle(c, q, t):
     """A small strip near the bottom: ink band, off-white Inter, quick fade at cue edges."""
-    a = min(1, (t - q["start"]) / 0.15, (q["end"] - t) / 0.15)
+    # fade only where the strip appears or leaves, never between cues of one segment
+    a = min(1, (t - q["start"]) / 0.15 if q.get("first") else 1, (q["end"] - t) / 0.15 if q.get("last") else 1)
     if a <= 0:
         return
     f = sans("Medium", 29)

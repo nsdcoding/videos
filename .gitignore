@@ -5,3 +5,5 @@ day01/audio/
 day01/images/
 day01/out/*.mp4
 day01/frames/
+day01/out/*.srt.tmp
+day01/out/tmp*/

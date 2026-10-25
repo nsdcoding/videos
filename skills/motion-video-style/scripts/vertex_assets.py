@@ -53,7 +53,10 @@ class Vertex:
         for attempt in range(6):
             r = self.requests.post(url, json=body, timeout=300, headers={
                 "Authorization": f"Bearer {self.creds.token}"})
-            if r.status_code == 200:
+            if r.status_code == 200 and "candidates" not in r.json():
+                # e.g. promptFeedback.blockReason: report it; repeated blocks end in a failure exit
+                print(f"  no candidates: {json.dumps(r.json())[:300]}", file=sys.stderr)
+            elif r.status_code == 200:
                 parts = r.json()["candidates"][0]["content"].get("parts", [])
                 data = [p["inlineData"] for p in parts if "inlineData" in p]
                 if data:

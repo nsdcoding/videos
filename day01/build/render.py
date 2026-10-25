@@ -31,8 +31,8 @@ def setup():
     a[..., 3] = (np.clip(d / 420, 0, 1) ** 1.6 * 255).astype(np.uint8)
     assets.cache["s02"] = (E.to_skia(a), tuple(border), None)
     paper = E.to_skia(E.make_paper(1024, base=tuple(border)))
-    stations, cam, overlays, no_subs = scenes.build(tl, assets)
-    _ctx.update(tl=tl, stations=stations, cam=cam, overlays=overlays, no_subs=no_subs,
+    stations, cam, no_subs = scenes.build(tl, assets)
+    _ctx.update(tl=tl, stations=stations, cam=cam, no_subs=no_subs, credits=credit_lines(),
                 paper=paper, cues=E.cues(tl), surface=skia.Surface(E.W, E.H))
     return _ctx
 
@@ -43,19 +43,62 @@ def frame(t):
     ta = tl.anim_time(t)  # frozen inside structural silences
     s = x["surface"]
     c = s.getCanvas()
+    end = tl.total  # the last structural silence ends here
+    if t >= end + FADE:
+        credits_card(c, x["credits"])
+        return s.makeImageSnapshot().toarray()
     c.save()
+    cx, cy, z = cam.at(ta)
     c.concat(cam.matrix(ta))
     sh = x["paper"].makeShader(skia.TileMode.kRepeat, skia.TileMode.kRepeat, E.SAMPLING)
     c.drawPaint(skia.Paint(Shader=sh))
-    for stn in x["stations"]:
-        stn.render(c, ta)
+    hw, hh = E.W / 2 / z, E.H / 2 / z
+    for stn in x["stations"]:  # cull stations entirely outside the view
+        sw, shh = E.W * stn.s / 2, E.H * stn.s / 2
+        if abs(stn.x - cx) < hw + sw + 50 and abs(stn.y - cy) < hh + shh + 50:
+            stn.render(c, ta)
     c.restore()
-    x["overlays"](c, t, ta)
+    if t >= end:  # s65 note: hold the full 3s, then fade to black before the credits card
+        c.drawRect(skia.Rect.MakeWH(E.W, E.H), E.fill((0, 0, 0), (t - end) / FADE))
+        return s.makeImageSnapshot().toarray()
     if not any(a <= t < b for a, b in x["no_subs"]):
         for q in x["cues"]:
             if q["start"] <= t < q["end"]:
                 E.draw_subtitle(c, q, t)
     return s.makeImageSnapshot().toarray()  # BGRA
+
+
+FADE, CREDITS = 1.0, 6.0
+
+
+def credit_lines():
+    """Spec 6: one line per archival image, grouped by licence."""
+    import json
+    shots = json.load(open(os.path.join(E.DAY, "build.json")))["shots"]
+    groups = {}
+    for s in shots:
+        if s["type"] == "archival":
+            groups.setdefault(s["licence"], []).append(s)
+    order = sorted(groups, key=lambda k: (not k.startswith("CC BY"), k))
+    return [(lic, [(s["title"], s["author"], s["page_url"]) for s in groups[lic]]) for lic in order]
+
+
+def credits_card(c, groups):
+    c.drawRect(skia.Rect.MakeWH(E.W, E.H), E.fill((0.10, 0.095, 0.09)))
+    E.text(c, "PHOTOGRAPHS", E.W / 2, 92, E.sans("SemiBold", 22), E.OFFWHITE, 1, "center", 6)
+    y = 150
+    ft, fl = E.sans("Regular", 19), E.sans("SemiBold", 17)
+    for lic, rows in groups:
+        E.text(c, lic.upper(), 200, y, fl, (0.78, 0.45, 0.40), 1, "left", 3)
+        y += 30
+        for title, author, _ in rows:
+            E.text(c, title if len(title) < 78 else title[:76] + "…", 260, y, ft, E.OFFWHITE, 0.92)
+            E.text(c, author, 1720, y, ft, (0.70, 0.68, 0.64), 1, "right")
+            y += 31
+        y += 18
+    E.text(c, "All photographs via Wikimedia Commons. Maps, diagrams and illustrations are AI-generated, not photographs.",
+           E.W / 2, E.H - 70, E.sans("Regular", 15), (0.70, 0.68, 0.64), 1, "center")
+    E.text(c, "Narration: synthetic voice.", E.W / 2, E.H - 44, E.sans("Regular", 15), (0.70, 0.68, 0.64), 1, "center")
 
 
 def render_chunk(args):
@@ -75,6 +118,8 @@ def render_chunk(args):
 def video(sid0, sid1, out, workers=4, tail=0.0):
     tl = setup()["tl"]
     t0, t1 = tl.start(sid0), tl.next_start(sid1) + tail
+    if sid1 == tl.order[-1]:
+        t1 = tl.total + FADE + CREDITS
     f0, f1 = int(round(t0 * E.FPS)), int(round(t1 * E.FPS))
     tmp = tempfile.mkdtemp(dir=os.path.dirname(os.path.abspath(out)))
     step = (f1 - f0 + workers - 1) // workers
@@ -87,7 +132,7 @@ def video(sid0, sid1, out, workers=4, tail=0.0):
     subprocess.check_call(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", lst,
                            "-ss", f"{t0}", "-t", f"{t1 - t0}", "-i", master,
                            "-map", "0:v", "-map", "1:a", "-c:v", "copy",
-                           "-af", "alimiter=limit=0.83:level=false,aresample=48000", "-ac", "2",
+                           "-af", "alimiter=limit=0.83:level=false,aresample=48000,apad", "-ac", "2",
                            "-c:a", "aac", "-b:a", "256k", "-shortest", out])
     E.write_srt([q for q in setup()["cues"] if t0 <= q["start"] < t1], os.path.splitext(out)[0] + ".srt", t0)
     for p in parts + [lst]:
@@ -108,4 +153,4 @@ if __name__ == "__main__":
     elif args[0] == "video":
         if PREVIEW:
             sys.exit("video render needs every real archival file; --preview is for stills only")
-        video(args[1], args[2], args[3])
+        video(args[1], args[2], args[3], tail=float(os.environ.get("TAIL", 0)))
