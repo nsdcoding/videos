@@ -92,6 +92,59 @@ POSES = {
     "taniguchi/bookseller": (["taniguchi_bookseller"], True, "The same bookseller as the reference sheet, "
         "three-quarter view facing left, standing calmly, holding nothing, both sleeves the same mustard colour "
         "as the cardigan. " + GAP),
+    "onoda/patrol": (["onoda"], False, "The same soldier as the reference sheet, side view facing right, walking "
+        "steadily on patrol, rifle slung on his shoulder by its strap, muzzle pointing up behind him."),
+    "onoda/listen_sky": (["onoda"], False, "The same soldier as the reference sheet, three-quarter view facing right, "
+        "standing still and looking up at the sky, one hand cupped behind his ear, listening."),
+    "onoda/study_paper": (["onoda"], False, "The same soldier as the reference sheet, side view facing right, sitting "
+        "cross-legged on the ground, studying a single blank sheet of paper held in both hands, frowning slightly."),
+    "onoda/clean_rifle": (["onoda"], False, "The same soldier as the reference sheet, side view facing right, sitting "
+        "on the ground with his rifle lying across his knees, wiping the rifle carefully with a cloth rag. The rifle "
+        "points to the side, at nothing."),
+    "onoda/sit_fire": (["onoda"], False, "The same soldier as the reference sheet, side view facing right, sitting on "
+        "a low log with his forearms on his knees, rifle leaning upright beside him, talking calmly."),
+    "onoda/alone_stand": (["onoda"], False, "The same soldier as the reference sheet, front view, standing alone and "
+        "very straight, arms at his sides, rifle slung on his back, gazing ahead."),
+    "onoda/suit_crowd": (["onoda_older"], False, "The same man in a dark suit as the reference sheet, three-quarter "
+        "view facing right, standing very upright and stiff, hands at his sides, looking slightly away."),
+    "onoda/rancher": (["onoda_older"], False, "The same man as the reference sheet, now a cattle rancher in his fifties: "
+        "a wide-brimmed hat, a plain work shirt, jeans and boots, riding a brown horse at a walk, side view facing "
+        "right, the whole horse visible."),
+    "onoda/teacher_kids": (["onoda_older"], False, "The same man as the reference sheet, now in his sixties with grey "
+        "hair, in an olive outdoor jacket and hiking trousers, side view facing right, kneeling on one knee and "
+        "pointing down at the ground in front of him, explaining patiently."),
+    "onoda/old_walk": (["onoda_older"], False, "The same man as the reference sheet, now in his seventies with white "
+        "hair, a little stooped, in a plain grey jacket, seen from behind as he walks slowly away from us."),
+    "taniguchi/officer_order": (["taniguchi"], False, "The same officer as the reference sheet, in 1944, three-quarter "
+        "view facing right, standing upright and holding out a single folded sheet of paper at arm's length in one "
+        "hand, as if handing it over."),
+    "taniguchi/uniform_again": (["taniguchi", "taniguchi_bookseller"], False, "The officer from the first reference "
+        "sheet in the same old uniform, but now in his sixties with the grey hair and round glasses of the second "
+        "reference sheet. Front view, standing in front of a mirror-less space, fastening the top button of the tunic "
+        "with both hands at his collar, the peaked cap on his head."),
+    "suzuki/backpack": (["suzuki"], False, "The same backpacker as the reference sheet, three-quarter view facing "
+        "right, standing with his thumbs hooked in the backpack straps, smiling, eager."),
+    "suzuki/camp_wait": (["suzuki"], False, "The same backpacker as the reference sheet, without the backpack, side "
+        "view facing right, sitting cross-legged on the ground with his hands on his knees, waiting patiently."),
+    "suzuki/talk_log": (["suzuki"], False, "The same backpacker as the reference sheet, without the backpack, side "
+        "view facing left, sitting on a low log with his elbows on his knees, leaning forward, listening."),
+    "suzuki/photograph": (["suzuki"], False, "The same backpacker as the reference sheet, without the backpack, "
+        "three-quarter view facing right, standing and holding a small 1970s camera up to his eye, taking a picture."),
+    "comrades/four_climb": (["comrades", "onoda"], False, "Four soldiers like the reference sheets, in patched olive "
+        "uniforms and soft field caps, rifles slung on their backs, climbing up a slope in single file towards the "
+        "right, side view, leaning forward, close together as one group."),
+    "comrades/group_fire": (["comrades"], False, "The three soldiers of the reference sheet sitting close together on "
+        "the ground, side by side, leaning in towards each other as if talking quietly, rifles leaning beside them, "
+        "all full body."),
+    "comrades/one_leaves": (["comrades"], False, "The youngest, slightest soldier from the left of the reference sheet "
+        "alone, seen from behind three-quarter, walking away towards the left with his head down, rifle slung."),
+    "crowd/press": (["crowd"], False, "Three 1970s press photographers like those on the reference sheet, standing "
+        "close together as one group, front view, holding their cameras up and taking pictures, one flash bulb "
+        "bursting."),
+    "crowd/airport": (["crowd"], False, "A tight group of five people in 1970s clothes like the airport crowd on the "
+        "reference sheet, front view, waving and cheering, two in front and three behind, all feet visible."),
+    "crowd/kids_hike": (["crowd"], False, "Four Japanese schoolchildren like those on the right of the reference sheet, "
+        "in caps with small backpacks, hiking in single file towards the right, side view, close together."),
     "crowd/search_party": (["crowd"], False, "Three searchers dressed exactly like the two men on the far left of "
         "the reference sheet: matching khaki 1950s field shirts and trousers, khaki bush hats, boots. They walk in "
         "single file towards the right, side view, close together as one group. The leader holds a megaphone; the "
@@ -113,6 +166,12 @@ PROPSHEET = ("A prop sheet of exactly {n} separate isolated objects in a single 
              "between them, each object whole and not touching any other, plain flat solid magenta #FF00FF "
              "background, no ground shadows, nothing else in the image. From left to right: ")
 PROP_DETAIL = {
+    "flashbulbs": "a cluster of three bright camera flash bursts, drawn as white and mustard starbursts",
+    "tv_wall": "a stacked wall of nine 1970s television sets in wooden cabinets, every screen glowing the same plain "
+               "pale cream, nothing shown on the screens",
+    "calendar_1945": "a tear-off wall calendar block with a few blank pages curling and flying off the top, no numbers",
+    "notebook_sketch": "a traveller's notebook lying open, its pages showing three small simple pencil sketches: a "
+                       "soldier's field cap, a panda and a giant footprint, no writing",
     "uniform": "an old 1940s Japanese army officer's uniform laid out flat and neatly folded: an olive tunic with a "
                "high standing collar and brass buttons, and on top of it a peaked officer's cap with a red band",  # extra description where the build file's short prompt was not enough on its own
     "bolt": "a single 1940s bolt-action rifle bolt drawn out of the rifle, lying horizontally: a steel cylinder "
@@ -121,6 +180,15 @@ PROP_DETAIL = {
 PROP_SHEETS = [  # sample props first; a name starting with "x_" marks a rejected object on that sheet
     ["order", "flag_folded", "x_bolt"],
     ["bolt"],
+    ["newspapers", "magnifier", "oil_tin"],
+    ["bananas", "lean_to", "campfire"],
+    ["chess", "lure", "medal"],
+    ["tent", "camera", "suitcase"],
+    ["notebook_sketch", "memoir", "calendar_1945"],
+    ["panda", "footprint", "cattle"],
+    ["sword", "ammo", "flashbulbs"],
+    ["tv_wall"],
+    ["door_one_handle"],
     ["leaflets", "loudspeaker", "plane_speaker"],
     ["x_uniform", "rifle", "lacquerware"],
     ["uniform"],

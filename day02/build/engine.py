@@ -681,7 +681,7 @@ class Rig:
         self.height = self.feet[1] - self.piv["top"]
 
 
-def actor(rig, x, y, height, flip=False, motion=None, seed=0.0, enter=None, dur=0.6):
+def actor(rig, x, y, height, flip=False, motion=None, seed=0.0, enter=None, dur=0.6, tint=None, idle=True):
     """Draw a rig standing with its feet at (x, y), `height` pixels tall.
     motion(age) -> dict(dx, dy, rot, head, squash) for actions; idle breathing and a slow head
     sway always run (the animation clock stops them in still beats). enter: fade | pop | rise | None."""
@@ -703,7 +703,7 @@ def actor(rig, x, y, height, flip=False, motion=None, seed=0.0, enter=None, dur=
     def draw(c, age):
         m = motion(age) if motion else {}
         ph = age + seed
-        breath = math.sin(ph * 2.1) * 0.008
+        breath = math.sin(ph * 2.1) * 0.008 if idle else 0.0
         a = 1.0
         s_in = 1.0
         dy_in = 0.0
@@ -721,21 +721,29 @@ def actor(rig, x, y, height, flip=False, motion=None, seed=0.0, enter=None, dur=
         c.save()
         c.translate(x + m.get("dx", 0), y + m.get("dy", 0) + dy_in)
         c.rotate(m.get("rot", 0))
-        c.scale(k * s_in * (-1 if flip else 1), k * s_in)
+        ks = k * s_in * m.get("scale", 1.0)
+        if ks <= 0.001:
+            c.restore()
+            return
+        c.scale(ks * (-1 if flip else 1), ks)
         sq = m.get("squash", 0)
         c.scale(1 - sq * 0.5, 1 + breath + sq)
         c.translate(-fx, -fy)
-        if a < 1:
-            c.saveLayerAlpha(None, int(255 * a))
+        layered = a < 1 or tint is not None
+        if layered:  # tint: the figure as a flat silhouette in one colour (a back-lit figure, "back to us")
+            lp = skia.Paint(Alphaf=a)
+            if tint is not None:
+                lp.setColorFilter(skia.ColorFilters.Blend(col(tint).toColor(), skia.BlendMode.kSrcIn))
+            c.saveLayer(None, lp)
         part(c, "body")
         # arms stay exactly as posed: rotating cut-out arms showed seams at the shoulders (review, sample v1)
         part(c, "armL")
         part(c, "armR")
         c.save()
         c.translate(0, -breath * rig.height * 0.6)
-        part(c, "head", m.get("head", 0) + math.sin(ph * 0.8) * 2.0, rig.piv.get("neck"))
+        part(c, "head", m.get("head", 0) + (math.sin(ph * 0.8) * 2.0 if idle else 0), rig.piv.get("neck"))
         c.restore()
-        if a < 1:
+        if layered:
             c.restore()
         c.restore()
     return draw

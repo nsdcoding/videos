@@ -84,8 +84,25 @@ def build(tl, A):
     k_in = 0.075  # jungle places nested in the island
     CLR = S("jungle_clearing", *ISL.world(860, 560), k_in, "jungle_clearing", reveal=(0.18, 0.45))
     DEEP = S("jungle_deep", *ISL.world(860 + W * k_in, 560), k_in, "jungle_deep", reveal=(0.18, 0.45))
+    nest = lambda dx, dy: ISL.world(860 + W * k_in * dx, 560 + H * k_in * dy)
+    RICE = S("rice_field", *nest(-1, 0), k_in, "rice_field", reveal=(0.18, 0.45))
+    BEACH = S("beach_dawn", *nest(0, 1), k_in, "beach_dawn", reveal=(0.18, 0.45))
+    STRIP = S("airstrip", *nest(1, 1), k_in, "airstrip", reveal=(0.18, 0.45))
+    FARM = S("farm_smoke", *nest(-1, 1), k_in, "farm_smoke", reveal=(0.18, 0.45))
+    SCHOOL = S("school_island", *nest(0, -1), k_in, "school_island", reveal=(0.18, 0.45))
+    MAP = S("map_philippines", -2500, 250, 1.0, "map_philippines")
+    PALACE = S("palace", -2300, -1450, 1.0, "palace")
+    # Japan, far to the north-east
     VIL = S("village_1920s", 9200, -5600, 1.0, "village_1920s")
     SHOP = S("bookshop", 9200 + W * 1.06, -5600 + H * 1.1, 1.0, "bookshop")
+    CLASS = S("classroom_1940s", 9200 - W * 1.06, -5600, 1.0, "classroom_1940s")
+    PORT = S("airport_1974", 9200 + W * 2.12, -5600, 1.0, "airport_1974")
+    TOKYO = S("tokyo_1974", 9200 + W * 2.12, -5600 + H * 1.1, 1.0, "tokyo_1974")
+    CAMP = S("nature_camp", 9200 - W * 1.06, -5600 + H * 1.1, 1.0, "nature_camp")
+    # further away still
+    RANCH = S("ranch", -9500, 7000, 1.0, "ranch")
+    HIMAL = S("himalaya", 3500, -12500, 1.0, "himalaya")
+    PAPER = S("paper", 4200, -2600, 1.0)  # set: null, the plain paper field
 
     # ============================================================ s01: 9 March 1974, the island
     t = 0.0
@@ -284,6 +301,13 @@ def build(tl, A):
     VIL.add(at("s08", "drafted at twenty"), tag("DRAFTED AT 20", 980, 760, 40, bg=MUSTARD, rot=-3, pin=True))
     VIL.add(at("s08", "unremarkable") - 0.1, stamp("UNREMARKABLE", 860, 600, 56))
 
+    import scenes2
+    ctx = dict(tl=tl, A=A, cam=cam, overlays=overlays, ISL=ISL, CLR=CLR, DEEP=DEEP, RICE=RICE, BEACH=BEACH,
+               STRIP=STRIP, FARM=FARM, SCHOOL=SCHOOL, MAP=MAP, PALACE=PALACE, VIL=VIL, SHOP=SHOP, CLASS=CLASS,
+               PORT=PORT, TOKYO=TOKYO, CAMP=CAMP, RANCH=RANCH, HIMAL=HIMAL, PAPER=PAPER,
+               last=frame_on(VIL, 1120, 560, 1.22), last_t=nx("s08"))
+    if not os.environ.get("SAMPLE_ONLY"):
+        scenes2.build(ctx)
     return stations, cam, overlays
 
 
