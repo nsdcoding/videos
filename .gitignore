@@ -7,3 +7,6 @@ day01/out/*.mp4
 day01/frames/
 day01/out/*.srt.tmp
 day01/out/tmp*/
+day02/out/*.mp4
+day02/out/tmp*/
+day02/frames/
