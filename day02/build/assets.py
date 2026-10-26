@@ -67,6 +67,56 @@ SHEETS = {
 # outfit sheets are drawn from the main sheet so the character stays identical
 SHEET_REF = {"onoda_civilian": "onoda", "onoda_older": "onoda", "taniguchi_bookseller": "taniguchi"}
 
+# ---------------------------------------------------------------- poses (each with --ref to its sheet)
+MAG = (" One single full-body figure, centred, filling about three quarters of the image height, feet fully "
+       "visible, on a plain flat solid magenta #FF00FF background that fills the whole image right to all four "
+       "edges, no border, no frame, nothing else in the image and no ground shadow. ")
+GAP = "Both arms hang a little away from the body so a clear strip of magenta shows between each arm and the torso. "
+# id -> (sheet refs, split arms?, prompt). Wording carries the beat's action from build.json.
+POSES = {
+    "onoda/attention": (["onoda"], True, "The same soldier as the reference sheet, front view, standing rigidly at "
+        "attention, heels together, chest out, chin up, rifle slung on his back. " + GAP),
+    "onoda/hand_over": (["onoda"], False, "The same soldier as the reference sheet, three-quarter view facing right, "
+        "standing straight, head slightly bowed, presenting his one rifle lying flat and horizontal across both "
+        "open upturned palms at waist height, as if handing it over in a ceremony, the barrel pointing to the "
+        "side and slightly down, never aimed. He carries only that one rifle: nothing is slung on his back."),
+    "onoda/crouch_watch": (["onoda"], False, "The same soldier as the reference sheet, side view facing right, "
+        "crouching low on one knee, watching intently ahead, one hand parting a leaf at head height, rifle held "
+        "pointing at the ground."),
+    "onoda/civilian_young": (["onoda_civilian"], True, "The same young civilian man as the reference sheet, "
+        "three-quarter view facing right, walking with a light confident stride, one foot forward. " + GAP),
+    "taniguchi/read_order": (["taniguchi", "taniguchi_bookseller"], False, "The officer from the first reference "
+        "sheet in the same old uniform and peaked cap, but now in his sixties with the grey hair and round glasses "
+        "of the second reference sheet. Three-quarter view facing right, standing upright and reading aloud from "
+        "a single sheet of blank paper held open in both hands at chest height."),
+    "taniguchi/bookseller": (["taniguchi_bookseller"], True, "The same bookseller as the reference sheet, "
+        "three-quarter view facing left, standing calmly with a small stack of plain books under one arm. " + GAP),
+    "crowd/search_party": (["crowd"], False, "Three searchers dressed exactly like the two men on the far left of "
+        "the reference sheet: matching khaki 1950s field shirts and trousers, khaki bush hats, boots. They walk in "
+        "single file towards the right, side view, close together as one group. The leader holds a megaphone; the "
+        "second carries a rolled map; the third a walking stick. No cameras, no weapons."),
+}
+
+MATTE = ("Edit this image into a flat colour-coded segmentation matte of the same figure, keeping the exact same "
+         "outline, size and position. Fill the whole sleeve and hand on the left side of the image with solid pure "
+         "green #00FF00. Fill the whole sleeve and hand on the right side of the image with solid pure blue #0000FF. "
+         "Fill the head, cap and neck with solid pure yellow #FFFF00. Fill everything else of the figure with solid "
+         "pure black. Keep the magenta background unchanged. No outlines, no shading, no other colours.")
+
+# ---------------------------------------------------------------- sets (full-bleed plates)
+PLATE = ("Full-bleed background plate for an animation, edge to edge with no border and no frame, no people, no "
+         "animals, open empty ground in the lower centre of the picture. ")
+
+# ---------------------------------------------------------------- props (sheets of three on magenta)
+PROPSHEET = ("A prop sheet of exactly {n} separate isolated objects in a single row with very wide magenta gaps "
+             "between them, each object whole and not touching any other, plain flat solid magenta #FF00FF "
+             "background, no ground shadows, nothing else in the image. From left to right: ")
+PROP_SHEETS = [  # sample props first
+    ["order", "flag_folded", "bolt"],
+    ["leaflets", "loudspeaker", "plane_speaker"],
+    ["uniform", "rifle", "lacquerware"],
+]
+
 
 def gen(vx, prompt, out, aspect="16:9", refs=()):
     if os.path.exists(out):
@@ -85,6 +135,35 @@ def main():
                 continue
             refs = [os.path.join(RAW, f"sheet_{SHEET_REF[cid]}.png")] if cid in SHEET_REF else []
             gen(vx, prompt, os.path.join(RAW, f"sheet_{cid}.png"), "16:9", refs)
+    elif kind == "poses":
+        import json as _j
+        build = _j.load(open(os.path.join(DAY, "build.json")))
+        for pid, (refs, _, prompt) in POSES.items():
+            cid, pose = pid.split("/")
+            if pose not in build["cast"][cid]["poses"]:
+                sys.exit(f"STOP: pose {pid} is not declared in build.json")  # spec 9
+            if only and pid not in only and cid not in only:
+                continue
+            out = os.path.join(RAW, f"pose_{cid}_{pose}.png")
+            gen(vx, prompt + MAG + FACE, out, "16:9", [os.path.join(RAW, f"sheet_{r}.png") for r in refs])
+            if POSES[pid][1]:  # a rig matte: an edit of the pose that colours head and arms for the split
+                m = out.replace(".png", "_matte.png")
+                gen(vx, MATTE, m, "16:9", [out])
+    elif kind == "sets":
+        import json as _j
+        sets = _j.load(open(os.path.join(DAY, "build.json")))["sets"]
+        for sid, prompt in sets.items():
+            if only and sid not in only:
+                continue
+            gen(vx, PLATE + prompt[0].upper() + prompt[1:] + ".", os.path.join(RAW, f"set_{sid}.png"))
+    elif kind == "props":
+        import json as _j
+        props = _j.load(open(os.path.join(DAY, "build.json")))["props"]
+        for sheet in PROP_SHEETS:
+            if only and not (only & set(sheet)):
+                continue
+            desc = "; ".join(f"{i + 1}) {props[p]}" for i, p in enumerate(sheet))
+            gen(vx, PROPSHEET.format(n=len(sheet)) + desc + ".", os.path.join(RAW, "props_" + "+".join(sheet) + ".png"))
     else:
         sys.exit(f"unknown kind {kind}")
 
