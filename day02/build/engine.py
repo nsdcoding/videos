@@ -683,7 +683,7 @@ class Rig:
 
 def actor(rig, x, y, height, flip=False, motion=None, seed=0.0, enter=None, dur=0.6):
     """Draw a rig standing with its feet at (x, y), `height` pixels tall.
-    motion(age) -> dict(dx, dy, rot, head, armL, armR, squash) for actions; idle breathing and a slow head
+    motion(age) -> dict(dx, dy, rot, head, squash) for actions; idle breathing and a slow head
     sway always run (the animation clock stops them in still beats). enter: fade | pop | rise | None."""
     k = height / rig.height
     fx, fy = rig.feet
@@ -728,8 +728,9 @@ def actor(rig, x, y, height, flip=False, motion=None, seed=0.0, enter=None, dur=
         if a < 1:
             c.saveLayerAlpha(None, int(255 * a))
         part(c, "body")
-        part(c, "armL", m.get("armL", 0) + math.sin(ph * 1.3) * 1.2, rig.piv.get("armL"))
-        part(c, "armR", m.get("armR", 0) - math.sin(ph * 1.3 + 0.6) * 1.2, rig.piv.get("armR"))
+        # arms stay exactly as posed: rotating cut-out arms showed seams at the shoulders (review, sample v1)
+        part(c, "armL")
+        part(c, "armR")
         c.save()
         c.translate(0, -breath * rig.height * 0.6)
         part(c, "head", m.get("head", 0) + math.sin(ph * 0.8) * 2.0, rig.piv.get("neck"))
@@ -741,13 +742,12 @@ def actor(rig, x, y, height, flip=False, motion=None, seed=0.0, enter=None, dur=
 
 
 def walk(x0, x1, t0, t1, bob=10, swing=9):
-    """Motion: walk from x0 to x1 (relative dx) between t0 and t1 (ages), bobbing, arms swinging."""
+    """Motion: walk from x0 to x1 (relative dx) between t0 and t1 (ages), bobbing (arms stay as posed)."""
     def m(age):
         p = clamp01((age - t0) / max(t1 - t0, 1e-3))
         moving = 0 < p < 1
         ph = (age - t0) * 7.5
         return {"dx": lerp(x0, x1, in_out(p)), "dy": -abs(math.sin(ph)) * bob if moving else 0,
-                "armL": math.sin(ph) * swing if moving else 0, "armR": -math.sin(ph) * swing if moving else 0,
                 "rot": math.sin(ph) * 1.2 if moving else 0}
     return m
 

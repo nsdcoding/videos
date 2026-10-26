@@ -226,7 +226,7 @@ def build(tl, A):
     cam.key(nx("s06") - 0.1, frame_on(SHOP, W / 2 + 80, H / 2 + 20, 1.05), "hold")
     bk = A.rig("taniguchi", "bookseller")
     SHOP.add(st("s06") - 1.0, actor(bk, 760, 960, 650, flip=True, seed=0.9,
-                                    motion=keys((0, {}), (3.2, {}), (4.2, {"head": 8, "armR": -6}),
+                                    motion=keys((0, {}), (3.2, {}), (4.2, {"head": 8}),
                                                 (6, {"head": 8}))))
     SHOP.add(at("s06", "That officer") + 0.1, tag("THAT OFFICER", 520, 200, 40, rot=-3, pin=True), until=nx("s06"))
     SHOP.add(at("s06", "was a bookseller") + 0.1, tag("NOW A BOOKSELLER", 600, 300, 40, bg=MUSTARD, rot=2), until=nx("s06"))
