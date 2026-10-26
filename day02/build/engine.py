@@ -898,3 +898,8 @@ def draw_subtitle(c, q, t):
     c.drawRRect(band, fill(INK, 0.78 * a))
     for i, l in enumerate(lines):
         text(c, l, W / 2, y_last - lh * (len(lines) - 1 - i), f, CREAM, a, "center")
+
+
+def strike(x0, x1, y, rgb=RUST, w=6, dur=0.35):
+    """A line struck through a word."""
+    return ink(poly([(x0, y), (x1, y)]), rgb, w, dur)

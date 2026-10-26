@@ -19,6 +19,26 @@ def smooth_np(x):
     return x * x * x * (x * (6 * x - 15) + 10)
 
 
+def trim_frame(a):
+    """A set plate is full bleed (spec 3.2): if the model drew a frame round it, trim the frame off."""
+    import numpy as np
+    lum = a[..., :3].astype(float) @ [0.299, 0.587, 0.114]
+    h, w = lum.shape
+    inner = np.median(lum[h // 4: 3 * h // 4, w // 4: 3 * w // 4])
+    cut = [0, 0, 0, 0]  # top, bottom, left, right
+    lines = [lambda i: lum[i], lambda i: lum[h - 1 - i], lambda i: lum[:, i], lambda i: lum[:, w - 1 - i]]
+    for k, line in enumerate(lines):
+        i = 0
+        while i < 60 and line(i).std() < 18 and line(i).mean() < 90 and inner - line(i).mean() > 25:
+            i += 1
+        if i:
+            cut[k] = i + 6  # past the frame's own edge
+    t, b, l, r = cut
+    if all(cut):  # a drawn frame runs round all four edges; anything less is part of the picture
+        a = a[t:h - b, l:w - r]
+    return a
+
+
 class Assets:
     def __init__(self):
         self.cache = {}
@@ -31,7 +51,12 @@ class Assets:
     def plate(self, sid, feather=0):
         def mk():
             import numpy as np
-            a = load_rgba(os.path.join(DAY, "images", "raw", f"set_{sid}.png"), (W + 48, H + 28)).copy()
+            path = os.path.join(DAY, "images", "raw", f"set_{sid}.png")
+            if PREVIEW and not os.path.exists(path):  # stills only: a flat stand-in plate
+                return to_skia(np.full((H + 28, W + 48, 4), (150, 160, 140, 255), np.uint8))
+            a = trim_frame(load_rgba(path))
+            from PIL import Image
+            a = np.asarray(Image.fromarray(a).resize((W + 48, H + 28), Image.LANCZOS)).copy()
             if feather:  # a place nested in another plate melts into it at the edges
                 h, w = a.shape[:2]
                 yy, xx = np.mgrid[0:h, 0:w]
@@ -244,7 +269,7 @@ def build(tl, A):
     bk = A.rig("taniguchi", "bookseller")
     SHOP.add(st("s06") - 1.0, actor(bk, 760, 960, 650, flip=True, seed=0.9,
                                     motion=keys((0, {}), (3.2, {}), (4.2, {"head": 8}),
-                                                (6, {"head": 8}))))
+                                                (6, {"head": 8}))), until=nx("s06") + 0.5)
     SHOP.add(at("s06", "That officer") + 0.1, tag("THAT OFFICER", 520, 200, 40, rot=-3, pin=True), until=nx("s06"))
     SHOP.add(at("s06", "was a bookseller") + 0.1, tag("NOW A BOOKSELLER", 600, 300, 40, bg=MUSTARD, rot=2), until=nx("s06"))
     SHOP.add(at("s06", "found in a shop"), tag("A SHOP IN JAPAN", 560, 400, 34, bg=CREAM, rot=-1), until=nx("s06"))
@@ -260,13 +285,14 @@ def build(tl, A):
     cam.key(t7, frame_on(CLR, 1100, 560, 1.2), "cut")
     cam.key(en("s07"), frame_on(CLR, 1100, 560, 1.23), "hold")
     ho = A.rig("onoda", "hand_over")
-    CLR.add(t7 - 0.001, actor(ho, 1180, 940, 600, seed=2.0))
+    CLR.add(t7 - 0.001, actor(ho, 1180, 940, 600, seed=2.0), until=nx("s07") + 1.5)
     p03 = A.photo("p03")
-    CLR.add(t7 + 0.2, photo_card(p03, 700, 700, 440, "drop", tilt=-2, hold=4))
+    CLR.add(t7 + 0.2, photo_card(p03, 700, 700, 440, "drop", tilt=-2, hold=4), until=nx("s07") + 1.5)
     # the bolt slides out of the rifle as he speaks the line, then holds
     CLR.add(at("s07", "took the bolt") - 0.1, sprite(A.prop("bolt"), 1430, 600, 220,
-                                                     path=curve((1300, 600), (1430, 600), -0.05), dur=1.3))
-    CLR.add(at("s07", "took the bolt") + 1.0, ring_glow(1430, 600, 140))
+                                                     path=curve((1300, 600), (1430, 600), -0.05), dur=1.3),
+            until=nx("s07") + 1.5)
+    CLR.add(at("s07", "took the bolt") + 1.0, ring_glow(1430, 600, 140), until=nx("s07") + 1.5)
     # title_overlay: built during the beat's trailing pause (spec 5 and the beat note), then held still
     title = BUILD["beats"][6]["title_overlay"]
     overlays.append((en("s07"), nx("s07") + 0.45, title_card(title, fade_at=nx("s07") - en("s07"))))

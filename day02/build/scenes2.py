@@ -167,14 +167,14 @@ def build(ctx):
     # ============================================================ s09 (calm): where he was sent to train
     cam.go(st("s09") + 0.6, frame_on(CLASS, W / 2, H / 2, 1.0), 1.4)
     cam.hold(nx("s09"), frame_on(CLASS, W / 2, H / 2 - 10, 1.04))
-    CLASS.add(at("s09", "where he was sent"), tag("WHERE HE TRAINED", 960, 200, 46, rot=-2, pin=True), until=nx("s10") - 0.3)
+    CLASS.add(at("s09", "where he was sent"), tag("WHERE HE TRAINED", 960, 200, 46, rot=-2, pin=True), until=st("s10") + 0.4)
 
     # ============================================================ s10: the Nakano School
     u10 = nx("s10") - 0.2
-    cam.go(st("s10") + 0.8, frame_on(CLASS, 760, 560, 1.2), 1.0)
-    cam.hold(at("s10", "Both were failures"), frame_on(CLASS, 760, 560, 1.24))
-    cam.go(at("s10", "Both were failures") + 0.8, frame_on(CLASS, 1000, 560, 1.08), 0.9)
-    cam.hold(u10, frame_on(CLASS, 1000, 560, 1.11))
+    cam.go(st("s10") + 0.8, frame_on(CLASS, 1000, 560, 1.05), 1.0)
+    cam.hold(at("s10", "Both were failures"), frame_on(CLASS, 1000, 560, 1.08))
+    cam.go(at("s10", "Both were failures") + 0.8, frame_on(CLASS, 1150, 640, 1.18), 0.9)
+    cam.hold(u10, frame_on(CLASS, 1150, 640, 1.21))
     CLASS.add(st("s10") - 0.3, actor(R("onoda", "study_paper"), 560, 930, 420, seed=0.3), until=nx("s11") + 0.3)
     CLASS.add(at("s10", "The Nakano School"), tag("NAKANO SCHOOL, TOKYO", 560, 300, 40, bg=MUSTARD, rot=-3, pin=True),
               until=u10)
@@ -210,7 +210,7 @@ def build(ctx):
     CLASS.add(at("s11", "rather than a tragedy"), headline("NOT A TRAGEDY", 1380, 860, 30, CREAM, rise=8), until=u11)
 
     # ============================================================ s12: Lubang, December 1944 (map)
-    MAPX, MAPY = 1180, 600  # Lubang on the map plate (set from the generated plate)
+    MAPX, MAPY = 844, 372  # Lubang on the map plate: the islets north-west of Mindoro (read off the plate)
     u12 = nx("s12")
     cam.go(st("s12") + 0.3, frame_on(MAP, W / 2, H / 2, 1.0), 1.4)
     cam.hold(at("s12", "The island is small") - 0.4, frame_on(MAP, W / 2, H / 2, 1.04))
@@ -219,10 +219,10 @@ def build(ctx):
     cam.go(at("s12", "The Allied advance") + 0.6, frame_on(MAP, W / 2, H / 2, 1.05), 0.9)
     cam.hold(u12 - 0.1, frame_on(MAP, W / 2, H / 2, 1.08))
     MAP.add(at("s12", "In December 1944"), tag("DEC 1944", 300, 150, 48, rot=-3, pin=True), until=u12)
-    MAP.add(at("s12", "the Philippines") - 0.2, headline("PHILIPPINES", 760, 260, 44, INK, f=title_font(46)), until=u12)
+    MAP.add(at("s12", "the Philippines") - 0.2, headline("PHILIPPINES", 1250, 640, 44, INK, f=title_font(46)), until=u12)
     MAP.add(at("s12", "Lubang Island"), ink(arc_path(MAPX, MAPY, 46), RUST, 7, 0.6), until=u12)
-    MAP.add(at("s12", "Lubang Island") + 0.3, tag("LUBANG", MAPX + 150, MAPY - 70, 36, bg=MUSTARD, rot=3), until=u12)
-    MAP.add(at("s12", "about thirty"), tag("~30 KM", MAPX + 150, MAPY + 40, 32, rot=-2), until=u12)
+    MAP.add(at("s12", "Lubang Island") + 0.3, tag("LUBANG", MAPX - 190, MAPY - 50, 36, bg=MUSTARD, rot=3), until=u12)
+    MAP.add(at("s12", "about thirty"), tag("~30 KM", MAPX - 190, MAPY + 50, 32, rot=-2), until=u12)
     MAP.add(at("s12", "The Allied advance"), arrow((1800, 160), (MAPX + 140, MAPY - 120), 0.15, RUST, 8, 0.9), until=u12)
     for i, (s, t) in enumerate([("DESTROY THE AIRSTRIP AND PIER", at("s12", "destroy the island")),
                                 ("HARASS ANY LANDING", at("s12", "to harass")), ("HOLD", at("s12", "and to hold"))]):
@@ -231,44 +231,43 @@ def build(ctx):
     MAP.add(at("s12", "destroy the island") - 0.3, sprite(P("rifle"), 520, 520, 420, entry="slide_l"), until=u12)
     p05 = A.photo("p05")
     t5 = at("s12", "The island is small") + 0.2
-    ov.append((t5, nx("s13") + 0.4, photo_card(p05, 1530, 330, 520, "slide_up", tilt=2, hold=12)))  # hold: 1 (s13)
+    ov.append((t5, nx("s13") + 0.4, glide(photo_card(p05, 1530, 330, 440, "slide_up", tilt=2, hold=12),
+                                         st("s13") - t5, (0, 0), (150, -60), 1.2, nx("s13") - t5)))  # hold: 1 (s13)
 
     # ============================================================ s13: the order, the airstrip
     u13 = nx("s13")
-    cam.go(st("s13") + 0.6, frame_on(STRIP, 760, 560, 1.18), 1.6)
-    cam.hold(at("s13", "Under no circumstances was he to surrender"), frame_on(STRIP, 760, 560, 1.22))
-    cam.go(at("s13", "Under no circumstances was he to surrender") + 0.7, frame_on(STRIP, 700, 560, 1.3), 0.8)
-    cam.hold(u13 - 0.1, frame_on(STRIP, 700, 560, 1.34))
+    cam.go(st("s13") + 0.6, frame_on(STRIP, 760, 520, 1.22), 1.6)
+    cam.hold(u13 - 0.1, frame_on(STRIP, 760, 520, 1.28))
     STRIP.add(st("s13") - 0.6, actor(R("taniguchi", "officer_order"), 520, 960, 600, seed=0.2), until=u13 + 0.5)
     STRIP.add(st("s13") - 0.6, actor(R("onoda", "attention"), 1000, 960, 560, flip=True, seed=2.2), until=u13 + 0.5)
-    STRIP.add(at("s13", "Major Yoshimi") - 0.2, tag("MAJ. YOSHIMI TANIGUCHI", 520, 240, 34, bg=MUSTARD, rot=-2, pin=True),
+    STRIP.add(at("s13", "Major Yoshimi") - 0.2, tag("MAJ. YOSHIMI TANIGUCHI", 430, 200, 32, bg=MUSTARD, rot=-2, pin=True),
               until=u13)
-    STRIP.add(at("s13", "The order Taniguchi"), sprite(P("order"), 760, 560, 110, path=curve((640, 520), (860, 560), -0.3),
+    STRIP.add(at("s13", "The order Taniguchi"), sprite(P("order"), 860, 600, 100, path=curve((700, 560), (860, 600), -0.3),
                                                          dur=0.9, rot=-8), until=u13)
     for i, (s, t) in enumerate([("SURRENDER", at("s13", "was he to surrender")),
                                 ("SUICIDE", at("s13", "take his own life"))]):
-        STRIP.add(t, tag(s, 360 + i * 300, 360, 34, rot=(-2, 3)[i]), until=u13)
-        STRIP.add(t + 0.35, cross(360 + i * 300, 360, 30, RUST, 10), until=u13)
-    STRIP.add(at("s13", "He was to hold out"), tag("HOLD OUT, HOWEVER LONG", 500, 460, 36, bg=RUST, rgb=CREAM, rot=-1),
+        STRIP.add(t, tag(s, 360 + i * 300, 320, 32, rot=(-2, 3)[i]), until=u13)
+        STRIP.add(t + 0.35, cross(360 + i * 300, 320, 28, RUST, 10), until=u13)
+    STRIP.add(at("s13", "He was to hold out"), tag("HOLD OUT, HOWEVER LONG", 900, 200, 32, bg=RUST, rgb=CREAM, rot=-1),
               until=u13)
-    STRIP.add(at("s13", "Taniguchi would come back"), bubble("I will come back for you", 760, 620), until=u13)
+    STRIP.add(at("s13", "Taniguchi would come back"), bubble("I will come back for you", 760, 790), until=u13)
 
     # ============================================================ s14: the Americans land; four men into the hills
     u14 = nx("s14")
     cam.go(st("s14") + 0.4, frame_on(BEACH, W / 2, H / 2, 1.16), 1.2)
-    cam.hold(u14 - 0.1, frame_on(BEACH, W / 2 + 60, H / 2 - 20, 1.22))
-    BEACH.add(at("s14", "Three months later"), tag("3 MONTHS LATER", 320, 200, 40, rot=-3, pin=True), until=u14)
-    BEACH.add(at("s14", "the Americans landed"), headline("THE AMERICANS LAND", 320, 300, 36, RUST, "left", rise=10), until=u14)
-    BEACH.add(at("s14", "The Japanese garrison"), headline("GARRISON DESTROYED IN DAYS", 320, 360, 30, INK, "left"),
+    cam.hold(u14 - 0.1, frame_on(BEACH, W / 2, H / 2, 1.2))
+    BEACH.add(at("s14", "Three months later"), tag("3 MONTHS LATER", 1400, 200, 40, rot=-3, pin=True), until=u14)
+    BEACH.add(at("s14", "the Americans landed"), headline("THE AMERICANS LAND", 1400, 300, 38, RUST, rise=10), until=u14)
+    BEACH.add(at("s14", "The Japanese garrison"), headline("GARRISON DESTROYED IN DAYS", 1400, 360, 30, INK),
               until=u14)
     BEACH.add(at("s14", "Onoda took to the hills") - 0.3,
-              actor(R("comrades", "four_climb"), 700, 960, 360, motion=walk(-300, 260, 0, 6.0, bob=6), seed=0.5), until=u14 + 0.4)
+              actor(R("comrades", "four_climb"), 1050, 960, 330, motion=walk(-250, 300, 0, 6.0, bob=6), seed=0.5), until=u14 + 0.4)
     names = [("AKATSU", at("s14", "Yuichi Akatsu")), ("SHIMADA", at("s14", "Shoichi Shimada")),
              ("KOZUKA", at("s14", "Kinshichi Kozuka"))]
     for i, (s, t) in enumerate(names):
-        BEACH.add(t, tag(s, 360 + i * 230, 470, 32, bg=(CREAM, MUSTARD)[i % 2], rot=(-3, 2, -1)[i]), until=u14)
+        BEACH.add(t, tag(s, 1160 + i * 240, 470, 32, bg=(CREAM, MUSTARD)[i % 2], rot=(-3, 2, -1)[i]), until=u14)
     p07 = A.photo("p07")
-    BEACH.add(at("s14", "The Japanese garrison") + 0.3, photo_card(p07, 1460, 470, 640, "slide_right", tilt=2, hold=10),
+    BEACH.add(at("s14", "The Japanese garrison") + 0.3, photo_card(p07, 600, 420, 600, "slide_right", tilt=2, hold=10),
               until=u14)
 
     # ============================================================ s15 (calm): four men, one island, one order
@@ -277,6 +276,7 @@ def build(ctx):
     cam.hold(u15 - 0.1, frame_on(CLR, W / 2, H / 2 - 10, 1.2))
     CLR.add(st("s15") - 0.4, actor(R("comrades", "group_fire"), 1300, 560, 170, seed=0.8), until=u15 + 0.3)
     CLR.add(st("s15") - 0.4, actor(R("onoda", "sit_fire"), 1180, 560, 150, seed=1.8), until=u15 + 0.3)
+    CLR.add(at("s15", "Four men") - 0.2, panel((440, 260, 420, 340), CREAM, 0.95), until=u15)
     CLR.add(at("s15", "Four men"), headline("4 MEN", 520, 360, 64, INK, "left"), until=u15)
     CLR.add(at("s15", "on a small island"), headline("1 ISLAND", 520, 450, 64, OLIVE, "left"), until=u15)
     CLR.add(at("s15", "with an order"), headline("1 ORDER", 520, 540, 64, RUST, "left"), until=u15)
@@ -528,12 +528,12 @@ def build(ctx):
     cam.go(at("s39", "Onoda explained") + 0.6, frame_on(CLR, W / 2, H / 2, 1.16), 0.8)
     cam.hold(u39 - 0.1, frame_on(CLR, W / 2, H / 2, 1.2))
     CLR.add(at("s39", "They became friends"), tag("FRIENDS", 1000, 260, 52, bg=MUSTARD, rot=-3, pin=True), until=at("s39", "Onoda explained") + 0.2)
-    CLR.add(at("s39", "He would not come out"), panel((1180, 140, 640, 480), CREAM, 0.96), until=u39)
-    CLR.add(at("s39", "He would not come out") + 0.2, headline("ORDERED IN", 1300, 230, 34, INK, "left"), until=u39)
-    CLR.add(at("s39", "had not been ordered out") - 0.3, headline("ONLY ORDERED OUT", 1300, 300, 34, RUST, "left"), until=u39)
-    CLR.add(at("s39", "He had received an order"), sprite(P("order"), 1260, 420, 100, entry="pop", rot=-6), until=u39)
-    CLR.add(at("s39", "only Major Taniguchi"), headline("ONLY MAJ. TANIGUCHI", 1330, 430, 32, INK, "left"), until=u39)
-    CLR.add(at("s39", "Anything else"), headline("ANYTHING ELSE = DECEPTION", 1220, 560, 30, RUST, "left"), until=u39)
+    CLR.add(at("s39", "He would not come out"), panel((1060, 150, 620, 470), CREAM, 0.96), until=u39)
+    CLR.add(at("s39", "He would not come out") + 0.2, headline("ORDERED IN", 1110, 240, 34, INK, "left"), until=u39)
+    CLR.add(at("s39", "had not been ordered out") - 0.3, headline("ONLY ORDERED OUT", 1110, 310, 34, RUST, "left"), until=u39)
+    CLR.add(at("s39", "He had received an order"), sprite(P("order"), 1140, 430, 90, entry="pop", rot=-6), until=u39)
+    CLR.add(at("s39", "only Major Taniguchi"), headline("ONLY MAJ. TANIGUCHI", 1210, 440, 32, INK, "left"), until=u39)
+    CLR.add(at("s39", "Anything else"), headline("ANYTHING ELSE = DECEPTION", 1110, 570, 30, RUST, "left"), until=u39)
 
     # ============================================================ s40: photographs as proof, and home
     u40 = nx("s40")
@@ -586,7 +586,7 @@ def build(ctx):
             until=u45)  # hold: 1 (through s45)
     CLR.add(at("s44", "On the ninth"), tag("9 MAR 1974", 560, 200, 42, rot=-3, pin=True), until=u45)
     CLR.add(at("s44", "rescinding the 1944"), tag("1944 ORDER RESCINDED", 1290, 850, 34, bg=MUSTARD, rot=1), until=u45)
-    CLR.add(at("s44", "Onoda was relieved"), headline("RELIEVED", 560, 320, 52, RUST, rise=10), until=u45)
+    CLR.add(at("s44", "Onoda was relieved"), headline("RELIEVED", 1290, 200, 52, RUST, rise=10), until=u45)
 
     # ============================================================ s46: weapons handed over
     u46 = nx("s46")
@@ -595,7 +595,7 @@ def build(ctx):
     CLR.add(st("s46") - 0.2, actor(R("onoda", "hand_over"), 560, 960, 600, seed=0.6), until=u46 + 0.3)
     for i, (prop, t, x, w) in enumerate([("rifle", at("s46", "his rifle"), 1000, 420), ("sword", at("s46", "his sword"), 1000, 380),
                                          ("ammo", at("s46", "around five hundred"), 1000, 260)]):
-        CLR.add(t, sprite(P(prop), x, 640 + i * 110, w, entry="slide_r", dur=0.5), until=u46)
+        CLR.add(t, sprite(P(prop), x - 120, 640 + i * 110, w, entry="slide_l", dur=0.5), until=u46)
     CLR.add(at("s46", "several hand grenades"), tag("RIFLE · SWORD · ~500 ROUNDS · GRENADES", 960, 200, 34, rot=-1), until=u46)
     p06 = A.photo("p06")
     CLR.add(at("s46", "The rifle was still") - 0.3, photo_card(p06, 1480, 470, 560, "slide_right", tilt=1.5, hold=4), until=u46)
@@ -648,24 +648,23 @@ def build(ctx):
     # ============================================================ s51: a country that no longer existed
     u51 = nx("s51")
     cam.go(st("s51") + 0.6, frame_on(TOKYO, W / 2, H / 2, 1.0), 1.0)
-    cam.hold(at("s51", "The country he had killed") - 0.2, frame_on(TOKYO, W / 2, H / 2, 1.04))
-    cam.go(at("s51", "The country he had killed") + 0.6, frame_on(TOKYO, 900, 560, 1.16), 0.8)
-    cam.hold(u51 - 0.1, frame_on(TOKYO, 900, 560, 1.2))
-    TOKYO.add(st("s51") - 0.4, actor(R("onoda", "suit_crowd"), 520, 960, 560, motion=walk(-300, 380, 0, 9.0, bob=5)), until=u51 + 0.3)
-    TOKYO.add(at("s51", "He had left"), panel((1080, 130, 360, 430), INK, 0.92), until=u51)
-    TOKYO.add(at("s51", "He had left") + 0.2, headline("1944", 1260, 230, 56, MUSTARD), until=u51)
-    TOKYO.add(at("s51", "a militarised empire"), headline("A MILITARISED", 1260, 300, 26, CREAM), until=u51)
-    TOKYO.add(at("s51", "a militarised empire") + 0.3, headline("EMPIRE", 1260, 340, 26, CREAM), until=u51)
-    TOKYO.add(at("s51", "come back to"), panel((1460, 130, 380, 430), CREAM, 0.95), until=u51)
-    TOKYO.add(at("s51", "come back to") + 0.2, headline("1974", 1650, 230, 56, RUST), until=u51)
-    for i, (s, ph) in enumerate([("PROSPEROUS", "a prosperous"), ("DEMOCRATIC", "democratic"),
-                                 ("AMERICAN-ALLIED", "American-allied"), ("CONSUMER SOCIETY", "consumer society")]):
-        TOKYO.add(at("s51", ph), headline(s, 1650, 300 + i * 40, 24, INK), until=u51)
-    TOKYO.add(at("s51", "The country he had killed"), sprite(P("tv_wall"), 1450, 760, 320, entry="pop"), until=u51)
+    cam.hold(u51 - 0.1, frame_on(TOKYO, W / 2, H / 2, 1.05))
+    TOKYO.add(st("s51") - 0.4, actor(R("onoda", "suit_crowd"), 1400, 960, 560, flip=True,
+                                     motion=walk(300, -100, 0, 9.0, bob=5)), until=u51 + 0.3)
+    TOKYO.add(at("s51", "He had left"), panel((240, 130, 360, 400), INK, 0.92), until=u51)
+    TOKYO.add(at("s51", "He had left") + 0.2, headline("1944", 420, 230, 56, MUSTARD), until=u51)
+    TOKYO.add(at("s51", "a militarised empire"), headline("A MILITARISED", 420, 300, 26, CREAM), until=u51)
+    TOKYO.add(at("s51", "a militarised empire") + 0.3, headline("EMPIRE", 420, 340, 26, CREAM), until=u51)
+    TOKYO.add(at("s51", "come back to"), panel((640, 130, 380, 400), CREAM, 0.95), until=u51)
+    TOKYO.add(at("s51", "come back to") + 0.2, headline("1974", 830, 230, 56, RUST), until=u51)
+    for i, (s_, ph) in enumerate([("PROSPEROUS", "a prosperous"), ("DEMOCRATIC", "democratic"),
+                                  ("AMERICAN-ALLIED", "American-allied"), ("CONSUMER SOCIETY", "consumer society")]):
+        TOKYO.add(at("s51", ph), headline(s_, 830, 300 + i * 40, 24, INK), until=u51)
+    TOKYO.add(at("s51", "The country he had killed"), sprite(P("tv_wall"), 1700, 520, 300, entry="pop"), until=u51)
     t_ce = at("s51", "He was a celebrity")
-    TOKYO.add(t_ce, tag("CELEBRITY", 1080, 640, 36, rot=-2), until=u51)
-    TOKYO.add(t_ce + 0.6, not_equal(1300, 640), until=u51)
-    TOKYO.add(t_ce + 0.9, tag("UNDERSTOOD", 1500, 640, 36, bg=MUSTARD, rot=2), until=u51)
+    TOKYO.add(t_ce, tag("CELEBRITY", 380, 660, 36, rot=-2), until=u51)
+    TOKYO.add(t_ce + 0.6, not_equal(610, 660), until=u51)
+    TOKYO.add(t_ce + 0.9, tag("UNDERSTOOD", 840, 660, 36, bg=MUSTARD, rot=2), until=u51)
 
     # ============================================================ s52 (calm): a memoir; then gone
     u52 = nx("s52")
@@ -740,23 +739,25 @@ def build(ctx):
     cam.go(st("s58") + 0.9, frame_on(PAPER, W / 2, H / 2, 1.0), 1.8)
     cam.hold(u58 - 0.1, frame_on(PAPER, W / 2, H / 2, 1.03))
     p04 = A.photo("p04")
-    ov.append((st("s58") + 0.3, nx("s59") + 0.4, photo_card(p04, 1440, 520, 420, "flip", tilt=1.5, hold=14)))  # hold: 1 (s59)
+    ov.append((st("s58") + 0.3, nx("s59") + 0.4, photo_card(p04, 1520, 560, 400, "flip", tilt=1.5, hold=14)))  # hold: 1 (s59)
     PAPER.add(at("s58", "It is that Onoda"), headline("IN HIS OWN TERMS,", 560, 480, 52, INK, f=title_font(56)), until=u58)
     PAPER.add(at("s58", "right"), headline("RIGHT", 560, 600, 80, RUST), until=u58)
 
     # ============================================================ s59: held until relieved; 3,000 km away
     u59 = nx("s59")
-    cam.go(st("s59") + 0.8, frame_on(MAP, 760, 560, 1.0), 1.6)
-    cam.hold(u59 - 0.1, frame_on(MAP, 760, 560, 1.04))
-    MAP.add(st("s59") - 0.2, actor(R("onoda", "alone_stand"), MAPX, MAPY + 40, 110, seed=0.1), until=u59 + 0.3)
-    MAP.add(at("s59", "He was told"), headline("HOLD UNTIL RELIEVED", 420, 200, 34, INK, "left"), until=u59)
-    MAP.add(at("s59", "He held out"), equals(330, 260), until=u59)
-    MAP.add(at("s59", "He held out") + 0.2, headline("HELD UNTIL RELIEVED", 420, 280, 34, RUST, "left"), until=u59)
-    MAP.add(at("s59", "and the one source"), actor(R("taniguchi", "bookseller"), 120, 340, 150, flip=True), until=u59 + 0.3)
-    MAP.add(at("s59", "and the one source") + 0.2, tag("THE ONLY TRUSTED SOURCE", 300, 420, 30, bg=MUSTARD, rot=2), until=u59)
-    MAP.add(at("s59", "three thousand"), ink(curve((180, 300), (MAPX, MAPY), 0.15), RUST, 7, 1.2, dash=(18, 14)), until=u59)
-    MAP.add(at("s59", "three thousand") + 0.6, tag("3,000 KM AWAY", 700, 520, 38, rot=-2, pin=True), until=u59)
-    MAP.add(at("s59", "three thousand") + 0.3, sprite(P("order"), MAPX - 120, MAPY - 60, 70, entry="pop", rot=-8), until=u59)
+    cam.go(st("s59") + 0.8, frame_on(MAP, MAPX - 150, 520, 1.0), 1.6)
+    cam.hold(u59 - 0.1, frame_on(MAP, MAPX - 150, 520, 1.04))
+    MAP.add(st("s59") - 0.2, actor(R("onoda", "alone_stand"), MAPX, MAPY + 30, 110, seed=0.1), until=u59 + 0.3)
+    MAP.add(at("s59", "He was told"), headline("HOLD UNTIL RELIEVED", MAPX - 900, 330, 34, INK, "left"), until=u59)
+    MAP.add(at("s59", "He held out"), equals(MAPX - 940, 390), until=u59)
+    MAP.add(at("s59", "He held out") + 0.2, headline("HELD UNTIL RELIEVED", MAPX - 900, 410, 34, RUST, "left"), until=u59)
+    TX, TY = MAPX + 60, 190  # far to the north: the bookshop
+    MAP.add(at("s59", "and the one source"), actor(R("taniguchi", "bookseller"), TX, TY, 150, flip=True), until=u59 + 0.3)
+    MAP.add(at("s59", "and the one source") + 0.2, tag("THE ONLY TRUSTED SOURCE", TX - 380, TY - 60, 30, bg=MUSTARD, rot=2),
+            until=u59)
+    MAP.add(at("s59", "three thousand"), ink(curve((TX, TY + 10), (MAPX, MAPY - 90), 0.2), RUST, 7, 1.2, dash=(18, 14)), until=u59)
+    MAP.add(at("s59", "three thousand") + 0.6, tag("3,000 KM AWAY", MAPX - 420, (TY + MAPY) / 2, 38, rot=-2, pin=True), until=u59)
+    MAP.add(at("s59", "three thousand") + 0.3, sprite(P("order"), MAPX + 90, MAPY - 30, 70, entry="pop", rot=-8), until=u59)
 
     # ============================================================ s60 (calm): a way in and no way out
     u60 = nx("s60")
@@ -783,6 +784,17 @@ def build(ctx):
 
 
 # ---------------------------------------------------------------- builders used only here
+
+def glide(draw, t_move, a, b, dur, t_end=None):
+    """Move a drawn card from offset a to offset b starting t_move (ages); a card may move, never rescale."""
+    def d(c, age):
+        q = in_out((age - t_move) / dur)
+        c.save()
+        c.translate(lerp(a[0], b[0], q), lerp(a[1], b[1], q))
+        draw(c, age)
+        c.restore()
+    return d
+
 
 def page_fly(x, y, i):
     """One blank calendar page tearing off and blowing away along an arc."""

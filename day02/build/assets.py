@@ -164,6 +164,12 @@ MATTE = ("Edit this image into a flat colour-coded segmentation matte of the sam
 PLATE = ("Full-bleed background plate for an animation, edge to edge with no border and no frame, no people, no "
          "animals, open empty ground in the lower centre of the picture. ")
 
+SET_DETAIL = {  # added after a plate came back with lettering or a real mark on it
+    "tokyo_1974": "The neon signs are plain glowing coloured shapes and stripes with absolutely no characters, letters "
+                  "or symbols of any script on them.",
+    "airport_1974": "The jet outside is plain cream and olive with no logo, no emblem and no markings at all.",
+}
+
 # ---------------------------------------------------------------- props (sheets of three on magenta)
 PROPSHEET = ("A prop sheet of exactly {n} separate isolated objects in a single row with very wide magenta gaps "
              "between them, each object whole and not touching any other, plain flat solid magenta #FF00FF "
@@ -201,7 +207,17 @@ PROP_SHEETS = [  # sample props first; a name starting with "x_" marks a rejecte
 def gen(vx, prompt, out, aspect="16:9", refs=()):
     if os.path.exists(out):
         return
-    vx.image(f"{prompt}\n\n{STYLE_LOCK}", out, aspect, refs)  # exits non-zero on refusal (spec 9)
+    import time
+    for attempt in range(4):
+        try:
+            vx.image(f"{prompt}\n\n{STYLE_LOCK}", out, aspect, refs)  # exits non-zero on refusal (spec 9)
+            return
+        except SystemExit as e:
+            # a long run of 429s is waited out; anything else (a refusal, a bad request) stops the build
+            if "failed after retries" not in str(e) or attempt == 3:
+                raise
+            print(f"  rate-limited, waiting before retrying {os.path.basename(out)}", file=sys.stderr)
+            time.sleep(90)
 
 
 def main():
@@ -237,7 +253,7 @@ def main():
         for sid, prompt in sets.items():
             if only and sid not in only:
                 continue
-            gen(vx, PLATE + prompt[0].upper() + prompt[1:] + ".", os.path.join(RAW, f"set_{sid}.png"))
+            gen(vx, PLATE + prompt[0].upper() + prompt[1:] + ". " + SET_DETAIL.get(sid, ""), os.path.join(RAW, f"set_{sid}.png"))
     elif kind == "props":
         import json as _j
         props = _j.load(open(os.path.join(DAY, "build.json")))["props"]
