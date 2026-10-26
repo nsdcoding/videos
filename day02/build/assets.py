@@ -175,6 +175,8 @@ PROPSHEET = ("A prop sheet of exactly {n} separate isolated objects in a single 
              "between them, each object whole and not touching any other, plain flat solid magenta #FF00FF "
              "background, no ground shadows, nothing else in the image. From left to right: ")
 PROP_DETAIL = {
+    "newspapers": "a stack of folded newspapers whose columns are only plain flat grey bars and blocks, with no "
+                  "letters, no headline characters and no pictures",
     "flashbulbs": "a cluster of three bright camera flash bursts, drawn as white and mustard starbursts",
     "tv_wall": "a stacked wall of nine 1970s television sets in wooden cabinets, every screen glowing the same plain "
                "pale cream, nothing shown on the screens",
@@ -189,7 +191,8 @@ PROP_DETAIL = {
 PROP_SHEETS = [  # sample props first; a name starting with "x_" marks a rejected object on that sheet
     ["order", "flag_folded", "x_bolt"],
     ["bolt"],
-    ["newspapers", "magnifier", "oil_tin"],
+    ["x_newspapers", "magnifier", "oil_tin"],
+    ["newspapers"],
     ["bananas", "lean_to", "campfire"],
     ["chess", "lure", "medal"],
     ["tent", "camera", "suitcase"],
