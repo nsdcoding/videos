@@ -45,7 +45,8 @@ for pid, p in photos.items():
         P.append(f"photo {pid} page_url not a Commons file page")
     # Commons stores File:Name at /h/hh/Name with hh = md5(Name): catches a mistyped name or path
     name = unquote(p["page_url"].split("/wiki/File:", 1)[-1]).replace(" ", "_")
-    m = re.match(r"https://upload\.wikimedia\.org/wikipedia/commons/(\w)/(\w\w)/(.+)$", p["file_url"])
+    # also accepts Wikimedia's rendering of a huge original: /thumb/h/hh/Name/<render>.jpg
+    m = re.match(r"https://upload\.wikimedia\.org/wikipedia/commons/(?:thumb/)?(\w)/(\w\w)/([^/]+)(?:/[^/]+)?$", p["file_url"])
     h = hashlib.md5(name.encode()).hexdigest()
     if not m or unquote(m.group(3)) != name or (m.group(1), m.group(2)) != (h[0], h[:2]):
         P.append(f"photo {pid} file_url does not match page_url {name}")
