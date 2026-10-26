@@ -196,6 +196,10 @@ def do_poses(only=()):
         print(f"{cid_pose}: parts {sorted(parts)}{'' if has_arms or not assets.POSES[cid_pose][1] else ' (arms not separable)'}")
 
 
+MERGE = {("tent", "camera", "suitcase"): ["tent", "+", "camera", "suitcase"],
+         ("notebook_sketch", "memoir", "calendar_1945"): ["notebook_sketch", "memoir", "+", "calendar_1945"]}
+
+
 def do_props(only=()):
     import assets
     out = os.path.join(DAY, "images", "props")
@@ -220,6 +224,15 @@ def do_props(only=()):
             else:
                 groups.append(s)
         groups = [g for g in groups if np.isin(lab, g[2]).sum() > 2500]
+        merge = MERGE.get(tuple(sheet))
+        if merge and len(groups) == len(merge):  # one prop drawn as two pieces (a tent and its rucksack)
+            merged = []
+            for name, g in zip(merge, groups):
+                if name == "+":
+                    merged[-1] = [merged[-1][0], g[1], merged[-1][2] + g[2]]
+                else:
+                    merged.append(g)
+            groups = merged
         if len(groups) != len(sheet):
             sys.exit(f"STOP {os.path.basename(path)}: found {len(groups)} objects, expected {len(sheet)}")
         for name, g in zip(sheet, groups):
