@@ -3,7 +3,8 @@
 
   python3 validate.py out/day02.build.json 62     # 62 = number of segments in narration.md (s01..s62)
 """
-import json, re, sys
+import hashlib, json, re, sys
+from urllib.parse import unquote
 
 BANNED = [r"\bphotoreal", r"\bphotograph of\b", r"\bportrait\b", r"\btext\b(?! rendered)", r"\blettering\b",
           r"\blabel(s|led)?\b", r"\bcorpse", r"\bbod(y|ies)\b(?! language)", r"\bblood", r"\bwound", r"\bremains\b",
@@ -42,6 +43,12 @@ for pid, p in photos.items():
         P.append(f"photo {pid} file_url not direct")
     if not p["page_url"].startswith("https://commons.wikimedia.org/wiki/File:"):
         P.append(f"photo {pid} page_url not a Commons file page")
+    # Commons stores File:Name at /h/hh/Name with hh = md5(Name): catches a mistyped name or path
+    name = unquote(p["page_url"].split("/wiki/File:", 1)[-1]).replace(" ", "_")
+    m = re.match(r"https://upload\.wikimedia\.org/wikipedia/commons/(\w)/(\w\w)/(.+)$", p["file_url"])
+    h = hashlib.md5(name.encode()).hexdigest()
+    if not m or unquote(m.group(3)) != name or (m.group(1), m.group(2)) != (h[0], h[:2]):
+        P.append(f"photo {pid} file_url does not match page_url {name}")
 covered, used = [], {"cast": set(), "poses": set(), "sets": set(), "props": set(), "photos": set()}
 overlays = 0
 for b in doc["beats"]:
