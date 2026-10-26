@@ -90,7 +90,8 @@ POSES = {
         "of the second reference sheet. Three-quarter view facing right, standing upright and reading aloud from "
         "a single sheet of blank paper held open in both hands at chest height."),
     "taniguchi/bookseller": (["taniguchi_bookseller"], True, "The same bookseller as the reference sheet, "
-        "three-quarter view facing left, standing calmly with a small stack of plain books under one arm. " + GAP),
+        "three-quarter view facing left, standing calmly, holding nothing, both sleeves the same mustard colour "
+        "as the cardigan. " + GAP),
     "crowd/search_party": (["crowd"], False, "Three searchers dressed exactly like the two men on the far left of "
         "the reference sheet: matching khaki 1950s field shirts and trousers, khaki bush hats, boots. They walk in "
         "single file towards the right, side view, close together as one group. The leader holds a megaphone; the "
@@ -111,10 +112,18 @@ PLATE = ("Full-bleed background plate for an animation, edge to edge with no bor
 PROPSHEET = ("A prop sheet of exactly {n} separate isolated objects in a single row with very wide magenta gaps "
              "between them, each object whole and not touching any other, plain flat solid magenta #FF00FF "
              "background, no ground shadows, nothing else in the image. From left to right: ")
-PROP_SHEETS = [  # sample props first
-    ["order", "flag_folded", "bolt"],
+PROP_DETAIL = {
+    "uniform": "an old 1940s Japanese army officer's uniform laid out flat and neatly folded: an olive tunic with a "
+               "high standing collar and brass buttons, and on top of it a peaked officer's cap with a red band",  # extra description where the build file's short prompt was not enough on its own
+    "bolt": "a single 1940s bolt-action rifle bolt drawn out of the rifle, lying horizontally: a steel cylinder "
+            "with a short bent handle ending in a round knob, seen from the side",
+}
+PROP_SHEETS = [  # sample props first; a name starting with "x_" marks a rejected object on that sheet
+    ["order", "flag_folded", "x_bolt"],
+    ["bolt"],
     ["leaflets", "loudspeaker", "plane_speaker"],
-    ["uniform", "rifle", "lacquerware"],
+    ["x_uniform", "rifle", "lacquerware"],
+    ["uniform"],
 ]
 
 
@@ -162,8 +171,11 @@ def main():
         for sheet in PROP_SHEETS:
             if only and not (only & set(sheet)):
                 continue
-            desc = "; ".join(f"{i + 1}) {props[p]}" for i, p in enumerate(sheet))
-            gen(vx, PROPSHEET.format(n=len(sheet)) + desc + ".", os.path.join(RAW, "props_" + "+".join(sheet) + ".png"))
+            out = os.path.join(RAW, "props_" + "+".join(sheet) + ".png")
+            if os.path.exists(out):
+                continue
+            desc = "; ".join(f"{i + 1}) {PROP_DETAIL.get(p, props[p])}" for i, p in enumerate(sheet))
+            gen(vx, PROPSHEET.format(n=len(sheet)) + desc + ".", out)
     else:
         sys.exit(f"unknown kind {kind}")
 

@@ -138,4 +138,6 @@ if __name__ == "__main__":
             Image.fromarray(a[..., [2, 1, 0]]).save(os.path.join(outdir, f"f_{t:07.2f}.png"))
             print("still", t)
     elif args[0] == "video":
+        if scenes.PREVIEW:
+            sys.exit("a video needs every real asset; PREVIEW=1 is for stills only")
         video(args[1], args[2], args[3])

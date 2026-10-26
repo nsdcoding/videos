@@ -597,13 +597,14 @@ class Photo:
         self.caption = meta.get("caption")
 
 
-def photo_card(ph, cx, cy, w, entry="slide_up", dur=0.7, tilt=0.0, scale_drift=0.03, hold=None):
+def photo_card(ph, cx, cy, w, entry="slide_up", dur=0.7, tilt=0.0, scale_drift=0.015, hold=None, view=1.0):
     """A photograph mounted as a card: thin matte from its own dark tones, soft shadow, caption on the matte
     at lower left. The image is fitted whole (never cropped), drawn untouched; graphics never sit over it.
-    Low-res photos are capped at 94% of native size so the camera's drift keeps them under native."""
+    Low-res photos are capped at 94% of native size on screen: `view` is the most the camera magnifies
+    this station's pixels while the card is up (zoom x station scale), so drift keeps them under native."""
     iw, ih = ph.native
     if ph.low_res:
-        w = min(w, iw * 0.94)
+        w = min(w, iw * 0.94 / view)
     h = w * ih / iw
     m = max(8, w * 0.018)
     cap_h = 46 if ph.caption else 0

@@ -96,7 +96,7 @@ def head_box(path, shape):
             int((b[2] / 1000 + pad * 0.3) * h), int((b[3] / 1000 + pad) * w))
 
 
-def split_pose(path, arms):
+def split_pose(path, arms, whole=False):
     """Body, head and (optionally) arms of one keyed pose. Returns {name: (rgba, (x, y))} and pivots."""
     rgba = key(path)
     lab, ids = components(rgba, 1500)
@@ -105,6 +105,10 @@ def split_pose(path, arms):
     top, bot = ys.min(), ys.max()
     hgt = bot - top
     parts, piv = {}, {"feet": [float(np.median(xs[ys > bot - 6])), float(bot)], "top": float(top)}
+    if whole:  # a group of extras moves as one cut-out
+        parts["body"] = crop(rgba, fig)
+        piv["neck"] = [float(np.median(xs)), float(top)]
+        return parts, piv, (rgba.shape[1], rgba.shape[0]), False
     # the head: a box from Gemini (cached next to the pose), then the figure inside it minus thin
     # things passing through (rifle barrels, straps), which stay on the body
     y0, x0, y1, x1 = head_box(path, fig.shape)
@@ -132,7 +136,15 @@ def split_pose(path, arms):
             print(f"  {os.path.basename(path)}: matte does not line up (IoU {iou:.3f}); arms stay on the body")
             arms = False
         else:
-            for side, sel in (("armL", (mg > 180) & (mr < 110) & (mb < 110)), ("armR", (mb > 180) & (mr < 110) & (mg < 110))):
+            gm = (mg > 180) & (mr < 110) & (mb < 110) & fig
+            bm = (mb > 180) & (mr < 110) & (mg < 110) & fig
+            # the two arm colours must sit on opposite sides of the figure, or the matte is not trusted
+            if not gm.any() or not bm.any() or abs(np.nonzero(gm)[1].mean() - np.nonzero(bm)[1].mean()) < 40:
+                print(f"  {os.path.basename(path)}: matte arms not on opposite sides; arms stay on the body")
+                arms = False
+            elif np.nonzero(gm)[1].mean() > np.nonzero(bm)[1].mean():
+                gm, bm = bm, gm  # the matte swapped its colours: armL is always the screen-left arm
+            for side, sel in ((("armL", gm), ("armR", bm)) if arms else ()):
                 sl, sn = ndi.label(sel & fig)
                 if not sn:
                     arms = False
@@ -172,7 +184,8 @@ def do_poses(only=()):
                 cid_pose = pid
         if not cid_pose or (only and cid_pose not in only):
             continue
-        parts, piv, size, has_arms = split_pose(path, assets.POSES[cid_pose][1])
+        whole = cid_pose.split("/")[0] in ("crowd", "comrades")
+        parts, piv, size, has_arms = split_pose(path, assets.POSES[cid_pose][1], whole)
         out = os.path.join(DAY, "images", "cast", cid_pose.replace("/", "_"))
         os.makedirs(out, exist_ok=True)
         rig = {"size": size, "pivots": piv, "parts": {}, "arms": has_arms}
@@ -201,7 +214,7 @@ def do_props(only=()):
         spans.sort()
         groups = []
         for s in spans:
-            if groups and s[0] <= groups[-1][1] + 30:
+            if groups and s[0] <= groups[-1][1] + 8:
                 groups[-1][1] = max(groups[-1][1], s[1])
                 groups[-1][2] += s[2]
             else:
@@ -210,6 +223,8 @@ def do_props(only=()):
         if len(groups) != len(sheet):
             sys.exit(f"STOP {os.path.basename(path)}: found {len(groups)} objects, expected {len(sheet)}")
         for name, g in zip(sheet, groups):
+            if name.startswith("x_"):
+                continue
             img, _ = crop(rgba, np.isin(lab, g[2]))
             Image.fromarray(img).save(os.path.join(out, f"{name}.png"))
             print(f"prop {name}: {img.shape[1]}x{img.shape[0]}")
