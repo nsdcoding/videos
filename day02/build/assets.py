@@ -77,9 +77,9 @@ POSES = {
     "onoda/attention": (["onoda"], True, "The same soldier as the reference sheet, front view, standing rigidly at "
         "attention, heels together, chest out, chin up, rifle slung on his back. " + GAP),
     "onoda/hand_over": (["onoda"], False, "The same soldier as the reference sheet, three-quarter view facing right, "
-        "standing straight, head slightly bowed, presenting his one rifle lying flat and horizontal across both "
-        "open upturned palms at waist height, as if handing it over in a ceremony, the barrel pointing to the "
-        "side and slightly down, never aimed. He carries only that one rifle: nothing is slung on his back."),
+        "standing straight, head slightly bowed, holding his one rifle upright and vertical in front of his chest "
+        "with both hands, the muzzle pointing straight up at the sky and the butt near his belt, held out a "
+        "little towards someone as if handing it over in a ceremony. Nothing is slung on his back. "),
     "onoda/crouch_watch": (["onoda"], False, "The same soldier as the reference sheet, side view facing right, "
         "crouching low on one knee, watching intently ahead, one hand parting a leaf at head height, rifle held "
         "pointing at the ground."),
