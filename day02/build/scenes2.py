@@ -219,7 +219,7 @@ def build(ctx):
     cam.go(at("s12", "The Allied advance") + 0.6, frame_on(MAP, W / 2, H / 2, 1.05), 0.9)
     cam.hold(u12 - 0.1, frame_on(MAP, W / 2, H / 2, 1.08))
     MAP.add(at("s12", "In December 1944"), tag("DEC 1944", 300, 150, 48, rot=-3, pin=True), until=u12)
-    MAP.add(at("s12", "the Philippines") - 0.2, headline("PHILIPPINES", 1250, 640, 44, INK, f=title_font(46)), until=u12)
+    MAP.add(at("s12", "the Philippines") - 0.2, headline("PHILIPPINES", 1560, 860, 44, INK, f=title_font(46)), until=u12)
     MAP.add(at("s12", "Lubang Island"), ink(arc_path(MAPX, MAPY, 46), RUST, 7, 0.6), until=u12)
     MAP.add(at("s12", "Lubang Island") + 0.3, tag("LUBANG", MAPX - 190, MAPY - 50, 36, bg=MUSTARD, rot=3), until=u12)
     MAP.add(at("s12", "about thirty"), tag("~30 KM", MAPX - 190, MAPY + 50, 32, rot=-2), until=u12)
@@ -256,6 +256,7 @@ def build(ctx):
     u14 = nx("s14")
     cam.go(st("s14") + 0.4, frame_on(BEACH, W / 2, H / 2, 1.16), 1.2)
     cam.hold(u14 - 0.1, frame_on(BEACH, W / 2, H / 2, 1.2))
+    BEACH.add(at("s14", "Three months later") - 0.2, panel((1110, 250, 580, 150), CREAM, 0.94), until=u14)
     BEACH.add(at("s14", "Three months later"), tag("3 MONTHS LATER", 1400, 200, 40, rot=-3, pin=True), until=u14)
     BEACH.add(at("s14", "the Americans landed"), headline("THE AMERICANS LAND", 1400, 300, 38, RUST, rise=10), until=u14)
     BEACH.add(at("s14", "The Japanese garrison"), headline("GARRISON DESTROYED IN DAYS", 1400, 360, 30, INK),
@@ -586,7 +587,7 @@ def build(ctx):
             until=u45)  # hold: 1 (through s45)
     CLR.add(at("s44", "On the ninth"), tag("9 MAR 1974", 560, 200, 42, rot=-3, pin=True), until=u45)
     CLR.add(at("s44", "rescinding the 1944"), tag("1944 ORDER RESCINDED", 1290, 850, 34, bg=MUSTARD, rot=1), until=u45)
-    CLR.add(at("s44", "Onoda was relieved"), headline("RELIEVED", 1290, 200, 52, RUST, rise=10), until=u45)
+    CLR.add(at("s44", "Onoda was relieved"), tag("RELIEVED", 1290, 200, 48, bg=RUST, rgb=CREAM, rot=-2, pin=True), until=u45)
 
     # ============================================================ s46: weapons handed over
     u46 = nx("s46")
@@ -618,7 +619,7 @@ def build(ctx):
     cam.go(st("s48") + 0.9, frame_on(PORT, W / 2, H / 2, 1.0), 2.0)
     cam.hold(u48 - 0.1, frame_on(PORT, W / 2, H / 2, 1.05))
     PORT.add(st("s48") - 0.4, actor(R("onoda", "suit_crowd"), 900, 960, 600, motion=walk(-260, 0, 0, 1.6, bob=5)), until=nx("s49") + 0.3)
-    PORT.add(st("s48") + 0.6, actor(R("crowd", "press"), 1500, 980, 420, flip=True, seed=0.5), until=nx("s49") + 0.3)
+    PORT.add(st("s48") + 0.6, actor(R("crowd", "press"), 1500, 980, 420, flip=True, seed=0.5), until=st("s49") + 0.6)
     for i in range(4):
         PORT.add(at("s48", "and the country") + i * 0.35, sprite(P("flashbulbs"), 1350 + (i % 2) * 260, 560 - i * 30, 220,
                                                                   entry="pop", dur=0.25, exit_at=0.5), until=u48)
@@ -674,7 +675,7 @@ def build(ctx):
     TOKYO.add(at("s52", "He wrote a memoir"), sprite(P("memoir"), 700, 560, 380, entry="rise"), until=u52)
     TOKYO.add(at("s52", "He wrote a memoir") + 0.4, headline("A MEMOIR", 700, 300, 52, INK), until=u52)
     TOKYO.add(at("s52", "And within"), sprite(P("suitcase"), 1250, 600, 300, entry="pop"), until=u52)
-    TOKYO.add(at("s52", "he left"), headline("18 MONTHS LATER: GONE", 1250, 330, 40, RUST), until=u52)
+    TOKYO.add(at("s52", "he left"), tag("18 MONTHS LATER: GONE", 1250, 330, 38, bg=RUST, rgb=CREAM, rot=2), until=u52)
 
     # ============================================================ s53: Brazil, cattle, nobody knew him
     u53 = nx("s53")
