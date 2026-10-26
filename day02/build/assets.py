@@ -71,6 +71,9 @@ SHEET_REF = {"onoda_civilian": "onoda", "onoda_older": "onoda", "taniguchi_books
 MAG = (" One single full-body figure, centred, filling about three quarters of the image height, feet fully "
        "visible, on a plain flat solid magenta #FF00FF background that fills the whole image right to all four "
        "edges, no border, no frame, nothing else in the image and no ground shadow. ")
+MAG_GROUP = (" The whole group together, every person full body with feet visible, centred and filling about three "
+             "quarters of the image height, on a plain flat solid magenta #FF00FF background that fills the whole "
+             "image right to all four edges, no border, no frame, nothing else in the image and no ground shadow. ")
 GAP = "Both arms hang a little away from the body so a clear strip of magenta shows between each arm and the torso. "
 # id -> (sheet refs, split arms?, prompt). Wording carries the beat's action from build.json.
 POSES = {
@@ -222,7 +225,9 @@ def main():
             if only and pid not in only and cid not in only:
                 continue
             out = os.path.join(RAW, f"pose_{cid}_{pose}.png")
-            gen(vx, prompt + MAG + FACE, out, "16:9", [os.path.join(RAW, f"sheet_{r}.png") for r in refs])
+            group = cid in ("crowd", "comrades") and pose != "one_leaves"
+            gen(vx, prompt + (MAG_GROUP if group else MAG) + FACE, out, "16:9",
+                [os.path.join(RAW, f"sheet_{r}.png") for r in refs])
             if POSES[pid][1]:  # a rig matte: an edit of the pose that colours head and arms for the split
                 m = out.replace(".png", "_matte.png")
                 gen(vx, MATTE, m, "16:9", [out])
