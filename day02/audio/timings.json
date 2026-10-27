@@ -1,5 +1,5 @@
 {
- "total": 816.791,
+ "total": 844.355,
  "segments": [
   {
    "id": "s01",
@@ -434,6 +434,13 @@
    "end": 813.791,
    "pause_after": 3000,
    "text": "A bookseller had to get on a plane."
+  },
+  {
+   "id": "s63",
+   "start": 816.791,
+   "end": 841.355,
+   "pause_after": 3000,
+   "text": "The only thing that could end Hiroo Onoda's war was the voice that started it. Not the truth, not the evidence, not his own brother. An order. He kept faith with it for twenty-nine years, and the people of Lubang paid for that faith with their lives. That is the whole story, and it is a warning: loyalty is only ever as good as the thing it is loyal to."
   }
  ]
 }

@@ -1,6 +1,6 @@
 """Day 02, s09 to s62: the training, the island, the reasoning, the dead, the finding, the order, the return.
 
-Same rules as scenes.py. Still beats (s25-s27, s31, s45) are framed before their clocks stop, so the
+Same rules as scenes.py. The still beat (s45) and every structural silence are framed before their clocks stop, so the
 camera arrives in the pause before them; nothing is added inside them. Cards that `hold` across a
 camera move ride on a screen overlay so they stay put while the world moves behind them.
 """
@@ -175,7 +175,7 @@ def build(ctx):
     cam.hold(at("s10", "Both were failures"), frame_on(CLASS, 1000, 560, 1.08))
     cam.go(at("s10", "Both were failures") + 0.8, frame_on(CLASS, 1150, 640, 1.18), 0.9)
     cam.hold(u10, frame_on(CLASS, 1150, 640, 1.21))
-    CLASS.add(st("s10") - 0.3, actor(R("onoda", "study_paper"), 560, 930, 420, seed=0.3), until=nx("s11") + 0.3)
+    CLASS.add(st("s10") - 0.3, actor(R("onoda", "study_paper"), 560, 930, 420, seed=0.3), until=st("s11"))
     CLASS.add(at("s10", "The Nakano School"), tag("NAKANO SCHOOL, TOKYO", 560, 300, 40, bg=MUSTARD, rot=-3, pin=True),
               until=u10)
     CLASS.add(at("s10", "trained men for"), panel((1010, 170, 760, 700), CREAM, 0.96), until=u10)
@@ -199,8 +199,8 @@ def build(ctx):
     u11 = nx("s11")
     cam.go(st("s11") + 0.5, frame_on(CLASS, W / 2, H / 2, 1.0), 0.9)
     cam.hold(u11 - 0.1, frame_on(CLASS, W / 2, H / 2 - 20, 1.05))
-    CLASS.add(st("s11") - 0.2, light_corridor(960, 330, 1080, 900, 120), until=u11 + 0.4)
-    CLASS.add(st("s11") + 0.4, actor(R("onoda", "alone_stand"), 960, 470, 170, seed=1.1, enter="fade"), until=u11 + 0.4)
+    CLASS.add(st("s11") - 0.2, spotlight(960, 930, 170, 620), until=u11 + 0.4)
+    CLASS.add(st("s11") + 0.4, actor(R("onoda", "alone_stand"), 960, 930, 440, seed=1.1, enter="fade"), until=u11 + 0.4)
     CLASS.add(at("s11", "not a frightened"), tag("A FRIGHTENED CONSCRIPT?", 520, 200, 38, rot=-3), until=u11)
     CLASS.add(at("s11", "not a frightened") + 1.2, cross(520, 200, 40, RUST, 12), until=u11)
     CLASS.add(at("s11", "specifically trained"), tag("TRAINED TO DO EXACTLY THIS", 1380, 200, 38, bg=MUSTARD, rot=2, pin=True),
@@ -275,8 +275,8 @@ def build(ctx):
     u15 = nx("s15")
     cam.go(st("s15") + 0.6, frame_on(CLR, W / 2, H / 2, 1.16), 1.4)
     cam.hold(u15 - 0.1, frame_on(CLR, W / 2, H / 2 - 10, 1.2))
-    CLR.add(st("s15") - 0.4, actor(R("comrades", "group_fire"), 1300, 560, 170, seed=0.8), until=u15 + 0.3)
-    CLR.add(st("s15") - 0.4, actor(R("onoda", "sit_fire"), 1180, 560, 150, seed=1.8), until=u15 + 0.3)
+    CLR.add(st("s15") - 0.4, actor(R("comrades", "group_fire"), 1040, 920, 270, seed=0.8), until=u15 + 0.3)
+    CLR.add(st("s15") - 0.4, actor(R("onoda", "sit_fire"), 820, 925, 250, seed=1.8), until=u15 + 0.3)
     CLR.add(at("s15", "Four men") - 0.2, panel((440, 260, 420, 340), CREAM, 0.95), until=u15)
     CLR.add(at("s15", "Four men"), headline("4 MEN", 520, 360, 64, INK, "left"), until=u15)
     CLR.add(at("s15", "on a small island"), headline("1 ISLAND", 520, 450, 64, OLIVE, "left"), until=u15)
@@ -354,7 +354,7 @@ def build(ctx):
              ("LETTERS", at("s21", "Letters from")), ("LOUDSPEAKERS", at("s21", "Loudspeakers"))]
     tags(DEEP, items, 420, 220, 90, 36, until=u21)
     DEEP.add(at("s21", "Newspapers") + 0.2, sprite(P("newspapers"), 760, 720, 280, entry="drop"), until=u21)
-    DEEP.add(at("s21", "played from aircraft") - 0.6, sprite(P("plane_speaker"), 0, 0, 380,
+    DEEP.add(at("s21", "played from aircraft") - 0.6, sprite(P("plane_speaker"), 0, 0, 380, flip=True,
                                                             path=curve((-300, 160), (2200, 120), 0.03), dur=6.0), until=u21)
     DEEP.add(at("s21", "his own brother"), bubble("HIS BROTHER'S VOICE", 1050, 300), until=u21)
     for i, (s, t) in enumerate([("UNDER DURESS?", at("s21", "under duress")), ("SPLICED?", at("s21", "or spliced")),
@@ -393,10 +393,26 @@ def build(ctx):
     cam.hold(en("s24"), frame_on(DEEP, 900, 420, 1.33))
     DEEP.add(at("s24", "And they fought"), headline("AND THEY FOUGHT", 900, 440, 80, CREAM, rise=14), until=u24)
 
-    # ============================================================ s25-s27 (still): the islanders who were killed
-    # The empty rice field, framed before the clock stops; nothing is added (beat note).
-    cam.go(st("s25") - 0.05, frame_on(RICE, W / 2, H / 2, 1.16), 1.3)
-    cam.hold(nx("s27"), frame_on(RICE, W / 2, H / 2, 1.16))
+    # ============================================================ s25-s27 (calm): the islanders who were killed
+    # Owner direction (27 Oct): gentle motion instead of a frozen frame. Still no cast, no props, no violence:
+    # a slow drift over the empty field as the dusk deepens, and quiet type that builds line by line.
+    u27 = en("s27")
+    cam.go(st("s25") - 0.05, frame_on(RICE, W / 2 - 120, H / 2 + 20, 1.16), 1.3)
+    cam.hold(nx("s25"), frame_on(RICE, W / 2 - 40, H / 2 + 10, 1.22))
+    cam.hold(nx("s26"), frame_on(RICE, W / 2 + 40, H / 2, 1.28))
+    cam.hold(u27, frame_on(RICE, W / 2 + 90, H / 2 - 10, 1.33))
+    cam.hold(nx("s27"), frame_on(RICE, W / 2 + 90, H / 2 - 10, 1.33))
+    RICE.add(st("s25"), dusk(u27 - st("s25")), until=nx("s27") + 0.6, fade=0.6)
+    quiet = [("TO HIM: AN ENEMY POPULATION", "s25", "an enemy population", "s25", "The farmers"),
+             ("FARMERS  ·  POLICE", "s25", "The farmers", "s25", "Over the course"),
+             ("AROUND 30 ISLANDERS KILLED", "s25", "around thirty", "s26", "They were not soldiers"),
+             ("NOT SOLDIERS", "s26", "They were not soldiers", "s26", "being shot at"),
+             ("A WAR THAT HAD ALREADY ENDED", "s26", "a war that had ended", "s27", "Any honest"),
+             ("THE SAME FACT", "s27", "They are the same fact", None, None)]
+    for s_, sa, pa, sb, pb in quiet:
+        t0 = at(sa, pa)
+        t1 = at(sb, pb) - 0.3 if sb else u27
+        RICE.add(t0, quiet_line(s_, 960, 300, t1 - t0), until=t1, fade=0.6)
 
     # ============================================================ s28: the group shrank
     u28 = nx("s28")
@@ -431,8 +447,15 @@ def build(ctx):
 
     # ============================================================ s31 (still): alone. A rifle against a tree, a cold fire.
     t31 = st("s31")
-    cam.go(t31 - 0.05, frame_on(CLR, 1100, 620, 1.3), 1.4)
-    cam.hold(nx("s31"), frame_on(CLR, 1100, 620, 1.3))
+    cam.go(t31 - 0.05, frame_on(CLR, 1100, 620, 1.18), 1.4)
+    cam.hold(en("s31"), frame_on(CLR, 1180, 660, 1.42))
+    cam.hold(nx("s31"), frame_on(CLR, 1180, 660, 1.42))
+    for s_, ph, nxt, y in (("ALONE", "After that", "He was fifty", 430), ("50 YEARS OLD", "He was fifty", "He kept up", 430),
+                           ("STILL ON PATROL", "He kept up", "He kept the rifle", 430),
+                           ("THE RIFLE KEPT CLEAN", "He kept the rifle", "He kept, as far", 430),
+                           ("NOBODY LEFT TO SEE HIM", "with nobody left", None, 430)):
+        t1 = at("s31", nxt) - 0.2 if nxt else en("s31")
+        CLR.add(at("s31", ph), quiet_line(s_, 1180, y, t1 - at("s31", ph), size=50), until=t1, fade=0.5)
     CLR.add(t31 - 0.6, sprite(P("rifle"), 1420, 640, 380, entry="none", rot=-72), until=nx("s31"), fade=0.0)
     CLR.add(t31 - 0.6, cold_fire(P("campfire"), 960, 860, 260), until=nx("s31"), fade=0.0)
 
@@ -508,7 +531,7 @@ def build(ctx):
     CLR.add(at("s37", "search parties"), actor(R("crowd", "search_party"), 480, 760, 300,
                                                motion=keys((0, {"scale": 1.0}), (4.5, {"scale": 1.0}), (6.5, {"scale": 0.0}))),
             until=u37)
-    CLR.add(at("s37", "aircraft"), sprite(P("plane_speaker"), 480, 400, 300, entry="slide_l", exit_at=4.0), until=u37)
+    CLR.add(at("s37", "aircraft"), sprite(P("plane_speaker"), 480, 400, 300, entry="slide_l", exit_at=4.0, flip=True), until=u37)
     CLR.add(at("s37", "broadcasts"), sprite(P("loudspeaker"), 240, 600, 140, entry="pop", exit_at=3.6), until=u37)
     CLR.add(at("s37", "And then one young man"), tag("VS ONE YOUNG MAN WITH NOTHING", 1440, 230, 34, bg=MUSTARD, rot=2), until=u37)
     CLR.add(at("s37", "apparently wanting to talk"), bubble("...", 1060, 640), until=u37)
@@ -780,11 +803,71 @@ def build(ctx):
     # ============================================================ s62 (calm, cut): a bookseller had to get on a plane
     cam.cut(st("s62"), frame_on(SHOP, W / 2, H / 2, 1.0))
     cam.hold(en("s62"), frame_on(SHOP, W / 2, H / 2 - 10, 1.02))
-    cam.hold(tl.total + 10, frame_on(SHOP, W / 2, H / 2 - 10, 1.02))
-    SHOP.add(st("s62") - 0.01, open_door(1500, 330, 220, 440), until=tl.total + 10)
+    cam.hold(nx("s62"), frame_on(SHOP, W / 2, H / 2 - 10, 1.02))
+    SHOP.add(st("s62") - 0.01, open_door(1500, 330, 220, 440), until=nx("s62") + 3.0)
+
+    # ============================================================ s63 (calm): the closing line, back where it began
+    t63 = st("s63")
+    cam.go(t63 + 3.2, frame_on(ISL, W / 2, H / 2, 1.0), 3.4)  # rise out of the bookshop, fly back to the island
+    cam.hold(en("s63"), frame_on(ISL, W / 2, H / 2 + 20, 1.12))
+    cam.hold(tl.total + 10, frame_on(ISL, W / 2, H / 2 + 20, 1.12))
+    close = [("THE VOICE THAT STARTED IT", "the voice that started it", 230, 48, CREAM, INK),
+             ("NOT THE TRUTH  ·  NOT THE EVIDENCE  ·  NOT HIS BROTHER", "Not the truth", 330, 30, INK, CREAM),
+             ("AN ORDER", "An order", 430, 60, CREAM, RUST),
+             ("29 YEARS", "He kept faith", 230, 56, INK, MUSTARD),
+             ("THE PEOPLE OF LUBANG PAID", "the people of Lubang", 330, 42, CREAM, INK)]
+    t_warn = at("s63", "loyalty is only")
+    t_faith = at("s63", "He kept faith")
+    for s_, ph, y, size, rgb, bg in close:
+        t0 = at("s63", ph)
+        ISL.add(t0, tag(s_, 960, y, size, rgb=rgb, bg=bg, rot=0), until=(t_faith if t0 < t_faith else t_warn) - 0.3, fade=0.4)
+    ISL.add(t_warn - 0.2, panel((310, 150, 1300, 300), INK, 0.9), until=tl.total + 10)
+    ISL.add(t_warn, headline("LOYALTY IS ONLY EVER AS GOOD", 960, 270, 62, CREAM, f=title_font(66)), until=tl.total + 10)
+    ISL.add(t_warn + 1.4, headline("AS THE THING IT IS LOYAL TO", 960, 380, 62, MUSTARD, f=title_font(66)), until=tl.total + 10)
 
 
 # ---------------------------------------------------------------- builders used only here
+
+def spotlight(cx, floor_y, top_w, floor_w, a=0.8):
+    """A cone of light falling from above onto one spot on the floor, the room darkened around it."""
+    def draw(c, age):
+        p = out_cubic(age / 0.8)
+        c.drawRect(skia.Rect.MakeWH(W, H), fill(INK, 0.9 * p))
+        cone = poly([(cx - top_w / 2, -40), (cx + top_w / 2, -40), (cx + floor_w / 2, floor_y), (cx - floor_w / 2, floor_y)], True)
+        lp = fill(CREAM, 0.5 * a * p)
+        lp.setMaskFilter(skia.MaskFilter.MakeBlur(skia.kNormal_BlurStyle, 22))
+        c.drawPath(cone, lp)
+        pool = fill(CREAM, a * p)
+        pool.setMaskFilter(skia.MaskFilter.MakeBlur(skia.kNormal_BlurStyle, 14))
+        c.drawOval(skia.Rect.MakeXYWH(cx - floor_w / 2, floor_y - 55, floor_w, 110), pool)
+    return draw
+
+
+def dusk(dur):
+    """The light going over the field: a warm wash that deepens slowly towards evening."""
+    def draw(c, age):
+        q = smooth(age / max(dur, 1))
+        top = fill(RUST, 0.10 + 0.16 * q)
+        c.drawRect(skia.Rect.MakeXYWH(-40, -40, W + 80, H * 0.55), top)
+        c.drawRect(skia.Rect.MakeXYWH(-40, -40, W + 80, H + 80), fill(INK, 0.08 + 0.30 * q))
+    return draw
+
+
+def quiet_line(s, x, y, dur, size=50, band=True):
+    """A single line of quiet type that fades in slowly, holds, and fades out: no pop, no overshoot."""
+    f = title_font(size)
+    tw = text_width(s, f)
+
+    def draw(c, age):
+        a = smooth(age / 1.2)
+        if a <= 0:
+            return
+        if band:
+            c.drawRoundRect(skia.Rect.MakeXYWH(x - tw / 2 - 40, y - size * 1.05, tw + 80, size * 1.55), 14, 14,
+                            fill(INK, 0.55 * a))
+        text(c, s, x, y + 4 * (1 - a), f, CREAM, a, "center")
+    return draw
+
 
 def glide(draw, t_move, a, b, dur, t_end=None):
     """Move a drawn card from offset a to offset b starting t_move (ages); a card may move, never rescale."""

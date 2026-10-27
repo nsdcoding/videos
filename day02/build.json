@@ -3,7 +3,13 @@
  "day": 2,
  "title": "The Soldier Who Kept Fighting WWII Until 1974",
  "runtime_target_sec": 1150,
- "audio": {"voice": "en-US-Chirp3-HD-Charon", "encoding": "LINEAR16", "sample_rate_hz": 24000, "speaking_rate": 0.92, "music": null},
+ "audio": {
+  "voice": "en-US-Chirp3-HD-Charon",
+  "encoding": "LINEAR16",
+  "sample_rate_hz": 24000,
+  "speaking_rate": 0.92,
+  "music": null
+ },
  "notes": [
   "Public-domain photographs of Onoda exist on Commons and are used. The 1944 photograph with his brother Shigeo (p04) is used twice deliberately.",
   "The 1944 images are tagged public domain on Commons under Japanese law for photographs of that period. That status is well established but is a determination by Commons editors, not a statement from the rights holder; it is worth knowing if a claim is ever made.",
@@ -11,14 +17,69 @@
   "No illustrated violence anywhere: no shooting, no victims, no firefights. Deaths are carried by stillness and empty places.",
   "Every archival URL was resolved from the Commons API and checked live.",
   "LOW RESOLUTION: surrender 1974 (37KB), Kozuka (55KB), Hiroo and Shigeo 1944 (78KB), Onoda young (104KB). Show them as cards at native size, never upscaled.",
-  "Guide objects: Onoda's rifle (the bolt opens and closes the story) and Taniguchi's folded order."
+  "Guide objects: Onoda's rifle (the bolt opens and closes the story) and Taniguchi's folded order.",
+  "27 Oct 2026, owner review: s25-s27 and s31 changed from still to calm (gentle motion, no cast or props in s25-s27); closing segment s63 added; structural silences stay still and silent."
  ],
  "cast": {
-  "onoda": {"desc": "Hiroo Onoda as a lean Japanese soldier in a patched, faded 1940s uniform and field cap, rifle slung, simple vague face, no likeness; also a young civilian version in a 1940s suit", "face": "vague", "poses": ["attention", "patrol", "crouch_watch", "listen_sky", "study_paper", "clean_rifle", "sit_fire", "alone_stand", "hand_over", "civilian_young", "suit_crowd", "rancher", "teacher_kids", "old_walk"]},
-  "taniguchi": {"desc": "Major Yoshimi Taniguchi: in 1944 an officer in uniform; in 1974 a man in his sixties in a cardigan, later in his old uniform again, simple vague face", "face": "vague", "poses": ["officer_order", "bookseller", "read_order", "uniform_again"]},
-  "suzuki": {"desc": "Norio Suzuki, a 24-year-old Japanese traveller in 1970s jeans and a big backpack, simple vague face", "face": "vague", "poses": ["backpack", "camp_wait", "talk_log", "photograph"]},
-  "comrades": {"desc": "three Japanese soldiers in patched uniforms, Akatsu, Shimada and Kozuka, simple vague faces, drawn as a group that can be reduced one at a time", "face": "vague", "poses": ["four_climb", "group_fire", "one_leaves"]},
-  "crowd": {"desc": "a lineup of extras: search party in 1950s gear, 1974 press photographers, airport crowd, Brazilian ranch hands, Japanese schoolchildren with backpacks, simple vague faces", "face": "vague", "poses": ["search_party", "press", "airport", "kids_hike"]}
+  "onoda": {
+   "desc": "Hiroo Onoda as a lean Japanese soldier in a patched, faded 1940s uniform and field cap, rifle slung, simple vague face, no likeness; also a young civilian version in a 1940s suit",
+   "face": "vague",
+   "poses": [
+    "attention",
+    "patrol",
+    "crouch_watch",
+    "listen_sky",
+    "study_paper",
+    "clean_rifle",
+    "sit_fire",
+    "alone_stand",
+    "hand_over",
+    "civilian_young",
+    "suit_crowd",
+    "rancher",
+    "teacher_kids",
+    "old_walk"
+   ]
+  },
+  "taniguchi": {
+   "desc": "Major Yoshimi Taniguchi: in 1944 an officer in uniform; in 1974 a man in his sixties in a cardigan, later in his old uniform again, simple vague face",
+   "face": "vague",
+   "poses": [
+    "officer_order",
+    "bookseller",
+    "read_order",
+    "uniform_again"
+   ]
+  },
+  "suzuki": {
+   "desc": "Norio Suzuki, a 24-year-old Japanese traveller in 1970s jeans and a big backpack, simple vague face",
+   "face": "vague",
+   "poses": [
+    "backpack",
+    "camp_wait",
+    "talk_log",
+    "photograph"
+   ]
+  },
+  "comrades": {
+   "desc": "three Japanese soldiers in patched uniforms, Akatsu, Shimada and Kozuka, simple vague faces, drawn as a group that can be reduced one at a time",
+   "face": "vague",
+   "poses": [
+    "four_climb",
+    "group_fire",
+    "one_leaves"
+   ]
+  },
+  "crowd": {
+   "desc": "a lineup of extras: search party in 1950s gear, 1974 press photographers, airport crowd, Brazilian ranch hands, Japanese schoolchildren with backpacks, simple vague faces",
+   "face": "vague",
+   "poses": [
+    "search_party",
+    "press",
+    "airport",
+    "kids_hike"
+   ]
+  }
  },
  "sets": {
   "island_sea": "a small green jungle island rising out of a turquoise sea seen from the air, white surf at its edges",
@@ -75,79 +136,1371 @@
   "lacquerware": "a stack of glossy lacquerware boxes and bowls with gold edges"
  },
  "photos": {
-  "p01": {"title": "Lubang Island 2013", "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Lubang_Island_2013.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Lubang_Island_2013.jpg", "author": "Elmer B. Domingo", "licence": "CC BY-SA 4.0", "caption": "Lubang Island, 2013"},
-  "p02": {"title": "Hiroo Onoda young", "file_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Hiroo_Onoda_young.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Hiroo_Onoda_young.jpg", "author": "Unknown", "licence": "Public domain", "low_res": true},
-  "p03": {"title": "Arisaka Type 99 bolt unlocked", "file_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Arisaka_Type_99_boltunlocked.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Arisaka_Type_99_boltunlocked.jpg", "author": "BenDibble", "licence": "CC BY-SA 3.0"},
-  "p04": {"title": "Hiroo and Shigeo Onoda, 1944", "file_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Hiroo_and_shigeo_onoda_1944.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Hiroo_and_shigeo_onoda_1944.jpg", "author": "Mainichi Shimbun", "licence": "Public domain", "low_res": true},
-  "p05": {"title": "Lubang Island Beach", "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Lubang_Island_Beach.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Lubang_Island_Beach.jpg", "author": "Elmer B. Domingo", "licence": "CC BY-SA 4.0", "caption": "Lubang Island today"},
-  "p06": {"title": "Arisaka Type 99 rifle, full view", "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Arisaka_Type_99_full.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Arisaka_Type_99_full.jpg", "author": "BenDibble", "licence": "CC BY-SA 3.0"},
-  "p07": {"title": "Lubang Group of Islands, 2023", "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Lubang_Group_of_Islands%2C_2023_%2801%29.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Lubang_Group_of_Islands,_2023_(01).jpg", "author": "Bahnfrend", "licence": "CC BY-SA 4.0", "caption": "The Lubang islands, 2023"},
-  "p08": {"title": "Kinshichi Kozuka", "file_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Kozuka_kinshichi.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Kozuka_kinshichi.jpg", "author": "Mainichi Shimbun", "licence": "Public domain", "low_res": true},
-  "p09": {"title": "Hiro Onoda surrender, 1974", "file_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Hir%C5%8D_Onoda_surrender_1974.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Hir%C5%8D_Onoda_surrender_1974.jpg", "author": "Malacanang Palace", "licence": "Public domain", "low_res": true},
-  "p10": {"title": "President Marcos and Hiroo Onoda", "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/President_Marcos_and_Hiroo_Onoda.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:President_Marcos_and_Hiroo_Onoda.jpg", "author": "Malacanang Palace", "licence": "Public domain"},
-  "p11": {"title": "Sunset at Lubang Island, Mindoro", "file_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Sunset_at_Lubang_Island_Mindoro.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Sunset_at_Lubang_Island_Mindoro.jpg", "author": "Elmer B. Domingo", "licence": "CC BY-SA 4.0", "caption": "Lubang today"},
-  "p12": {"title": "Hiroo Onoda with councilman Gilbert Lindsay", "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Hiroo_Onoda_with_councilman_Gilbert_Lindsay.jpg", "page_url": "https://commons.wikimedia.org/wiki/File:Hiroo_Onoda_with_councilman_Gilbert_Lindsay.jpg", "author": "Christine Maple, Los Angeles Times", "licence": "CC BY 4.0"}
+  "p01": {
+   "title": "Lubang Island 2013",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Lubang_Island_2013.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Lubang_Island_2013.jpg",
+   "author": "Elmer B. Domingo",
+   "licence": "CC BY-SA 4.0",
+   "caption": "Lubang Island, 2013"
+  },
+  "p02": {
+   "title": "Hiroo Onoda young",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Hiroo_Onoda_young.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Hiroo_Onoda_young.jpg",
+   "author": "Unknown",
+   "licence": "Public domain",
+   "low_res": true
+  },
+  "p03": {
+   "title": "Arisaka Type 99 bolt unlocked",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Arisaka_Type_99_boltunlocked.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Arisaka_Type_99_boltunlocked.jpg",
+   "author": "BenDibble",
+   "licence": "CC BY-SA 3.0"
+  },
+  "p04": {
+   "title": "Hiroo and Shigeo Onoda, 1944",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Hiroo_and_shigeo_onoda_1944.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Hiroo_and_shigeo_onoda_1944.jpg",
+   "author": "Mainichi Shimbun",
+   "licence": "Public domain",
+   "low_res": true
+  },
+  "p05": {
+   "title": "Lubang Island Beach",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Lubang_Island_Beach.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Lubang_Island_Beach.jpg",
+   "author": "Elmer B. Domingo",
+   "licence": "CC BY-SA 4.0",
+   "caption": "Lubang Island today"
+  },
+  "p06": {
+   "title": "Arisaka Type 99 rifle, full view",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Arisaka_Type_99_full.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Arisaka_Type_99_full.jpg",
+   "author": "BenDibble",
+   "licence": "CC BY-SA 3.0"
+  },
+  "p07": {
+   "title": "Lubang Group of Islands, 2023",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Lubang_Group_of_Islands%2C_2023_%2801%29.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Lubang_Group_of_Islands,_2023_(01).jpg",
+   "author": "Bahnfrend",
+   "licence": "CC BY-SA 4.0",
+   "caption": "The Lubang islands, 2023"
+  },
+  "p08": {
+   "title": "Kinshichi Kozuka",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Kozuka_kinshichi.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Kozuka_kinshichi.jpg",
+   "author": "Mainichi Shimbun",
+   "licence": "Public domain",
+   "low_res": true
+  },
+  "p09": {
+   "title": "Hiro Onoda surrender, 1974",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Hir%C5%8D_Onoda_surrender_1974.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Hir%C5%8D_Onoda_surrender_1974.jpg",
+   "author": "Malacanang Palace",
+   "licence": "Public domain",
+   "low_res": true
+  },
+  "p10": {
+   "title": "President Marcos and Hiroo Onoda",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/President_Marcos_and_Hiroo_Onoda.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:President_Marcos_and_Hiroo_Onoda.jpg",
+   "author": "Malacanang Palace",
+   "licence": "Public domain"
+  },
+  "p11": {
+   "title": "Sunset at Lubang Island, Mindoro",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Sunset_at_Lubang_Island_Mindoro.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Sunset_at_Lubang_Island_Mindoro.jpg",
+   "author": "Elmer B. Domingo",
+   "licence": "CC BY-SA 4.0",
+   "caption": "Lubang today"
+  },
+  "p12": {
+   "title": "Hiroo Onoda with councilman Gilbert Lindsay",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Hiroo_Onoda_with_councilman_Gilbert_Lindsay.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Hiroo_Onoda_with_councilman_Gilbert_Lindsay.jpg",
+   "author": "Christine Maple, Los Angeles Times",
+   "licence": "CC BY 4.0"
+  }
  },
  "beats": [
-  {"segments": ["s01"], "energy": "high", "set": "island_sea", "cast": [["taniguchi", "read_order", "walks into the jungle with a paper"], ["onoda", "attention", "stands at attention"]], "props": ["order"], "photo": {"ref": "p01", "entry": "slide_up", "hold": "beat"}, "graphics": ["9 Mar 1974", "Japan → Lubang route", "a bookseller, 61", "a patched uniform"], "labels": ["Japan", "Lubang"]},
-  {"segments": ["s02"], "energy": "high", "set": "jungle_clearing", "cast": [["taniguchi", "read_order", "reads aloud"]], "props": ["order", "flag_folded"], "graphics": ["14th Area Army: dissolved", "cease all combat", "relieved of duty"]},
-  {"segments": ["s03"], "energy": "high", "cast": [["onoda", "attention", "close on him, rigid"]], "photo": {"ref": "p02", "entry": "pin", "hold": "beat"}, "graphics": ["2nd Lt Hiroo Onoda", "age 51", "alone: 18 months", "with others: 27 years before"]},
-  {"segments": ["s04"], "energy": "high", "set": "jungle_deep", "cast": [["onoda", "crouch_watch", "watches from the undergrowth"], ["crowd", "search_party", "pass by on a ridge"]], "props": ["leaflets", "loudspeaker", "plane_speaker"], "graphics": ["leaflets", "loudspeakers", "search parties", "his family's voices", "dismissed ✗ ✗ ✗"]},
-  {"segments": ["s05"], "energy": "calm", "props": ["order"], "graphics": ["an order", "in person", "from the officer who gave the first"]},
-  {"segments": ["s06"], "energy": "high", "set": "bookshop", "cast": [["taniguchi", "bookseller", "shelving books, then looks at the old uniform"]], "props": ["uniform"], "graphics": ["that officer: now a bookseller", "put the uniform back on"]},
-  {"segments": ["s07"], "energy": "calm", "set": "jungle_clearing", "cast": [["onoda", "hand_over", "draws the bolt out"]], "props": ["bolt", "rifle"], "photo": {"ref": "p03", "entry": "drop", "hold": "beat"}, "transition": "cut", "title_overlay": "The Soldier Who Kept Fighting WWII Until 1974", "note": "Hold the bolt through the line. Build the title during the 2.5s pause, then everything still."},
-  {"segments": ["s08"], "energy": "high", "set": "village_1920s", "cast": [["onoda", "civilian_young", "a young man in a suit, walking through the village, then a trading house"]], "props": ["lacquerware"], "photo": {"ref": "p04", "entry": "slide_left", "hold": "beat"}, "graphics": ["born Mar 1922, Wakayama", "trading company, China", "lacquerware", "a gift for languages", "drafted at 20", "unremarkable"], "note": "Hiroo with his brother Shigeo. This is the brother whose recorded voice was later played to him in the jungle (s21). Do not explain that on screen; the rhyme lands on its own."},
-  {"segments": ["s09"], "energy": "calm", "set": "classroom_1940s", "graphics": ["where he trained"]},
-  {"segments": ["s10"], "energy": "high", "cast": [["onoda", "study_paper", "studies at a desk"]], "props": ["flag_folded"], "graphics": ["Nakano School, Tokyo", "intelligence · unconventional war", "guerrilla · sabotage", "hold out behind the lines", "captured ✗", "suicide ✗", "survive and resist"]},
-  {"segments": ["s11"], "energy": "high", "cast": [["onoda", "alone_stand", "small at the end of a long corridor of light"]], "props": ["medal"], "graphics": ["trained to do exactly this", "decades = success"]},
-  {"segments": ["s12"], "energy": "high", "set": "map_philippines", "props": ["rifle"], "photo": {"ref": "p05", "entry": "slide_up", "hold": 1}, "graphics": ["Dec 1944", "Lubang: ~30 km", "destroy the airstrip and pier", "harass any landing", "hold"], "labels": ["Philippines", "Lubang"]},
-  {"segments": ["s13"], "energy": "high", "set": "airstrip", "cast": [["taniguchi", "officer_order", "hands over the order"], ["onoda", "attention", "takes it"]], "props": ["order"], "graphics": ["Maj. Yoshimi Taniguchi", "surrender ✗", "suicide ✗", "hold out, however long", "I will come back for you"]},
-  {"segments": ["s14"], "energy": "high", "set": "beach_dawn", "cast": [["comrades", "four_climb", "four men climb into the hills with Onoda"]], "photo": {"ref": "p07", "entry": "slide_right", "hold": "beat"}, "graphics": ["3 months later: the Americans land", "garrison destroyed in days", "Akatsu · Shimada · Kozuka"]},
-  {"segments": ["s15"], "energy": "calm", "set": "jungle_clearing", "cast": [["comrades", "group_fire", "tiny on a ridge"]], "graphics": ["4 men · 1 island · 1 order"]},
-  {"segments": ["s16"], "energy": "high", "set": "jungle_deep", "cast": [["onoda", "patrol", "keeps patrolling as the pages fly past"]], "props": ["calendar_1945"], "graphics": ["Aug 1945: the war ends", "nobody believed it"], "transition": "cut"},
-  {"segments": ["s17"], "energy": "high", "cast": [["onoda", "study_paper", "thinks by firelight"]], "props": ["chess"], "graphics": ["not insane", "not stupid", "almost airtight"]},
-  {"segments": ["s18"], "energy": "high", "cast": [["onoda", "crouch_watch", "watches the search party"]], "props": ["lure", "loudspeaker"], "graphics": ["trained in deception", "announcement = bait", "louder = more proof he mattered"]},
-  {"segments": ["s19"], "energy": "high", "cast": [["onoda", "study_paper", "examines a leaflet"], ["comrades", "group_fire", "lean in"]], "props": ["leaflets", "magnifier"], "graphics": ["late 1945", "Gen. Tomoyuki Yamashita's order", "phrasing errors circled beside the card, not on it", "forgeries"]},
-  {"segments": ["s20"], "energy": "calm", "props": ["leaflets"], "graphics": ["right, by their logic", "talked out of the end of the war"]},
-  {"segments": ["s21"], "energy": "high", "cast": [["onoda", "listen_sky", "listens to the voice from the sky"]], "props": ["newspapers", "plane_speaker"], "graphics": ["newspapers · photographs · letters · loudspeakers", "his brother's voice", "under duress? spliced? imitated?"]},
-  {"segments": ["s22"], "energy": "calm", "cast": [["onoda", "alone_stand", "inside a ring of arrows that all loop back"]], "graphics": ["every argument = part of the trap"]},
-  {"segments": ["s23"], "energy": "high", "cast": [["onoda", "clean_rifle", "cleans the rifle"]], "props": ["bananas", "lean_to", "rifle", "oil_tin"], "graphics": ["bananas · coconuts · rice", "rainy season: shelters", "dry season: moving", "29 years counter", "the rifle still worked"]},
-  {"segments": ["s24"], "energy": "calm", "set": "jungle_deep", "graphics": ["and they fought"], "transition": "cut"},
-  {"segments": ["s25", "s26", "s27"], "energy": "still", "set": "rice_field", "note": "No movement at all across these three segments. This is the passage about the islanders who were killed. Nothing added: no cast, no props, no graphics."},
-  {"segments": ["s28"], "energy": "high", "set": "jungle_clearing", "cast": [["comrades", "one_leaves", "one walks away; the others watch"]], "graphics": ["Akatsu leaves 1949", "surrenders 1950", "proof he was turned?"]},
-  {"segments": ["s29"], "energy": "calm", "set": "beach_dawn", "photo": {"ref": "p07", "entry": "slide_left", "hold": "beat"}, "graphics": ["May 1954: Shimada"]},
-  {"segments": ["s30"], "energy": "calm", "set": "farm_smoke", "photo": {"ref": "p08", "entry": "pin", "hold": "beat"}, "graphics": ["Oct 1972", "27 years after the war", "Kozuka, with him since 1944"]},
-  {"segments": ["s31"], "energy": "still", "set": "jungle_clearing", "props": ["rifle", "campfire"], "note": "He is alone now. A rifle against a tree, a cold fire. Hold. No movement."},
-  {"segments": ["s32"], "energy": "high", "cast": [["crowd", "search_party", "search again, find nothing"]], "props": ["newspapers"], "graphics": ["back in the papers", "search parties: nothing"]},
-  {"segments": ["s33"], "energy": "high", "set": "airport_1974", "cast": [["suzuki", "backpack", "at the airport window"]], "graphics": ["early 1974", "Norio Suzuki, 24", "university dropout"]},
-  {"segments": ["s34"], "energy": "high", "cast": [["suzuki", "backpack", "ticks off his list"]], "props": ["notebook_sketch", "panda", "footprint"], "graphics": ["not a soldier · journalist · official", "1. Lieutenant Onoda", "2. a panda", "3. the Abominable Snowman"]},
-  {"segments": ["s35"], "energy": "high", "set": "jungle_clearing", "cast": [["suzuki", "camp_wait", "sits outside the tent, waiting"]], "props": ["tent"], "graphics": ["alone", "search party ✗", "loudspeaker ✗", "weapon ✗"]},
-  {"segments": ["s36"], "energy": "calm", "cast": [["onoda", "crouch_watch", "emerges at the treeline"]], "graphics": ["20 Feb 1974", "day 4"]},
-  {"segments": ["s37"], "energy": "high", "cast": [["crowd", "search_party", "shrink away"], ["suzuki", "camp_wait", "one young man, alone"]], "props": ["loudspeaker", "plane_speaker"], "graphics": ["29 years of searches", "vs one young man with nothing"]},
-  {"segments": ["s38"], "energy": "high", "cast": [["onoda", "sit_fire", "sits on a log"], ["suzuki", "talk_log", "sits beside him"]], "props": ["campfire"], "graphics": ["to listen to a soldier's feelings", "why won't you come out?"]},
-  {"segments": ["s39"], "energy": "high", "cast": [["onoda", "sit_fire", "explains"], ["suzuki", "talk_log", "listens"]], "props": ["campfire", "order"], "graphics": ["friends", "ordered in → only ordered out", "only Maj. Taniguchi", "anything else = deception"]},
-  {"segments": ["s40"], "energy": "high", "cast": [["suzuki", "photograph", "takes photographs, then flies home"]], "props": ["camera"], "graphics": ["photographs as proof"]},
-  {"segments": ["s41"], "energy": "high", "set": "bookshop", "cast": [["taniguchi", "bookseller", "behind the counter"]], "graphics": ["found: Taniguchi", "working as a bookseller"]},
-  {"segments": ["s42"], "energy": "high", "cast": [["taniguchi", "bookseller", "looks at the uniform laid out"]], "props": ["uniform", "suitcase"], "graphics": ["in his sixties", "assumed they were dead", "30 years late"]},
-  {"segments": ["s43"], "energy": "calm", "cast": [["taniguchi", "uniform_again", "buttons the old uniform"]], "graphics": ["he agreed"]},
-  {"segments": ["s44"], "energy": "calm", "set": "jungle_clearing", "cast": [["taniguchi", "read_order", "reads the order"]], "photo": {"ref": "p09", "entry": "drop", "hold": 1}, "graphics": ["9 Mar 1974", "1944 order rescinded", "relieved"], "transition": "cut", "note": "Hold across both segments. The turn of the whole video."},
-  {"segments": ["s45"], "energy": "still", "note": "The turn. Stay on the surrender photograph. Nothing new until the 2s silence ends."},
-  {"segments": ["s46"], "energy": "high", "cast": [["onoda", "hand_over", "hands over his weapons"]], "props": ["rifle", "sword", "ammo"], "photo": {"ref": "p06", "entry": "slide_right", "hold": "beat"}, "graphics": ["rifle · sword · ~500 rounds · grenades", "still in working order"]},
-  {"segments": ["s47"], "energy": "high", "set": "palace", "props": ["sword"], "photo": {"ref": "p10", "entry": "slide_up", "hold": "beat"}, "graphics": ["Manila, 2 days later", "sword presented to Ferdinand Marcos", "pardoned"]},
-  {"segments": ["s48"], "energy": "high", "set": "airport_1974", "cast": [["crowd", "press", "flashes going off"], ["onoda", "suit_crowd", "steps off the plane"]], "props": ["flashbulbs"], "graphics": ["12 Mar 1974", "Japan loses its mind"]},
-  {"segments": ["s49"], "energy": "high", "cast": [["crowd", "airport", "crowds press in"]], "props": ["tv_wall", "newspapers"], "graphics": ["every front page", "a vanished Japan", "loyalty the country had 'abandoned'"]},
-  {"segments": ["s50"], "energy": "calm", "cast": [["onoda", "suit_crowd", "alone in a hotel room, back to us"]], "graphics": ["he hated it"]},
-  {"segments": ["s51"], "energy": "high", "set": "tokyo_1974", "cast": [["onoda", "suit_crowd", "walks the neon street, out of place"]], "props": ["tv_wall"], "graphics": ["1944: a militarised empire", "1974: a prosperous consumer democracy", "a celebrity ≠ understood"]},
-  {"segments": ["s52"], "energy": "calm", "props": ["memoir", "suitcase"], "graphics": ["a memoir", "18 months later: gone"]},
-  {"segments": ["s53"], "energy": "high", "set": "ranch", "cast": [["onoda", "rancher", "rides along the fence"]], "props": ["cattle"], "graphics": ["1975: Brazil", "cattle rancher", "married", "nobody recognised him"]},
-  {"segments": ["s54"], "energy": "high", "set": "nature_camp", "cast": [["onoda", "teacher_kids", "shows children how to light a fire"], ["crowd", "kids_hike", "hike behind him"]], "props": ["campfire", "tent"], "graphics": ["back to Japan, 1980s", "a nature school", "camping · survival · self-reliance"]},
-  {"segments": ["s55"], "energy": "calm", "set": "school_island", "cast": [["onoda", "old_walk", "an old man walks to the school, back to us"]], "photo": {"ref": "p11", "entry": "slide_up", "hold": "beat"}, "graphics": ["1996: back to Lubang", "$10,000 to a school", "not a reconciliation"]},
-  {"segments": ["s56"], "energy": "calm", "set": null, "photo": {"ref": "p12", "entry": "pin", "hold": "beat"}, "graphics": ["Jan 2014, Tokyo", "1922-2014", "age 91"], "note": "Onoda in later life. Credit required."},
-  {"segments": ["s57"], "energy": "calm", "set": "himalaya", "props": ["panda", "footprint"], "graphics": ["Norio Suzuki", "found the panda ✓", "1986: an avalanche", "still looking for the third"], "transition": "cut"},
-  {"segments": ["s58"], "energy": "calm", "set": null, "photo": {"ref": "p04", "entry": "flip", "hold": 1}, "graphics": ["in his own terms, right"], "note": "Returns to the photograph from s08. The young man before the order."},
-  {"segments": ["s59"], "energy": "high", "set": "map_philippines", "cast": [["taniguchi", "bookseller", "small in a bookshop far away"], ["onoda", "alone_stand", "small on the island"]], "props": ["order"], "graphics": ["hold until relieved = held until relieved", "the only trusted source", "3,000 km away"]},
-  {"segments": ["s60"], "energy": "calm", "set": "jungle_clearing", "props": ["door_one_handle"], "graphics": ["a way in", "no way out"]},
-  {"segments": ["s61"], "energy": "calm", "cast": [["onoda", "alone_stand", "at attention at the far end of the clearing"]], "graphics": ["not mad", "obedient"]},
-  {"segments": ["s62"], "energy": "calm", "set": "bookshop", "transition": "cut", "note": "Final image: the bookshop, door standing open onto a bright street. Hold the full 3s, then fade to black before the credits card."}
+  {
+   "segments": [
+    "s01"
+   ],
+   "energy": "high",
+   "set": "island_sea",
+   "cast": [
+    [
+     "taniguchi",
+     "read_order",
+     "walks into the jungle with a paper"
+    ],
+    [
+     "onoda",
+     "attention",
+     "stands at attention"
+    ]
+   ],
+   "props": [
+    "order"
+   ],
+   "photo": {
+    "ref": "p01",
+    "entry": "slide_up",
+    "hold": "beat"
+   },
+   "graphics": [
+    "9 Mar 1974",
+    "Japan → Lubang route",
+    "a bookseller, 61",
+    "a patched uniform"
+   ],
+   "labels": [
+    "Japan",
+    "Lubang"
+   ]
+  },
+  {
+   "segments": [
+    "s02"
+   ],
+   "energy": "high",
+   "set": "jungle_clearing",
+   "cast": [
+    [
+     "taniguchi",
+     "read_order",
+     "reads aloud"
+    ]
+   ],
+   "props": [
+    "order",
+    "flag_folded"
+   ],
+   "graphics": [
+    "14th Area Army: dissolved",
+    "cease all combat",
+    "relieved of duty"
+   ]
+  },
+  {
+   "segments": [
+    "s03"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "attention",
+     "close on him, rigid"
+    ]
+   ],
+   "photo": {
+    "ref": "p02",
+    "entry": "pin",
+    "hold": "beat"
+   },
+   "graphics": [
+    "2nd Lt Hiroo Onoda",
+    "age 51",
+    "alone: 18 months",
+    "with others: 27 years before"
+   ]
+  },
+  {
+   "segments": [
+    "s04"
+   ],
+   "energy": "high",
+   "set": "jungle_deep",
+   "cast": [
+    [
+     "onoda",
+     "crouch_watch",
+     "watches from the undergrowth"
+    ],
+    [
+     "crowd",
+     "search_party",
+     "pass by on a ridge"
+    ]
+   ],
+   "props": [
+    "leaflets",
+    "loudspeaker",
+    "plane_speaker"
+   ],
+   "graphics": [
+    "leaflets",
+    "loudspeakers",
+    "search parties",
+    "his family's voices",
+    "dismissed ✗ ✗ ✗"
+   ]
+  },
+  {
+   "segments": [
+    "s05"
+   ],
+   "energy": "calm",
+   "props": [
+    "order"
+   ],
+   "graphics": [
+    "an order",
+    "in person",
+    "from the officer who gave the first"
+   ]
+  },
+  {
+   "segments": [
+    "s06"
+   ],
+   "energy": "high",
+   "set": "bookshop",
+   "cast": [
+    [
+     "taniguchi",
+     "bookseller",
+     "shelving books, then looks at the old uniform"
+    ]
+   ],
+   "props": [
+    "uniform"
+   ],
+   "graphics": [
+    "that officer: now a bookseller",
+    "put the uniform back on"
+   ]
+  },
+  {
+   "segments": [
+    "s07"
+   ],
+   "energy": "calm",
+   "set": "jungle_clearing",
+   "cast": [
+    [
+     "onoda",
+     "hand_over",
+     "draws the bolt out"
+    ]
+   ],
+   "props": [
+    "bolt",
+    "rifle"
+   ],
+   "photo": {
+    "ref": "p03",
+    "entry": "drop",
+    "hold": "beat"
+   },
+   "transition": "cut",
+   "title_overlay": "The Soldier Who Kept Fighting WWII Until 1974",
+   "note": "Hold the bolt through the line. Build the title during the 2.5s pause, then everything still."
+  },
+  {
+   "segments": [
+    "s08"
+   ],
+   "energy": "high",
+   "set": "village_1920s",
+   "cast": [
+    [
+     "onoda",
+     "civilian_young",
+     "a young man in a suit, walking through the village, then a trading house"
+    ]
+   ],
+   "props": [
+    "lacquerware"
+   ],
+   "photo": {
+    "ref": "p04",
+    "entry": "slide_left",
+    "hold": "beat"
+   },
+   "graphics": [
+    "born Mar 1922, Wakayama",
+    "trading company, China",
+    "lacquerware",
+    "a gift for languages",
+    "drafted at 20",
+    "unremarkable"
+   ],
+   "note": "Hiroo with his brother Shigeo. This is the brother whose recorded voice was later played to him in the jungle (s21). Do not explain that on screen; the rhyme lands on its own."
+  },
+  {
+   "segments": [
+    "s09"
+   ],
+   "energy": "calm",
+   "set": "classroom_1940s",
+   "graphics": [
+    "where he trained"
+   ]
+  },
+  {
+   "segments": [
+    "s10"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "study_paper",
+     "studies at a desk"
+    ]
+   ],
+   "props": [
+    "flag_folded"
+   ],
+   "graphics": [
+    "Nakano School, Tokyo",
+    "intelligence · unconventional war",
+    "guerrilla · sabotage",
+    "hold out behind the lines",
+    "captured ✗",
+    "suicide ✗",
+    "survive and resist"
+   ]
+  },
+  {
+   "segments": [
+    "s11"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "alone_stand",
+     "small at the end of a long corridor of light"
+    ]
+   ],
+   "props": [
+    "medal"
+   ],
+   "graphics": [
+    "trained to do exactly this",
+    "decades = success"
+   ]
+  },
+  {
+   "segments": [
+    "s12"
+   ],
+   "energy": "high",
+   "set": "map_philippines",
+   "props": [
+    "rifle"
+   ],
+   "photo": {
+    "ref": "p05",
+    "entry": "slide_up",
+    "hold": 1
+   },
+   "graphics": [
+    "Dec 1944",
+    "Lubang: ~30 km",
+    "destroy the airstrip and pier",
+    "harass any landing",
+    "hold"
+   ],
+   "labels": [
+    "Philippines",
+    "Lubang"
+   ]
+  },
+  {
+   "segments": [
+    "s13"
+   ],
+   "energy": "high",
+   "set": "airstrip",
+   "cast": [
+    [
+     "taniguchi",
+     "officer_order",
+     "hands over the order"
+    ],
+    [
+     "onoda",
+     "attention",
+     "takes it"
+    ]
+   ],
+   "props": [
+    "order"
+   ],
+   "graphics": [
+    "Maj. Yoshimi Taniguchi",
+    "surrender ✗",
+    "suicide ✗",
+    "hold out, however long",
+    "I will come back for you"
+   ]
+  },
+  {
+   "segments": [
+    "s14"
+   ],
+   "energy": "high",
+   "set": "beach_dawn",
+   "cast": [
+    [
+     "comrades",
+     "four_climb",
+     "four men climb into the hills with Onoda"
+    ]
+   ],
+   "photo": {
+    "ref": "p07",
+    "entry": "slide_right",
+    "hold": "beat"
+   },
+   "graphics": [
+    "3 months later: the Americans land",
+    "garrison destroyed in days",
+    "Akatsu · Shimada · Kozuka"
+   ]
+  },
+  {
+   "segments": [
+    "s15"
+   ],
+   "energy": "calm",
+   "set": "jungle_clearing",
+   "cast": [
+    [
+     "comrades",
+     "group_fire",
+     "tiny on a ridge"
+    ]
+   ],
+   "graphics": [
+    "4 men · 1 island · 1 order"
+   ]
+  },
+  {
+   "segments": [
+    "s16"
+   ],
+   "energy": "high",
+   "set": "jungle_deep",
+   "cast": [
+    [
+     "onoda",
+     "patrol",
+     "keeps patrolling as the pages fly past"
+    ]
+   ],
+   "props": [
+    "calendar_1945"
+   ],
+   "graphics": [
+    "Aug 1945: the war ends",
+    "nobody believed it"
+   ],
+   "transition": "cut"
+  },
+  {
+   "segments": [
+    "s17"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "study_paper",
+     "thinks by firelight"
+    ]
+   ],
+   "props": [
+    "chess"
+   ],
+   "graphics": [
+    "not insane",
+    "not stupid",
+    "almost airtight"
+   ]
+  },
+  {
+   "segments": [
+    "s18"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "crouch_watch",
+     "watches the search party"
+    ]
+   ],
+   "props": [
+    "lure",
+    "loudspeaker"
+   ],
+   "graphics": [
+    "trained in deception",
+    "announcement = bait",
+    "louder = more proof he mattered"
+   ]
+  },
+  {
+   "segments": [
+    "s19"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "study_paper",
+     "examines a leaflet"
+    ],
+    [
+     "comrades",
+     "group_fire",
+     "lean in"
+    ]
+   ],
+   "props": [
+    "leaflets",
+    "magnifier"
+   ],
+   "graphics": [
+    "late 1945",
+    "Gen. Tomoyuki Yamashita's order",
+    "phrasing errors circled beside the card, not on it",
+    "forgeries"
+   ]
+  },
+  {
+   "segments": [
+    "s20"
+   ],
+   "energy": "calm",
+   "props": [
+    "leaflets"
+   ],
+   "graphics": [
+    "right, by their logic",
+    "talked out of the end of the war"
+   ]
+  },
+  {
+   "segments": [
+    "s21"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "listen_sky",
+     "listens to the voice from the sky"
+    ]
+   ],
+   "props": [
+    "newspapers",
+    "plane_speaker"
+   ],
+   "graphics": [
+    "newspapers · photographs · letters · loudspeakers",
+    "his brother's voice",
+    "under duress? spliced? imitated?"
+   ]
+  },
+  {
+   "segments": [
+    "s22"
+   ],
+   "energy": "calm",
+   "cast": [
+    [
+     "onoda",
+     "alone_stand",
+     "inside a ring of arrows that all loop back"
+    ]
+   ],
+   "graphics": [
+    "every argument = part of the trap"
+   ]
+  },
+  {
+   "segments": [
+    "s23"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "clean_rifle",
+     "cleans the rifle"
+    ]
+   ],
+   "props": [
+    "bananas",
+    "lean_to",
+    "rifle",
+    "oil_tin"
+   ],
+   "graphics": [
+    "bananas · coconuts · rice",
+    "rainy season: shelters",
+    "dry season: moving",
+    "29 years counter",
+    "the rifle still worked"
+   ]
+  },
+  {
+   "segments": [
+    "s24"
+   ],
+   "energy": "calm",
+   "set": "jungle_deep",
+   "graphics": [
+    "and they fought"
+   ],
+   "transition": "cut"
+  },
+  {
+   "segments": [
+    "s25",
+    "s26",
+    "s27"
+   ],
+   "energy": "calm",
+   "set": "rice_field",
+   "note": "The passage about the islanders who were killed. Owner direction, 27 Oct 2026: gentle, respectful motion instead of a frozen frame. Still no cast, no props and no violence: a slow camera drift over the empty field as the dusk deepens, and quiet type that builds line by line.",
+   "graphics": [
+    "to him: an enemy population",
+    "farmers · police",
+    "around 30 islanders killed",
+    "not soldiers",
+    "a war that had already ended",
+    "the same fact"
+   ]
+  },
+  {
+   "segments": [
+    "s28"
+   ],
+   "energy": "high",
+   "set": "jungle_clearing",
+   "cast": [
+    [
+     "comrades",
+     "one_leaves",
+     "one walks away; the others watch"
+    ]
+   ],
+   "graphics": [
+    "Akatsu leaves 1949",
+    "surrenders 1950",
+    "proof he was turned?"
+   ]
+  },
+  {
+   "segments": [
+    "s29"
+   ],
+   "energy": "calm",
+   "set": "beach_dawn",
+   "photo": {
+    "ref": "p07",
+    "entry": "slide_left",
+    "hold": "beat"
+   },
+   "graphics": [
+    "May 1954: Shimada"
+   ]
+  },
+  {
+   "segments": [
+    "s30"
+   ],
+   "energy": "calm",
+   "set": "farm_smoke",
+   "photo": {
+    "ref": "p08",
+    "entry": "pin",
+    "hold": "beat"
+   },
+   "graphics": [
+    "Oct 1972",
+    "27 years after the war",
+    "Kozuka, with him since 1944"
+   ]
+  },
+  {
+   "segments": [
+    "s31"
+   ],
+   "energy": "calm",
+   "set": "jungle_clearing",
+   "props": [
+    "rifle",
+    "campfire"
+   ],
+   "note": "He is alone now. A rifle against a tree, a cold fire. Owner direction, 27 Oct 2026: a slow push towards them with quiet type instead of a frozen frame. No other cast.",
+   "graphics": [
+    "alone",
+    "50 years old",
+    "still on patrol",
+    "nobody left to see"
+   ]
+  },
+  {
+   "segments": [
+    "s32"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "crowd",
+     "search_party",
+     "search again, find nothing"
+    ]
+   ],
+   "props": [
+    "newspapers"
+   ],
+   "graphics": [
+    "back in the papers",
+    "search parties: nothing"
+   ]
+  },
+  {
+   "segments": [
+    "s33"
+   ],
+   "energy": "high",
+   "set": "airport_1974",
+   "cast": [
+    [
+     "suzuki",
+     "backpack",
+     "at the airport window"
+    ]
+   ],
+   "graphics": [
+    "early 1974",
+    "Norio Suzuki, 24",
+    "university dropout"
+   ]
+  },
+  {
+   "segments": [
+    "s34"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "suzuki",
+     "backpack",
+     "ticks off his list"
+    ]
+   ],
+   "props": [
+    "notebook_sketch",
+    "panda",
+    "footprint"
+   ],
+   "graphics": [
+    "not a soldier · journalist · official",
+    "1. Lieutenant Onoda",
+    "2. a panda",
+    "3. the Abominable Snowman"
+   ]
+  },
+  {
+   "segments": [
+    "s35"
+   ],
+   "energy": "high",
+   "set": "jungle_clearing",
+   "cast": [
+    [
+     "suzuki",
+     "camp_wait",
+     "sits outside the tent, waiting"
+    ]
+   ],
+   "props": [
+    "tent"
+   ],
+   "graphics": [
+    "alone",
+    "search party ✗",
+    "loudspeaker ✗",
+    "weapon ✗"
+   ]
+  },
+  {
+   "segments": [
+    "s36"
+   ],
+   "energy": "calm",
+   "cast": [
+    [
+     "onoda",
+     "crouch_watch",
+     "emerges at the treeline"
+    ]
+   ],
+   "graphics": [
+    "20 Feb 1974",
+    "day 4"
+   ]
+  },
+  {
+   "segments": [
+    "s37"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "crowd",
+     "search_party",
+     "shrink away"
+    ],
+    [
+     "suzuki",
+     "camp_wait",
+     "one young man, alone"
+    ]
+   ],
+   "props": [
+    "loudspeaker",
+    "plane_speaker"
+   ],
+   "graphics": [
+    "29 years of searches",
+    "vs one young man with nothing"
+   ]
+  },
+  {
+   "segments": [
+    "s38"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "sit_fire",
+     "sits on a log"
+    ],
+    [
+     "suzuki",
+     "talk_log",
+     "sits beside him"
+    ]
+   ],
+   "props": [
+    "campfire"
+   ],
+   "graphics": [
+    "to listen to a soldier's feelings",
+    "why won't you come out?"
+   ]
+  },
+  {
+   "segments": [
+    "s39"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "sit_fire",
+     "explains"
+    ],
+    [
+     "suzuki",
+     "talk_log",
+     "listens"
+    ]
+   ],
+   "props": [
+    "campfire",
+    "order"
+   ],
+   "graphics": [
+    "friends",
+    "ordered in → only ordered out",
+    "only Maj. Taniguchi",
+    "anything else = deception"
+   ]
+  },
+  {
+   "segments": [
+    "s40"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "suzuki",
+     "photograph",
+     "takes photographs, then flies home"
+    ]
+   ],
+   "props": [
+    "camera"
+   ],
+   "graphics": [
+    "photographs as proof"
+   ]
+  },
+  {
+   "segments": [
+    "s41"
+   ],
+   "energy": "high",
+   "set": "bookshop",
+   "cast": [
+    [
+     "taniguchi",
+     "bookseller",
+     "behind the counter"
+    ]
+   ],
+   "graphics": [
+    "found: Taniguchi",
+    "working as a bookseller"
+   ]
+  },
+  {
+   "segments": [
+    "s42"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "taniguchi",
+     "bookseller",
+     "looks at the uniform laid out"
+    ]
+   ],
+   "props": [
+    "uniform",
+    "suitcase"
+   ],
+   "graphics": [
+    "in his sixties",
+    "assumed they were dead",
+    "30 years late"
+   ]
+  },
+  {
+   "segments": [
+    "s43"
+   ],
+   "energy": "calm",
+   "cast": [
+    [
+     "taniguchi",
+     "uniform_again",
+     "buttons the old uniform"
+    ]
+   ],
+   "graphics": [
+    "he agreed"
+   ]
+  },
+  {
+   "segments": [
+    "s44"
+   ],
+   "energy": "calm",
+   "set": "jungle_clearing",
+   "cast": [
+    [
+     "taniguchi",
+     "read_order",
+     "reads the order"
+    ]
+   ],
+   "photo": {
+    "ref": "p09",
+    "entry": "drop",
+    "hold": 1
+   },
+   "graphics": [
+    "9 Mar 1974",
+    "1944 order rescinded",
+    "relieved"
+   ],
+   "transition": "cut",
+   "note": "Hold across both segments. The turn of the whole video."
+  },
+  {
+   "segments": [
+    "s45"
+   ],
+   "energy": "still",
+   "note": "The turn. Stay on the surrender photograph. Nothing new until the 2s silence ends."
+  },
+  {
+   "segments": [
+    "s46"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "onoda",
+     "hand_over",
+     "hands over his weapons"
+    ]
+   ],
+   "props": [
+    "rifle",
+    "sword",
+    "ammo"
+   ],
+   "photo": {
+    "ref": "p06",
+    "entry": "slide_right",
+    "hold": "beat"
+   },
+   "graphics": [
+    "rifle · sword · ~500 rounds · grenades",
+    "still in working order"
+   ]
+  },
+  {
+   "segments": [
+    "s47"
+   ],
+   "energy": "high",
+   "set": "palace",
+   "props": [
+    "sword"
+   ],
+   "photo": {
+    "ref": "p10",
+    "entry": "slide_up",
+    "hold": "beat"
+   },
+   "graphics": [
+    "Manila, 2 days later",
+    "sword presented to Ferdinand Marcos",
+    "pardoned"
+   ]
+  },
+  {
+   "segments": [
+    "s48"
+   ],
+   "energy": "high",
+   "set": "airport_1974",
+   "cast": [
+    [
+     "crowd",
+     "press",
+     "flashes going off"
+    ],
+    [
+     "onoda",
+     "suit_crowd",
+     "steps off the plane"
+    ]
+   ],
+   "props": [
+    "flashbulbs"
+   ],
+   "graphics": [
+    "12 Mar 1974",
+    "Japan loses its mind"
+   ]
+  },
+  {
+   "segments": [
+    "s49"
+   ],
+   "energy": "high",
+   "cast": [
+    [
+     "crowd",
+     "airport",
+     "crowds press in"
+    ]
+   ],
+   "props": [
+    "tv_wall",
+    "newspapers"
+   ],
+   "graphics": [
+    "every front page",
+    "a vanished Japan",
+    "loyalty the country had 'abandoned'"
+   ]
+  },
+  {
+   "segments": [
+    "s50"
+   ],
+   "energy": "calm",
+   "cast": [
+    [
+     "onoda",
+     "suit_crowd",
+     "alone in a hotel room, back to us"
+    ]
+   ],
+   "graphics": [
+    "he hated it"
+   ]
+  },
+  {
+   "segments": [
+    "s51"
+   ],
+   "energy": "high",
+   "set": "tokyo_1974",
+   "cast": [
+    [
+     "onoda",
+     "suit_crowd",
+     "walks the neon street, out of place"
+    ]
+   ],
+   "props": [
+    "tv_wall"
+   ],
+   "graphics": [
+    "1944: a militarised empire",
+    "1974: a prosperous consumer democracy",
+    "a celebrity ≠ understood"
+   ]
+  },
+  {
+   "segments": [
+    "s52"
+   ],
+   "energy": "calm",
+   "props": [
+    "memoir",
+    "suitcase"
+   ],
+   "graphics": [
+    "a memoir",
+    "18 months later: gone"
+   ]
+  },
+  {
+   "segments": [
+    "s53"
+   ],
+   "energy": "high",
+   "set": "ranch",
+   "cast": [
+    [
+     "onoda",
+     "rancher",
+     "rides along the fence"
+    ]
+   ],
+   "props": [
+    "cattle"
+   ],
+   "graphics": [
+    "1975: Brazil",
+    "cattle rancher",
+    "married",
+    "nobody recognised him"
+   ]
+  },
+  {
+   "segments": [
+    "s54"
+   ],
+   "energy": "high",
+   "set": "nature_camp",
+   "cast": [
+    [
+     "onoda",
+     "teacher_kids",
+     "shows children how to light a fire"
+    ],
+    [
+     "crowd",
+     "kids_hike",
+     "hike behind him"
+    ]
+   ],
+   "props": [
+    "campfire",
+    "tent"
+   ],
+   "graphics": [
+    "back to Japan, 1980s",
+    "a nature school",
+    "camping · survival · self-reliance"
+   ]
+  },
+  {
+   "segments": [
+    "s55"
+   ],
+   "energy": "calm",
+   "set": "school_island",
+   "cast": [
+    [
+     "onoda",
+     "old_walk",
+     "an old man walks to the school, back to us"
+    ]
+   ],
+   "photo": {
+    "ref": "p11",
+    "entry": "slide_up",
+    "hold": "beat"
+   },
+   "graphics": [
+    "1996: back to Lubang",
+    "$10,000 to a school",
+    "not a reconciliation"
+   ]
+  },
+  {
+   "segments": [
+    "s56"
+   ],
+   "energy": "calm",
+   "set": null,
+   "photo": {
+    "ref": "p12",
+    "entry": "pin",
+    "hold": "beat"
+   },
+   "graphics": [
+    "Jan 2014, Tokyo",
+    "1922-2014",
+    "age 91"
+   ],
+   "note": "Onoda in later life. Credit required."
+  },
+  {
+   "segments": [
+    "s57"
+   ],
+   "energy": "calm",
+   "set": "himalaya",
+   "props": [
+    "panda",
+    "footprint"
+   ],
+   "graphics": [
+    "Norio Suzuki",
+    "found the panda ✓",
+    "1986: an avalanche",
+    "still looking for the third"
+   ],
+   "transition": "cut"
+  },
+  {
+   "segments": [
+    "s58"
+   ],
+   "energy": "calm",
+   "set": null,
+   "photo": {
+    "ref": "p04",
+    "entry": "flip",
+    "hold": 1
+   },
+   "graphics": [
+    "in his own terms, right"
+   ],
+   "note": "Returns to the photograph from s08. The young man before the order."
+  },
+  {
+   "segments": [
+    "s59"
+   ],
+   "energy": "high",
+   "set": "map_philippines",
+   "cast": [
+    [
+     "taniguchi",
+     "bookseller",
+     "small in a bookshop far away"
+    ],
+    [
+     "onoda",
+     "alone_stand",
+     "small on the island"
+    ]
+   ],
+   "props": [
+    "order"
+   ],
+   "graphics": [
+    "hold until relieved = held until relieved",
+    "the only trusted source",
+    "3,000 km away"
+   ]
+  },
+  {
+   "segments": [
+    "s60"
+   ],
+   "energy": "calm",
+   "set": "jungle_clearing",
+   "props": [
+    "door_one_handle"
+   ],
+   "graphics": [
+    "a way in",
+    "no way out"
+   ]
+  },
+  {
+   "segments": [
+    "s61"
+   ],
+   "energy": "calm",
+   "cast": [
+    [
+     "onoda",
+     "alone_stand",
+     "at attention at the far end of the clearing"
+    ]
+   ],
+   "graphics": [
+    "not mad",
+    "obedient"
+   ]
+  },
+  {
+   "segments": [
+    "s62"
+   ],
+   "energy": "calm",
+   "set": "bookshop",
+   "transition": "cut",
+   "note": "The bookshop, door standing open onto a bright street. Hold the full 3s still, then the closing line (s63)."
+  },
+  {
+   "segments": [
+    "s63"
+   ],
+   "energy": "calm",
+   "set": "island_sea",
+   "graphics": [
+    "the voice that started it",
+    "an order",
+    "29 years",
+    "the people of Lubang paid",
+    "loyalty is only as good as what it is loyal to"
+   ],
+   "note": "Closing line added at the owner's request, 27 Oct 2026. Rise out of the bookshop and travel back to the island seen from the air, where the film began; type builds with the line. Hold, then fade to black before the credits card."
+  }
  ]
 }

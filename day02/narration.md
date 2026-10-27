@@ -189,3 +189,6 @@ He was not mad. He was obedient, to an institution that had dissolved, in a war 
 
 --- s62 | pause_after: 3000
 A bookseller had to get on a plane.
+
+--- s63 | pause_after: 3000
+The only thing that could end Hiroo Onoda's war was the voice that started it. Not the truth, not the evidence, not his own brother. An order. He kept faith with it for twenty-nine years, and the people of Lubang paid for that faith with their lives. That is the whole story, and it is a warning: loyalty is only ever as good as the thing it is loyal to.

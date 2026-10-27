@@ -246,7 +246,8 @@ def build(tl, A):
     DEEP.add(lines[2][1] - 0.4, actor(crowd, 900, 560, 240, motion=walk(-280, 300, 0.0, 6.0, bob=4, swing=0)),
              until=nx("s04") - 0.2)
     plane_path = curve((-300, 75), (2200, 55), 0.02)
-    DEEP.add(lines[3][1] - 0.6, sprite(A.prop("plane_speaker"), 0, 0, 340, path=plane_path, dur=5.0), until=nx("s04"))
+    DEEP.add(lines[3][1] - 0.6, sprite(A.prop("plane_speaker"), 0, 0, 340, path=plane_path, dur=5.0, flip=True),
+             until=nx("s04"))
     DEEP.add(lines[3][1], waves(1100, 150, 3, MUSTARD, 0.8), until=nx("s04") - 0.2)
 
     # ============================================================ s05 (calm): an order, in person

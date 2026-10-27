@@ -86,7 +86,6 @@ def credits_card(c, groups):
         y += 16
     E.text(c, "All photographs via Wikimedia Commons. Illustrations and animation are AI-generated and are not photographs.",
            E.W / 2, E.H - 74, E.body_font(21), (0.78, 0.76, 0.68), 1, "center")
-    E.text(c, "Narration: synthetic voice.", E.W / 2, E.H - 44, E.body_font(21), (0.78, 0.76, 0.68), 1, "center")
 
 
 def render_chunk(args):
