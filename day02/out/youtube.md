@@ -6,7 +6,7 @@ The Soldier Who Kept Fighting WWII Until 1974
 (45 characters. Alternatives to A/B test: "He Fought World War II for 29 Years After It Ended" · "The Last Soldier of WWII Surrendered in 1974")
 
 ## Thumbnail
-`thumbnail.jpg` (1280x720). The video's own jungle clearing, darkened, with the cartoon Onoda at attention in a pool of light on the right (the film's vague-faced character, not a likeness). Left: "HE KEPT FIGHTING / 29 YEARS" with a rust strip "THE WAR ENDED IN 1945".
+`thumbnail.jpg` (1280x720). Two real public-domain photographs as mounted prints on the film's jungle darkened to ink: the 1944 portrait of Hiroo Onoda in front (tab "1944") and the 1974 surrender photograph behind it (tab "1974"). Left: "HE KEPT FIGHTING / 29 YEARS / after World War II ended". Both photos are shown whole (not cropped, tinted or colourised) at no more than their native size, and are credited in the description (Hiroo Onoda young, Unknown, public domain; Hiro Onoda surrender 1974, Malacanang Palace, public domain).
 
 ## Description
 Paste `description.txt` (about 3,030 of 5,000 characters). It includes the summary, the chapters, the primary source, the AI-illustration line, every photo credit and the hashtags.
