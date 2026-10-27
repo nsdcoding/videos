@@ -28,7 +28,7 @@ Paste `description.txt` (about 3,030 of 5,000 characters). It includes the summa
 12:33 In his own terms, right
 13:36 What it means
 
-## Tags (paste into the Tags box, about 450 of 500 characters)
+## Tags (paste into the Tags box, 400 of 500 characters)
 Hiroo Onoda, Onoda, last Japanese soldier, Japanese holdout, Japanese straggler, soldier who never surrendered, WWII ended 1974, Lubang Island, Philippines, Norio Suzuki, Yoshimi Taniguchi, Nakano School, World War 2 history, WW2 history, Japan history, Imperial Japanese Army, 29 years in the jungle, No Surrender, history documentary, true story, untold history, history explained, animated history
 
 ## Keywords (for SEO and the first lines, not the tags box)
