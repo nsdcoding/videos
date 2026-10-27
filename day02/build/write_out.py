@@ -32,8 +32,7 @@ def stamp(t):
 
 
 chapters = [("s01", "9 March 1974"), ("s08", "An ordinary young man"), ("s09", "The Nakano School"),
-            ("s12", "Lubang, December 1944"), ("s16", "The war ends; nobody believes it"),
-            ("s17", "Why he did not believe it"), ("s23", "Twenty-nine years"), ("s24", "The islanders"),
+            ("s12", "Lubang, December 1944"), ("s16", "The war ends; nobody believes it"), ("s23", "Twenty-nine years"), ("s24", "The islanders"),
             ("s28", "The group shrinks"), ("s33", "Norio Suzuki"), ("s41", "The bookseller"),
             ("s44", "The order is rescinded"), ("s48", "Japan, 1974"), ("s53", "Brazil, and after"),
             ("s58", "In his own terms, right"), ("s63", "What it means")]
@@ -52,7 +51,8 @@ SOURCES
 - Hiroo Onoda, "No Surrender: My Thirty-Year War" (1974; English translation by Charles S. Terry, Kodansha International). Primary source: Onoda's own memoir.
 
 PHOTO CREDITS
-{credits}"""
+{credits}
+#history #ww2 #hirooonoda"""
 open(os.path.join(OUT, "description.txt"), "w", encoding="utf-8").write(description)
 
 runtime = tl.total + 1.0 + 6.0
