@@ -11,9 +11,13 @@
 
 ## Notes from the build
 
-- Runtime 824 s against `runtime_target_sec` 1150: the narration at speaking rate
-  0.92 runs 817 s. Reported under spec 9; the owner approved shipping at the
+- Runtime 851 s against `runtime_target_sec` 1150: the narration at speaking rate
+  0.92 runs 844 s. Reported under spec 9; the owner approved shipping at the
   narration's natural length.
 - The s07 title is built during the 2.5 s pause after s07, as `title_overlay` (spec 5) and the beat note ask,
   although spec 4.3 says nothing appears during a structural silence. Owner was told.
 - Cast arms stay as posed (no swinging or pointing), per the sample review.
+- Owner review, 27 Oct 2026: s25-s27 (the islanders who were killed) and s31 now have gentle motion and quiet
+  type instead of a frozen frame (still no cast or props in s25-s27); the closing line s63 was added and the film
+  ends on the island where it began; the credits card no longer mentions the synthetic voice (the description
+  still does, as an AI disclosure). Structural silences remain still and silent.
