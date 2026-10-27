@@ -36,7 +36,7 @@ chapters = [("s01", "9 March 1974"), ("s08", "An ordinary young man"), ("s09", "
             ("s17", "Why he did not believe it"), ("s23", "Twenty-nine years"), ("s24", "The islanders"),
             ("s28", "The group shrinks"), ("s33", "Norio Suzuki"), ("s41", "The bookseller"),
             ("s44", "The order is rescinded"), ("s48", "Japan, 1974"), ("s53", "Brazil, and after"),
-            ("s58", "In his own terms, right")]
+            ("s58", "In his own terms, right"), ("s63", "What it means")]
 chap = "\n".join(f"{'0:00' if sid == 's01' else stamp(tl.start(sid))} {name}" for sid, name in chapters)
 
 description = f"""{build['title']}
@@ -75,5 +75,9 @@ open(os.path.join(OUT, "checklist.md"), "w", encoding="utf-8").write(f"""# Pre-u
 - The s07 title is built during the 2.5 s pause after s07, as `title_overlay` (spec 5) and the beat note ask,
   although spec 4.3 says nothing appears during a structural silence. Owner was told.
 - Cast arms stay as posed (no swinging or pointing), per the sample review.
+- Owner review, 27 Oct 2026: s25-s27 (the islanders who were killed) and s31 now have gentle motion and quiet
+  type instead of a frozen frame (still no cast or props in s25-s27); the closing line s63 was added and the film
+  ends on the island where it began; the credits card no longer mentions the synthetic voice (the description
+  still does, as an AI disclosure). Structural silences remain still and silent.
 """)
 print("wrote", sorted(os.listdir(OUT)))
