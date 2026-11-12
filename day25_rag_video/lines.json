@@ -1,0 +1,1759 @@
+[
+ {
+  "id": "a01",
+  "chap": "c0 Recap \u00b7 Day 22",
+  "text": "Welcome back, everyone. Today is Day 25, and today our RAG project grows up a little.",
+  "speak": "Welcome back, everyone. Today is Day 25, and today our RAG project grows up a little.",
+  "dur": 4.88
+ },
+ {
+  "id": "a02",
+  "chap": "c0 Recap \u00b7 Day 22",
+  "text": "Remember Day 22? We built a complete RAG machine. Eight steps, from start to finish.",
+  "speak": "Remember Day 22? We built a complete RAG machine. Eight steps, from start to finish.",
+  "dur": 5.72
+ },
+ {
+  "id": "a03",
+  "chap": "c0 Recap \u00b7 Day 22",
+  "text": "Load, chunk, embed and store. That was pipeline one, the indexing pipeline. It runs once, in advance.",
+  "speak": "Load, chunk, embed and store. That was pipeline one, the indexing pipeline. It runs once, in advance.",
+  "dur": 7.56
+ },
+ {
+  "id": "a04",
+  "chap": "c0 Recap \u00b7 Day 22",
+  "text": "Then retrieve, rank, augment and generate. Pipeline two, the answering pipeline. It runs every time someone asks a question.",
+  "speak": "Then retrieve, rank, augment and generate. Pipeline two, the answering pipeline. It runs every time someone asks a question.",
+  "dur": 7.52
+ },
+ {
+  "id": "a05",
+  "chap": "c0 Recap \u00b7 Day 22",
+  "text": "It worked. It answered questions from our own company files. But it had one tiny line hiding inside it.",
+  "speak": "It worked. It answered questions from our own company files. But it had one tiny line hiding inside it.",
+  "dur": 6.56
+ },
+ {
+  "id": "a06",
+  "chap": "c0 Recap \u00b7 Day 22",
+  "text": "And that one tiny line is the subject of this entire class.",
+  "speak": "And that one tiny line is the subject of this entire class.",
+  "dur": 3.8
+ },
+ {
+  "id": "a07",
+  "chap": "c0 Recap \u00b7 Day 22",
+  "text": "By the end of today, our machine will read PDFs. It will tell you the exact page an answer came from. And it will never again skip a file without telling you.",
+  "speak": "By the end of today, our machine will read PDFs. It will tell you the exact page an answer came from. And it will never again skip a file without telling you.",
+  "dur": 8.32
+ },
+ {
+  "id": "a08",
+  "chap": "c0 Recap \u00b7 Day 22",
+  "text": "Only step one changes today. Steps two to eight stay exactly the same. One change per class, so you can always see what caused what.",
+  "speak": "Only step one changes today. Steps two to eight stay exactly the same. One change per class, so you can always see what caused what.",
+  "dur": 8.16
+ },
+ {
+  "id": "a09",
+  "chap": "c0 Recap \u00b7 Day 22",
+  "text": "So let's open the code.",
+  "speak": "So let's open the code.",
+  "dur": 1.56
+ },
+ {
+  "id": "b01",
+  "chap": "c1 The silent line",
+  "text": "Here is the loader from Day 22. Look at these two lines.",
+  "speak": "Here is the loader from Day 22. Look at these two lines.",
+  "dur": 3.52
+ },
+ {
+  "id": "b02",
+  "chap": "c1 The silent line",
+  "text": "If the file name does not end with .txt, continue. Which means: skip it, and move on to the next file.",
+  "speak": "If the file name does not end with dot T X T, continue. Which means: skip it, and move on to the next file.",
+  "dur": 6.52
+ },
+ {
+  "id": "b03",
+  "chap": "c1 The silent line",
+  "text": "On Day 22 that looked perfectly harmless. All our files were text files.",
+  "speak": "On Day 22 that looked perfectly harmless. All our files were text files.",
+  "dur": 5.04
+ },
+ {
+  "id": "b04",
+  "chap": "c1 The silent line",
+  "text": "But think about a real company. Where does its knowledge actually live?",
+  "speak": "But think about a real company. Where does its knowledge actually live?",
+  "dur": 4.04
+ },
+ {
+  "id": "b05",
+  "chap": "c1 The silent line",
+  "text": "In PDFs. In Word documents. In web pages on the intranet. In screenshots that somebody pasted into a chat.",
+  "speak": "In PDFs. In Word documents. In web pages on the intranet. In screenshots that somebody pasted into a chat.",
+  "dur": 7.8
+ },
+ {
+  "id": "b06",
+  "chap": "c1 The silent line",
+  "text": "Almost none of it is a neat little text file.",
+  "speak": "Almost none of it is a neat little text file.",
+  "dur": 2.8
+ },
+ {
+  "id": "b07",
+  "chap": "c1 The silent line",
+  "text": "So I have upgraded our folder. Let's look inside plural_labs_docs.",
+  "speak": "So I have upgraded our folder. Let's look inside plural labs docs.",
+  "dur": 4.84
+ },
+ {
+  "id": "b08",
+  "chap": "c1 The silent line",
+  "text": "There are nine files now. Four text files, three PDFs, one HTML page, and one screenshot.",
+  "speak": "There are nine files now. Four text files, three PDFs, one HTML page, and one screenshot.",
+  "dur": 6.36
+ },
+ {
+  "id": "b09",
+  "chap": "c1 The silent line",
+  "text": "Now let's feed this folder to the Day 22 loader, and watch what happens.",
+  "speak": "Now let's feed this folder to the Day 22 loader, and watch what happens.",
+  "dur": 4.48
+ },
+ {
+  "id": "b10",
+  "chap": "c1 The silent line",
+  "text": "The four text files go in. And the other five? Gone. Quietly dropped.",
+  "speak": "The four text files go in. And the other five? Gone. Quietly dropped.",
+  "dur": 5.6
+ },
+ {
+  "id": "b11",
+  "chap": "c1 The silent line",
+  "text": "More than half of the company's knowledge, skipped. And the program did not print a single warning.",
+  "speak": "More than half of the company's knowledge, skipped. And the program did not print a single warning.",
+  "dur": 5.16
+ },
+ {
+  "id": "b12",
+  "chap": "c1 The silent line",
+  "text": "That silence is the real problem. A crash, you would notice. A silent skip, you never notice.",
+  "speak": "That silence is the real problem. A crash, you would notice. A silent skip, you never notice.",
+  "dur": 5.72
+ },
+ {
+  "id": "b13",
+  "chap": "c1 The silent line",
+  "text": "You would just ask a question, get \"I could not find this\", and blame the AI.",
+  "speak": "You would just ask a question, get \"I could not find this\", and blame the AI.",
+  "dur": 4.12
+ },
+ {
+  "id": "b14",
+  "chap": "c1 The silent line",
+  "text": "Today we fix the PDFs. The next class handles the HTML page and the screenshot.",
+  "speak": "Today we fix the PDFs. The next class handles the HTML page and the screenshot.",
+  "dur": 5.44
+ },
+ {
+  "id": "c01",
+  "chap": "c2 Install pypdf",
+  "text": "Before we run anything, we need one new package. It is called pypdf.",
+  "speak": "Before we run anything, we need one new package. It is called pie P D F.",
+  "dur": 6.4
+ },
+ {
+  "id": "c02",
+  "chap": "c2 Install pypdf",
+  "text": "On a Mac, open the terminal and type: pip3 install pypdf.",
+  "speak": "On a Mac, open the terminal and type: pip three install, pie P D F.",
+  "dur": 5.84
+ },
+ {
+  "id": "c03",
+  "chap": "c2 Install pypdf",
+  "text": "On Windows, in the command prompt, it is pip install pypdf.",
+  "speak": "On Windows, in the command prompt, it is pip install, pie P D F.",
+  "dur": 4.88
+ },
+ {
+  "id": "c04",
+  "chap": "c2 Install pypdf",
+  "text": "And if pip ever installs into the wrong Python, use python3 -m pip install. That always installs into the Python you are actually running.",
+  "speak": "And if pip ever installs into the wrong Python, use python three, dash m, pip install. That always installs into the Python you are actually running.",
+  "dur": 8.8
+ },
+ {
+  "id": "c05",
+  "chap": "c2 Install pypdf",
+  "text": "Why pypdf? Because it is written in pure Python. No compiler, no extra tools. It installs on every student's machine, first time.",
+  "speak": "Why pie P D F? Because it is written in pure Python. No compiler, no extra tools. It installs on every student's machine, first time.",
+  "dur": 9.0
+ },
+ {
+  "id": "c06",
+  "chap": "c2 Install pypdf",
+  "text": "You will also hear about PyMuPDF and pdfplumber. They are faster, and they understand page layout better.",
+  "speak": "You will also hear about pie mew P D F and P D F plumber. They are faster, and they understand page layout better.",
+  "dur": 6.36
+ },
+ {
+  "id": "c07",
+  "chap": "c2 Install pypdf",
+  "text": "We will meet PyMuPDF later, because it can turn a PDF page into an image. But for pulling plain text out of a normal PDF, pypdf is the simplest thing that works.",
+  "speak": "We will meet pie mew P D F later, because it can turn a PDF page into an image. But for pulling plain text out of a normal PDF, pie P D F is the simplest thing that works.",
+  "dur": 9.92
+ },
+ {
+  "id": "d01",
+  "chap": "c3 The imports",
+  "text": "Now, the imports. The first one, import os, you already know from Day 22. It lets us look inside folders.",
+  "speak": "Now, the imports. The first one, import O S, you already know from Day 22. It lets us look inside folders.",
+  "dur": 7.12
+ },
+ {
+  "id": "d02",
+  "chap": "c3 The imports",
+  "text": "The second one is new. import re.",
+  "speak": "The second one is new. import R E.",
+  "dur": 3.12
+ },
+ {
+  "id": "d03",
+  "chap": "c3 The imports",
+  "text": "re stands for regular expressions. Let me explain the whole idea with one simple example.",
+  "speak": "R E stands for regular expressions. Let me explain the whole idea with one simple example.",
+  "dur": 6.64
+ },
+ {
+  "id": "d04",
+  "chap": "c3 The imports",
+  "text": "You already know how to replace exact text. text.replace, cat, with dog. Easy.",
+  "speak": "You already know how to replace exact text. text dot replace, cat, with dog. Easy.",
+  "dur": 7.6
+ },
+ {
+  "id": "d05",
+  "chap": "c3 The imports",
+  "text": "That works when you know exactly what you are looking for.",
+  "speak": "That works when you know exactly what you are looking for.",
+  "dur": 2.72
+ },
+ {
+  "id": "d06",
+  "chap": "c3 The imports",
+  "text": "But today we will meet messy text, like this. Two spaces here. A newline there. Five spaces and a tab over here.",
+  "speak": "But today we will meet messy text, like this. Two spaces here. A newline there. Five spaces and a tab over here.",
+  "dur": 9.8
+ },
+ {
+  "id": "d07",
+  "chap": "c3 The imports",
+  "text": "We want to say: wherever there is a run of spaces, however long it is, squash it down to one space.",
+  "speak": "We want to say: wherever there is a run of spaces, however long it is, squash it down to one space.",
+  "dur": 5.56
+ },
+ {
+  "id": "d08",
+  "chap": "c3 The imports",
+  "text": "With replace, you would need one call for two spaces, another for three spaces, another for a newline plus two spaces. Forever.",
+  "speak": "With replace, you would need one call for two spaces, another for three spaces, another for a newline plus two spaces. Forever.",
+  "dur": 8.28
+ },
+ {
+  "id": "d09",
+  "chap": "c3 The imports",
+  "text": "A regular expression lets you describe a shape of text, instead of the exact text.",
+  "speak": "A regular expression lets you describe a shape of text, instead of the exact text.",
+  "dur": 4.64
+ },
+ {
+  "id": "d10",
+  "chap": "c3 The imports",
+  "text": "\"A run of whitespace\" is a shape. \"A digit followed by a colon\" is a shape.",
+  "speak": "\"A run of whitespace\" is a shape. \"A digit followed by a colon\" is a shape.",
+  "dur": 4.96
+ },
+ {
+  "id": "d11",
+  "chap": "c3 The imports",
+  "text": "The re module is Python's reader for these shapes. It comes built into Python, so there is nothing to install.",
+  "speak": "The R E module is Python's reader for these shapes. It comes built into Python, so there is nothing to install.",
+  "dur": 6.08
+ },
+ {
+  "id": "d12",
+  "chap": "c3 The imports",
+  "text": "Now the third import. from pypdf import PdfReader.",
+  "speak": "Now the third import. from pie P D F, import P D F reader.",
+  "dur": 6.36
+ },
+ {
+  "id": "d13",
+  "chap": "c3 The imports",
+  "text": "Look at it next to import os. Both are imports, but they have two different shapes.",
+  "speak": "Look at it next to import O S. Both are imports, but they have two different shapes.",
+  "dur": 5.44
+ },
+ {
+  "id": "d14",
+  "chap": "c3 The imports",
+  "text": "import os brings in the whole module. Everything stays behind the name os, so you keep writing os.path.join.",
+  "speak": "import O S brings in the whole module. Everything stays behind the name O S, so you keep writing O S dot path dot join.",
+  "dur": 7.84
+ },
+ {
+  "id": "d15",
+  "chap": "c3 The imports",
+  "text": "from pypdf import PdfReader reaches inside the package and takes out just one name.",
+  "speak": "from pie P D F, import P D F reader reaches inside the package and takes out just one name.",
+  "dur": 5.76
+ },
+ {
+  "id": "d16",
+  "chap": "c3 The imports",
+  "text": "That name lands straight in your file. So you can write PdfReader on its own, instead of pypdf.PdfReader.",
+  "speak": "That name lands straight in your file. So you can write P D F reader on its own, instead of pie P D F dot P D F reader.",
+  "dur": 7.2
+ },
+ {
+  "id": "d17",
+  "chap": "c3 The imports",
+  "text": "Both work. We use the short one when we need just one thing from a package.",
+  "speak": "Both work. We use the short one when we need just one thing from a package.",
+  "dur": 4.88
+ },
+ {
+  "id": "d18",
+  "chap": "c3 The imports",
+  "text": "And where did pypdf come from? os and re came with Python. pypdf did not.",
+  "speak": "And where did pie P D F come from? O S and R E came with Python. pie P D F did not.",
+  "dur": 7.48
+ },
+ {
+  "id": "d19",
+  "chap": "c3 The imports",
+  "text": "When you ran pip install, pip downloaded a folder of Python files and put it where Python knows to look.",
+  "speak": "When you ran pip install, pip downloaded a folder of Python files and put it where Python knows to look.",
+  "dur": 6.28
+ },
+ {
+  "id": "d20",
+  "chap": "c3 The imports",
+  "text": "That is all a package is. Somebody else's Python files, sitting on your disk. Nothing magic. You could open them and read them.",
+  "speak": "That is all a package is. Somebody else's Python files, sitting on your disk. Nothing magic. You could open them and read them.",
+  "dur": 7.8
+ },
+ {
+  "id": "d21",
+  "chap": "c3 The imports",
+  "text": "Next question. What exactly is PdfReader?",
+  "speak": "Next question. What exactly is P D F reader?",
+  "dur": 3.24
+ },
+ {
+  "id": "d22",
+  "chap": "c3 The imports",
+  "text": "Notice the capital letters joined together. That style tells you it is a class, not a function. Compare it with os.listdir, all lowercase.",
+  "speak": "Notice the capital letters joined together. That style tells you it is a class, not a function. Compare it with O S dot list dir, all lowercase.",
+  "dur": 7.96
+ },
+ {
+  "id": "d23",
+  "chap": "c3 The imports",
+  "text": "Here is the difference, in one picture.",
+  "speak": "Here is the difference, in one picture.",
+  "dur": 2.28
+ },
+ {
+  "id": "d24",
+  "chap": "c3 The imports",
+  "text": "Call a function, and you get an answer back. Done.",
+  "speak": "Call a function, and you get an answer back. Done.",
+  "dur": 3.28
+ },
+ {
+  "id": "d25",
+  "chap": "c3 The imports",
+  "text": "Call a class, and you get an object. A thing that holds your file, and has its own abilities attached to it.",
+  "speak": "Call a class, and you get an object. A thing that holds your file, and has its own abilities attached to it.",
+  "dur": 6.12
+ },
+ {
+  "id": "d26",
+  "chap": "c3 The imports",
+  "text": "So when we write reader = PdfReader(path), we are not saying \"give me the text\".",
+  "speak": "So when we write reader equals P D F reader of path, we are not saying \"give me the text\".",
+  "dur": 4.92
+ },
+ {
+  "id": "d27",
+  "chap": "c3 The imports",
+  "text": "We are saying: open this PDF, and give me something I can ask questions of.",
+  "speak": "We are saying: open this PDF, and give me something I can ask questions of.",
+  "dur": 4.28
+ },
+ {
+  "id": "d28",
+  "chap": "c3 The imports",
+  "text": "And then we ask it things. reader.pages gives us the pages.",
+  "speak": "And then we ask it things. reader dot pages gives us the pages.",
+  "dur": 4.16
+ },
+ {
+  "id": "d29",
+  "chap": "c3 The imports",
+  "text": "len(reader.pages) tells us how many pages there are.",
+  "speak": "len of reader dot pages tells us how many pages there are.",
+  "dur": 4.04
+ },
+ {
+  "id": "d30",
+  "chap": "c3 The imports",
+  "text": "reader.pages[0] is the first page. And extract_text() on that page gives us its text.",
+  "speak": "reader dot pages, zero is the first page. And extract text on that page gives us its text.",
+  "dur": 6.76
+ },
+ {
+  "id": "d31",
+  "chap": "c3 The imports",
+  "text": "One honest detail. reader.pages looks like a list. You can loop over it, count it and index it.",
+  "speak": "One honest detail. reader dot pages looks like a list. You can loop over it, count it and index it.",
+  "dur": 7.08
+ },
+ {
+  "id": "d32",
+  "chap": "c3 The imports",
+  "text": "But it is not actually a list. Pages are only read at the moment you reach for them.",
+  "speak": "But it is not actually a list. Pages are only read at the moment you reach for them.",
+  "dur": 5.0
+ },
+ {
+  "id": "d33",
+  "chap": "c3 The imports",
+  "text": "That is why opening a five hundred page PDF is instant. Nothing has really been read yet.",
+  "speak": "That is why opening a five hundred page PDF is instant. Nothing has really been read yet.",
+  "dur": 5.52
+ },
+ {
+  "id": "d34",
+  "chap": "c3 The imports",
+  "text": "In Python, \"behaves like a list\" and \"is a list\" are two different claims. Most code only ever needs the first one.",
+  "speak": "In Python, \"behaves like a list\" and \"is a list\" are two different claims. Most code only ever needs the first one.",
+  "dur": 7.16
+ },
+ {
+  "id": "d35",
+  "chap": "c3 The imports",
+  "text": "And now, the most important limit of all.",
+  "speak": "And now, the most important limit of all.",
+  "dur": 2.36
+ },
+ {
+  "id": "d36",
+  "chap": "c3 The imports",
+  "text": "extract_text pulls out text that is already stored inside the PDF, as text.",
+  "speak": "extract text pulls out text that is already stored inside the PDF, as text.",
+  "dur": 5.28
+ },
+ {
+  "id": "d37",
+  "chap": "c3 The imports",
+  "text": "It does not look at the page and recognise letters, the way your eyes do.",
+  "speak": "It does not look at the page and recognise letters, the way your eyes do.",
+  "dur": 4.16
+ },
+ {
+  "id": "d38",
+  "chap": "c3 The imports",
+  "text": "So if a page is a photograph of a document, there is no text in there to pull out.",
+  "speak": "So if a page is a photograph of a document, there is no text in there to pull out.",
+  "dur": 4.44
+ },
+ {
+  "id": "d39",
+  "chap": "c3 The imports",
+  "text": "And pypdf returns an empty string. Politely. With no error at all.",
+  "speak": "And pie P D F returns an empty string. Politely. With no error at all.",
+  "dur": 5.92
+ },
+ {
+  "id": "d40",
+  "chap": "c3 The imports",
+  "text": "Remember that. Our loader is going to check for exactly this case.",
+  "speak": "Remember that. Our loader is going to check for exactly this case.",
+  "dur": 4.12
+ },
+ {
+  "id": "e01",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "Before we fix anything, let's watch the problem happen. That is step zero.",
+  "speak": "Before we fix anything, let's watch the problem happen. That is step zero.",
+  "dur": 4.76
+ },
+ {
+  "id": "e02",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "A beginner thinks: a PDF is a file. open() reads files. So just open it.",
+  "speak": "A beginner thinks: a PDF is a file. open reads files. So just open it.",
+  "dur": 5.2
+ },
+ {
+  "id": "e03",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "So we try exactly what Day 22 does with a text file. Open the remote work policy PDF, and read it.",
+  "speak": "So we try exactly what Day 22 does with a text file. Open the remote work policy PDF, and read it.",
+  "dur": 6.6
+ },
+ {
+  "id": "e04",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "And Python refuses. \"utf-8 codec can't decode byte 0xf9\".",
+  "speak": "And Python refuses. \"U T F eight codec can't decode byte zero x F nine\".",
+  "dur": 5.52
+ },
+ {
+  "id": "e05",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "What does that mean? A text file is just letters, one after another. Python can read them straight into a string.",
+  "speak": "What does that mean? A text file is just letters, one after another. Python can read them straight into a string.",
+  "dur": 7.4
+ },
+ {
+  "id": "e06",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "A PDF is not like that. A PDF is more like a small, compressed database.",
+  "speak": "A PDF is not like that. A PDF is more like a small, compressed database.",
+  "dur": 5.92
+ },
+ {
+  "id": "e07",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "Inside, it holds fonts, images, page sizes, and the text itself, all squeezed down into binary.",
+  "speak": "Inside, it holds fonts, images, page sizes, and the text itself, all squeezed down into binary.",
+  "dur": 6.52
+ },
+ {
+  "id": "e08",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "Those bytes are not letters in any alphabet. So Python cannot turn them into a string, and it stops.",
+  "speak": "Those bytes are not letters in any alphabet. So Python cannot turn them into a string, and it stops.",
+  "dur": 6.04
+ },
+ {
+  "id": "e09",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "Now here is a surprising thing. This crash is actually the good case.",
+  "speak": "Now here is a surprising thing. This crash is actually the good case.",
+  "dur": 4.08
+ },
+ {
+  "id": "e10",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "Because it is loud. It stops, and it tells you exactly what went wrong.",
+  "speak": "Because it is loud. It stops, and it tells you exactly what went wrong.",
+  "dur": 3.92
+ },
+ {
+  "id": "e11",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "The dangerous case is the quiet one. A file that opens happily, and gives you an empty string. The program keeps running, and quietly knows nothing.",
+  "speak": "The dangerous case is the quiet one. A file that opens happily, and gives you an empty string. The program keeps running, and quietly knows nothing.",
+  "dur": 7.76
+ },
+ {
+  "id": "e12",
+  "chap": "c4 Step 0 \u00b7 the crash",
+  "text": "So we cannot read a PDF ourselves. We need a library that understands the PDF format and unpacks the text for us. That is pypdf.",
+  "speak": "So we cannot read a PDF ourselves. We need a library that understands the PDF format and unpacks the text for us. That is pie P D F.",
+  "dur": 11.32
+ },
+ {
+  "id": "f01",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Now, step one. This is the whole lesson, so let's read it in three parts.",
+  "speak": "Now, step one. This is the whole lesson, so let's read it in three parts.",
+  "dur": 4.64
+ },
+ {
+  "id": "f02",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Part A, a function that cleans text. Part B, one small loader function per file format. Part C, a dictionary that picks the right loader.",
+  "speak": "Part A, a function that cleans text. Part B, one small loader function per file format. Part C, a dictionary that picks the right loader.",
+  "dur": 10.04
+ },
+ {
+  "id": "f03",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Part A first. The clean_text function. It fixes three problems that PDFs give us.",
+  "speak": "Part A first. The clean text function. It fixes three problems that PDFs give us.",
+  "dur": 6.84
+ },
+ {
+  "id": "f04",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Problem one. Ligatures.",
+  "speak": "Problem one. Ligatures.",
+  "dur": 2.8
+ },
+ {
+  "id": "f05",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "When pypdf reads our PDFs, it hands back words like this. Effective. Office. Confidential.",
+  "speak": "When pie P D F reads our PDFs, it hands back words like this. Effective. Office. Confidential.",
+  "dur": 6.04
+ },
+ {
+  "id": "f06",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "They look normal. But they are not normal.",
+  "speak": "They look normal. But they are not normal.",
+  "dur": 2.88
+ },
+ {
+  "id": "f07",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "When a printer sets the letters f and i side by side, the font joins them together into one single shape. Printers have done this for five hundred years, because it simply looks nicer.",
+  "speak": "When a printer sets the letters f and i side by side, the font joins them together into one single shape. Printers have done this for five hundred years, because it simply looks nicer.",
+  "dur": 10.72
+ },
+ {
+  "id": "f08",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "And Unicode kept those joined shapes as characters of their own.",
+  "speak": "And Unicode kept those joined shapes as characters of their own.",
+  "dur": 3.96
+ },
+ {
+  "id": "f09",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "So inside our PDF, the word office is stored as o, then one joined character for f f i, then c, then e. Four characters, not six.",
+  "speak": "So inside our PDF, the word office is stored as o, then one joined character for f f i, then c, then e. Four characters, not six.",
+  "dur": 10.24
+ },
+ {
+  "id": "f10",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Why should we care? Because our search reads characters.",
+  "speak": "Why should we care? Because our search reads characters.",
+  "dur": 3.6
+ },
+ {
+  "id": "f11",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "To the embedding model, this office is not the same word as office. A student asking about the office could miss this chunk completely.",
+  "speak": "To the embedding model, this office is not the same word as office. A student asking about the office could miss this chunk completely.",
+  "dur": 7.28
+ },
+ {
+  "id": "f12",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "So we build a small dictionary. On the left, the joined character. On the right, the normal letters.",
+  "speak": "So we build a small dictionary. On the left, the joined character. On the right, the normal letters.",
+  "dur": 5.68
+ },
+ {
+  "id": "f13",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Then a simple loop. For every pair in the dictionary, replace the joined character with normal letters.",
+  "speak": "Then a simple loop. For every pair in the dictionary, replace the joined character with normal letters.",
+  "dur": 6.36
+ },
+ {
+  "id": "f14",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Five lines, and every ligature in the company is fixed. Office is office again.",
+  "speak": "Five lines, and every ligature in the company is fixed. Office is office again.",
+  "dur": 4.72
+ },
+ {
+  "id": "f15",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Before problem two, let's meet the tool we will use for the next two fixes. re.sub.",
+  "speak": "Before problem two, let's meet the tool we will use for the next two fixes. R E dot sub.",
+  "dur": 6.48
+ },
+ {
+  "id": "f16",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "It takes three things. The shape to look for. What to put instead. And the text to work on.",
+  "speak": "It takes three things. The shape to look for. What to put instead. And the text to work on.",
+  "dur": 6.6
+ },
+ {
+  "id": "f17",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "It finds every place in the text that matches the shape, and replaces all of them. Not just the first one. Every one. You do not write a loop.",
+  "speak": "It finds every place in the text that matches the shape, and replaces all of them. Not just the first one. Every one. You do not write a loop.",
+  "dur": 9.36
+ },
+ {
+  "id": "f18",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Now look carefully at how we call it. text = re.sub.",
+  "speak": "Now look carefully at how we call it. text equals R E dot sub.",
+  "dur": 4.4
+ },
+ {
+  "id": "f19",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "The answer is assigned back into text. Why? Because strings in Python can never be changed.",
+  "speak": "The answer is assigned back into text. Why? Because strings in Python can never be changed.",
+  "dur": 6.4
+ },
+ {
+  "id": "f20",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "re.sub does not touch your text. It builds a brand new string, and hands it back to you.",
+  "speak": "R E dot sub does not touch your text. It builds a brand new string, and hands it back to you.",
+  "dur": 5.72
+ },
+ {
+  "id": "f21",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "If you forget to write \"text equals\", the function still does all the work. Nothing crashes. And you just throw the answer away.",
+  "speak": "If you forget to write \"text equals\", the function still does all the work. Nothing crashes. And you just throw the answer away.",
+  "dur": 7.48
+ },
+ {
+  "id": "f22",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Students lose whole evenings to this bug. When cleaning seems to do nothing, look for this first.",
+  "speak": "Students lose whole evenings to this bug. When cleaning seems to do nothing, look for this first.",
+  "dur": 5.48
+ },
+ {
+  "id": "f23",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Problem two. A hyphen at the end of a line.",
+  "speak": "Problem two. A hyphen at the end of a line.",
+  "dur": 4.04
+ },
+ {
+  "id": "f24",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "In a justified document, a long word gets broken across two lines. Reimburse, hyphen, on one line. And ment on the next.",
+  "speak": "In a justified document, a long word gets broken across two lines. Reimburse, hyphen, on one line. And ment on the next.",
+  "dur": 8.0
+ },
+ {
+  "id": "f25",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "The PDF stores it exactly like that. So we get reimburse, hyphen, newline, ment. A word that does not exist.",
+  "speak": "The PDF stores it exactly like that. So we get reimburse, hyphen, newline, ment. A word that does not exist.",
+  "dur": 7.92
+ },
+ {
+  "id": "f26",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "The pattern is just a hyphen, followed by a newline. Backslash n means the newline character.",
+  "speak": "The pattern is just a hyphen, followed by a newline. Backslash n means the newline character.",
+  "dur": 6.16
+ },
+ {
+  "id": "f27",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "And we replace it with an empty string. Replacing something with nothing, is how you delete it.",
+  "speak": "And we replace it with an empty string. Replacing something with nothing, is how you delete it.",
+  "dur": 5.08
+ },
+ {
+  "id": "f28",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "So reimburse, hyphen, newline, ment, becomes reimbursement. Glued back together.",
+  "speak": "So reimburse, hyphen, newline, ment, becomes reimbursement. Glued back together.",
+  "dur": 5.8
+ },
+ {
+  "id": "f29",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Here is an honest note. In our three PDFs, this rule finds zero matches. The tool that made them does not hyphenate.",
+  "speak": "Here is an honest note. In our three PDFs, this rule finds zero matches. The tool that made them does not hyphenate.",
+  "dur": 6.76
+ },
+ {
+  "id": "f30",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "But PDFs exported from Word or from LaTeX do this all the time. So the rule stays. It costs nothing today, and it saves us the day a real company document arrives.",
+  "speak": "But PDFs exported from Word or from lay tech do this all the time. So the rule stays. It costs nothing today, and it saves us the day a real company document arrives.",
+  "dur": 10.6
+ },
+ {
+  "id": "f31",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "And a good habit. Don't assume your cleaning worked. Count it. re.findall tells you how many times a pattern matched.",
+  "speak": "And a good habit. Don't assume your cleaning worked. Count it. R E dot find all tells you how many times a pattern matched.",
+  "dur": 8.68
+ },
+ {
+  "id": "f32",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Problem three. Ragged whitespace. This is the rule that does the real work.",
+  "speak": "Problem three. Ragged whitespace. This is the rule that does the real work.",
+  "dur": 5.48
+ },
+ {
+  "id": "f33",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "A PDF does not store sentences. It stores instructions. Draw these letters, at this position on the page.",
+  "speak": "A PDF does not store sentences. It stores instructions. Draw these letters, at this position on the page.",
+  "dur": 6.76
+ },
+ {
+  "id": "f34",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "So wherever a sentence reaches the right margin, the PDF simply starts a new line.",
+  "speak": "So wherever a sentence reaches the right margin, the PDF simply starts a new line.",
+  "dur": 5.56
+ },
+ {
+  "id": "f35",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "And pypdf gives us that newline, sitting right in the middle of a sentence.",
+  "speak": "And pie P D F gives us that newline, sitting right in the middle of a sentence.",
+  "dur": 4.92
+ },
+ {
+  "id": "f36",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Our IT handbook genuinely contains this. \"Do not turn it off. Your\", newline, \"screen must lock automatically.\"",
+  "speak": "Our IT handbook genuinely contains this. \"Do not turn it off. Your\", newline, \"screen must lock automatically.\"",
+  "dur": 7.48
+ },
+ {
+  "id": "f37",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "That one handbook has forty five of these broken lines. Tables and columns are even worse, with long runs of spaces.",
+  "speak": "That one handbook has forty five of these broken lines. Tables and columns are even worse, with long runs of spaces.",
+  "dur": 6.56
+ },
+ {
+  "id": "f38",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "The pattern is backslash s, plus.",
+  "speak": "The pattern is backslash s, plus.",
+  "dur": 2.88
+ },
+ {
+  "id": "f39",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Backslash s means one whitespace character. A space, a tab, or a newline.",
+  "speak": "Backslash s means one whitespace character. A space, a tab, or a newline.",
+  "dur": 6.24
+ },
+ {
+  "id": "f40",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Plus means: one or more of the thing just before me.",
+  "speak": "Plus means: one or more of the thing just before me.",
+  "dur": 3.36
+ },
+ {
+  "id": "f41",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "So backslash s plus means a run of whitespace of any length. One character, or a thousand.",
+  "speak": "So backslash s plus means a run of whitespace of any length. One character, or a thousand.",
+  "dur": 5.68
+ },
+ {
+  "id": "f42",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "And we replace each run with a single space. Watch. Every messy gap becomes one clean space.",
+  "speak": "And we replace each run with a single space. Watch. Every messy gap becomes one clean space.",
+  "dur": 6.96
+ },
+ {
+  "id": "f43",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Now, what is that little r before the quotes?",
+  "speak": "Now, what is that little r before the quotes?",
+  "dur": 3.6
+ },
+ {
+  "id": "f44",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "It makes a raw string. Inside a normal Python string, a backslash starts an escape code. Backslash n is a newline. Backslash t is a tab.",
+  "speak": "It makes a raw string. Inside a normal Python string, a backslash starts an escape code. Backslash n is a newline. Backslash t is a tab.",
+  "dur": 9.92
+ },
+ {
+  "id": "f45",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "But backslash s is not a code Python knows. And newer versions of Python will warn you: invalid escape sequence.",
+  "speak": "But backslash s is not a code Python knows. And newer versions of Python will warn you: invalid escape sequence.",
+  "dur": 7.48
+ },
+ {
+  "id": "f46",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "The r switches that system off. The backslash and the s pass through untouched, straight to the regex engine.",
+  "speak": "The r switches that system off. The backslash and the s pass through untouched, straight to the regex engine.",
+  "dur": 6.32
+ },
+ {
+  "id": "f47",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Simple habit. If a string is a regex, start it with r. Every time.",
+  "speak": "Simple habit. If a string is a regex, start it with r. Every time.",
+  "dur": 5.72
+ },
+ {
+  "id": "f48",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "One more thing in this function, and this one is sneaky. The order matters.",
+  "speak": "One more thing in this function, and this one is sneaky. The order matters.",
+  "dur": 5.32
+ },
+ {
+  "id": "f49",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "The hyphen fix must run before the whitespace fix. Let's see why.",
+  "speak": "The hyphen fix must run before the whitespace fix. Let's see why.",
+  "dur": 4.64
+ },
+ {
+  "id": "f50",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Run the whitespace fix first, and the newline becomes a space. Now we have reimburse, hyphen, space, ment.",
+  "speak": "Run the whitespace fix first, and the newline becomes a space. Now we have reimburse, hyphen, space, ment.",
+  "dur": 8.84
+ },
+ {
+  "id": "f51",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "And the hyphen pattern is looking for a hyphen followed by a newline. There is no newline anymore. It can never match.",
+  "speak": "And the hyphen pattern is looking for a hyphen followed by a newline. There is no newline anymore. It can never match.",
+  "dur": 6.44
+ },
+ {
+  "id": "f52",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Swap these two lines, and the hyphen fix silently stops working. No error. That is exactly why you must notice it now.",
+  "speak": "Swap these two lines, and the hyphen fix silently stops working. No error. That is exactly why you must notice it now.",
+  "dur": 7.08
+ },
+ {
+  "id": "f53",
+  "chap": "c5 Part A \u00b7 clean_text",
+  "text": "Last line. .strip() removes spaces from the start and the end. And we return the clean text.",
+  "speak": "Last line. dot strip removes spaces from the start and the end. And we return the clean text.",
+  "dur": 6.68
+ },
+ {
+  "id": "g01",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Part B. One loader per file format.",
+  "speak": "Part B. One loader per file format.",
+  "dur": 3.72
+ },
+ {
+  "id": "g02",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Every loader follows the same contract. And the contract is the real point here.",
+  "speak": "Every loader follows the same contract. And the contract is the real point here.",
+  "dur": 4.96
+ },
+ {
+  "id": "g03",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Each loader takes a file path, and returns a list of dictionaries. Each dictionary has a page, and a text.",
+  "speak": "Each loader takes a file path, and returns a list of dictionaries. Each dictionary has a page, and a text.",
+  "dur": 6.6
+ },
+ {
+  "id": "g04",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Why a list? A text file has only one piece of text in it.",
+  "speak": "Why a list? A text file has only one piece of text in it.",
+  "dur": 4.0
+ },
+ {
+  "id": "g05",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Because a PDF has many pages. If every loader returns a list, the code that calls them never has to care which format it is.",
+  "speak": "Because a PDF has many pages. If every loader returns a list, the code that calls them never has to care which format it is.",
+  "dur": 7.56
+ },
+ {
+  "id": "g06",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "One file in, one list out. Whether that list has one item, or four hundred.",
+  "speak": "One file in, one list out. Whether that list has one item, or four hundred.",
+  "dur": 4.44
+ },
+ {
+  "id": "g07",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Think of a power socket. Every appliance has the same plug. The socket never needs to know if it is a fan or a phone charger.",
+  "speak": "Think of a power socket. Every appliance has the same plug. The socket never needs to know if it is a fan or a phone charger.",
+  "dur": 7.52
+ },
+ {
+  "id": "g08",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Same plug, every loader. That is what lets us add HTML and images next class, without touching anything else.",
+  "speak": "Same plug, every loader. That is what lets us add HTML and images next class, without touching anything else.",
+  "dur": 6.32
+ },
+ {
+  "id": "g09",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "First, load_txt. This is our Day 22 loader, unchanged.",
+  "speak": "First, load T X T. This is our Day 22 loader, unchanged.",
+  "dur": 4.48
+ },
+ {
+  "id": "g10",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Open the file, read the whole thing, clean it.",
+  "speak": "Open the file, read the whole thing, clean it.",
+  "dur": 2.84
+ },
+ {
+  "id": "g11",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "And return a list with one dictionary in it. The page is None, because a text file has no pages.",
+  "speak": "And return a list with one dictionary in it. The page is None, because a text file has no pages.",
+  "dur": 6.2
+ },
+ {
+  "id": "g12",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Now the star of the show. load_pdf.",
+  "speak": "Now the star of the show. load P D F.",
+  "dur": 3.44
+ },
+ {
+  "id": "g13",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "First, PdfReader(path). It opens the file and understands its structure for us.",
+  "speak": "First, P D F reader of path. It opens the file and understands its structure for us.",
+  "dur": 5.72
+ },
+ {
+  "id": "g14",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Then an empty list, called pages. We will fill it up as we go.",
+  "speak": "Then an empty list, called pages. We will fill it up as we go.",
+  "dur": 5.24
+ },
+ {
+  "id": "g15",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Now the loop. For page number, page, in enumerate of reader.pages, start equals one.",
+  "speak": "Now the loop. For page number, page, in enumerate of reader dot pages, start equals one.",
+  "dur": 6.84
+ },
+ {
+  "id": "g16",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "enumerate gives us two things at once. A counter, and the page itself.",
+  "speak": "enumerate gives us two things at once. A counter, and the page itself.",
+  "dur": 4.6
+ },
+ {
+  "id": "g17",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Why start equals one? Because Python counts from zero, but a human reading page one calls it page one, not page zero.",
+  "speak": "Why start equals one? Because Python counts from zero, but a human reading page one calls it page one, not page zero.",
+  "dur": 8.04
+ },
+ {
+  "id": "g18",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Inside the loop, page.extract_text() pulls out the text of that one page.",
+  "speak": "Inside the loop, page dot extract text pulls out the text of that one page.",
+  "dur": 5.52
+ },
+ {
+  "id": "g19",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "But notice the \"or empty string\" after it.",
+  "speak": "But notice the \"or empty string\" after it.",
+  "dur": 2.44
+ },
+ {
+  "id": "g20",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "For a page with no text layer at all, extract_text can give back None. And the very next line would crash on None.",
+  "speak": "For a page with no text layer at all, extract text can give back None. And the very next line would crash on None.",
+  "dur": 6.48
+ },
+ {
+  "id": "g21",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "\"Or empty string\" means: if you got nothing, use an empty string instead. A tiny safety net.",
+  "speak": "\"Or empty string\" means: if you got nothing, use an empty string instead. A tiny safety net.",
+  "dur": 5.44
+ },
+ {
+  "id": "g22",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Then we clean the text, with our Part A function.",
+  "speak": "Then we clean the text, with our Part A function.",
+  "dur": 3.08
+ },
+ {
+  "id": "g23",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "And now, the empty page check. This one is important.",
+  "speak": "And now, the empty page check. This one is important.",
+  "dur": 4.96
+ },
+ {
+  "id": "g24",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "If the cleaned text is shorter than a hundred characters, something is wrong with that page.",
+  "speak": "If the cleaned text is shorter than a hundred characters, something is wrong with that page.",
+  "dur": 5.6
+ },
+ {
+  "id": "g25",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Usually it means the page is a scan. Somebody photocopied a document, and saved the photo inside a PDF.",
+  "speak": "Usually it means the page is a scan. Somebody photocopied a document, and saved the photo inside a PDF.",
+  "dur": 6.12
+ },
+ {
+  "id": "g26",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "There are no letters in that page at all. Only a picture of letters. pypdf is not failing. There is genuinely nothing there for it to find.",
+  "speak": "There are no letters in that page at all. Only a picture of letters. pie P D F is not failing. There is genuinely nothing there for it to find.",
+  "dur": 8.24
+ },
+ {
+  "id": "g27",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "So we print a loud warning, with the file name and page number. And we skip that page with continue.",
+  "speak": "So we print a loud warning, with the file name and page number. And we skip that page with continue.",
+  "dur": 6.08
+ },
+ {
+  "id": "g28",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Why not just keep it? Because an empty chunk is worse than no chunk.",
+  "speak": "Why not just keep it? Because an empty chunk is worse than no chunk.",
+  "dur": 3.92
+ },
+ {
+  "id": "g29",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Our search returns only three chunks. An empty one would waste one of those three precious slots.",
+  "speak": "Our search returns only three chunks. An empty one would waste one of those three precious slots.",
+  "dur": 6.12
+ },
+ {
+  "id": "g30",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "In a later class, we will send pages like this to a vision model, and let it read them.",
+  "speak": "In a later class, we will send pages like this to a vision model, and let it read them.",
+  "dur": 4.48
+ },
+ {
+  "id": "g31",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "If the page is fine, we append a dictionary. Page number, and text.",
+  "speak": "If the page is fine, we append a dictionary. Page number, and text.",
+  "dur": 4.72
+ },
+ {
+  "id": "g32",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "And at the end, we return the list. One entry per good page.",
+  "speak": "And at the end, we return the list. One entry per good page.",
+  "dur": 4.52
+ },
+ {
+  "id": "g33",
+  "chap": "c6 Part B \u00b7 the loaders",
+  "text": "Look at the shape. A two page PDF gives us a list of two dictionaries. Page one and page two.",
+  "speak": "Look at the shape. A two page PDF gives us a list of two dictionaries. Page one and page two.",
+  "dur": 6.4
+ },
+ {
+  "id": "h01",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "Part C. The dictionary that chooses. This replaces the if statement from Day 22.",
+  "speak": "Part C. The dictionary that chooses. This replaces the if statement from Day 22.",
+  "dur": 5.72
+ },
+ {
+  "id": "h02",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "You already know a dictionary can hold numbers or strings as values.",
+  "speak": "You already know a dictionary can hold numbers or strings as values.",
+  "dur": 4.48
+ },
+ {
+  "id": "h03",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "Here is something new. A dictionary can also hold functions as values.",
+  "speak": "Here is something new. A dictionary can also hold functions as values.",
+  "dur": 4.44
+ },
+ {
+  "id": "h04",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "Look carefully. load_txt, with no brackets after it.",
+  "speak": "Look carefully. load T X T, with no brackets after it.",
+  "dur": 3.72
+ },
+ {
+  "id": "h05",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "With brackets, load_txt() means call the function right now, and give me the result.",
+  "speak": "With brackets, load T X T, brackets means call the function right now, and give me the result.",
+  "dur": 4.88
+ },
+ {
+  "id": "h06",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "Without brackets, load_txt means the function itself, as a value. Like a tool you put in a box, without using it yet.",
+  "speak": "Without brackets, load T X T means the function itself, as a value. Like a tool you put in a box, without using it yet.",
+  "dur": 7.36
+ },
+ {
+  "id": "h07",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "So LOADERS maps a file extension to the function that knows how to read it.",
+  "speak": "So LOADERS maps a file extension to the function that knows how to read it.",
+  "dur": 4.16
+ },
+ {
+  "id": "h08",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": ".txt goes to load_txt. .md, a markdown file, is plain text too, so it also goes to load_txt. And .pdf goes to load_pdf.",
+  "speak": "dot T X T goes to load T X T. dot M D, a markdown file, is plain text too, so it also goes to load T X T. And dot P D F goes to load P D F.",
+  "dur": 11.4
+ },
+ {
+  "id": "h09",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "People call this a dispatch table. Or a registry.",
+  "speak": "People call this a dispatch table. Or a registry.",
+  "dur": 3.44
+ },
+ {
+  "id": "h10",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "Why is this better than a chain of if, elif, elif?",
+  "speak": "Why is this better than a chain of if, elif, elif?",
+  "dur": 3.24
+ },
+ {
+  "id": "h11",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "To support a new format, you add one line. You don't edit a growing if block.",
+  "speak": "To support a new format, you add one line. You don't edit a growing if block.",
+  "dur": 4.28
+ },
+ {
+  "id": "h12",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "Everything we support is visible in one place, at a glance.",
+  "speak": "Everything we support is visible in one place, at a glance.",
+  "dur": 3.76
+ },
+ {
+  "id": "h13",
+  "chap": "c7 Part C \u00b7 the dispatch table",
+  "text": "And the loop that uses it never mentions PDF or text at all. So the loop never needs to change.",
+  "speak": "And the loop that uses it never mentions PDF or text at all. So the loop never needs to change.",
+  "dur": 6.16
+ },
+ {
+  "id": "i01",
+  "chap": "c8 The loading loop",
+  "text": "Now the loading loop. Let's walk through it, one file at a time.",
+  "speak": "Now the loading loop. Let's walk through it, one file at a time.",
+  "dur": 5.04
+ },
+ {
+  "id": "i02",
+  "chap": "c8 The loading loop",
+  "text": "We loop over the files in the folder. sorted, so they always come out in the same order.",
+  "speak": "We loop over the files in the folder. sorted, so they always come out in the same order.",
+  "dur": 5.84
+ },
+ {
+  "id": "i03",
+  "chap": "c8 The loading loop",
+  "text": "First, find the extension. os.path.splitext cuts the name into two parts, at the last dot.",
+  "speak": "First, find the extension. O S dot path dot split ext cuts the name into two parts, at the last dot.",
+  "dur": 7.0
+ },
+ {
+  "id": "i04",
+  "chap": "c8 The loading loop",
+  "text": "remote work policy dot pdf becomes remote work policy, and dot pdf. Square bracket one takes the second part.",
+  "speak": "remote work policy dot pdf becomes remote work policy, and dot pdf. Square bracket one takes the second part.",
+  "dur": 7.08
+ },
+ {
+  "id": "i05",
+  "chap": "c8 The loading loop",
+  "text": "And .lower(), so a file called NOTES dot PDF in capitals works exactly the same way.",
+  "speak": "And dot lower, so a file called NOTES dot PDF in capitals works exactly the same way.",
+  "dur": 5.32
+ },
+ {
+  "id": "i06",
+  "chap": "c8 The loading loop",
+  "text": "Next, LOADERS.get(extension). We ask the dictionary for the right loader.",
+  "speak": "Next, loaders dot get, extension. We ask the dictionary for the right loader.",
+  "dur": 6.08
+ },
+ {
+  "id": "i07",
+  "chap": "c8 The loading loop",
+  "text": "Why get, and not square brackets?",
+  "speak": "Why get, and not square brackets?",
+  "dur": 2.68
+ },
+ {
+  "id": "i08",
+  "chap": "c8 The loading loop",
+  "text": "Square brackets crash with a KeyError when the key is missing. Our HTML file would crash the whole program.",
+  "speak": "Square brackets crash with a KeyError when the key is missing. Our HTML file would crash the whole program.",
+  "dur": 5.8
+ },
+ {
+  "id": "i09",
+  "chap": "c8 The loading loop",
+  "text": ".get never crashes. If the key is missing, it simply gives back None.",
+  "speak": "dot get never crashes. If the key is missing, it simply gives back None.",
+  "dur": 5.52
+ },
+ {
+  "id": "i10",
+  "chap": "c8 The loading loop",
+  "text": "And then we deal with None ourselves. If the loader is None, print \"skipping\", with the file name and its extension. And continue.",
+  "speak": "And then we deal with None ourselves. If the loader is None, print \"skipping\", with the file name and its extension. And continue.",
+  "dur": 7.84
+ },
+ {
+  "id": "i11",
+  "chap": "c8 The loading loop",
+  "text": "Day 22 skipped silently. We refuse to. A loud skip is a to-do list. It is literally printing next class's homework on the screen.",
+  "speak": "Day 22 skipped silently. We refuse to. A loud skip is a to-do list. It is literally printing next class's homework on the screen.",
+  "dur": 7.76
+ },
+ {
+  "id": "i12",
+  "chap": "c8 The loading loop",
+  "text": "Then the magic line. pieces equals loader, of file path.",
+  "speak": "Then the magic line. pieces equals loader, of file path.",
+  "dur": 4.6
+ },
+ {
+  "id": "i13",
+  "chap": "c8 The loading loop",
+  "text": "Notice, we never write load_pdf of file path anywhere. We write loader of file path.",
+  "speak": "Notice, we never write load P D F of file path anywhere. We write loader of file path.",
+  "dur": 5.48
+ },
+ {
+  "id": "i14",
+  "chap": "c8 The loading loop",
+  "text": "The dictionary already decided which function loader is. This one line reads every format we support.",
+  "speak": "The dictionary already decided which function loader is. This one line reads every format we support.",
+  "dur": 5.36
+ },
+ {
+  "id": "i15",
+  "chap": "c8 The loading loop",
+  "text": "Each loader gave us a list. So we loop through the pieces, and attach the file name to every one.",
+  "speak": "Each loader gave us a list. So we loop through the pieces, and attach the file name to every one.",
+  "dur": 5.8
+ },
+ {
+  "id": "i16",
+  "chap": "c8 The loading loop",
+  "text": "Source, page, and text. All collected into one flat list called documents.",
+  "speak": "Source, page, and text. All collected into one flat list called documents.",
+  "dur": 4.88
+ },
+ {
+  "id": "i17",
+  "chap": "c8 The loading loop",
+  "text": "And we print \"loaded\", with the file name and the number of pieces.",
+  "speak": "And we print \"loaded\", with the file name and the number of pieces.",
+  "dur": 3.72
+ },
+ {
+  "id": "i18",
+  "chap": "c8 The loading loop",
+  "text": "Let's run it, and watch the output.",
+  "speak": "Let's run it, and watch the output.",
+  "dur": 2.6
+ },
+ {
+  "id": "i19",
+  "chap": "c8 The loading loop",
+  "text": "Expense policy, one piece. Then, skipping the holiday calendar, no loader for .png yet. Loud, not silent.",
+  "speak": "Expense policy, one piece. Then, skipping the holiday calendar, no loader for dot P N G yet. Loud, not silent.",
+  "dur": 7.48
+ },
+ {
+  "id": "i20",
+  "chap": "c8 The loading loop",
+  "text": "Insurance benefits PDF, one piece. The IT security handbook, two pieces, one per page.",
+  "speak": "Insurance benefits PDF, one piece. The IT security handbook, two pieces, one per page.",
+  "dur": 6.52
+ },
+ {
+  "id": "i21",
+  "chap": "c8 The loading loop",
+  "text": "Leave policy, one. Skipping the release notes HTML. Product FAQ, one. Remote work policy, two pages. Support tickets, one.",
+  "speak": "Leave policy, one. Skipping the release notes HTML. Product FAQ, one. Remote work policy, two pages. Support tickets, one.",
+  "dur": 9.04
+ },
+ {
+  "id": "i22",
+  "chap": "c8 The loading loop",
+  "text": "Total, nine pieces of text. Day 22 had four.",
+  "speak": "Total, nine pieces of text. Day 22 had four.",
+  "dur": 4.2
+ },
+ {
+  "id": "i23",
+  "chap": "c8 The loading loop",
+  "text": "One small helper before we move on. describe_source.",
+  "speak": "One small helper before we move on. describe source.",
+  "dur": 4.96
+ },
+ {
+  "id": "i24",
+  "chap": "c8 The loading loop",
+  "text": "A PDF piece can say \"page two\". A text file piece cannot, because its page is None.",
+  "speak": "A PDF piece can say \"page two\". A text file piece cannot, because its page is None.",
+  "dur": 5.44
+ },
+ {
+  "id": "i25",
+  "chap": "c8 The loading loop",
+  "text": "So if the page is None, just return the file name. Otherwise, return the file name, plus page, plus the number.",
+  "speak": "So if the page is None, just return the file name. Otherwise, return the file name, plus page, plus the number.",
+  "dur": 7.72
+ },
+ {
+  "id": "i26",
+  "chap": "c8 The loading loop",
+  "text": "This is the only place in the whole file that has to worry about None. We keep it inside one small function, so the rest of the code stays clean.",
+  "speak": "This is the only place in the whole file that has to worry about None. We keep it inside one small function, so the rest of the code stays clean.",
+  "dur": 7.72
+ },
+ {
+  "id": "j01",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Steps two to eight are the same machine as Day 22. So let's move quickly, and just watch for the one new thing.",
+  "speak": "Steps two to eight are the same machine as Day 22. So let's move quickly, and just watch for the one new thing.",
+  "dur": 6.44
+ },
+ {
+  "id": "j02",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Step two, chunk. Same sixty word cutting as Day 22.",
+  "speak": "Step two, chunk. Same sixty word cutting as Day 22.",
+  "dur": 3.84
+ },
+ {
+  "id": "j03",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "The one new part, is the label. On Day 22 the label carried only the file name. Now it carries the page number too.",
+  "speak": "The one new part, is the label. On Day 22 the label carried only the file name. Now it carries the page number too.",
+  "dur": 7.4
+ },
+ {
+  "id": "j04",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "And that page number travels all the way through the database, to the final answer.",
+  "speak": "And that page number travels all the way through the database, to the final answer.",
+  "dur": 4.48
+ },
+ {
+  "id": "j05",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "There is also a free bonus here. Because we loaded page by page, a chunk can never mix text from two different pages.",
+  "speak": "There is also a free bonus here. Because we loaded page by page, a chunk can never mix text from two different pages.",
+  "dur": 7.32
+ },
+ {
+  "id": "j06",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "The page split already did half of our chunking for us.",
+  "speak": "The page split already did half of our chunking for us.",
+  "dur": 3.08
+ },
+ {
+  "id": "j07",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Our nine pieces become forty four chunks.",
+  "speak": "Our nine pieces become forty four chunks.",
+  "dur": 2.56
+ },
+ {
+  "id": "j08",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Steps three and four. Embed and store. Unchanged.",
+  "speak": "Steps three and four. Embed and store. Unchanged.",
+  "dur": 4.64
+ },
+ {
+  "id": "j09",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Qdrant calls the embedding model for every chunk, and stores each vector together with its label. Source, and page.",
+  "speak": "Qdrant calls the embedding model for every chunk, and stores each vector together with its label. Source, and page.",
+  "dur": 6.96
+ },
+ {
+  "id": "j10",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Now the question. And this is the exact question that ended Day 22.",
+  "speak": "Now the question. And this is the exact question that ended Day 22.",
+  "dur": 5.04
+ },
+ {
+  "id": "j11",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Can I work from home permanently at Plural Labs?",
+  "speak": "Can I work from home permanently at Plural Labs?",
+  "dur": 3.16
+ },
+ {
+  "id": "j12",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "On Day 22, our bot refused. The work from home rules were simply not in any of the four text files.",
+  "speak": "On Day 22, our bot refused. The work from home rules were simply not in any of the four text files.",
+  "dur": 6.52
+ },
+ {
+  "id": "j13",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Nothing about retrieval or the prompt has improved since then. The only change is that the loader can now open a PDF.",
+  "speak": "Nothing about retrieval or the prompt has improved since then. The only change is that the loader can now open a PDF.",
+  "dur": 7.12
+ },
+ {
+  "id": "j14",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Steps five and six. Retrieve and rank. The three winning chunks come back.",
+  "speak": "Steps five and six. Retrieve and rank. The three winning chunks come back.",
+  "dur": 5.2
+ },
+ {
+  "id": "j15",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "And look at the labels. Remote work policy page one. Page two. Page one again.",
+  "speak": "And look at the labels. Remote work policy page one. Page two. Page one again.",
+  "dur": 6.68
+ },
+ {
+  "id": "j16",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Step seven, augment. Same string building as Day 22, with one addition. The page number goes into the header line above each chunk.",
+  "speak": "Step seven, augment. Same string building as Day 22, with one addition. The page number goes into the header line above each chunk.",
+  "dur": 7.88
+ },
+ {
+  "id": "j17",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "And one new instruction in the prompt. Mention the file, and the page number if there is one.",
+  "speak": "And one new instruction in the prompt. Mention the file, and the page number if there is one.",
+  "dur": 5.04
+ },
+ {
+  "id": "j18",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "The model can only cite a page if we show it one.",
+  "speak": "The model can only cite a page if we show it one.",
+  "dur": 2.84
+ },
+ {
+  "id": "j19",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Step eight, generate. And here is the answer.",
+  "speak": "Step eight, generate. And here is the answer.",
+  "dur": 4.04
+ },
+ {
+  "id": "j20",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Yes, a fully remote arrangement is possible. But it needs written approval from your department head and the Vice President of People. And new employees cannot work fully remote during their first ninety days.",
+  "speak": "Yes, a fully remote arrangement is possible. But it needs written approval from your department head and the Vice President of People. And new employees cannot work fully remote during their first ninety days.",
+  "dur": 12.24
+ },
+ {
+  "id": "j21",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Source. Remote work policy dot pdf. Page one.",
+  "speak": "Source. Remote work policy dot pdf. Page one.",
+  "dur": 4.76
+ },
+ {
+  "id": "j22",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Same question. Same retrieval. Same prompt. The only thing that changed is that the loader got wider.",
+  "speak": "Same question. Same retrieval. Same prompt. The only thing that changed is that the loader got wider.",
+  "dur": 7.08
+ },
+ {
+  "id": "j23",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Now try the other questions in the file. The home office allowance? Fifteen thousand rupees, claimed within sixty days. From the remote work policy, page one.",
+  "speak": "Now try the other questions in the file. The home office allowance? Fifteen thousand rupees, claimed within sixty days. From the remote work policy, page one.",
+  "dur": 8.96
+ },
+ {
+  "id": "j24",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "The laptop screen lock? Five minutes, and you cannot raise it. From the IT security handbook, page one.",
+  "speak": "The laptop screen lock? Five minutes, and you cannot raise it. From the IT security handbook, page one.",
+  "dur": 6.8
+ },
+ {
+  "id": "j25",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "Are my parents covered by insurance? Not by default, but you can add them for an eight thousand rupee top up. From the insurance PDF.",
+  "speak": "Are my parents covered by insurance? Not by default, but you can add them for an eight thousand rupee top up. From the insurance PDF.",
+  "dur": 7.88
+ },
+ {
+  "id": "j26",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "And the old text file question, how many paid leaves? Still twenty four. We did not break Day 22 while adding PDFs.",
+  "speak": "And the old text file question, how many paid leaves? Still twenty four. We did not break Day 22 while adding PDFs.",
+  "dur": 6.88
+ },
+ {
+  "id": "j27",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "And finally, the honesty test. What is the notice period if I resign?",
+  "speak": "And finally, the honesty test. What is the notice period if I resign?",
+  "dur": 4.48
+ },
+ {
+  "id": "j28",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "That is in none of our nine files. And look at the scores. Point seven six. Even higher than our real answers.",
+  "speak": "That is in none of our nine files. And look at the scores. Point seven six. Even higher than our real answers.",
+  "dur": 8.28
+ },
+ {
+  "id": "j29",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "The search always returns three chunks, whether they help or not. A high score does not mean the answer is there.",
+  "speak": "The search always returns three chunks, whether they help or not. A high score does not mean the answer is there.",
+  "dur": 6.52
+ },
+ {
+  "id": "j30",
+  "chap": "c9 Steps 2 \u2192 8",
+  "text": "But our prompt rule holds. I could not find this in the Plural Labs documents. Exactly what we want.",
+  "speak": "But our prompt rule holds. I could not find this in the Plural Labs documents. Exactly what we want.",
+  "dur": 6.68
+ },
+ {
+  "id": "k01",
+  "chap": "c10 Wrap-up",
+  "text": "So let's wrap up. Three things to take away from today.",
+  "speak": "So let's wrap up. Three things to take away from today.",
+  "dur": 2.84
+ },
+ {
+  "id": "k02",
+  "chap": "c10 Wrap-up",
+  "text": "One. The retrieval did not get smarter today. The loader got wider.",
+  "speak": "One. The retrieval did not get smarter today. The loader got wider.",
+  "dur": 5.68
+ },
+ {
+  "id": "k03",
+  "chap": "c10 Wrap-up",
+  "text": "A RAG system is only as good as the documents it can actually open. And that is usually the cheapest part to improve.",
+  "speak": "A RAG system is only as good as the documents it can actually open. And that is usually the cheapest part to improve.",
+  "dur": 7.8
+ },
+ {
+  "id": "k04",
+  "chap": "c10 Wrap-up",
+  "text": "Two. A loader is not one function. It is a pipeline.",
+  "speak": "Two. A loader is not one function. It is a pipeline.",
+  "dur": 5.36
+ },
+ {
+  "id": "k05",
+  "chap": "c10 Wrap-up",
+  "text": "Open the file. Pull out the text. Clean it. Split it into pages. And check the result is not empty.",
+  "speak": "Open the file. Pull out the text. Clean it. Split it into pages. And check the result is not empty.",
+  "dur": 8.44
+ },
+ {
+  "id": "k06",
+  "chap": "c10 Wrap-up",
+  "text": "The cleaning and the checking are not optional extras. The ligature problem alone would have quietly damaged every search for the word office.",
+  "speak": "The cleaning and the checking are not optional extras. The ligature problem alone would have quietly damaged every search for the word office.",
+  "dur": 8.08
+ },
+ {
+  "id": "k07",
+  "chap": "c10 Wrap-up",
+  "text": "Three. A dictionary of functions turns \"support one more format\" into a one line change.",
+  "speak": "Three. A dictionary of functions turns \"support one more format\" into a one line change.",
+  "dur": 6.36
+ },
+ {
+  "id": "k08",
+  "chap": "c10 Wrap-up",
+  "text": "And what is still broken? Look at our own output. It told us.",
+  "speak": "And what is still broken? Look at our own output. It told us.",
+  "dur": 3.96
+ },
+ {
+  "id": "k09",
+  "chap": "c10 Wrap-up",
+  "text": "The HTML file is skipped. When we load it, we must throw away the menu, the cookie banner and the JavaScript. Otherwise our search fills up with words like Home, HR Portal, IT Desk.",
+  "speak": "The HTML file is skipped. When we load it, we must throw away the menu, the cookie banner and the JavaScript. Otherwise our search fills up with words like Home, HR Portal, IT Desk.",
+  "dur": 11.36
+ },
+ {
+  "id": "k10",
+  "chap": "c10 Wrap-up",
+  "text": "The screenshot is skipped too. No text library can open it, because there is no text inside. Only a picture of text. That one needs a model with eyes.",
+  "speak": "The screenshot is skipped too. No text library can open it, because there is no text inside. Only a picture of text. That one needs a model with eyes.",
+  "dur": 9.4
+ },
+ {
+  "id": "k11",
+  "chap": "c10 Wrap-up",
+  "text": "And we still have not improved the chunking. That is the single biggest quality win left in this whole project.",
+  "speak": "And we still have not improved the chunking. That is the single biggest quality win left in this whole project.",
+  "dur": 5.72
+ },
+ {
+  "id": "k12",
+  "chap": "c10 Wrap-up",
+  "text": "That is the plan for the next classes. One rung at a time.",
+  "speak": "That is the plan for the next classes. One rung at a time.",
+  "dur": 3.64
+ },
+ {
+  "id": "k13",
+  "chap": "c10 Wrap-up",
+  "text": "Before then, run the file yourself. Try every question. And try one experiment: swap the hyphen line and the whitespace line, and count the matches.",
+  "speak": "Before then, run the file yourself. Try every question. And try one experiment: swap the hyphen line and the whitespace line, and count the matches.",
+  "dur": 7.92
+ },
+ {
+  "id": "k14",
+  "chap": "c10 Wrap-up",
+  "text": "See you in the next class.",
+  "speak": "See you in the next class.",
+  "dur": 1.76
+ }
+]

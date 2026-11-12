@@ -1,0 +1,272 @@
+# c0 Intro
+a01|Welcome back, everyone. Today is Day 25, and today our RAG project grows up a little.
+a02|Remember Day 22? We built a complete RAG machine. Eight steps, from start to finish.
+a03|Load, chunk, embed and store. That was pipeline one, the indexing pipeline. It runs once, in advance.
+a04|Then retrieve, rank, augment and generate. Pipeline two, the answering pipeline. It runs every time someone asks a question.
+a05|It worked. It answered questions from our own company files. But it had one tiny line hiding inside it.
+a06|And that one tiny line is the subject of this entire class.
+a07|By the end of today, our machine will read PDFs. It will tell you the exact page an answer came from. And it will never again skip a file without telling you.
+a08|Only step one changes today. Steps two to eight stay exactly the same. One change per class, so you can always see what caused what.
+a09|So let's open the code.
+
+# c1 The silent line
+b01|Here is the loader from Day 22. Look at these two lines.
+b02|If the file name does not end with {.txt|dot T X T}, continue. Which means: skip it, and move on to the next file.
+b03|On Day 22 that looked perfectly harmless. All our files were text files.
+b04|But think about a real company. Where does its knowledge actually live?
+b05|In PDFs. In Word documents. In web pages on the intranet. In screenshots that somebody pasted into a chat.
+b06|Almost none of it is a neat little text file.
+b07|So I have upgraded our folder. Let's look inside {plural_labs_docs|plural labs docs}.
+b08|There are nine files now. Four text files, three PDFs, one HTML page, and one screenshot.
+b09|Now let's feed this folder to the Day 22 loader, and watch what happens.
+b10|The four text files go in. And the other five? Gone. Quietly dropped.
+b11|More than half of the company's knowledge, skipped. And the program did not print a single warning.
+b12|That silence is the real problem. A crash, you would notice. A silent skip, you never notice.
+b13|You would just ask a question, get "I could not find this", and blame the AI.
+b14|Today we fix the PDFs. The next class handles the HTML page and the screenshot.
+
+# c2 Install
+c01|Before we run anything, we need one new package. It is called {pypdf|pie P D F}.
+c02|On a Mac, open the terminal and type: {pip3 install pypdf|pip three install, pie P D F}.
+c03|On Windows, in the command prompt, it is {pip install pypdf|pip install, pie P D F}.
+c04|And if pip ever installs into the wrong Python, use {python3 -m pip install|python three, dash m, pip install}. That always installs into the Python you are actually running.
+c05|Why {pypdf|pie P D F}? Because it is written in pure Python. No compiler, no extra tools. It installs on every student's machine, first time.
+c06|You will also hear about {PyMuPDF|pie mew P D F} and {pdfplumber|P D F plumber}. They are faster, and they understand page layout better.
+c07|We will meet {PyMuPDF|pie mew P D F} later, because it can turn a PDF page into an image. But for pulling plain text out of a normal PDF, {pypdf|pie P D F} is the simplest thing that works.
+
+# c3 Imports
+d01|Now, the imports. The first one, {import os|import O S}, you already know from Day 22. It lets us look inside folders.
+d02|The second one is new. {import re|import R E}.
+d03|{re|R E} stands for regular expressions. Let me explain the whole idea with one simple example.
+d04|You already know how to replace exact text. {text.replace|text dot replace}, cat, with dog. Easy.
+d05|That works when you know exactly what you are looking for.
+d06|But today we will meet messy text, like this. Two spaces here. A newline there. Five spaces and a tab over here.
+d07|We want to say: wherever there is a run of spaces, however long it is, squash it down to one space.
+d08|With replace, you would need one call for two spaces, another for three spaces, another for a newline plus two spaces. Forever.
+d09|A regular expression lets you describe a shape of text, instead of the exact text.
+d10|"A run of whitespace" is a shape. "A digit followed by a colon" is a shape.
+d11|The {re|R E} module is Python's reader for these shapes. It comes built into Python, so there is nothing to install.
+d12|Now the third import. {from pypdf import PdfReader|from pie P D F, import P D F reader}.
+d13|Look at it next to {import os|import O S}. Both are imports, but they have two different shapes.
+d14|{import os|import O S} brings in the whole module. Everything stays behind the name {os|O S}, so you keep writing {os.path.join|O S dot path dot join}.
+d15|{from pypdf import PdfReader|from pie P D F, import P D F reader} reaches inside the package and takes out just one name.
+d16|That name lands straight in your file. So you can write {PdfReader|P D F reader} on its own, instead of {pypdf.PdfReader|pie P D F dot P D F reader}.
+d17|Both work. We use the short one when we need just one thing from a package.
+d18|And where did {pypdf|pie P D F} come from? {os|O S} and {re|R E} came with Python. {pypdf|pie P D F} did not.
+d19|When you ran pip install, pip downloaded a folder of Python files and put it where Python knows to look.
+d20|That is all a package is. Somebody else's Python files, sitting on your disk. Nothing magic. You could open them and read them.
+d21|Next question. What exactly is {PdfReader|P D F reader}?
+d22|Notice the capital letters joined together. That style tells you it is a class, not a function. Compare it with {os.listdir|O S dot list dir}, all lowercase.
+d23|Here is the difference, in one picture.
+d24|Call a function, and you get an answer back. Done.
+d25|Call a class, and you get an object. A thing that holds your file, and has its own abilities attached to it.
+d26|So when we write {reader = PdfReader(path)|reader equals P D F reader of path}, we are not saying "give me the text".
+d27|We are saying: open this PDF, and give me something I can ask questions of.
+d28|And then we ask it things. {reader.pages|reader dot pages} gives us the pages.
+d29|{len(reader.pages)|len of reader dot pages} tells us how many pages there are.
+d30|{reader.pages[0]|reader dot pages, zero} is the first page. And {extract_text()|extract text} on that page gives us its text.
+d31|One honest detail. {reader.pages|reader dot pages} looks like a list. You can loop over it, count it and index it.
+d32|But it is not actually a list. Pages are only read at the moment you reach for them.
+d33|That is why opening a five hundred page PDF is instant. Nothing has really been read yet.
+d34|In Python, "behaves like a list" and "is a list" are two different claims. Most code only ever needs the first one.
+d35|And now, the most important limit of all.
+d36|{extract_text|extract text} pulls out text that is already stored inside the PDF, as text.
+d37|It does not look at the page and recognise letters, the way your eyes do.
+d38|So if a page is a photograph of a document, there is no text in there to pull out.
+d39|And {pypdf|pie P D F} returns an empty string. Politely. With no error at all.
+d40|Remember that. Our loader is going to check for exactly this case.
+
+# c4 Step 0
+e01|Before we fix anything, let's watch the problem happen. That is step zero.
+e02|A beginner thinks: a PDF is a file. {open()|open} reads files. So just open it.
+e03|So we try exactly what Day 22 does with a text file. Open the remote work policy PDF, and read it.
+e04|And Python refuses. "{utf-8|U T F eight} codec can't decode byte {0xf9|zero x F nine}".
+e05|What does that mean? A text file is just letters, one after another. Python can read them straight into a string.
+e06|A PDF is not like that. A PDF is more like a small, compressed database.
+e07|Inside, it holds fonts, images, page sizes, and the text itself, all squeezed down into binary.
+e08|Those bytes are not letters in any alphabet. So Python cannot turn them into a string, and it stops.
+e09|Now here is a surprising thing. This crash is actually the good case.
+e10|Because it is loud. It stops, and it tells you exactly what went wrong.
+e11|The dangerous case is the quiet one. A file that opens happily, and gives you an empty string. The program keeps running, and quietly knows nothing.
+e12|So we cannot read a PDF ourselves. We need a library that understands the PDF format and unpacks the text for us. That is {pypdf|pie P D F}.
+
+# c5 clean_text
+f01|Now, step one. This is the whole lesson, so let's read it in three parts.
+f02|Part A, a function that cleans text. Part B, one small loader function per file format. Part C, a dictionary that picks the right loader.
+f03|Part A first. The {clean_text|clean text} function. It fixes three problems that PDFs give us.
+f04|Problem one. Ligatures.
+f05|When {pypdf|pie P D F} reads our PDFs, it hands back words like this. Effective. Office. Confidential.
+f06|They look normal. But they are not normal.
+f07|When a printer sets the letters f and i side by side, the font joins them together into one single shape. Printers have done this for five hundred years, because it simply looks nicer.
+f08|And Unicode kept those joined shapes as characters of their own.
+f09|So inside our PDF, the word office is stored as o, then one joined character for f f i, then c, then e. Four characters, not six.
+f10|Why should we care? Because our search reads characters.
+f11|To the embedding model, this office is not the same word as office. A student asking about the office could miss this chunk completely.
+f12|So we build a small dictionary. On the left, the joined character. On the right, the normal letters.
+f13|Then a simple loop. For every pair in the dictionary, replace the joined character with normal letters.
+f14|Five lines, and every ligature in the company is fixed. Office is office again.
+f15|Before problem two, let's meet the tool we will use for the next two fixes. {re.sub|R E dot sub}.
+f16|It takes three things. The shape to look for. What to put instead. And the text to work on.
+f17|It finds every place in the text that matches the shape, and replaces all of them. Not just the first one. Every one. You do not write a loop.
+f18|Now look carefully at how we call it. {text = re.sub|text equals R E dot sub}.
+f19|The answer is assigned back into text. Why? Because strings in Python can never be changed.
+f20|{re.sub|R E dot sub} does not touch your text. It builds a brand new string, and hands it back to you.
+f21|If you forget to write "text equals", the function still does all the work. Nothing crashes. And you just throw the answer away.
+f22|Students lose whole evenings to this bug. When cleaning seems to do nothing, look for this first.
+f23|Problem two. A hyphen at the end of a line.
+f24|In a justified document, a long word gets broken across two lines. Reimburse, hyphen, on one line. And ment on the next.
+f25|The PDF stores it exactly like that. So we get reimburse, hyphen, newline, ment. A word that does not exist.
+f26|The pattern is just a hyphen, followed by a newline. Backslash n means the newline character.
+f27|And we replace it with an empty string. Replacing something with nothing, is how you delete it.
+f28|So reimburse, hyphen, newline, ment, becomes reimbursement. Glued back together.
+f29|Here is an honest note. In our three PDFs, this rule finds zero matches. The tool that made them does not hyphenate.
+f30|But PDFs exported from Word or from {LaTeX|lay tech} do this all the time. So the rule stays. It costs nothing today, and it saves us the day a real company document arrives.
+f31|And a good habit. Don't assume your cleaning worked. Count it. {re.findall|R E dot find all} tells you how many times a pattern matched.
+f32|Problem three. Ragged whitespace. This is the rule that does the real work.
+f33|A PDF does not store sentences. It stores instructions. Draw these letters, at this position on the page.
+f34|So wherever a sentence reaches the right margin, the PDF simply starts a new line.
+f35|And {pypdf|pie P D F} gives us that newline, sitting right in the middle of a sentence.
+f36|Our IT handbook genuinely contains this. "Do not turn it off. Your", newline, "screen must lock automatically."
+f37|That one handbook has forty five of these broken lines. Tables and columns are even worse, with long runs of spaces.
+f38|The pattern is backslash s, plus.
+f39|Backslash s means one whitespace character. A space, a tab, or a newline.
+f40|Plus means: one or more of the thing just before me.
+f41|So backslash s plus means a run of whitespace of any length. One character, or a thousand.
+f42|And we replace each run with a single space. Watch. Every messy gap becomes one clean space.
+f43|Now, what is that little r before the quotes?
+f44|It makes a raw string. Inside a normal Python string, a backslash starts an escape code. Backslash n is a newline. Backslash t is a tab.
+f45|But backslash s is not a code Python knows. And newer versions of Python will warn you: invalid escape sequence.
+f46|The r switches that system off. The backslash and the s pass through untouched, straight to the regex engine.
+f47|Simple habit. If a string is a regex, start it with r. Every time.
+f48|One more thing in this function, and this one is sneaky. The order matters.
+f49|The hyphen fix must run before the whitespace fix. Let's see why.
+f50|Run the whitespace fix first, and the newline becomes a space. Now we have reimburse, hyphen, space, ment.
+f51|And the hyphen pattern is looking for a hyphen followed by a newline. There is no newline anymore. It can never match.
+f52|Swap these two lines, and the hyphen fix silently stops working. No error. That is exactly why you must notice it now.
+f53|Last line. {.strip()|dot strip} removes spaces from the start and the end. And we return the clean text.
+
+# c6 Loaders
+g01|Part B. One loader per file format.
+g02|Every loader follows the same contract. And the contract is the real point here.
+g03|Each loader takes a file path, and returns a list of dictionaries. Each dictionary has a page, and a text.
+g04|Why a list? A text file has only one piece of text in it.
+g05|Because a PDF has many pages. If every loader returns a list, the code that calls them never has to care which format it is.
+g06|One file in, one list out. Whether that list has one item, or four hundred.
+g07|Think of a power socket. Every appliance has the same plug. The socket never needs to know if it is a fan or a phone charger.
+g08|Same plug, every loader. That is what lets us add HTML and images next class, without touching anything else.
+g09|First, {load_txt|load T X T}. This is our Day 22 loader, unchanged.
+g10|Open the file, read the whole thing, clean it.
+g11|And return a list with one dictionary in it. The page is None, because a text file has no pages.
+g12|Now the star of the show. {load_pdf|load P D F}.
+g13|First, {PdfReader(path)|P D F reader of path}. It opens the file and understands its structure for us.
+g14|Then an empty list, called pages. We will fill it up as we go.
+g15|Now the loop. For page number, page, in enumerate of {reader.pages|reader dot pages}, start equals one.
+g16|enumerate gives us two things at once. A counter, and the page itself.
+g17|Why start equals one? Because Python counts from zero, but a human reading page one calls it page one, not page zero.
+g18|Inside the loop, {page.extract_text()|page dot extract text} pulls out the text of that one page.
+g19|But notice the "or empty string" after it.
+g20|For a page with no text layer at all, {extract_text|extract text} can give back None. And the very next line would crash on None.
+g21|"Or empty string" means: if you got nothing, use an empty string instead. A tiny safety net.
+g22|Then we clean the text, with our Part A function.
+g23|And now, the empty page check. This one is important.
+g24|If the cleaned text is shorter than a hundred characters, something is wrong with that page.
+g25|Usually it means the page is a scan. Somebody photocopied a document, and saved the photo inside a PDF.
+g26|There are no letters in that page at all. Only a picture of letters. {pypdf|pie P D F} is not failing. There is genuinely nothing there for it to find.
+g27|So we print a loud warning, with the file name and page number. And we skip that page with continue.
+g28|Why not just keep it? Because an empty chunk is worse than no chunk.
+g29|Our search returns only three chunks. An empty one would waste one of those three precious slots.
+g30|In a later class, we will send pages like this to a vision model, and let it read them.
+g31|If the page is fine, we append a dictionary. Page number, and text.
+g32|And at the end, we return the list. One entry per good page.
+g33|Look at the shape. A two page PDF gives us a list of two dictionaries. Page one and page two.
+
+# c7 Dispatch
+h01|Part C. The dictionary that chooses. This replaces the if statement from Day 22.
+h02|You already know a dictionary can hold numbers or strings as values.
+h03|Here is something new. A dictionary can also hold functions as values.
+h04|Look carefully. {load_txt|load T X T}, with no brackets after it.
+h05|With brackets, {load_txt()|load T X T, brackets} means call the function right now, and give me the result.
+h06|Without brackets, {load_txt|load T X T} means the function itself, as a value. Like a tool you put in a box, without using it yet.
+h07|So LOADERS maps a file extension to the function that knows how to read it.
+h08|{.txt|dot T X T} goes to {load_txt|load T X T}. {.md|dot M D}, a markdown file, is plain text too, so it also goes to {load_txt|load T X T}. And {.pdf|dot P D F} goes to {load_pdf|load P D F}.
+h09|People call this a dispatch table. Or a registry.
+h10|Why is this better than a chain of if, elif, elif?
+h11|To support a new format, you add one line. You don't edit a growing if block.
+h12|Everything we support is visible in one place, at a glance.
+h13|And the loop that uses it never mentions PDF or text at all. So the loop never needs to change.
+
+# c8 Loop
+i01|Now the loading loop. Let's walk through it, one file at a time.
+i02|We loop over the files in the folder. sorted, so they always come out in the same order.
+i03|First, find the extension. {os.path.splitext|O S dot path dot split ext} cuts the name into two parts, at the last dot.
+i04|remote work policy dot pdf becomes remote work policy, and dot pdf. Square bracket one takes the second part.
+i05|And {.lower()|dot lower}, so a file called NOTES dot PDF in capitals works exactly the same way.
+i06|Next, {LOADERS.get(extension)|loaders dot get, extension}. We ask the dictionary for the right loader.
+i07|Why get, and not square brackets?
+i08|Square brackets crash with a KeyError when the key is missing. Our HTML file would crash the whole program.
+i09|{.get|dot get} never crashes. If the key is missing, it simply gives back None.
+i10|And then we deal with None ourselves. If the loader is None, print "skipping", with the file name and its extension. And continue.
+i11|Day 22 skipped silently. We refuse to. A loud skip is a to-do list. It is literally printing next class's homework on the screen.
+i12|Then the magic line. pieces equals loader, of file path.
+i13|Notice, we never write {load_pdf|load P D F} of file path anywhere. We write loader of file path.
+i14|The dictionary already decided which function loader is. This one line reads every format we support.
+i15|Each loader gave us a list. So we loop through the pieces, and attach the file name to every one.
+i16|Source, page, and text. All collected into one flat list called documents.
+i17|And we print "loaded", with the file name and the number of pieces.
+i18|Let's run it, and watch the output.
+i19|Expense policy, one piece. Then, skipping the holiday calendar, no loader for {.png|dot P N G} yet. Loud, not silent.
+i20|Insurance benefits PDF, one piece. The IT security handbook, two pieces, one per page.
+i21|Leave policy, one. Skipping the release notes HTML. Product FAQ, one. Remote work policy, two pages. Support tickets, one.
+i22|Total, nine pieces of text. Day 22 had four.
+i23|One small helper before we move on. {describe_source|describe source}.
+i24|A PDF piece can say "page two". A text file piece cannot, because its page is None.
+i25|So if the page is None, just return the file name. Otherwise, return the file name, plus page, plus the number.
+i26|This is the only place in the whole file that has to worry about None. We keep it inside one small function, so the rest of the code stays clean.
+
+# c9 Rest of the pipeline
+j01|Steps two to eight are the same machine as Day 22. So let's move quickly, and just watch for the one new thing.
+j02|Step two, chunk. Same sixty word cutting as Day 22.
+j03|The one new part, is the label. On Day 22 the label carried only the file name. Now it carries the page number too.
+j04|And that page number travels all the way through the database, to the final answer.
+j05|There is also a free bonus here. Because we loaded page by page, a chunk can never mix text from two different pages.
+j06|The page split already did half of our chunking for us.
+j07|Our nine pieces become forty four chunks.
+j08|Steps three and four. Embed and store. Unchanged.
+j09|Qdrant calls the embedding model for every chunk, and stores each vector together with its label. Source, and page.
+j10|Now the question. And this is the exact question that ended Day 22.
+j11|Can I work from home permanently at Plural Labs?
+j12|On Day 22, our bot refused. The work from home rules were simply not in any of the four text files.
+j13|Nothing about retrieval or the prompt has improved since then. The only change is that the loader can now open a PDF.
+j14|Steps five and six. Retrieve and rank. The three winning chunks come back.
+j15|And look at the labels. Remote work policy page one. Page two. Page one again.
+j16|Step seven, augment. Same string building as Day 22, with one addition. The page number goes into the header line above each chunk.
+j17|And one new instruction in the prompt. Mention the file, and the page number if there is one.
+j18|The model can only cite a page if we show it one.
+j19|Step eight, generate. And here is the answer.
+j20|Yes, a fully remote arrangement is possible. But it needs written approval from your department head and the Vice President of People. And new employees cannot work fully remote during their first ninety days.
+j21|Source. Remote work policy dot pdf. Page one.
+j22|Same question. Same retrieval. Same prompt. The only thing that changed is that the loader got wider.
+j23|Now try the other questions in the file. The home office allowance? Fifteen thousand rupees, claimed within sixty days. From the remote work policy, page one.
+j24|The laptop screen lock? Five minutes, and you cannot raise it. From the IT security handbook, page one.
+j25|Are my parents covered by insurance? Not by default, but you can add them for an eight thousand rupee top up. From the insurance PDF.
+j26|And the old text file question, how many paid leaves? Still twenty four. We did not break Day 22 while adding PDFs.
+j27|And finally, the honesty test. What is the notice period if I resign?
+j28|That is in none of our nine files. And look at the scores. Point seven six. Even higher than our real answers.
+j29|The search always returns three chunks, whether they help or not. A high score does not mean the answer is there.
+j30|But our prompt rule holds. I could not find this in the Plural Labs documents. Exactly what we want.
+
+# c10 Wrap
+k01|So let's wrap up. Three things to take away from today.
+k02|One. The retrieval did not get smarter today. The loader got wider.
+k03|A RAG system is only as good as the documents it can actually open. And that is usually the cheapest part to improve.
+k04|Two. A loader is not one function. It is a pipeline.
+k05|Open the file. Pull out the text. Clean it. Split it into pages. And check the result is not empty.
+k06|The cleaning and the checking are not optional extras. The ligature problem alone would have quietly damaged every search for the word office.
+k07|Three. A dictionary of functions turns "support one more format" into a one line change.
+k08|And what is still broken? Look at our own output. It told us.
+k09|The HTML file is skipped. When we load it, we must throw away the menu, the cookie banner and the JavaScript. Otherwise our search fills up with words like Home, HR Portal, IT Desk.
+k10|The screenshot is skipped too. No text library can open it, because there is no text inside. Only a picture of text. That one needs a model with eyes.
+k11|And we still have not improved the chunking. That is the single biggest quality win left in this whole project.
+k12|That is the plan for the next classes. One rung at a time.
+k13|Before then, run the file yourself. Try every question. And try one experiment: swap the hyphen line and the whitespace line, and count the matches.
+k14|See you in the next class.
