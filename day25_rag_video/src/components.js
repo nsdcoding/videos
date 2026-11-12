@@ -46,7 +46,7 @@ function stag(ids, t, gap, fn) { ids.forEach((id, i) => fn(id, t + i * gap)); }
 function hideAll(ids, t, d = .4) { ids.forEach(id => out(id, t, d)); }
 
 // ---------- generic pieces ----------
-const FILECOL = { txt: '#5b7bd5', pdf: '#ff4d6d', html: '#ff9f43', png: '#a78bfa', md: '#38bdf8', docx: '#3b82f6', py: '#2dd4bf' };
+const FILECOL = { txt: '#c9963b', pdf: '#e63946', html: '#ff9f43', png: '#f7a1b0', md: '#ffd9a0', docx: '#b07a2a', py: '#2fb872' };
 function fileIcon(id, x, y, type, name = '', scale = 1) {
   const lines = [36, 58, 80, 102, 124].map((t, i) => `<div class="ln" style="top:${t}px;width:${[96, 80, 104, 70, 90][i]}px"></div>`).join('');
   return `<div class="file" id="${id}" style="left:${x}px;top:${y}px;transform:scale(${scale})"><div class="pg">${lines}</div>
@@ -58,41 +58,41 @@ function div(id, x, y, w, h, html = '', cls = '', extra = '') {
   return `<div class="abs ${cls}" id="${id}" style="left:${x}px;top:${y}px;${w ? `width:${w}px;` : ''}${h ? `height:${h}px;` : ''}${extra}">${html}</div>`;
 }
 // an svg arrow/path drawn later; d in board-local coords
-function path(id, d, color = '#38bdf8', w = 5, extra = '') {
+function path(id, d, color = '#ffd9a0', w = 5, extra = '') {
   return `<svg class="ov" width="10" height="10"><path id="${id}" class="draw" pathLength="1" d="${d}" stroke="${color}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" ${extra}/></svg>`;
 }
-function arrow(id, x1, y1, x2, y2, color = '#38bdf8', w = 5) {
+function arrow(id, x1, y1, x2, y2, color = '#ffd9a0', w = 5) {
   const a = Math.atan2(y2 - y1, x2 - x1), L = 18;
   const hx1 = x2 - L * Math.cos(a - .5), hy1 = y2 - L * Math.sin(a - .5), hx2 = x2 - L * Math.cos(a + .5), hy2 = y2 - L * Math.sin(a + .5);
   return path(id, `M${x1},${y1} L${x2},${y2} M${hx1},${hy1} L${x2},${y2} L${hx2},${hy2}`, color, w);
 }
-function curve(id, x1, y1, cx, cy, x2, y2, color = '#38bdf8', w = 5, head = true) {
+function curve(id, x1, y1, cx, cy, x2, y2, color = '#ffd9a0', w = 5, head = true) {
   let d = `M${x1},${y1} Q${cx},${cy} ${x2},${y2}`;
   if (head) { const a = Math.atan2(y2 - cy, x2 - cx), L = 18; d += ` M${x2 - L * Math.cos(a - .5)},${y2 - L * Math.sin(a - .5)} L${x2},${y2} L${x2 - L * Math.cos(a + .5)},${y2 - L * Math.sin(a + .5)}`; }
   return path(id, d, color, w);
 }
 // icons (simple, drawn in code)
 const ICON = {
-  check: (c = '#2dd4bf') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><circle cx="24" cy="24" r="22" fill="${c}"/><path d="M13 25l7 7 15-16" stroke="#06231f" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  cross: (c = '#ff4d6d') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><circle cx="24" cy="24" r="22" fill="${c}"/><path d="M16 16l16 16M32 16L16 32" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`,
-  warn: (c = '#ffd23f') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M24 4L46 43H2z" fill="${c}" stroke="${c}" stroke-width="3" stroke-linejoin="round"/><path d="M24 17v13" stroke="#2a2000" stroke-width="5" stroke-linecap="round"/><circle cx="24" cy="37" r="3" fill="#2a2000"/></svg>`,
-  eye: (c = '#38bdf8') => `<svg viewBox="0 0 64 40" width="100%" height="100%"><path d="M2 20C14 4 50 4 62 20C50 36 14 36 2 20z" fill="none" stroke="${c}" stroke-width="4"/><circle cx="32" cy="20" r="9" fill="${c}"/></svg>`,
-  bell: (c = '#ffd23f') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M24 5c-8 0-13 6-13 14v9l-5 7h36l-5-7v-9c0-8-5-14-13-14z" fill="${c}"/><circle cx="24" cy="40" r="5" fill="${c}"/></svg>`,
-  mute: (c = '#8e9bc4') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M6 18h9l12-10v32L15 30H6z" fill="${c}"/><path d="M33 17l12 14M45 17L33 31" stroke="#ff4d6d" stroke-width="4" stroke-linecap="round"/></svg>`,
-  box: (c = '#ffd23f') => `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M32 4l26 12v32L32 60 6 48V16z" fill="${c}"/><path d="M6 16l26 12 26-12M32 28v32" stroke="#00000055" stroke-width="3" fill="none"/></svg>`,
-  gear: (c = '#38bdf8') => `<svg viewBox="0 0 64 64" width="100%" height="100%"><g fill="${c}"><circle cx="32" cy="32" r="14"/>${[0, 45, 90, 135, 180, 225, 270, 315].map(a => `<rect x="28" y="2" width="8" height="14" rx="2" transform="rotate(${a} 32 32)"/>`).join('')}</g><circle cx="32" cy="32" r="6" fill="#0d1433"/></svg>`,
-  lock: (c = '#8e9bc4') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><rect x="8" y="21" width="32" height="24" rx="5" fill="${c}"/><path d="M15 21v-6a9 9 0 0118 0v6" stroke="${c}" stroke-width="5" fill="none"/></svg>`,
-  bolt: (c = '#ffd23f') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M27 3L8 27h14l-3 18 21-26H26z" fill="${c}"/></svg>`,
-  trash: (c = '#8e9bc4') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M10 14h28l-3 30H13z" fill="${c}"/><rect x="7" y="8" width="34" height="5" rx="2" fill="${c}"/><rect x="19" y="3" width="10" height="5" rx="2" fill="${c}"/></svg>`,
-  folder: (c = '#ffd23f') => `<svg viewBox="0 0 64 52" width="100%" height="100%"><path d="M2 8a5 5 0 015-5h17l6 7h27a5 5 0 015 5v30a5 5 0 01-5 5H7a5 5 0 01-5-5z" fill="${c}"/></svg>`,
-  plug: (c = '#2dd4bf') => `<svg viewBox="0 0 48 64" width="100%" height="100%"><rect x="12" y="2" width="6" height="16" rx="2" fill="${c}"/><rect x="30" y="2" width="6" height="16" rx="2" fill="${c}"/><path d="M6 16h36v14a18 18 0 01-36 0z" fill="${c}"/><rect x="20" y="46" width="8" height="16" rx="3" fill="${c}"/></svg>`,
-  chat: (c = '#38bdf8') => `<svg viewBox="0 0 64 56" width="100%" height="100%"><path d="M8 4h48a6 6 0 016 6v26a6 6 0 01-6 6H24L10 54V42H8a6 6 0 01-6-6V10a6 6 0 016-6z" fill="${c}"/></svg>`,
-  db: (c = '#a78bfa') => `<svg viewBox="0 0 64 72" width="100%" height="100%"><ellipse cx="32" cy="12" rx="28" ry="10" fill="${c}"/><path d="M4 12v48c0 6 13 10 28 10s28-4 28-10V12c0 6-13 10-28 10S4 18 4 12z" fill="${c}" opacity=".8"/><path d="M4 30c0 6 13 10 28 10s28-4 28-10M4 46c0 6 13 10 28 10s28-4 28-10" stroke="#0d1433" stroke-width="3" fill="none"/></svg>`,
-  scissors: (c = '#ff4d6d') => `<svg viewBox="0 0 64 64" width="100%" height="100%"><circle cx="14" cy="48" r="9" stroke="${c}" stroke-width="5" fill="none"/><circle cx="14" cy="16" r="9" stroke="${c}" stroke-width="5" fill="none"/><path d="M21 22l40 28M21 42L61 14" stroke="${c}" stroke-width="5" stroke-linecap="round"/></svg>`,
-  key: (c = '#ffd23f') => `<svg viewBox="0 0 64 32" width="100%" height="100%"><circle cx="14" cy="16" r="11" stroke="${c}" stroke-width="5" fill="none"/><path d="M25 16h36M50 16v10M58 16v8" stroke="${c}" stroke-width="5" stroke-linecap="round"/></svg>`,
-  broom: (c = '#2dd4bf') => `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M50 4L30 34" stroke="${c}" stroke-width="5" stroke-linecap="round"/><path d="M22 30l16 10-6 20c-10-2-20-8-26-16z" fill="${c}"/></svg>`,
-  person: (c = '#38bdf8') => `<svg viewBox="0 0 48 64" width="100%" height="100%"><circle cx="24" cy="14" r="11" fill="${c}"/><path d="M4 62c0-16 9-26 20-26s20 10 20 26z" fill="${c}"/></svg>`,
-  star: (c = '#ffd23f') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M24 3l6 14 15 1-12 10 4 15-13-8-13 8 4-15L3 18l15-1z" fill="${c}"/></svg>`,
+  check: (c = '#2fb872') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><circle cx="24" cy="24" r="22" fill="${c}"/><path d="M13 25l7 7 15-16" stroke="#062a16" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  cross: (c = '#e63946') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><circle cx="24" cy="24" r="22" fill="${c}"/><path d="M16 16l16 16M32 16L16 32" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`,
+  warn: (c = '#f5b700') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M24 4L46 43H2z" fill="${c}" stroke="${c}" stroke-width="3" stroke-linejoin="round"/><path d="M24 17v13" stroke="#2a2000" stroke-width="5" stroke-linecap="round"/><circle cx="24" cy="37" r="3" fill="#2a2000"/></svg>`,
+  eye: (c = '#ffd9a0') => `<svg viewBox="0 0 64 40" width="100%" height="100%"><path d="M2 20C14 4 50 4 62 20C50 36 14 36 2 20z" fill="none" stroke="${c}" stroke-width="4"/><circle cx="32" cy="20" r="9" fill="${c}"/></svg>`,
+  bell: (c = '#f5b700') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M24 5c-8 0-13 6-13 14v9l-5 7h36l-5-7v-9c0-8-5-14-13-14z" fill="${c}"/><circle cx="24" cy="40" r="5" fill="${c}"/></svg>`,
+  mute: (c = '#cfa999') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M6 18h9l12-10v32L15 30H6z" fill="${c}"/><path d="M33 17l12 14M45 17L33 31" stroke="#e63946" stroke-width="4" stroke-linecap="round"/></svg>`,
+  box: (c = '#f5b700') => `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M32 4l26 12v32L32 60 6 48V16z" fill="${c}"/><path d="M6 16l26 12 26-12M32 28v32" stroke="#00000055" stroke-width="3" fill="none"/></svg>`,
+  gear: (c = '#ffd9a0') => `<svg viewBox="0 0 64 64" width="100%" height="100%"><g fill="${c}"><circle cx="32" cy="32" r="14"/>${[0, 45, 90, 135, 180, 225, 270, 315].map(a => `<rect x="28" y="2" width="8" height="14" rx="2" transform="rotate(${a} 32 32)"/>`).join('')}</g><circle cx="32" cy="32" r="6" fill="#26050a"/></svg>`,
+  lock: (c = '#cfa999') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><rect x="8" y="21" width="32" height="24" rx="5" fill="${c}"/><path d="M15 21v-6a9 9 0 0118 0v6" stroke="${c}" stroke-width="5" fill="none"/></svg>`,
+  bolt: (c = '#f5b700') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M27 3L8 27h14l-3 18 21-26H26z" fill="${c}"/></svg>`,
+  trash: (c = '#cfa999') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M10 14h28l-3 30H13z" fill="${c}"/><rect x="7" y="8" width="34" height="5" rx="2" fill="${c}"/><rect x="19" y="3" width="10" height="5" rx="2" fill="${c}"/></svg>`,
+  folder: (c = '#f5b700') => `<svg viewBox="0 0 64 52" width="100%" height="100%"><path d="M2 8a5 5 0 015-5h17l6 7h27a5 5 0 015 5v30a5 5 0 01-5 5H7a5 5 0 01-5-5z" fill="${c}"/></svg>`,
+  plug: (c = '#2fb872') => `<svg viewBox="0 0 48 64" width="100%" height="100%"><rect x="12" y="2" width="6" height="16" rx="2" fill="${c}"/><rect x="30" y="2" width="6" height="16" rx="2" fill="${c}"/><path d="M6 16h36v14a18 18 0 01-36 0z" fill="${c}"/><rect x="20" y="46" width="8" height="16" rx="3" fill="${c}"/></svg>`,
+  chat: (c = '#ffd9a0') => `<svg viewBox="0 0 64 56" width="100%" height="100%"><path d="M8 4h48a6 6 0 016 6v26a6 6 0 01-6 6H24L10 54V42H8a6 6 0 01-6-6V10a6 6 0 016-6z" fill="${c}"/></svg>`,
+  db: (c = '#f7a1b0') => `<svg viewBox="0 0 64 72" width="100%" height="100%"><ellipse cx="32" cy="12" rx="28" ry="10" fill="${c}"/><path d="M4 12v48c0 6 13 10 28 10s28-4 28-10V12c0 6-13 10-28 10S4 18 4 12z" fill="${c}" opacity=".8"/><path d="M4 30c0 6 13 10 28 10s28-4 28-10M4 46c0 6 13 10 28 10s28-4 28-10" stroke="#26050a" stroke-width="3" fill="none"/></svg>`,
+  scissors: (c = '#e63946') => `<svg viewBox="0 0 64 64" width="100%" height="100%"><circle cx="14" cy="48" r="9" stroke="${c}" stroke-width="5" fill="none"/><circle cx="14" cy="16" r="9" stroke="${c}" stroke-width="5" fill="none"/><path d="M21 22l40 28M21 42L61 14" stroke="${c}" stroke-width="5" stroke-linecap="round"/></svg>`,
+  key: (c = '#f5b700') => `<svg viewBox="0 0 64 32" width="100%" height="100%"><circle cx="14" cy="16" r="11" stroke="${c}" stroke-width="5" fill="none"/><path d="M25 16h36M50 16v10M58 16v8" stroke="${c}" stroke-width="5" stroke-linecap="round"/></svg>`,
+  broom: (c = '#2fb872') => `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M50 4L30 34" stroke="${c}" stroke-width="5" stroke-linecap="round"/><path d="M22 30l16 10-6 20c-10-2-20-8-26-16z" fill="${c}"/></svg>`,
+  person: (c = '#ffd9a0') => `<svg viewBox="0 0 48 64" width="100%" height="100%"><circle cx="24" cy="14" r="11" fill="${c}"/><path d="M4 62c0-16 9-26 20-26s20 10 20 26z" fill="${c}"/></svg>`,
+  star: (c = '#f5b700') => `<svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M24 3l6 14 15 1-12 10 4 15-13-8-13 8 4-15L3 18l15-1z" fill="${c}"/></svg>`,
 };
 function icon(id, x, y, size, name, color, extra = '') {
   return `<div class="abs" id="${id}" style="left:${x}px;top:${y}px;width:${size}px;height:${size}px;${extra}">${ICON[name](color)}</div>`;
@@ -117,7 +117,7 @@ function buildVSCode(x, y) {
     <div class="titlebar"><div class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div><span id="vs_title">day25_rag.py — rag_class</span></div>
     <div class="act">${acts}</div>
     <div class="side"><div class="hd">EXPLORER</div><div class="tree">${tree}</div>
-       <div id="tr_hl" class="abs" style="left:0;top:0;width:300px;height:26px;background:rgba(91,61,245,.35);border-left:3px solid var(--vio)"></div></div>
+       <div id="tr_hl" class="abs" style="left:0;top:0;width:300px;height:26px;background:rgba(155,27,35,.35);border-left:3px solid var(--vio)"></div></div>
     <div class="main">
       <div class="tabs"><div class="tab" id="tab22"><span class="py">py</span>day22_rag.py</div><div class="tab" id="tab25"><span class="py">py</span>day25_rag.py</div></div>
       <div class="crumbs" id="crumbs">day25_rag.py › …</div>
@@ -208,7 +208,7 @@ function camTok(t, key, L, c1, c2, z = 2.6, d = .9, opt = {}) {
 function note(t, key, L, col, html, color = 'var(--sun)', opt = {}) {
   const id = opt.id || uid('nt');
   const x = 64 + col * VS.chw, y = (L - 1) * VS.LH - 6 + (opt.dy || 0);
-  add(`<div class="abs" id="${id}" style="left:${x}px;top:${y}px;padding:4px 14px;border-radius:9px;background:${color};color:#0b1030;font:700 19px var(--sans);white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.5)">${html}</div>`, 'mk' + key);
+  add(`<div class="abs" id="${id}" style="left:${x}px;top:${y}px;padding:4px 14px;border-radius:9px;background:${color};color:#2a0509;font:700 19px var(--sans);white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.5)">${html}</div>`, 'mk' + key);
   ft(id, t, .5, { o: 0, x: -30 }, { o: 1, x: 0 }, 'back');
   return id;
 }
@@ -242,10 +242,40 @@ function termClear(t) { TERM.lines.forEach(id => set(id, t, { o: 0, h: 0 })); TE
 
 // ---------- HUD ----------
 function buildHUD() {
-  document.getElementById('hud').innerHTML = `<div id="prog"></div><div id="chap"><span class="dot"></span><span class="day">DAY 25</span><span id="chapname"></span></div><div id="brand">PLURAL LABS · AI DEVELOPER PROGRAM</div><div id="sub"></div>`;
+  document.getElementById('hud').innerHTML = `<div id="wipe"><i></i></div><div id="ccard"><div class="eyebrow" id="cc_eye"></div><div id="cc_t"></div><div id="cc_steps"></div></div><div id="prog"></div><div id="chap"><span class="dot"></span><span class="day">DAY 25</span><span id="chapname"></span></div><div id="brand">PLURAL LABS · AI DEVELOPER PROGRAM</div><div id="sub"></div>`;
   const sub = document.getElementById('sub'), cn = document.getElementById('chapname'), pg = document.getElementById('prog');
   const lines = window.LINES;
   let cur = null;
+  // chapter title cards + wipe transitions for camera cuts
+  const chaps = lines.filter(l => l.chapStart);
+  const cc = document.getElementById('ccard'), wp = document.getElementById('wipe');
+  const steps = ['LOAD', 'CHUNK', 'EMBED', 'STORE', 'RETRIEVE', 'RANK', 'AUGMENT', 'GENERATE'];
+  const allChaps = [...new Set(lines.map(l => l.chap))];
+  let ccShown = null;
+  const ease = p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+  everyFrame((t) => {
+    let card = null, a = 0;
+    for (const l of chaps) { const t0 = l.start - 3.0, t1 = l.start + .5; if (t >= t0 && t <= t1 + .35) { card = l; a = Math.min(1, (t - t0) / .35, (t1 + .35 - t) / .35); } }
+    if (card !== ccShown) {
+      ccShown = card;
+      if (card) {
+        const idx = allChaps.indexOf(card.chap); const k = card.chap.split(' ')[0];
+        document.getElementById('cc_eye').textContent = `Day 25 · chapter ${String(idx + 1).padStart(2, '0')} / ${allChaps.length}`;
+        document.getElementById('cc_t').textContent = card.chap.replace(/^c\d+\s*/, '');
+        const lit = k === 'c9' ? [1, 2, 3, 4, 5, 6, 7] : k === 'c10' ? [0, 1, 2, 3, 4, 5, 6, 7] : [0];
+        document.getElementById('cc_steps').innerHTML = steps.map((s, i) => `<span class="${lit.includes(i) ? 'on' : ''}">${i + 1} · ${s}</span>`).join('');
+      }
+    }
+    cc.style.opacity = card ? Math.max(0, a).toFixed(3) : 0;
+    cc.style.visibility = card ? 'visible' : 'hidden';
+    const tt = document.getElementById('cc_t'); if (card) tt.style.transform = `translateY(${((1 - Math.min(1, (t - card.start + 3.0) / .8)) * 40).toFixed(1)}px)`;
+    let wx = null;
+    for (const c of (window.CUTS || [])) {
+      if (t > c - .34 && t < c + .34 && !chaps.some(l => c > l.start - 3.1 && c < l.start + .8)) wx = ease((t - (c - .34)) / .68);
+    }
+    wp.style.visibility = wx === null ? 'hidden' : 'visible';
+    if (wx !== null) wp.style.transform = `translateX(${(-130 + wx * 260).toFixed(2)}%) skewX(-14deg)`;
+  });
   everyFrame((t) => {
     let L = null; for (const l of lines) { if (l.start - .15 <= t && t <= l.end + .3) { L = l; break; } }
     if (L !== cur) {

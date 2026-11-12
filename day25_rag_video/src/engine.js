@@ -9,7 +9,7 @@
   const LT = {};
   let t = 1.6, prev = null;
   for (const l of LINES) {
-    if (prev && l.chap !== prev) t += 1.2;
+    if (prev && l.chap !== prev) { t += 3.4; l.chapStart = true; }
     l.start = t; l.end = t + l.dur; LT[l.id] = l;
     t = l.end + 0.34 + (PAUSE[l.id] || 0);
     prev = l.chap;
@@ -75,7 +75,7 @@
   const cam = { segs: [], start: { x: 960, y: 540, z: 1, r: 0 } };
   window.CAM = cam;
   // move camera to target {x,y,z,r}; dip = zoom-out amount mid flight (0..0.6)
-  window.cam = (t0, dur, target, opt = {}) => cam.segs.push({ t0, t1: t0 + dur, to: target, dip: opt.dip || 0, e: E[opt.ease || 'io'], drift: opt.drift ?? 1 });
+  window.cam = (t0, dur, target, opt = {}) => cam.segs.push({ t0, t1: t0 + dur, to: target, dip: opt.dip || 0, e: E[opt.ease || 'io'], drift: opt.drift ?? 1, noCut: !!opt.noCut });
   window.camStart = (s) => Object.assign(cam.start, s);
 
   function build() {
@@ -94,8 +94,12 @@
     // camera: resolve from-states with drift between moves
     cam.segs.sort((a, b) => a.t0 - b.t0);
     let st = { ...cam.start }, tEnd = 0, driftOn = 1;
+    window.CUTS = [];
     for (const s of cam.segs) {
       s.from = drifted(st, s.t0 - tEnd, driftOn);
+      const tx = s.to.x ?? s.from.x, ty = s.to.y ?? s.from.y;
+      const dist = Math.hypot(tx - s.from.x, ty - s.from.y);
+      if (!s.noCut && (s.dip > 0 || dist > 2000)) { s.cut = true; s.t0 += .3; s.t1 = s.t0 + .001; s.dip = 0; CUTS.push(s.t0); }
       st = { x: s.to.x ?? s.from.x, y: s.to.y ?? s.from.y, z: s.to.z ?? s.from.z, r: s.to.r ?? 0 };
       s.toR = st; tEnd = s.t1; driftOn = s.drift;
     }
@@ -103,6 +107,7 @@
   }
   // slow continuous push-in while holding, so the frame is never frozen
   function drifted(st, dt, on) {
+    return { ...st };
     if (dt <= 0 || !on) return { ...st };
     const k = 1 - Math.exp(-dt / 9);
     return { x: st.x + Math.sin(dt * 0.21) * 10 * on, y: st.y + (1 - Math.cos(dt * 0.17)) * 6 * on, z: st.z * (1 + 0.075 * k * on), r: st.r + Math.sin(dt * 0.13) * 0.25 * on };

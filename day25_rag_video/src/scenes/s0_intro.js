@@ -11,7 +11,7 @@
     ${div('t_eye', 170, 250, 0, 0, 'Plural Labs · AI Developer Program', 'eyebrow')}
     ${div('t_day', 160, 300, 0, 0, '<span style="font:800 230px/1 var(--serif)" class="grad-text">DAY <span id="t_num" data-dec="0">22</span></span>')}
     ${div('t_title', 170, 560, 1300, 0, 'RAG with real files', 'h1', 'font-size:110px;line-height:1.05')}
-    ${div('t_sub', 175, 700, 0, 0, 'Part 1 &nbsp;—&nbsp; <span class="rose">the PDF</span>', 'h2', 'font-size:54px;color:#cdd6ff')}
+    ${div('t_sub', 175, 700, 0, 0, 'Part 1 &nbsp;—&nbsp; <span class="rose">the PDF</span>', 'h2', 'font-size:54px;color:#f6e2cc')}
     ${div('t_rule', 175, 800, 260, 7, '', '', 'background:var(--rose);border-radius:4px')}
     ${div('t_tags', 175, 850, 1200, 0, '<span class="small" style="font-size:26px">pypdf · regular expressions · dispatch tables · page numbers in answers</span>')}
     ${fileIcon('t_f1', 1330, 200, 'txt', '', 1.1)}${fileIcon('t_f2', 1560, 330, 'pdf', '', 1.25)}
@@ -23,33 +23,33 @@
   let nodes = '';
   names.forEach((n, i) => {
     const c = i < 4 ? 'var(--teal)' : 'var(--rose)';
-    nodes += `<div class="abs center" id="pn${i}" style="left:${nx(i) - 75}px;top:445px;width:150px;height:150px;border-radius:50%;background:#0f1740;border:4px solid ${c};--glow:${i < 4 ? 'rgba(45,212,191,.6)' : 'rgba(255,77,109,.6)'}">
+    nodes += `<div class="abs center" id="pn${i}" style="left:${nx(i) - 75}px;top:445px;width:150px;height:150px;border-radius:50%;background:#2c060c;border:4px solid ${c};--glow:${i < 4 ? 'rgba(47,184,114,.6)' : 'rgba(230,57,70,.6)'}">
        <span style="font:800 64px var(--serif);color:${c}">${i + 1}</span></div>
-       <div class="abs center" id="pl${i}" style="left:${nx(i) - 100}px;top:612px;width:200px;font:800 22px var(--sans);letter-spacing:3px;color:#dfe6ff">${n}</div>
-       ${icon('plk' + i, nx(i) + 30, 430, 44, 'lock', '#8e9bc4')}`;
+       <div class="abs center" id="pl${i}" style="left:${nx(i) - 100}px;top:612px;width:200px;font:800 22px var(--sans);letter-spacing:3px;color:#fff1dc">${n}</div>
+       ${icon('plk' + i, nx(i) + 30, 430, 44, 'lock', '#cfa999')}`;
   });
   board('PIPE', ...G(0, -1), `
     ${div('p_title', 110, 90, 0, 0, 'The Day 22 machine', 'h1', 'font-size:64px')}
     ${div('p_eye', 114, 60, 0, 0, 'Recap', 'eyebrow')}
-    ${path('p_line', `M${nx(0)},520 L${nx(7)},520`, '#3a4687', 8)}
-    ${path('p_br1', `M${nx(0) - 70},380 L${nx(0) - 70},350 L${nx(3) + 70},350 L${nx(3) + 70},380`, '#2dd4bf', 5)}
-    ${path('p_br2', `M${nx(4) - 70},380 L${nx(4) - 70},350 L${nx(7) + 70},350 L${nx(7) + 70},380`, '#ff4d6d', 5)}
+    ${path('p_line', `M${nx(0)},520 L${nx(7)},520`, '#7a2a33', 8)}
+    ${path('p_br1', `M${nx(0) - 70},380 L${nx(0) - 70},350 L${nx(3) + 70},350 L${nx(3) + 70},380`, '#2fb872', 5)}
+    ${path('p_br2', `M${nx(4) - 70},380 L${nx(4) - 70},350 L${nx(7) + 70},350 L${nx(7) + 70},380`, '#e63946', 5)}
     ${div('p_l1', nx(0) - 70, 255, 680, 0, '<b class="teal">PIPELINE 1 · INDEXING</b><br><span class="small">runs once, in advance</span>', 'h3', 'font-size:28px')}
     ${div('p_l2', nx(4) - 70, 255, 680, 0, '<b class="rose">PIPELINE 2 · ANSWERING</b><br><span class="small">runs for every question</span>', 'h3', 'font-size:28px')}
     ${nodes}
-    ${div('p_doc', nx(0) - 30, 500, 60, 40, '', '', 'background:#eef2ff;border-radius:6px;box-shadow:0 0 20px #2dd4bf')}
-    ${icon('p_db', nx(3) - 40, 690, 80, 'db', '#2dd4bf')}
-    ${div('p_q', nx(4) - 60, 490, 120, 60, '<span style="font:700 26px var(--sans)">Q ?</span>', 'center', 'background:var(--sky);color:#04223a;border-radius:16px')}
+    ${div('p_doc', nx(0) - 30, 500, 60, 40, '', '', 'background:#fff8ee;border-radius:6px;box-shadow:0 0 20px #2fb872')}
+    ${icon('p_db', nx(3) - 40, 690, 80, 'db', '#2fb872')}
+    ${div('p_q', nx(4) - 60, 490, 120, 60, '<span style="font:700 26px var(--sans)">Q ?</span>', 'center', 'background:var(--sky);color:#3b0a10;border-radius:16px')}
     ${div('p_ans', nx(7) - 140, 690, 280, 80, '<span style="font:700 26px var(--sans)">answer ✓</span>', 'center', 'background:var(--rose);border-radius:18px')}
     ${div('p_worked', 1480, 70, 330, 0, 'IT WORKED ✓', 'badge bg-teal', 'font-size:34px;transform:rotate(-6deg)')}
     ${chip('p_chip', 90, 770, '<span class="kc">if not</span> file_name.<span class="fn">endswith</span>(<span class="st">".txt"</span>):\n    <span class="kc">continue</span>', 'font-size:28px;border-color:var(--rose)')}
     ${div('p_ul', 340, 816, 320, 6, '', '', 'background:var(--rose);border-radius:3px')}
     ${div('p_note', 190, 905, 600, 0, 'one tiny line… today\'s whole class', 'hand', 'font-size:44px;color:var(--sun)')}
-    ${div('p_pr1', 790, 760, 330, 200, `<div style="width:64px;height:64px">${ICON.box('#ff4d6d')}</div><b style="font-size:30px;margin-top:14px">Reads PDFs</b>`, 'card center col', 'padding:20px')}
+    ${div('p_pr1', 790, 760, 330, 200, `<div style="width:64px;height:64px">${ICON.box('#e63946')}</div><b style="font-size:30px;margin-top:14px">Reads PDFs</b>`, 'card center col', 'padding:20px')}
     ${div('p_pr2', 1150, 760, 330, 200, `<div style="font:800 54px var(--serif)" class="sun">p. 2</div><b style="font-size:30px;margin-top:8px">Cites the page</b>`, 'card center col', 'padding:20px')}
-    ${div('p_pr3', 1510, 760, 330, 200, `<div style="width:64px;height:64px">${ICON.bell('#ffd23f')}</div><b style="font-size:30px;margin-top:14px">No silent skips</b>`, 'card center col', 'padding:20px')}
+    ${div('p_pr3', 1510, 760, 330, 200, `<div style="width:64px;height:64px">${ICON.bell('#f5b700')}</div><b style="font-size:30px;margin-top:14px">No silent skips</b>`, 'card center col', 'padding:20px')}
     ${div('p_today', nx(0) - 105, 690, 210, 0, 'CHANGES TODAY', 'badge bg-rose', 'text-align:center;font-size:20px')}
-    ${div('p_same', nx(1) - 60, 690, 1500, 0, '<span class="small" style="font-size:30px">steps 2 → 8 : <b style="color:#dfe6ff">same as Day 22</b></span>')}
+    ${div('p_same', nx(1) - 60, 690, 1500, 0, '<span class="small" style="font-size:30px">steps 2 → 8 : <b style="color:#fff1dc">same as Day 22</b></span>')}
   `);
 
   // ================= animation =================

@@ -5,15 +5,15 @@
   board('STEP0', ...G(2, -1), `
     ${div('s0_t', 110, 60, 0, 0, 'Step 0 · a beginner\'s idea', 'h1', 'font-size:62px')}
     ${pill('s0_a', 110, 200, '📄 a PDF is a file', 'bg-dark', 'font-size:32px')}
-    ${arrow('s0_a1', 470, 232, 560, 232, '#8e9bc4', 5)}
+    ${arrow('s0_a1', 470, 232, 560, 232, '#cfa999', 5)}
     ${pill('s0_b', 580, 200, '<span class="mono">open()</span>&nbsp;reads files', 'bg-dark', 'font-size:32px')}
-    ${arrow('s0_a2', 950, 232, 1040, 232, '#8e9bc4', 5)}
+    ${arrow('s0_a2', 950, 232, 1040, 232, '#cfa999', 5)}
     ${pill('s0_c', 1060, 200, 'so just open it! 🙂', 'bg-sun', 'font-size:32px')}
     <div class="card" id="s0_txt" style="left:110px;top:380px;width:820px;height:600px">
       <div class="abs small" style="left:30px;top:24px;letter-spacing:3px">A .TXT FILE</div>
       <div class="abs h2" style="left:30px;top:70px">just letters, one after another</div>
-      ${letters.map((l, i) => `<div class="abs mono center" id="s0_l${i}" style="left:${40 + i * 90}px;top:190px;width:76px;height:90px;border-radius:12px;background:#1c2559;border:2px solid #3a4687;font-size:46px">${l}</div>`).join('')}
-      ${arrow('s0_la', 330, 310, 330, 400, '#2dd4bf', 6)}
+      ${letters.map((l, i) => `<div class="abs mono center" id="s0_l${i}" style="left:${40 + i * 90}px;top:190px;width:76px;height:90px;border-radius:12px;background:#4a1018;border:2px solid #7a2a33;font-size:46px">${l}</div>`).join('')}
+      ${arrow('s0_la', 330, 310, 330, 400, '#2fb872', 6)}
       ${chip('s0_str', 180, 420, '<span class="st">"Plural Labs - Leave Policy…"</span>', 'font-size:28px;border-color:var(--teal)')}
       ${div('s0_ok', 220, 520, 400, 60, '<div style="width:50px;height:50px">' + ICON.check() + '</div><span class="txt" style="font-size:30px;margin-left:16px">a Python string</span>', '', 'display:flex;align-items:center')}</div>
     <div class="card" id="s0_good" style="left:1000px;top:380px;width:810px;height:280px;border-color:var(--sun)">
@@ -30,11 +30,11 @@
   const drawers = [['Fonts', 'var(--sky)'], ['Images', 'var(--vio)'], ['Page sizes', 'var(--sun)'], ['Text — compressed', 'var(--rose)']];
   board('PDFBOX', ...G(3, -1), `
     ${div('pb_t', 110, 60, 0, 0, 'A PDF is a small, compressed <span class="grad-text">database</span>', 'h1', 'font-size:58px')}
-    <div class="abs" id="pb_cab" style="left:110px;top:200px;width:620px;height:780px;border-radius:22px;background:linear-gradient(180deg,#1d2a6e,#121a46);border:3px solid #3a4ba8">
-      ${drawers.map(([n, c], i) => `<div class="abs" id="pb_d${i}" style="left:30px;top:${40 + i * 182}px;width:560px;height:160px;border-radius:14px;background:#0d1433;border:3px solid ${c};display:flex;align-items:center;padding-left:40px"><div style="width:90px;height:14px;border-radius:7px;background:${c};margin-right:36px"></div><span style="font:700 36px var(--sans)">${n}</span></div>`).join('')}</div>
+    <div class="abs" id="pb_cab" style="left:110px;top:200px;width:620px;height:780px;border-radius:22px;background:linear-gradient(180deg,#55121c,#300810);border:3px solid #8a2430">
+      ${drawers.map(([n, c], i) => `<div class="abs" id="pb_d${i}" style="left:30px;top:${40 + i * 182}px;width:560px;height:160px;border-radius:14px;background:#26050a;border:3px solid ${c};display:flex;align-items:center;padding-left:40px"><div style="width:90px;height:14px;border-radius:7px;background:${c};margin-right:36px"></div><span style="font:700 36px var(--sans)">${n}</span></div>`).join('')}</div>
     <div class="card" id="pb_bytes" style="left:820px;top:200px;width:990px;height:380px">
       <div class="abs small" style="left:30px;top:24px;letter-spacing:3px">WHAT open() ACTUALLY SEES</div>
-      <div class="abs mono" id="pb_hex" style="left:30px;top:80px;width:600px;font-size:34px;line-height:1.5;color:#c4b5fd;word-spacing:8px">${hex.map((h, i) => `<span style="${h === 'F9' ? 'color:var(--rose);font-weight:800' : ''}">${h}</span>`).join(' ')}</div>
+      <div class="abs mono" id="pb_hex" style="left:30px;top:80px;width:600px;font-size:34px;line-height:1.5;color:#f7c9a8;word-spacing:8px">${hex.map((h, i) => `<span style="${h === 'F9' ? 'color:var(--rose);font-weight:800' : ''}">${h}</span>`).join(' ')}</div>
       <div class="abs mono center" id="pb_strbox" style="left:700px;top:100px;width:250px;height:160px;border-radius:16px;border:3px dashed var(--teal);font-size:30px;color:var(--teal)">str</div>
       ${div('pb_x', 790, 280, 70, 70, ICON.cross())}
       ${div('pb_note', 30, 300, 640, 0, 'not letters in any alphabet', 'hand', 'font-size:46px;color:var(--rose)')}</div>
@@ -42,7 +42,7 @@
       <div class="abs" id="pb_k" style="left:40px;top:120px;width:220px;height:110px">${ICON.key()}</div>
       <div class="abs mono" style="left:60px;top:250px;font-size:30px;color:var(--sun)">pypdf</div>
       ${fileIcon('pb_pdf', 330, 70, 'pdf', '', .95)}
-      ${arrow('pb_ka', 520, 175, 600, 175, '#2dd4bf', 6)}
+      ${arrow('pb_ka', 520, 175, 600, 175, '#2fb872', 6)}
       <div class="abs mono" id="pb_flow" style="left:620px;top:90px;width:340px;font-size:24px;line-height:1.6;color:#ce9178">"Plural Labs — Remote<br>and Hybrid Work Policy<br>People Team · Version 3…"</div></div>
   `);
   // ================= animation =================

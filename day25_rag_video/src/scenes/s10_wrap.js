@@ -12,8 +12,8 @@
     ${take('tk_3', 1270, '3', 'A dict of functions = one-line formats', 'var(--vio)')}
     <div class="card" id="tk_m" style="left:110px;top:560px;width:540px;height:460px">
       <div class="abs small" style="left:30px;top:24px;letter-spacing:3px">QUALITY ≈ WHAT IT CAN OPEN</div>
-      <div class="abs" style="left:40px;top:90px;width:460px;height:40px;border-radius:20px;background:#1c2559"></div>
-      <div class="abs" id="tk_mb" style="left:40px;top:90px;width:460px;height:40px;border-radius:20px;background:linear-gradient(90deg,#2dd4bf,#38bdf8)"></div>
+      <div class="abs" style="left:40px;top:90px;width:460px;height:40px;border-radius:20px;background:#4a1018"></div>
+      <div class="abs" id="tk_mb" style="left:40px;top:90px;width:460px;height:40px;border-radius:20px;background:linear-gradient(90deg,#2fb872,#ffd9a0)"></div>
       <div class="abs txt" style="left:40px;top:160px;width:460px;font-size:28px">Day 22: <b>4</b> of 9 files<br>Day 25: <b class="teal">7</b> of 9 files</div>
       <div class="abs hand" style="left:40px;top:300px;width:460px;font-size:38px;color:var(--teal)">usually the cheapest part to improve</div></div>
     <div class="card" id="tk_p" style="left:690px;top:560px;width:540px;height:460px">
@@ -34,7 +34,7 @@
       ${fileIcon('br_ii', 40, 40, 'png', '', .9)}
       <div class="abs h2" style="left:220px;top:50px">the screenshot</div>
       <div class="abs txt" style="left:220px;top:110px;width:560px;font-size:26px">no text inside — only a picture of text</div>
-      <div class="abs" id="br_eye" style="left:260px;top:240px;width:300px;height:190px">${ICON.eye('#a78bfa')}</div>
+      <div class="abs" id="br_eye" style="left:260px;top:240px;width:300px;height:190px">${ICON.eye('#f7a1b0')}</div>
       ${div('br_eyel', 200, 420, 0, 0, 'needs a model with eyes', 'hand', 'font-size:42px;color:var(--vio)')}</div>
     <div class="card" id="br_ch" style="left:110px;top:720px;width:1700px;height:290px;border-color:var(--rose)">
       <div class="abs" id="br_sc" style="left:50px;top:70px;width:150px;height:150px">${ICON.scissors()}</div>
@@ -44,17 +44,17 @@
   const rungs = ['Load · any file type', 'Chunk · sentences + overlap', 'Embed · batching + cost', 'Store · persistence', 'Retrieve · hybrid search', 'Fix the question', 'Rerank', 'Citations + refusal', 'Evaluate', 'Ship it'];
   board('LADDER', ...G(6, 1), `
     ${div('ld_t', 110, 60, 0, 0, 'The RAG ladder', 'h1', 'font-size:62px')}
-    ${rungs.map((r, i) => `<div class="abs" id="ld_r${i}" style="left:${110 + (i % 2) * 860}px;top:${190 + Math.floor(i / 2) * 120}px;width:820px;height:96px;border-radius:16px;background:#111a3f;border:2.5px solid ${i === 0 ? 'var(--rose)' : '#2a3570'};display:flex;align-items:center;gap:24px;padding-left:24px">
-       <span style="font:800 44px var(--serif);color:${i === 0 ? 'var(--rose)' : '#56628c'}">${String(i + 1).padStart(2, '0')}</span><span style="font:600 30px var(--sans);color:${i === 0 ? '#fff' : '#9aa5cf'}">${r}</span>
+    ${rungs.map((r, i) => `<div class="abs" id="ld_r${i}" style="left:${110 + (i % 2) * 860}px;top:${190 + Math.floor(i / 2) * 120}px;width:820px;height:96px;border-radius:16px;background:#3a0a12;border:2.5px solid ${i === 0 ? 'var(--rose)' : '#6e1e29'};display:flex;align-items:center;gap:24px;padding-left:24px">
+       <span style="font:800 44px var(--serif);color:${i === 0 ? 'var(--rose)' : '#8f6a62'}">${String(i + 1).padStart(2, '0')}</span><span style="font:600 30px var(--sans);color:${i === 0 ? '#fff' : '#d9b8a6'}">${r}</span>
        ${i === 0 ? '<span class="abs" style="right:20px;top:24px;font:800 20px var(--sans);letter-spacing:2px;padding:8px 14px;border-radius:8px;background:var(--rose)">PDF ✓ · HTML + IMAGE NEXT</span>' : ''}</div>`).join('')}
     <div class="card" id="ld_hw" style="left:110px;top:820px;width:1700px;height:210px;border-color:var(--sun)">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px;color:var(--sun)">BEFORE NEXT CLASS</div>
-      ${['run the file yourself', 'try every question', 'swap the hyphen + whitespace lines, count the matches'].map((s, i) => `<div class="abs" id="ld_h${i}" style="left:${30 + [0, 420, 820][i]}px;top:90px;display:flex;gap:14px;align-items:center"><div style="width:44px;height:44px">${ICON.check('#ffd23f')}</div><span style="font:600 28px var(--sans)">${s}</span></div>`).join('')}</div>
+      ${['run the file yourself', 'try every question', 'swap the hyphen + whitespace lines, count the matches'].map((s, i) => `<div class="abs" id="ld_h${i}" style="left:${30 + [0, 420, 820][i]}px;top:90px;display:flex;gap:14px;align-items:center"><div style="width:44px;height:44px">${ICON.check('#f5b700')}</div><span style="font:600 28px var(--sans)">${s}</span></div>`).join('')}</div>
   `);
   board('END', ...G(5, 0), `
     ${div('en_eye', 0, 330, 1920, 0, 'Plural Labs · AI Developer Program', 'eyebrow', 'text-align:center')}
     ${div('en_t', 0, 400, 1920, 0, 'See you in the next class', '', 'font:800 120px var(--serif);text-align:center')}
-    ${div('en_s', 0, 560, 1920, 0, 'Day 26 · <span class="sun">HTML pages</span> and <span class="vio">screenshots</span>', 'h2', 'font-size:48px;color:#cdd6ff;text-align:center')}
+    ${div('en_s', 0, 560, 1920, 0, 'Day 26 · <span class="sun">HTML pages</span> and <span class="vio">screenshots</span>', 'h2', 'font-size:48px;color:#f6e2cc;text-align:center')}
   `);
 
   // ================= animation =================
@@ -103,5 +103,5 @@
   camB(t, 2.0, 'END', 960, 480, 1.0, { dip: .3 });
   wipe('en_eye', t + .5, .6); fadeUp('en_t', t + .7, .7); fadeUp('en_s', t + 1.1, .6);
   // grand finale: pull out to see the whole world we travelled through
-  cam(END('k14', 1.2), 4.5, { x: 6960, y: 2790, z: .1 }, { ease: 'io', drift: 0 });
+  cam(END('k14', 1.2), 4.5, { x: 6960, y: 2790, z: .1 }, { ease: 'io', drift: 0, noCut: true });
 });

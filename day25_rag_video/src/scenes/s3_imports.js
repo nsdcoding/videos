@@ -24,24 +24,24 @@
       <div class="abs h2" style="left:30px;top:24px">describe a <span class="sun">SHAPE</span>, not exact text</div>
       <div id="rx_s1" class="abs" style="left:30px;top:120px;display:flex;align-items:center;gap:24px">${'<span class="chip" style="position:static;font-size:34px;color:var(--rose)">\\s+</span>'}<span class="txt" style="font-size:30px">a run of whitespace</span></div>
       <div id="rx_s2" class="abs" style="left:30px;top:220px;display:flex;align-items:center;gap:24px">${'<span class="chip" style="position:static;font-size:34px;color:var(--rose)">\\d:</span>'}<span class="txt" style="font-size:30px">a digit followed by a colon</span></div>
-      <div id="rx_s2e" class="abs mono" style="left:300px;top:290px;font-size:28px">"Step <span style="background:rgba(255,77,109,.3);border-radius:4px">1:</span> load"</div>
+      <div id="rx_s2e" class="abs mono" style="left:300px;top:290px;font-size:28px">"Step <span style="background:rgba(230,57,70,.3);border-radius:4px">1:</span> load"</div>
       <div id="rx_bi" class="abs" style="left:30px;top:370px;display:flex;align-items:center;gap:16px"><div style="width:44px;height:44px">${ICON.check()}</div><span class="txt" style="font-size:28px">built into Python — <b>nothing to install</b></span></div></div>
   `);
   // ---------- IMPORTS : two shapes ----------
-  const tiles = (arr, col) => arr.map((s, i) => `<div class="abs mono center" id="${s[0]}" style="left:${24 + (i % 2) * 170}px;top:${70 + Math.floor(i / 2) * 64}px;width:156px;height:50px;border-radius:10px;background:${col};font-size:19px;color:#0b1030;font-weight:700">${s[1]}</div>`).join('');
+  const tiles = (arr, col) => arr.map((s, i) => `<div class="abs mono center" id="${s[0]}" style="left:${24 + (i % 2) * 170}px;top:${70 + Math.floor(i / 2) * 64}px;width:156px;height:50px;border-radius:10px;background:${col};font-size:19px;color:#2a0509;font-weight:700">${s[1]}</div>`).join('');
   board('IMPORTS', ...G(0, 1), `
     ${div('im_t', 110, 60, 0, 0, 'Two shapes of import', 'h1', 'font-size:66px')}
     ${chip('im_c1', 110, 190, '<span class="kc">import</span> <span class="cl">os</span>', 'font-size:40px')}
     ${chip('im_c2', 1000, 190, '<span class="kc">from</span> <span class="cl">pypdf</span> <span class="kc">import</span> <span class="cl">PdfReader</span>', 'font-size:40px')}
-    <div class="card" id="im_m1" style="left:110px;top:320px;width:370px;height:300px;border-color:var(--sky)"><div class="abs mono" style="left:24px;top:18px;font-size:28px;color:var(--sky)">os</div>${tiles([['o1', 'path'], ['o2', 'listdir'], ['o3', 'getcwd'], ['o4', 'mkdir'], ['o5', 'remove'], ['o6', 'rename']], '#7dd3fc')}</div>
+    <div class="card" id="im_m1" style="left:110px;top:320px;width:370px;height:300px;border-color:var(--sky)"><div class="abs mono" style="left:24px;top:18px;font-size:28px;color:var(--sky)">os</div>${tiles([['o1', 'path'], ['o2', 'listdir'], ['o3', 'getcwd'], ['o4', 'mkdir'], ['o5', 'remove'], ['o6', 'rename']], '#ffd9a0')}</div>
     <div class="card" id="im_f1" style="left:560px;top:320px;width:340px;height:300px;border-style:dashed"><div class="abs small" style="left:24px;top:18px;letter-spacing:2px">YOUR FILE</div><div id="im_os" class="abs mono center" style="left:30px;top:90px;width:280px;height:150px;border-radius:14px;border:3px solid var(--sky);font-size:40px;color:var(--sky)">os</div></div>
-    ${arrow('im_a1', 490, 470, 550, 470, '#38bdf8', 6)}
+    ${arrow('im_a1', 490, 470, 550, 470, '#ffd9a0', 6)}
     ${chip('im_u1', 110, 680, '<span class="cl">os</span>.path.<span class="fn">join</span>(folder, name)\n<span class="cl">os</span>.<span class="fn">listdir</span>(folder)', 'font-size:30px')}
     ${div('im_u1n', 110, 810, 760, 0, 'everything stays behind the name <b class="mono sky">os.</b>', 'txt')}
     <div class="card" id="im_m2" style="z-index:5;left:1000px;top:320px;width:370px;height:300px;border-color:var(--sun)"><div class="abs mono" style="left:24px;top:18px;font-size:28px;color:var(--sun)">pypdf</div>${tiles([['p1', 'PdfReader'], ['p2', 'PdfWriter'], ['p3', 'PageObject'], ['p4', 'Transform'], ['p5', 'PdfMerger'], ['p6', 'errors']], '#ffe27a')}</div>
     <div class="card" id="im_f2" style="left:1470px;top:320px;width:340px;height:300px;border-style:dashed"><div class="abs small" style="left:24px;top:18px;letter-spacing:2px">YOUR FILE</div></div>
     ${chip('im_u2', 1000, 680, '<span class="cl">PdfReader</span>(path)', 'font-size:32px;border-color:var(--teal)')}
-    ${chip('im_u3', 1000, 770, '<span class="cl">pypdf</span>.<span class="cl">PdfReader</span>(path)', 'font-size:32px;color:#8e9bc4')}
+    ${chip('im_u3', 1000, 770, '<span class="cl">pypdf</span>.<span class="cl">PdfReader</span>(path)', 'font-size:32px;color:#cfa999')}
     ${div('im_x', 1000, 800, 470, 5, '', 'strike')}
     ${div('im_u2n', 1500, 690, 340, 0, '✓ the one name lands right in your file', 'txt', 'font-size:24px;color:var(--teal)')}
     ${div('im_both', 610, 920, 700, 90, '<b style="font-size:32px">Both work.</b>&nbsp;<span class="txt" style="font-size:28px">Need one thing? use the short one.</span>', 'card center', 'border-color:var(--teal)')}
@@ -54,11 +54,11 @@
     ${pill('pk_pp', 120, 400, '<span class="mono">pypdf</span>', 'bg-sun', 'font-size:38px')}
     ${div('pk_l2', 120, 480, 0, 0, 'you installed it with pip', 'txt')}
     <div class="card" id="pk_pip" style="left:620px;top:220px;width:260px;height:120px"><div class="center" style="height:120px;font:700 40px var(--mono);color:var(--sun)">pip</div></div>
-    ${curve('pk_a', 880, 280, 1050, 200, 1150, 330, '#ffd23f', 6)}
-    ${div('pk_box', 640, 380, 220, 200, ICON.box('#ffd23f'))}
+    ${curve('pk_a', 880, 280, 1050, 200, 1150, 330, '#f5b700', 6)}
+    ${div('pk_box', 640, 380, 220, 200, ICON.box('#f5b700'))}
     <div class="card" id="pk_sp" style="left:1150px;top:300px;width:660px;height:640px">
       <div class="abs" style="left:30px;top:26px;display:flex;align-items:center;gap:16px"><div style="width:60px;height:50px">${ICON.folder()}</div><span class="mono" style="font-size:28px">site-packages/pypdf/</span></div>
-      ${['__init__.py', '_reader.py', '_page.py', '_writer.py', 'generic/', 'filters.py', 'errors.py'].map((f, i) => `<div class="abs mono" id="pk_f${i}" style="left:70px;top:${120 + i * 62}px;font-size:28px;color:#cfd8ff">📄 ${f}</div>`).join('')}</div>
+      ${['__init__.py', '_reader.py', '_page.py', '_writer.py', 'generic/', 'filters.py', 'errors.py'].map((f, i) => `<div class="abs mono" id="pk_f${i}" style="left:70px;top:${120 + i * 62}px;font-size:28px;color:#f6e2cc">📄 ${f}</div>`).join('')}</div>
     ${div('pk_nm', 110, 640, 950, 0, 'A package is just <b class="sun">somebody else\'s Python files</b> on your disk.', 'h2', 'font-size:44px;line-height:1.3')}
     ${div('pk_nm2', 110, 820, 0, 0, 'nothing magic — you can open them and read them', 'hand', 'font-size:48px;color:var(--teal)')}
   `);
@@ -69,31 +69,31 @@
     ${chip('cl_n2', 1150, 130, '<span class="cl">os</span>.<span class="fn">listdir</span>', 'font-size:34px')}${div('cl_n2l', 1420, 142, 0, 0, '→ lowercase → <b class="sun">function</b>', 'txt', 'font-size:28px')}
     <div class="card" id="cl_fn" style="left:110px;top:240px;width:820px;height:380px;border-color:var(--sun)">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px;color:var(--sun)">CALL A FUNCTION</div>
-      <div id="cl_in" class="abs mono center" style="left:40px;top:150px;width:150px;height:80px;border-radius:14px;background:#1c2559;font-size:26px">input</div>
-      <div id="cl_gear" class="abs" style="left:300px;top:110px;width:160px;height:160px">${ICON.gear('#ffd23f')}</div>
+      <div id="cl_in" class="abs mono center" style="left:40px;top:150px;width:150px;height:80px;border-radius:14px;background:#4a1018;font-size:26px">input</div>
+      <div id="cl_gear" class="abs" style="left:300px;top:110px;width:160px;height:160px">${ICON.gear('#f5b700')}</div>
       <div id="cl_out" class="abs mono center" style="left:580px;top:150px;width:200px;height:80px;border-radius:14px;background:var(--sun);color:#2a2000;font-size:28px;font-weight:700">answer</div>
       ${div('cl_done', 590, 260, 0, 0, 'done ✓', 'hand', 'font-size:44px;color:var(--sun)')}</div>
     <div class="card" id="cl_cls" style="left:990px;top:240px;width:820px;height:380px;border-color:var(--teal)">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px;color:var(--teal)">CALL A CLASS</div>
-      <div id="cl_bp" class="abs center col" style="left:40px;top:90px;width:220px;height:240px;border-radius:14px;border:3px dashed #38bdf8;background:repeating-linear-gradient(0deg,#0f2a5a 0 22px,#12306a 22px 23px)"><b class="mono" style="font-size:24px;color:#7dd3fc">PdfReader</b><span class="small">the blueprint</span></div>
-      ${arrow('cl_ba', 280, 210, 360, 210, '#2dd4bf', 6)}
-      <div id="cl_obj" class="abs" style="left:380px;top:70px;width:400px;height:290px;border-radius:20px;background:#0c3b3a;border:3px solid var(--teal)">
+      <div id="cl_bp" class="abs center col" style="left:40px;top:90px;width:220px;height:240px;border-radius:14px;border:3px dashed #ffd9a0;background:repeating-linear-gradient(0deg,#4a1a10 0 22px,#5a2414 22px 23px)"><b class="mono" style="font-size:24px;color:#ffd9a0">PdfReader</b><span class="small">the blueprint</span></div>
+      ${arrow('cl_ba', 280, 210, 360, 210, '#2fb872', 6)}
+      <div id="cl_obj" class="abs" style="left:380px;top:70px;width:400px;height:290px;border-radius:20px;background:#0f3a24;border:3px solid var(--teal)">
         <div class="abs mono" style="left:20px;top:14px;font-size:24px;color:var(--teal)">reader  (an object)</div>
         ${fileIcon('cl_pdf', 30, 70, 'pdf', '', .75)}
-        ${['.pages', '.metadata', 'len(.pages)'].map((s, i) => `<div class="abs mono" id="cl_ab${i}" style="left:180px;top:${70 + i * 66}px;padding:8px 14px;border-radius:10px;background:#134e4a;font-size:22px;color:#ccfbf1">${s}</div>`).join('')}</div></div>
+        ${['.pages', '.metadata', 'len(.pages)'].map((s, i) => `<div class="abs mono" id="cl_ab${i}" style="left:180px;top:${70 + i * 66}px;padding:8px 14px;border-radius:10px;background:#155a37;font-size:22px;color:#d9f7e6">${s}</div>`).join('')}</div></div>
     ${chip('cl_code', 110, 690, '<span class="va">reader</span> = <span class="cl">PdfReader</span>(path)', 'font-size:40px')}
     ${div('cl_no', 830, 690, 0, 0, '<span style="font:600 32px var(--sans)">“give me the text”</span>', '', 'background:#3a1426;color:#ff8fa3;padding:16px 26px;border-radius:20px')}
     ${div('cl_nox', 830, 720, 360, 5, '', 'strike')}
-    ${div('cl_yes', 110, 810, 0, 0, '<span style="font:600 32px var(--sans)">“open this PDF, and give me something I can <b>ask questions of</b>”</span>', '', 'background:#0c3b3a;color:#ccfbf1;padding:16px 26px;border-radius:20px')}
+    ${div('cl_yes', 110, 810, 0, 0, '<span style="font:600 32px var(--sans)">“open this PDF, and give me something I can <b>ask questions of</b>”</span>', '', 'background:#0f3a24;color:#d9f7e6;padding:16px 26px;border-radius:20px')}
     <div class="card" id="cl_q" style="left:1300px;top:660px;width:510px;height:330px">
-      ${['<span class="va">reader</span>.pages', '<span class="fn">len</span>(<span class="va">reader</span>.pages)', '<span class="va">reader</span>.pages[<span class="nu">0</span>]', '….<span class="fn">extract_text</span>()'].map((s, i) => `<div class="abs mono" id="cl_q${i}" style="left:24px;top:${22 + i * 74}px;font-size:26px;color:#dfe6ff">${s}</div>`).join('')}
+      ${['<span class="va">reader</span>.pages', '<span class="fn">len</span>(<span class="va">reader</span>.pages)', '<span class="va">reader</span>.pages[<span class="nu">0</span>]', '….<span class="fn">extract_text</span>()'].map((s, i) => `<div class="abs mono" id="cl_q${i}" style="left:24px;top:${22 + i * 74}px;font-size:26px;color:#fff1dc">${s}</div>`).join('')}
       <div class="abs mono" id="cl_qa0" style="left:330px;top:22px;font-size:24px;color:var(--teal)">→ the pages</div>
       <div class="abs" id="cl_qa1" style="left:400px;top:90px;font:800 52px var(--serif);color:var(--sun)">2</div>
       <div class="abs mono" id="cl_qa2" style="left:320px;top:170px;font-size:24px;color:var(--teal)">→ page 1</div>
       <div class="abs mono" id="cl_qa3" style="left:24px;top:290px;width:470px;font-size:19px;color:#ce9178;white-space:nowrap;overflow:hidden">'Plural Labs — Remote and Hybrid Work…'</div></div>
   `);
   // ---------- LAZY : behaves like a list ----------
-  const pg = (i, x) => `<div class="abs" id="lz_p${i}" style="left:${x}px;top:250px;width:170px;height:220px;border-radius:10px;border:3px dashed #56628c;background:rgba(255,255,255,.03)"><div id="lz_pf${i}" class="abs" style="inset:0;border-radius:8px;background:#eef2ff">${[30, 55, 80, 105, 130, 155].map((y, k) => `<div class="abs" style="left:18px;top:${y}px;width:${[120, 100, 130, 90, 115, 80][k]}px;height:9px;border-radius:4px;background:#c9d1ee"></div>`).join('')}</div><div class="abs mono center" style="left:0;top:230px;width:170px;font-size:22px;color:#aab4dd">page ${i + 1}</div></div>`;
+  const pg = (i, x) => `<div class="abs" id="lz_p${i}" style="left:${x}px;top:250px;width:170px;height:220px;border-radius:10px;border:3px dashed #8f6a62;background:rgba(255,255,255,.03)"><div id="lz_pf${i}" class="abs" style="inset:0;border-radius:8px;background:#fff8ee">${[30, 55, 80, 105, 130, 155].map((y, k) => `<div class="abs" style="left:18px;top:${y}px;width:${[120, 100, 130, 90, 115, 80][k]}px;height:9px;border-radius:4px;background:#e8d7c4"></div>`).join('')}</div><div class="abs mono center" style="left:0;top:230px;width:170px;font-size:22px;color:#d9b8a6">page ${i + 1}</div></div>`;
   board('LAZY', ...G(3, 1), `
     ${div('lz_t', 110, 60, 0, 0, '<span class="mono">reader.pages</span> <span class="mute">looks like a list…</span>', 'h1', 'font-size:60px')}
     ${div('lz_b1', 120, 215, 0, 0, '[', 'mono', 'font-size:230px;line-height:1;color:var(--sun)')}
@@ -103,29 +103,29 @@
     ${div('lz_hand', 700, 520, 0, 0, '👆', '', 'font-size:70px')}
     ${div('lz_n', 120, 600, 1000, 0, 'Pages are read only <b class="sun">when you reach for them</b>', 'h2', 'font-size:42px')}
     <div class="card" id="lz_big" style="left:120px;top:720px;width:900px;height:270px">
-      ${[0, 1, 2, 3, 4, 5, 6, 7].map(i => `<div class="abs" style="left:${40 + i * 14}px;top:${40 + i * 10}px;width:130px;height:170px;border-radius:8px;border:2.5px dashed #56628c;background:#121a40"></div>`).join('')}
+      ${[0, 1, 2, 3, 4, 5, 6, 7].map(i => `<div class="abs" style="left:${40 + i * 14}px;top:${40 + i * 10}px;width:130px;height:170px;border-radius:8px;border:2.5px dashed #8f6a62;background:#300810"></div>`).join('')}
       <div class="abs" style="left:300px;top:40px;font:800 70px var(--serif)"><span id="lz_cnt" data-dec="0">0</span> <span style="font-size:40px">pages</span></div>
       <div class="abs txt" style="left:300px;top:150px;font-size:32px">opened <b class="teal">instantly</b> — nothing read yet</div></div>
     <div class="card" id="lz_v1" style="left:1150px;top:720px;width:660px;height:120px;border-color:var(--teal)"><div class="center" style="height:120px;gap:18px;font:700 34px var(--sans)"><div style="width:52px;height:52px">${ICON.check()}</div>behaves like a list</div></div>
     <div class="card" id="lz_v2" style="left:1150px;top:870px;width:660px;height:120px;border-color:var(--rose)"><div class="center" style="height:120px;gap:18px;font:700 34px var(--sans)"><div style="width:52px;height:52px">${ICON.cross()}</div>is a list</div></div>
   `);
   // ---------- LIMIT : extract_text cannot see ----------
-  const page = (id, x, y, photo) => `<div class="abs" id="${id}" style="left:${x}px;top:${y}px;width:330px;height:430px;border-radius:12px;background:${photo ? 'linear-gradient(135deg,#a8a29e,#d6d3d1 40%,#a8a29e)' : '#f4f6ff'};box-shadow:0 20px 50px rgba(0,0,0,.5)${photo ? ';transform:rotate(-3deg)' : ''}">
-     ${[50, 85, 120, 155, 190, 225, 260, 295, 330].map((yy, k) => `<div class="abs" style="left:30px;top:${yy}px;width:${[260, 220, 250, 200, 240, 180, 255, 210, 160][k]}px;height:12px;border-radius:5px;background:${photo ? '#57534e' : '#c5cdea'};${photo ? 'filter:blur(1.5px)' : ''}"></div>`).join('')}</div>`;
+  const page = (id, x, y, photo) => `<div class="abs" id="${id}" style="left:${x}px;top:${y}px;width:330px;height:430px;border-radius:12px;background:${photo ? 'linear-gradient(135deg,#a8a29e,#d6d3d1 40%,#a8a29e)' : '#fff8ee'};box-shadow:0 20px 50px rgba(0,0,0,.5)${photo ? ';transform:rotate(-3deg)' : ''}">
+     ${[50, 85, 120, 155, 190, 225, 260, 295, 330].map((yy, k) => `<div class="abs" style="left:30px;top:${yy}px;width:${[260, 220, 250, 200, 240, 180, 255, 210, 160][k]}px;height:12px;border-radius:5px;background:${photo ? '#57534e' : '#e8d7c4'};${photo ? 'filter:blur(1.5px)' : ''}"></div>`).join('')}</div>`;
   board('LIMIT', ...G(3, 0), `
     ${div('li_w', 110, 70, 110, 110, ICON.warn())}
     ${div('li_t', 250, 80, 0, 0, 'The most important limit', 'h1', 'font-size:70px')}
     ${page('li_pg', 140, 300, false)}
-    <div class="abs" id="li_layer" style="left:140px;top:300px;width:330px;height:430px;border-radius:12px;border:3px solid var(--sky);background:rgba(56,189,248,.12)">
-      ${['Plural Labs — Remote', 'and Hybrid Work Policy', '1. The default', 'arrangement…'].map((s, i) => `<div class="abs mono" style="left:22px;top:${50 + i * 46}px;font-size:21px;color:#e0f2fe">${s}</div>`).join('')}
+    <div class="abs" id="li_layer" style="left:140px;top:300px;width:330px;height:430px;border-radius:12px;border:3px solid var(--sky);background:rgba(255,217,160,.12)">
+      ${['Plural Labs — Remote', 'and Hybrid Work Policy', '1. The default', 'arrangement…'].map((s, i) => `<div class="abs mono" style="left:22px;top:${50 + i * 46}px;font-size:21px;color:#fff1dc">${s}</div>`).join('')}
       <div class="abs small" style="left:22px;top:380px;color:var(--sky)">text layer</div></div>
     ${div('li_l1', 140, 770, 520, 0, '<b class="sky">extract_text()</b> pulls out text that is <b>already stored as text</b>', 'txt', 'font-size:28px')}
-    ${div('li_eye', 760, 360, 200, 125, ICON.eye('#8e9bc4'))}
+    ${div('li_eye', 760, 360, 200, 125, ICON.eye('#cfa999'))}
     ${div('li_eyex', 770, 415, 180, 8, '', 'strike')}
     ${div('li_eyel', 700, 520, 330, 0, 'it does not look at the page like your eyes do', 'txt center', 'font-size:26px')}
     ${page('li_ph', 1120, 300, true)}
     ${div('li_phl', 1120, 760, 0, 0, '📷 a photo of a document', 'txt', 'font-size:28px')}
-    ${arrow('li_ar', 1470, 520, 1580, 520, '#ff4d6d', 6)}
+    ${arrow('li_ar', 1470, 520, 1580, 520, '#e63946', 6)}
     ${chip('li_empty', 1600, 470, '<span class="st">""</span>', 'font-size:60px;border-color:var(--rose)')}
     ${div('li_noerr', 1590, 600, 0, 0, 'NO ERROR', 'badge bg-sun')}
     ${div('li_pol', 1580, 660, 300, 0, 'politely empty', 'hand', 'font-size:44px;color:var(--sun)')}

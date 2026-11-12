@@ -17,7 +17,7 @@ def whoosh(t0, dur, amp):
     band = k1 - k2; env = np.sin(np.linspace(0, np.pi, n)) ** 2
     i = int(t0 * SR); out[i:i + n] += band * env * amp
 for c in d['cams']:
-    if c['dip'] >= .2: whoosh(c['t0'] + .1, min(1.8, c['t1'] - c['t0']), 0.10 * c['dip'] / .35)
+    if c.get('cut'): whoosh(c['t0'] - .34, .7, 0.08)
 # quiet warm pad: slow chord changes every 8 s
 t = np.arange(len(out)) / SR
 chords = [[220.0, 277.18, 329.63], [196.0, 246.94, 293.66], [174.61, 220.0, 261.63], [196.0, 246.94, 329.63]]

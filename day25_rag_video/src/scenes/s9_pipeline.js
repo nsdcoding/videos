@@ -3,53 +3,53 @@
   const G = (c, r) => [c * 2400, r * 1500];
   const R = window.RUNS;
   // ---------- CHUNK ----------
-  const seg = (n, w, col) => Array.from({ length: n }, (_, i) => `<div class="abs" id="ck_${col}${i}" style="left:${i * w}px;top:0;width:${w - 6}px;height:70px;border-radius:10px;background:${col === 'a' ? 'linear-gradient(90deg,#2dd4bf,#38bdf8)' : 'linear-gradient(90deg,#a78bfa,#ff4d6d)'}"></div>`).join('');
+  const seg = (n, w, col) => Array.from({ length: n }, (_, i) => `<div class="abs" id="ck_${col}${i}" style="left:${i * w}px;top:0;width:${w - 6}px;height:70px;border-radius:10px;background:${col === 'a' ? 'linear-gradient(90deg,#2fb872,#ffd9a0)' : 'linear-gradient(90deg,#f7a1b0,#e63946)'}"></div>`).join('');
   board('CHUNK', ...G(4, 0), `
     ${div('ck_t', 110, 50, 0, 0, 'Step 2 · chunk <span class="mute" style="font-size:40px">— same 60-word cutting</span>', 'h1', 'font-size:58px')}
     <div class="card" id="ck_pages" style="left:110px;top:170px;width:1700px;height:300px">
-      <div class="abs mono" style="left:30px;top:30px;font-size:24px;color:#cfd8ff">remote_work_policy.pdf · page 1</div>
+      <div class="abs mono" style="left:30px;top:30px;font-size:24px;color:#f6e2cc">remote_work_policy.pdf · page 1</div>
       <div class="abs" style="left:30px;top:70px;width:1640px;height:70px">${seg(7, 234, 'a')}</div>
-      <div class="abs mono" style="left:30px;top:170px;font-size:24px;color:#cfd8ff">page 2</div>
+      <div class="abs mono" style="left:30px;top:170px;font-size:24px;color:#f6e2cc">page 2</div>
       <div class="abs" style="left:30px;top:210px;width:400px;height:70px">${seg(1, 300, 'b')}</div>
       <div class="abs" id="ck_wall" style="left:20px;top:155px;width:1660px;height:5px;border-radius:3px;background:var(--sun);box-shadow:0 0 18px var(--sun)"></div>
-      <div class="abs" id="ck_sc" style="left:250px;top:10px;width:60px;height:60px">${ICON.scissors('#ffd23f')}</div>
+      <div class="abs" id="ck_sc" style="left:250px;top:10px;width:60px;height:60px">${ICON.scissors('#f5b700')}</div>
       ${div('ck_free', 500, 215, 0, 0, '½ the chunking done for free — a chunk never mixes two pages', 'hand', 'font-size:38px;color:var(--sun)')}</div>
     <div class="card" id="ck_lab" style="left:110px;top:510px;width:1000px;height:270px">
       <div class="abs small" style="left:30px;top:20px;letter-spacing:3px">THE LABEL ON EACH CHUNK</div>
-      <div class="abs mono" id="ck_l22" style="left:30px;top:70px;font-size:30px;color:#8e9bc4">Day 22: {<span style="color:#ce9178">"source"</span>: <span style="color:#ce9178">"remote_work_policy.pdf"</span>}</div>
+      <div class="abs mono" id="ck_l22" style="left:30px;top:70px;font-size:30px;color:#cfa999">Day 22: {<span style="color:#ce9178">"source"</span>: <span style="color:#ce9178">"remote_work_policy.pdf"</span>}</div>
       <div class="abs mono" id="ck_l25" style="left:30px;top:150px;font-size:30px">Day 25: {<span style="color:#ce9178">"source"</span>: <span style="color:#ce9178">"remote_work_policy.pdf"</span>, <span id="ck_pg" style="display:inline-block;background:var(--sun);color:#2a2000;border-radius:8px;padding:0 8px">"page": 1</span>}</div></div>
     <div class="card" id="ck_cnt" style="left:1170px;top:510px;width:640px;height:270px">
       <div class="abs small" style="left:30px;top:20px;letter-spacing:3px">PIECES → CHUNKS</div>
       <div class="abs" style="left:30px;top:70px;font:800 130px var(--serif)"><span class="mute">9</span> → <span id="ck_n" class="teal" data-dec="0">9</span></div></div>
     <div class="card" id="ck_emb" style="left:110px;top:820px;width:1700px;height:220px">
       <div class="abs small" style="left:30px;top:20px;letter-spacing:3px">STEPS 3 + 4 · EMBED AND STORE — UNCHANGED</div>
-      ${[0, 1, 2, 3].map(i => `<div class="abs" id="ck_e${i}" style="left:${40 + i * 70}px;top:80px;width:56px;height:100px;border-radius:8px;background:linear-gradient(180deg,#2dd4bf,#38bdf8)"></div>`).join('')}
-      ${arrow('ck_ea', 340, 130, 450, 130, '#8e9bc4', 6)}
-      <div class="abs mono" id="ck_vec" style="left:470px;top:80px;font-size:26px;color:#c4b5fd;line-height:1.6">[0.012, -0.044, 0.031, …]  × 3072<br><span style="color:var(--sun)">+ {"source": …, "page": 1}</span></div>
-      ${arrow('ck_eb', 1150, 130, 1260, 130, '#8e9bc4', 6)}
-      <div class="abs" id="ck_db" style="left:1290px;top:50px;width:110px;height:130px">${ICON.db('#a78bfa')}</div>
+      ${[0, 1, 2, 3].map(i => `<div class="abs" id="ck_e${i}" style="left:${40 + i * 70}px;top:80px;width:56px;height:100px;border-radius:8px;background:linear-gradient(180deg,#2fb872,#ffd9a0)"></div>`).join('')}
+      ${arrow('ck_ea', 340, 130, 450, 130, '#cfa999', 6)}
+      <div class="abs mono" id="ck_vec" style="left:470px;top:80px;font-size:26px;color:#f7c9a8;line-height:1.6">[0.012, -0.044, 0.031, …]  × 3072<br><span style="color:var(--sun)">+ {"source": …, "page": 1}</span></div>
+      ${arrow('ck_eb', 1150, 130, 1260, 130, '#cfa999', 6)}
+      <div class="abs" id="ck_db" style="left:1290px;top:50px;width:110px;height:130px">${ICON.db('#f7a1b0')}</div>
       ${div('ck_dbl', 1420, 100, 0, 0, 'Qdrant', 'h2', 'font-size:40px;color:var(--vio)')}</div>
   `);
   // ---------- QA ----------
   board('QA', ...G(4, -1), `
     ${div('qa_t', 110, 60, 0, 0, 'The question that ended Day 22', 'h1', 'font-size:58px')}
-    <div class="abs" id="qa_q" style="left:110px;top:190px;padding:30px 44px;border-radius:30px 30px 6px 30px;background:var(--sky);color:#04223a;font:700 52px var(--sans)">Can I work from home permanently at Plural Labs?</div>
-    <div class="abs" id="qa_old" style="left:110px;top:380px;width:900px;padding:26px 34px;border-radius:24px;background:#1b2558;border:2px solid var(--line);font:500 32px var(--sans);filter:grayscale(1)">
+    <div class="abs" id="qa_q" style="left:110px;top:190px;padding:30px 44px;border-radius:30px 30px 6px 30px;background:var(--sky);color:#3b0a10;font:700 52px var(--sans)">Can I work from home permanently at Plural Labs?</div>
+    <div class="abs" id="qa_old" style="left:110px;top:380px;width:900px;padding:26px 34px;border-radius:24px;background:#4a0f18;border:2px solid var(--line);font:500 32px var(--sans);filter:grayscale(1)">
       <div class="small" style="letter-spacing:3px;margin-bottom:10px">DAY 22 · 4 TEXT FILES</div>🤖 I could not find this in the Plural Labs documents.</div>
     <div class="card" id="qa_diff" style="left:110px;top:640px;width:1700px;height:380px">
       ${[['retrieval', 'same', 'var(--mute)'], ['prompt', 'same', 'var(--mute)'], ['loader', 'can now open PDFs', 'var(--teal)']].map(([a, b, c], i) => `<div class="abs" id="qa_r${i}" style="left:40px;top:${40 + i * 105}px;display:flex;align-items:center;gap:30px"><span class="mono" style="font-size:40px;width:260px">${a}</span><span style="font:700 40px var(--sans);color:${c}">${b}</span></div>`).join('')}
-      <div class="abs" id="qa_wide" style="left:1150px;top:60px;width:440px;height:260px"><svg width="440" height="260"><path d="M0,20 H440 L300,240 H140 Z" fill="rgba(45,212,191,.15)" stroke="#2dd4bf" stroke-width="5"/></svg><div class="abs center" style="left:0;top:60px;width:440px;font:800 34px var(--sans);color:var(--teal)">the loader got wider</div></div></div>
+      <div class="abs" id="qa_wide" style="left:1150px;top:60px;width:440px;height:260px"><svg width="440" height="260"><path d="M0,20 H440 L300,240 H140 Z" fill="rgba(47,184,114,.15)" stroke="#2fb872" stroke-width="5"/></svg><div class="abs center" style="left:0;top:60px;width:440px;font:800 34px var(--sans);color:var(--teal)">the loader got wider</div></div></div>
   `);
   // ---------- PROMPT ----------
   const top = R[0].top;
   board('PROMPT', ...G(5, -1), `
     ${div('pr_t', 110, 50, 0, 0, 'Step 7 · augment', 'h1', 'font-size:58px')}
-    <div class="lcard" id="pr_doc" style="left:110px;top:160px;width:1700px;height:860px;padding:36px 44px;font:400 23px/1.55 var(--mono);color:#1a1f3d">
+    <div class="lcard" id="pr_doc" style="left:110px;top:160px;width:1700px;height:860px;padding:36px 44px;font:400 23px/1.55 var(--mono);color:#3b0a10">
       <div id="pr_i0">You are the internal helpdesk assistant for a company called Plural Labs.</div>
       <div id="pr_i1" style="margin-top:10px">Answer the question using ONLY the context given below. … Do not use any outside knowledge.</div>
       <div id="pr_i2" style="margin-top:10px;background:#fff3c4;border-radius:6px;padding:2px 8px;margin-left:-8px">At the end, mention which file your answer came from, <b>and the page number if there is one.</b></div>
       <div style="margin-top:22px;font-weight:700">CONTEXT:</div>
-      ${top.map((c, i) => `<div id="pr_c${i}" style="margin-top:10px"><span id="pr_h${i}" style="display:inline-block;background:#d7f5ef;color:#0f6256;font-weight:700;border-radius:6px;padding:0 8px">From ${c[1]}:</span><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#4a5175">${c[2].slice(0, 120)}…</div></div>`).join('')}
+      ${top.map((c, i) => `<div id="pr_c${i}" style="margin-top:10px"><span id="pr_h${i}" style="display:inline-block;background:#d9f7e6;color:#0b5a33;font-weight:700;border-radius:6px;padding:0 8px">From ${c[1]}:</span><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#6b4a44">${c[2].slice(0, 120)}…</div></div>`).join('')}
       <div style="margin-top:22px;font-weight:700">QUESTION:</div><div id="pr_qq">${R[0].q}</div></div>
     ${div('pr_n', 1280, 60, 0, 0, 'the model can only cite a page if we show it one', 'hand', 'font-size:40px;color:var(--sun);width:560px')}
   `);
@@ -63,27 +63,27 @@
   board('QTOUR', ...G(6, -1), `
     ${div('qt_t', 110, 50, 0, 0, 'Try the other questions', 'h1', 'font-size:58px')}
     ${tour.map(([q, a, s, c], i) => `<div class="card" id="qt_c${i}" style="left:${110 + (i % 2) * 870}px;top:${170 + Math.floor(i / 2) * 430}px;width:830px;height:390px;border-color:${c}">
-      <div class="abs" style="left:30px;top:30px;width:770px;font:600 30px/1.35 var(--sans);color:#dfe6ff">“${q}”</div>
+      <div class="abs" style="left:30px;top:30px;width:770px;font:600 30px/1.35 var(--sans);color:#fff1dc">“${q}”</div>
       <div class="abs" id="qt_a${i}" style="left:30px;top:160px;width:770px;font:800 44px/1.2 var(--serif);color:${c}">${a}</div>
-      <div class="abs mono" id="qt_s${i}" style="left:30px;top:300px;padding:8px 16px;border-radius:10px;background:#0b1130;font-size:24px;color:var(--sun)">📄 ${s}</div></div>`).join('')}
+      <div class="abs mono" id="qt_s${i}" style="left:30px;top:300px;padding:8px 16px;border-radius:10px;background:#24050a;font-size:24px;color:var(--sun)">📄 ${s}</div></div>`).join('')}
     ${div('qt_ok', 1330, 1000, 0, 0, 'Day 22 still works ✓', 'pill bg-teal', 'position:absolute;font-size:30px')}
   `);
   // ---------- HONEST ----------
   const sc = R[5].top.map(x => x[0]);
   board('HONEST', ...G(6, 0), `
     ${div('ho_t', 110, 50, 0, 0, 'The honesty test', 'h1', 'font-size:58px')}
-    <div class="abs" id="ho_q" style="left:110px;top:170px;padding:24px 36px;border-radius:26px 26px 6px 26px;background:var(--sky);color:#04223a;font:700 42px var(--sans)">What is the notice period if I resign from Plural Labs?</div>
+    <div class="abs" id="ho_q" style="left:110px;top:170px;padding:24px 36px;border-radius:26px 26px 6px 26px;background:var(--sky);color:#3b0a10;font:700 42px var(--sans)">What is the notice period if I resign from Plural Labs?</div>
     ${div('ho_none', 110, 300, 0, 0, 'in none of our 9 files', 'pill bg-rose', 'position:absolute;font-size:28px')}
     <div class="card" id="ho_sc" style="left:110px;top:400px;width:1100px;height:420px">
       <div class="abs small" style="left:30px;top:20px;letter-spacing:3px">SIMILARITY SCORES OF THE 3 RETURNED CHUNKS</div>
-      ${sc.map((v, i) => `<div class="abs mono" style="left:30px;top:${80 + i * 70}px;font-size:24px;color:#cfd8ff">leave_policy.txt</div><div class="abs" id="ho_b${i}" style="left:300px;top:${84 + i * 70}px;width:${(v - .5) * 2400}px;height:34px;border-radius:8px;background:var(--rose)"></div><div class="abs mono" style="left:${320 + (v - .5) * 2400}px;top:${82 + i * 70}px;font-size:26px;color:var(--rose)">${v.toFixed(3)}</div>`).join('')}
-      <div class="abs mono" style="left:30px;top:310px;font-size:24px;color:#8e9bc4">real answer (work from home)</div><div class="abs" id="ho_bw" style="left:440px;top:314px;width:${(R[0].top[0][0] - .5) * 2400}px;height:34px;border-radius:8px;background:var(--teal)"></div><div class="abs mono" id="ho_bwn" style="left:${460 + (R[0].top[0][0] - .5) * 2400}px;top:312px;font-size:26px;color:var(--teal)">${R[0].top[0][0].toFixed(3)}</div></div>
+      ${sc.map((v, i) => `<div class="abs mono" style="left:30px;top:${80 + i * 70}px;font-size:24px;color:#f6e2cc">leave_policy.txt</div><div class="abs" id="ho_b${i}" style="left:300px;top:${84 + i * 70}px;width:${(v - .5) * 2400}px;height:34px;border-radius:8px;background:var(--rose)"></div><div class="abs mono" style="left:${320 + (v - .5) * 2400}px;top:${82 + i * 70}px;font-size:26px;color:var(--rose)">${v.toFixed(3)}</div>`).join('')}
+      <div class="abs mono" style="left:30px;top:310px;font-size:24px;color:#cfa999">real answer (work from home)</div><div class="abs" id="ho_bw" style="left:440px;top:314px;width:${(R[0].top[0][0] - .5) * 2400}px;height:34px;border-radius:8px;background:var(--teal)"></div><div class="abs mono" id="ho_bwn" style="left:${460 + (R[0].top[0][0] - .5) * 2400}px;top:312px;font-size:26px;color:var(--teal)">${R[0].top[0][0].toFixed(3)}</div></div>
     <div class="card" id="ho_k" style="left:1270px;top:400px;width:540px;height:420px;border-color:var(--sun)">
       <div class="abs mono" style="left:30px;top:30px;font-size:40px;color:var(--sun)">k = 3</div>
       <div class="abs txt" style="left:30px;top:110px;width:480px;font-size:32px">always returns <b>three</b> chunks — helpful or not</div>
       <div class="abs h2" id="ho_k2" style="left:30px;top:270px;width:480px;font-size:38px">high score <span class="rose">≠</span> answer is there</div></div>
-    <div class="abs" id="ho_ans" style="left:110px;top:870px;width:1700px;padding:30px 40px;border-radius:24px;background:#0c3b3a;border:3px solid var(--teal);display:flex;gap:28px;align-items:center">
-      <div style="width:80px;height:80px;flex:none">${ICON.check()}</div><span style="font:600 38px var(--sans);color:#ccfbf1">🤖 “I could not find this in the Plural Labs documents.”</span></div>
+    <div class="abs" id="ho_ans" style="left:110px;top:870px;width:1700px;padding:30px 40px;border-radius:24px;background:#0f3a24;border:3px solid var(--teal);display:flex;gap:28px;align-items:center">
+      <div style="width:80px;height:80px;flex:none">${ICON.check()}</div><span style="font:600 38px var(--sans);color:#d9f7e6">🤖 “I could not find this in the Plural Labs documents.”</span></div>
   `);
 
   // ================= animation =================

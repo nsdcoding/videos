@@ -1,7 +1,7 @@
 // c7 : part C - the dispatch table
 (window.SCENES = window.SCENES || []).push(function () {
   const G = (c, r) => [c * 2400, r * 1500];
-  const fbox = (id, x, y, name, col) => `<div class="abs center" id="${id}" style="left:${x}px;top:${y}px;width:300px;height:96px;border-radius:16px;background:#111a3f;border:3px solid ${col};gap:14px"><div style="width:44px;height:44px">${ICON.gear(col)}</div><b class="mono" style="font-size:30px;color:${col}">${name}</b></div>`;
+  const fbox = (id, x, y, name, col) => `<div class="abs center" id="${id}" style="left:${x}px;top:${y}px;width:300px;height:96px;border-radius:16px;background:#3a0a12;border:3px solid ${col};gap:14px"><div style="width:44px;height:44px">${ICON.gear(col)}</div><b class="mono" style="font-size:30px;color:${col}">${name}</b></div>`;
   board('DISPATCH', ...G(2, 4), `
     ${div('dp_t', 110, 60, 0, 0, '<span class="eyebrow" style="display:block;margin-bottom:12px">Part C</span>A dictionary can hold <span class="sun">functions</span>', 'h1', 'font-size:60px')}
     <div class="card" id="dp_d1" style="left:110px;top:240px;width:820px;height:250px">
@@ -14,34 +14,34 @@
     <div class="card" id="dp_call" style="left:110px;top:550px;width:820px;height:440px">
       <div class="abs mono" style="left:30px;top:30px;font-size:48px">load_txt<span class="rose">()</span></div>
       ${div('dp_cl', 30, 110, 0, 0, 'brackets = CALL it right now', 'txt', 'font-size:30px')}
-      <div class="abs" id="dp_g" style="left:60px;top:190px;width:150px;height:150px">${ICON.gear('#ff4d6d')}</div>
-      ${arrow('dp_ca', 240, 265, 340, 265, '#8e9bc4', 6)}
+      <div class="abs" id="dp_g" style="left:60px;top:190px;width:150px;height:150px">${ICON.gear('#e63946')}</div>
+      ${arrow('dp_ca', 240, 265, 340, 265, '#cfa999', 6)}
       <div class="abs mono" id="dp_res" style="left:360px;top:225px;padding:16px 22px;border-radius:12px;background:var(--rose);color:#fff;font-size:28px">[{"page": None, …}]</div>
       ${div('dp_rl', 360, 320, 0, 0, '→ you get the result', 'hand', 'font-size:40px;color:var(--rose)')}</div>
     <div class="card" id="dp_val" style="left:990px;top:550px;width:820px;height:440px">
       <div class="abs mono" style="left:30px;top:30px;font-size:48px">load_txt</div>
       ${div('dp_vl', 30, 110, 0, 0, 'no brackets = the function ITSELF, as a value', 'txt', 'font-size:30px')}
       <div class="abs" id="dp_tb" style="left:250px;top:200px;width:340px;height:200px;border-radius:12px;background:#7c3a12;border:4px solid #c2611f"></div>
-      <div class="abs" id="dp_tool" style="left:340px;top:170px;width:160px;height:100px">${ICON.gear('#2dd4bf')}</div>
+      <div class="abs" id="dp_tool" style="left:340px;top:170px;width:160px;height:100px">${ICON.gear('#2fb872')}</div>
       ${div('dp_tl', 610, 260, 180, 0, 'in the box, not used yet', 'hand', 'font-size:34px;color:var(--teal)')}</div>
   `);
   const keys = [['.txt', 'var(--teal)'], ['.md', 'var(--sky)'], ['.pdf', 'var(--rose)']];
   board('SWITCH', ...G(3, 4), `
     ${div('sw_t', 110, 60, 0, 0, '<span class="mono">LOADERS</span> : extension → function', 'h1', 'font-size:58px')}
-    ${keys.map(([k, c], i) => `<div class="abs mono center" id="sw_k${i}" style="left:140px;top:${220 + i * 170}px;width:240px;height:110px;border-radius:18px;background:#111a3f;border:3px solid ${c};font-size:44px;color:${c}">"${k}"</div>`).join('')}
+    ${keys.map(([k, c], i) => `<div class="abs mono center" id="sw_k${i}" style="left:140px;top:${220 + i * 170}px;width:240px;height:110px;border-radius:18px;background:#3a0a12;border:3px solid ${c};font-size:44px;color:${c}">"${k}"</div>`).join('')}
     ${fbox('sw_f0', 900, 270, 'load_txt', 'var(--teal)')}${fbox('sw_f1', 900, 560, 'load_pdf', 'var(--rose)')}
-    ${curve('sw_w0', 385, 275, 640, 275, 895, 318, '#2dd4bf', 6)}${curve('sw_w1', 385, 445, 640, 400, 895, 330, '#38bdf8', 6)}${curve('sw_w2', 385, 615, 640, 610, 895, 608, '#ff4d6d', 6)}
+    ${curve('sw_w0', 385, 275, 640, 275, 895, 318, '#2fb872', 6)}${curve('sw_w1', 385, 445, 640, 400, 895, 330, '#ffd9a0', 6)}${curve('sw_w2', 385, 615, 640, 610, 895, 608, '#e63946', 6)}
     ${div('sw_md', 1240, 330, 0, 0, 'markdown is plain text too', 'hand', 'font-size:38px;color:var(--sky)')}
     ${div('sw_lbl', 140, 760, 0, 0, 'a <b class="sun">dispatch table</b> &nbsp;·&nbsp; a <b class="sun">registry</b>', 'h2', 'font-size:52px')}
     <div class="card" id="sw_if" style="left:110px;top:860px;width:800px;height:180px;overflow:hidden">
-      <div class="abs mono" id="sw_ifc" style="left:24px;top:14px;font-size:22px;line-height:1.45;color:#8e9bc4;white-space:pre"><span class="kc" style="color:#c586c0">if</span> ext == ".txt": …
+      <div class="abs mono" id="sw_ifc" style="left:24px;top:14px;font-size:22px;line-height:1.45;color:#cfa999;white-space:pre"><span class="kc" style="color:#c586c0">if</span> ext == ".txt": …
 <span style="color:#c586c0">elif</span> ext == ".md": …
 <span style="color:#c586c0">elif</span> ext == ".pdf": …
 <span style="color:#c586c0">elif</span> ext == ".html": …   <span class="rose">← grows forever</span></div></div>
     <div class="card" id="sw_add" style="left:990px;top:780px;width:820px;height:260px;border-color:var(--teal)">
       <div class="abs small" style="left:30px;top:20px;letter-spacing:3px;color:var(--teal)">NEW FORMAT = ONE NEW LINE</div>
       <div class="abs mono" id="sw_new" style="left:30px;top:80px;font-size:34px;padding:10px 18px;border-radius:12px;border:3px dashed #ff9f43"><span style="color:#ce9178">".html"</span>: load_html,</div>
-      <div class="abs" id="sw_lk" style="left:30px;top:170px;display:flex;align-items:center;gap:16px"><div style="width:50px;height:50px">${ICON.lock('#2dd4bf')}</div><span class="txt" style="font-size:28px">the loop never mentions pdf or txt → <b class="teal">never changes</b></span></div></div>
+      <div class="abs" id="sw_lk" style="left:30px;top:170px;display:flex;align-items:center;gap:16px"><div style="width:50px;height:50px">${ICON.lock('#2fb872')}</div><span class="txt" style="font-size:28px">the loop never mentions pdf or txt → <b class="teal">never changes</b></span></div></div>
     <div class="abs" id="sw_frame" style="left:110px;top:190px;width:1110px;height:540px;border-radius:26px;border:4px solid var(--sun)"></div>
   `);
 

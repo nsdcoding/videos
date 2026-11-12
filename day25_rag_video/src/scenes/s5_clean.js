@@ -1,7 +1,7 @@
 // c5 : part A - clean_text
 (window.SCENES = window.SCENES || []).push(function () {
   const G = (c, r) => [c * 2400, r * 1500];
-  const box = (id, x, y, ch, col = '#1c2559', bd = '#3a4687', w = 96) => `<div class="abs mono center" id="${id}" style="left:${x}px;top:${y}px;width:${w}px;height:110px;border-radius:14px;background:${col};border:2.5px solid ${bd};font-size:56px">${ch}</div>`;
+  const box = (id, x, y, ch, col = '#4a1018', bd = '#7a2a33', w = 96) => `<div class="abs mono center" id="${id}" style="left:${x}px;top:${y}px;width:${w}px;height:110px;border-radius:14px;background:${col};border:2.5px solid ${bd};font-size:56px">${ch}</div>`;
   // ---------- PARTS ----------
   const part = (id, x, L, title, sub, ic, col) => `<div class="card" id="${id}" style="left:${x}px;top:330px;width:540px;height:560px;border-color:${col}">
      <div class="abs" style="left:40px;top:30px;font:800 120px var(--serif);color:${col}">${L}</div>
@@ -11,15 +11,15 @@
   board('PARTS', ...G(-1, 2), `
     ${div('pa_t', 110, 70, 0, 0, '<span class="eyebrow" style="display:block;margin-bottom:12px">Step 1 · Load</span>The whole lesson, in three parts', 'h1', 'font-size:62px')}
     ${part('pa_a', 110, 'A', 'clean the text', 'one function that fixes what PDFs give us', ICON.broom(), 'var(--teal)')}
-    ${part('pa_b', 690, 'B', 'one loader per format', 'small functions that read .txt, .pdf …', ICON.plug('#ffd23f'), 'var(--sun)')}
-    ${part('pa_c', 1270, 'C', 'a dictionary that picks', 'the right loader for each file', ICON.key('#a78bfa'), 'var(--vio)')}
+    ${part('pa_b', 690, 'B', 'one loader per format', 'small functions that read .txt, .pdf …', ICON.plug('#f5b700'), 'var(--sun)')}
+    ${part('pa_c', 1270, 'C', 'a dictionary that picks', 'the right loader for each file', ICON.key('#f7a1b0'), 'var(--vio)')}
   `);
   // ---------- LIG ----------
   const LG = [['ﬀ', 'U+FB00', 'ff'], ['ﬁ', 'U+FB01', 'fi'], ['ﬂ', 'U+FB02', 'fl'], ['ﬃ', 'U+FB03', 'ffi'], ['ﬄ', 'U+FB04', 'ffl']];
   board('LIG', ...G(0, 2), `
     ${div('lg_t', 110, 60, 0, 0, 'Problem 1 · <span class="rose">ligatures</span>', 'h1', 'font-size:64px')}
     ${['E<span class="lgg">ﬀ</span>ective', 'O<span class="lgg">ﬃ</span>ce', 'Con<span class="lgg">ﬁ</span>dential'].map((w, i) => `<div class="abs" id="lg_w${i}" style="left:${110 + i * 560}px;top:190px;font:600 68px var(--serif)">${w}</div>`).join('')}
-    <style>.lgg{color:inherit;border-radius:8px;transition:none}.lgon .lgg{color:var(--rose);background:rgba(255,77,109,.18)}</style>
+    <style>.lgg{color:inherit;border-radius:8px;transition:none}.lgon .lgg{color:var(--rose);background:rgba(230,57,70,.18)}</style>
     ${div('lg_look', 1450, 210, 0, 0, 'look normal…', 'hand', 'font-size:48px;color:var(--sun)')}
     <div class="card" id="lg_fuse" style="left:110px;top:350px;width:820px;height:320px">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px">THE PRINTER JOINS THEM</div>
@@ -28,11 +28,11 @@
       ${pill('lg_500', 560, 250, '500 years of printing', 'bg-sun', 'font-size:22px')}</div>
     <div class="card" id="lg_uni" style="left:990px;top:350px;width:820px;height:320px">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px">UNICODE KEPT THEM AS REAL CHARACTERS</div>
-      ${LG.map(([g, u], i) => `<div class="abs center col" id="lg_u${i}" style="left:${30 + i * 155}px;top:80px;width:140px;height:200px;border-radius:14px;background:#1c2559;border:2px solid #3a4687"><span style="font:600 70px var(--serif);color:var(--rose)">${g}</span><span class="mono small" style="font-size:20px">${u}</span></div>`).join('')}</div>
+      ${LG.map(([g, u], i) => `<div class="abs center col" id="lg_u${i}" style="left:${30 + i * 155}px;top:80px;width:140px;height:200px;border-radius:14px;background:#4a1018;border:2px solid #7a2a33"><span style="font:600 70px var(--serif);color:var(--rose)">${g}</span><span class="mono small" style="font-size:20px">${u}</span></div>`).join('')}</div>
     <div class="card" id="lg_cnt" style="left:110px;top:720px;width:1700px;height:300px">
-      ${box('lg_c0', 60, 40, 'o')}${box('lg_c1', 170, 40, 'ﬃ', 'rgba(255,77,109,.25)', 'var(--rose)')}${box('lg_c2', 280, 40, 'c')}${box('lg_c3', 390, 40, 'e')}
+      ${box('lg_c0', 60, 40, 'o')}${box('lg_c1', 170, 40, 'ﬃ', 'rgba(230,57,70,.25)', 'var(--rose)')}${box('lg_c2', 280, 40, 'c')}${box('lg_c3', 390, 40, 'e')}
       <div class="abs" style="left:530px;top:50px;font:800 80px var(--serif)" class="rose"><span id="lg_n1" class="rose" data-dec="0">0</span> <span style="font-size:36px">characters</span></div>
-      ${['o', 'f', 'f', 'i', 'c', 'e'].map((c, i) => box('lg_d' + i, 60 + i * 110, 170, c, '#123b39', 'var(--teal)')).join('')}
+      ${['o', 'f', 'f', 'i', 'c', 'e'].map((c, i) => box('lg_d' + i, 60 + i * 110, 170, c, '#0f3a24', 'var(--teal)')).join('')}
       <div class="abs" style="left:760px;top:180px;font:800 80px var(--serif)"><span id="lg_n2" class="teal" data-dec="0">0</span> <span style="font-size:36px">characters</span></div>
       ${div('lg_same', 1180, 110, 480, 0, 'same look,<br><b class="rose">different word</b>', 'h2', 'font-size:48px')}</div>
   `);
@@ -40,19 +40,19 @@
     ${div('l2_t', 110, 60, 0, 0, 'Why should we care?', 'h1', 'font-size:64px')}
     <div class="card" id="l2_scan" style="left:110px;top:200px;width:820px;height:380px">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px">THE EMBEDDING MODEL READS CHARACTERS</div>
-      ${box('l2_c0', 150, 140, 'O')}${box('l2_c1', 260, 140, 'ﬃ', 'rgba(255,77,109,.25)', 'var(--rose)')}${box('l2_c2', 370, 140, 'c')}${box('l2_c3', 480, 140, 'e')}
+      ${box('l2_c0', 150, 140, 'O')}${box('l2_c1', 260, 140, 'ﬃ', 'rgba(230,57,70,.25)', 'var(--rose)')}${box('l2_c2', 370, 140, 'c')}${box('l2_c3', 480, 140, 'e')}
       <div class="abs" id="l2_beam" style="left:140px;top:120px;width:8px;height:150px;background:var(--sky);box-shadow:0 0 30px var(--sky);border-radius:4px"></div>
       ${div('l2_q', 620, 160, 0, 0, '≠ office', 'mono', 'font-size:48px;color:var(--rose)')}</div>
     <div class="card" id="l2_srch" style="left:990px;top:200px;width:820px;height:380px">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px">A STUDENT SEARCHES</div>
-      <div class="abs" id="l2_qb" style="left:30px;top:80px;padding:16px 26px;border-radius:20px;background:var(--sky);color:#04223a;font:600 30px var(--sans)">“when is the office open?”</div>
-      ${arrow('l2_ar', 300, 170, 300, 240, '#8e9bc4', 5)}
-      <div class="abs mono" id="l2_ch" style="left:30px;top:250px;width:760px;padding:16px 22px;border-radius:14px;background:#0b1130;border:2px solid #3a4687;font-size:24px;color:#aab4dd">"…7. O<span class="rose">ﬃ</span>ce access on remote days. The o<span class="rose">ﬃ</span>ce is open…"</div>
+      <div class="abs" id="l2_qb" style="left:30px;top:80px;padding:16px 26px;border-radius:20px;background:var(--sky);color:#3b0a10;font:600 30px var(--sans)">“when is the office open?”</div>
+      ${arrow('l2_ar', 300, 170, 300, 240, '#cfa999', 5)}
+      <div class="abs mono" id="l2_ch" style="left:30px;top:250px;width:760px;padding:16px 22px;border-radius:14px;background:#24050a;border:2px solid #7a2a33;font-size:24px;color:#d9b8a6">"…7. O<span class="rose">ﬃ</span>ce access on remote days. The o<span class="rose">ﬃ</span>ce is open…"</div>
       ${div('l2_miss', 560, 90, 0, 0, 'MISSED', 'badge bg-rose', 'font-size:30px;transform:rotate(-8deg)')}</div>
     <div class="card" id="l2_fix" style="left:110px;top:640px;width:1700px;height:360px;border-color:var(--teal)">
       <div class="abs" style="left:80px;top:90px;font:600 120px var(--serif)"><span id="l2_bad">O<span class="rose">ﬃ</span>ce</span></div>
       <div class="abs" id="l2_good" style="left:80px;top:90px;font:600 120px var(--serif)">O<span class="teal">ffi</span>ce</div>
-      ${arrow('l2_fa', 520, 170, 680, 170, '#2dd4bf', 7)}
+      ${arrow('l2_fa', 520, 170, 680, 170, '#2fb872', 7)}
       <div class="abs h2" id="l2_fl" style="left:740px;top:110px;font-size:52px">office is <span class="teal">office</span> again</div>
       <div class="abs" id="l2_ck" style="left:1450px;top:100px;width:120px;height:120px">${ICON.check()}</div></div>
   `);
@@ -69,14 +69,14 @@
       ${div('rs_noloop', 1150, 60, 0, 0, 'EVERY match · no loop', 'badge bg-sky', 'font-size:28px')}</div>
     <div class="card" id="rs_imm" style="left:110px;top:650px;width:820px;height:350px">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px">STRINGS NEVER CHANGE</div>
-      <div class="abs" id="rs_glass" style="left:40px;top:80px;width:330px;height:150px;border-radius:16px;border:3px solid #7dd3fc;background:rgba(125,211,252,.08)"><div class="center mono" style="height:150px;font-size:30px;color:#ce9178">"Your\\nscreen"</div><div class="abs" style="right:-20px;top:-24px;width:56px;height:56px">${ICON.lock('#7dd3fc')}</div></div>
-      <div class="abs" id="rs_new" style="left:440px;top:80px;width:330px;height:150px;border-radius:16px;border:3px solid var(--teal);background:rgba(45,212,191,.12)"><div class="center mono" style="height:150px;font-size:30px;color:#ce9178">"Your screen"</div><div class="abs badge bg-teal" style="left:10px;top:-22px;font-size:18px">NEW</div></div>
+      <div class="abs" id="rs_glass" style="left:40px;top:80px;width:330px;height:150px;border-radius:16px;border:3px solid #ffd9a0;background:rgba(255,217,160,.08)"><div class="center mono" style="height:150px;font-size:30px;color:#ce9178">"Your\\nscreen"</div><div class="abs" style="right:-20px;top:-24px;width:56px;height:56px">${ICON.lock('#ffd9a0')}</div></div>
+      <div class="abs" id="rs_new" style="left:440px;top:80px;width:330px;height:150px;border-radius:16px;border:3px solid var(--teal);background:rgba(47,184,114,.12)"><div class="center mono" style="height:150px;font-size:30px;color:#ce9178">"Your screen"</div><div class="abs badge bg-teal" style="left:10px;top:-22px;font-size:18px">NEW</div></div>
       <div class="abs mono" id="rs_lbl" style="left:500px;top:270px;font-size:34px"><span class="va" style="color:#9cdcfe">text</span> = …</div>
-      ${curve('rs_arr', 610, 266, 640, 250, 610, 236, '#2dd4bf', 5)}
+      ${curve('rs_arr', 610, 266, 640, 250, 610, 236, '#2fb872', 5)}
       <div class="abs" id="rs_trash" style="left:640px;top:250px;width:80px;height:80px">${ICON.trash()}</div></div>
     <div class="card" id="rs_bug" style="left:990px;top:650px;width:820px;height:350px;border-color:var(--rose)">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px;color:var(--rose)">THE BUG THAT EATS EVENINGS</div>
-      <div class="abs mono" style="left:30px;top:80px;font-size:30px;color:#8e9bc4"><s>text =</s> <span style="color:#4ec9b0">re</span>.<span style="color:#dcdcaa">sub</span>(…)</div>
+      <div class="abs mono" style="left:30px;top:80px;font-size:30px;color:#cfa999"><s>text =</s> <span style="color:#4ec9b0">re</span>.<span style="color:#dcdcaa">sub</span>(…)</div>
       ${div('rs_nerr', 30, 150, 0, 0, 'NO ERROR', 'badge bg-sun')}
       <div class="abs" id="rs_moon" style="left:250px;top:140px;font-size:56px">🌙🌙🌙</div>
       <div class="abs txt" id="rs_tip" style="left:30px;top:240px;width:760px;font-size:30px">cleaning does nothing? <b class="sun">look for “text =” first</b></div></div>
@@ -85,7 +85,7 @@
   board('HYPH', ...G(0, 3), `
     ${div('hy_t', 110, 60, 0, 0, 'Problem 2 · a <span class="rose">hyphen</span> at the end of a line', 'h1', 'font-size:60px')}
     <div class="lcard" id="hy_doc" style="left:110px;top:190px;width:760px;height:400px;padding:40px 46px;font:400 30px/1.75 var(--serif);text-align:justify">
-      All travel claims must be submitted with bills for reim<span id="hy_br" style="color:#ff4d6d;font-weight:700">burse-</span><br><span style="color:#ff4d6d;font-weight:700">ment</span> within thirty days of the travel date, through the finance portal only.</div>
+      All travel claims must be submitted with bills for reim<span id="hy_br" style="color:#e63946;font-weight:700">burse-</span><br><span style="color:#e63946;font-weight:700">ment</span> within thirty days of the travel date, through the finance portal only.</div>
     <div class="card" id="hy_raw" style="left:950px;top:190px;width:860px;height:180px"><div class="abs small" style="left:30px;top:20px;letter-spacing:3px">WHAT PYPDF GIVES US</div>
       <div class="abs mono" style="left:30px;top:80px;font-size:44px">"reimburse<span class="ws">-\\n</span>ment"</div></div>
     <div class="card" id="hy_pat" style="left:950px;top:410px;width:860px;height:180px"><div class="abs small" style="left:30px;top:20px;letter-spacing:3px">THE PATTERN</div>
@@ -108,11 +108,11 @@
     ${div('ws_star', 1220, 70, 0, 0, '★ the rule that does the real work', 'pill bg-sun', 'font-size:26px;position:absolute')}
     <div class="card" id="ws_ins" style="left:110px;top:190px;width:640px;height:400px">
       <div class="abs small" style="left:30px;top:20px;letter-spacing:3px">A PDF STORES INSTRUCTIONS</div>
-      ${['draw "Do not" at (72, 540)', 'draw "turn it" at (131, 540)', 'draw "off. Your" at (190, 540)', 'draw "screen" at (72, 556)', 'draw "must lock" at (130, 556)'].map((s, i) => `<div class="abs mono" id="ws_i${i}" style="left:30px;top:${80 + i * 58}px;font-size:25px;color:#c4b5fd">${s}</div>`).join('')}</div>
+      ${['draw "Do not" at (72, 540)', 'draw "turn it" at (131, 540)', 'draw "off. Your" at (190, 540)', 'draw "screen" at (72, 556)', 'draw "must lock" at (130, 556)'].map((s, i) => `<div class="abs mono" id="ws_i${i}" style="left:30px;top:${80 + i * 58}px;font-size:25px;color:#f7c9a8">${s}</div>`).join('')}</div>
     <div class="lcard" id="ws_pg" style="left:800px;top:190px;width:600px;height:400px">
       <div class="abs" style="left:40px;top:50px;width:430px;font:400 32px/1.8 var(--serif)">Do not turn it off. Your<br>screen must lock auto-<br>matically after 5 minutes</div>
-      <div class="abs" id="ws_mg" style="left:480px;top:20px;width:4px;height:360px;background:repeating-linear-gradient(180deg,#ff4d6d 0 12px,transparent 12px 22px)"></div>
-      ${div('ws_mgl', 400, 330, 0, 0, 'right margin', 'small', 'color:#ff4d6d;font-size:20px')}</div>
+      <div class="abs" id="ws_mg" style="left:480px;top:20px;width:4px;height:360px;background:repeating-linear-gradient(180deg,#e63946 0 12px,transparent 12px 22px)"></div>
+      ${div('ws_mgl', 400, 330, 0, 0, 'right margin', 'small', 'color:#e63946;font-size:20px')}</div>
     <div class="card" id="ws_real" style="left:1450px;top:190px;width:360px;height:400px;border-color:var(--sky)">
       <div class="abs small" style="left:24px;top:20px;letter-spacing:2px">IT HANDBOOK, PAGE 1</div>
       <div class="abs mono" style="left:24px;top:70px;width:320px;font-size:24px;line-height:1.6;color:#ce9178">"Do not turn it off. Your<span class="ws">\\n</span>screen must lock automatically"</div>
@@ -121,13 +121,13 @@
     <div class="card" id="ws_pat" style="left:110px;top:640px;width:900px;height:370px">
       <div class="abs mono" style="left:40px;top:30px;font-size:90px">r"<span id="ws_s" style="color:var(--sky)">\\s</span><span id="ws_p" style="color:var(--sun)">+</span>"</div>
       <div class="abs" id="ws_sl" style="left:420px;top:40px"><div class="small" style="color:var(--sky);font-size:24px;letter-spacing:2px">\\s = ONE WHITESPACE CHARACTER</div>
-        <div style="display:flex;gap:16px;margin-top:14px">${['space ·', 'tab →', 'newline ↵'].map((s, i) => `<span id="ws_k${i}" class="mono" style="padding:8px 16px;border-radius:10px;background:#0f2a5a;border:2px solid var(--sky);font-size:24px">${s}</span>`).join('')}</div></div>
+        <div style="display:flex;gap:16px;margin-top:14px">${['space ·', 'tab →', 'newline ↵'].map((s, i) => `<span id="ws_k${i}" class="mono" style="padding:8px 16px;border-radius:10px;background:#4a1a10;border:2px solid var(--sky);font-size:24px">${s}</span>`).join('')}</div></div>
       <div class="abs" id="ws_pl" style="left:420px;top:170px"><div class="small" style="color:var(--sun);font-size:24px;letter-spacing:2px">+ = ONE OR MORE OF THE THING BEFORE ME</div>
         <div style="display:flex;gap:10px;margin-top:14px;align-items:flex-end">${[1, 2, 3, 4, 5].map(i => `<span id="ws_b${i}" style="width:44px;height:${20 + i * 14}px;border-radius:6px;background:var(--sun);display:inline-block"></span>`).join('')}<span class="mono" style="font-size:30px;margin-left:16px">1 … <span id="ws_cnt" data-dec="0">1</span></span></div></div></div>
     <div class="card" id="ws_col" style="left:1060px;top:640px;width:750px;height:370px">
       <div class="abs small" style="left:30px;top:20px;letter-spacing:3px">EVERY RUN → ONE SPACE</div>
       <div class="abs mono" id="ws_m1" style="left:30px;top:90px;font-size:32px;white-space:pre">it<span class="ws">···</span>off.<span class="ws">→</span>Your<span class="ws">↵</span>screen</div>
-      ${arrow('ws_ca', 300, 160, 300, 230, '#2dd4bf', 6)}
+      ${arrow('ws_ca', 300, 160, 300, 230, '#2fb872', 6)}
       <div class="abs mono" id="ws_m2" style="left:30px;top:250px;font-size:32px;color:var(--teal)">it off. Your screen ✓</div></div>
   `);
   // ---------- RAW ----------
@@ -141,7 +141,7 @@
     <div class="abs" id="rw_warn" style="left:990px;top:420px;width:820px;height:150px;border-radius:16px;background:#3d3000;border:2.5px solid var(--sun);padding:24px 30px;display:flex;gap:22px;align-items:center"><div style="width:70px;height:70px;flex:none">${ICON.warn()}</div><div class="mono" style="font-size:27px;color:#ffe9a8">SyntaxWarning: "\\s" is an<br>invalid escape sequence</div></div>
     <div class="card" id="rw_pipe" style="left:990px;top:610px;width:820px;height:190px">
       <div class="abs mono" style="left:40px;top:55px;font-size:56px;color:var(--sun)">r</div>
-      <div class="abs" style="left:110px;top:85px;width:440px;height:16px;border-radius:8px;background:#1c2559"></div>
+      <div class="abs" style="left:110px;top:85px;width:440px;height:16px;border-radius:8px;background:#4a1018"></div>
       <div class="abs mono" id="rw_tok" style="left:120px;top:48px;font-size:56px;color:#ce9178">\\s</div>
       <div class="abs center col" style="left:580px;top:30px;width:210px;height:130px;border-radius:14px;border:3px solid var(--teal)"><b style="font-size:24px">regex</b><span class="small">engine</span></div></div>
     <div class="card" id="rw_habit" style="left:110px;top:850px;width:1700px;height:150px;border-color:var(--teal)"><div class="center" style="height:150px;gap:26px"><div style="width:70px;height:70px">${ICON.check()}</div><span class="h2" style="font-size:44px">If a string is a regex, start it with <span class="mono sun">r</span>. Every time.</span></div></div>
@@ -154,11 +154,11 @@
     ${div('or_ok', 700, 330, 90, 90, ICON.check())}
     <div class="card" id="or_bad" style="left:850px;top:200px;width:960px;height:560px;border-color:var(--rose)">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px;color:var(--rose)">SWAP THEM…</div>
-      <div class="abs mono" style="left:30px;top:80px;font-size:28px;color:#8e9bc4">step 1 · whitespace first</div>
+      <div class="abs mono" style="left:30px;top:80px;font-size:28px;color:#cfa999">step 1 · whitespace first</div>
       <div class="abs mono" id="or_s1" style="left:30px;top:130px;font-size:46px">"reimburse-<span class="ws">↵</span>ment"</div>
-      ${arrow('or_a', 300, 210, 300, 270, '#8e9bc4', 5)}
-      <div class="abs mono" id="or_s2" style="left:30px;top:280px;font-size:46px">"reimburse-<span style="background:rgba(56,189,248,.3);border-radius:6px">·</span>ment"</div>
-      <div class="abs mono" style="left:30px;top:380px;font-size:28px;color:#8e9bc4">step 2 · look for  r"-\\n"</div>
+      ${arrow('or_a', 300, 210, 300, 270, '#cfa999', 5)}
+      <div class="abs mono" id="or_s2" style="left:30px;top:280px;font-size:46px">"reimburse-<span style="background:rgba(255,217,160,.3);border-radius:6px">·</span>ment"</div>
+      <div class="abs mono" style="left:30px;top:380px;font-size:28px;color:#cfa999">step 2 · look for  r"-\\n"</div>
       <div class="abs" id="or_scan" style="left:30px;top:270px;width:12px;height:90px;background:var(--rose);box-shadow:0 0 30px var(--rose);border-radius:6px"></div>
       ${div('or_x', 30, 440, 0, 0, '0 matches — never again', 'pill bg-rose', 'font-size:30px;position:absolute')}</div>
     ${div('or_sil', 110, 820, 1700, 0, 'The hyphen fix <b class="rose">silently stops working</b>. No error.', 'h2 center', 'font-size:50px')}

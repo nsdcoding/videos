@@ -1,7 +1,7 @@
 // c2 : install pypdf
 (window.SCENES = window.SCENES || []).push(function () {
   const G = (c, r) => [c * 2400, r * 1500];
-  const bar = (id, w, c) => `<div class="abs" style="left:0;top:0;width:260px;height:16px;border-radius:8px;background:#1c2559"></div><div class="abs" id="${id}" style="left:0;top:0;width:${w}px;height:16px;border-radius:8px;background:${c}"></div>`;
+  const bar = (id, w, c) => `<div class="abs" style="left:0;top:0;width:260px;height:16px;border-radius:8px;background:#4a1018"></div><div class="abs" id="${id}" style="left:0;top:0;width:${w}px;height:16px;border-radius:8px;background:${c}"></div>`;
   const cmpCard = (id, x, name, sp, la, extra, col) => `<div class="card" id="${id}" style="left:${x}px;top:600px;width:520px;height:400px;border-color:${col}">
      <div class="abs mono" style="left:36px;top:30px;font-size:44px;font-weight:700;color:${col}">${name}</div>
      <div class="abs small" style="left:36px;top:120px;letter-spacing:2px">SPEED</div><div class="abs" style="left:200px;top:128px">${bar(id + 'b1', sp, col)}</div>
@@ -9,17 +9,17 @@
      <div class="abs txt" id="${id}x" style="left:36px;top:240px;width:450px;font-size:27px">${extra}</div></div>`;
   board('INSTALL', ...G(-1, 0), `
     <div class="card" id="in_pk" style="left:110px;top:110px;width:360px;height:420px;border-color:var(--sun)">
-       <div class="abs" style="left:90px;top:40px;width:180px;height:180px">${ICON.box('#ffd23f')}</div>
+       <div class="abs" style="left:90px;top:40px;width:180px;height:180px">${ICON.box('#f5b700')}</div>
        <div class="abs mono center" style="left:0;top:250px;width:360px;font-size:56px;font-weight:700" >pypdf</div>
        <div class="abs small center" style="left:0;top:335px;width:360px;font-size:26px">reads text out of PDFs</div></div>
     <div class="card" id="in_py" style="left:540px;top:110px;width:640px;height:420px">
        <div class="abs small" style="left:30px;top:22px;letter-spacing:3px">TWO PYTHONS ON ONE LAPTOP</div>
-       <div id="in_p1" class="abs center col" style="left:40px;top:220px;width:240px;height:160px;border-radius:18px;border:3px solid var(--teal);background:rgba(45,212,191,.1)"><b style="font-size:30px">Python 3.14</b><span class="small">runs your file</span></div>
-       <div id="in_p2" class="abs center col" style="left:360px;top:220px;width:240px;height:160px;border-radius:18px;border:3px solid #56628c;background:#0b1130"><b style="font-size:30px;color:#9aa5cf">Python 3.9</b><span class="small">some other one</span></div>
+       <div id="in_p1" class="abs center col" style="left:40px;top:220px;width:240px;height:160px;border-radius:18px;border:3px solid var(--teal);background:rgba(47,184,114,.1)"><b style="font-size:30px">Python 3.14</b><span class="small">runs your file</span></div>
+       <div id="in_p2" class="abs center col" style="left:360px;top:220px;width:240px;height:160px;border-radius:18px;border:3px solid #8f6a62;background:#24050a"><b style="font-size:30px;color:#d9b8a6">Python 3.9</b><span class="small">some other one</span></div>
        <div id="in_pip" class="abs mono center" style="left:200px;top:80px;width:240px;height:64px;border-radius:14px;background:var(--sun);color:#2a2000;font-size:30px;font-weight:700">pip</div>
-       ${curve('in_a1', 320, 150, 470, 170, 480, 214, '#ff4d6d', 5)}
+       ${curve('in_a1', 320, 150, 470, 170, 480, 214, '#e63946', 5)}
        ${div('in_x', 470, 150, 50, 50, ICON.cross())}
-       ${curve('in_a2', 320, 150, 170, 170, 160, 214, '#2dd4bf', 6)}
+       ${curve('in_a2', 320, 150, 170, 170, 160, 214, '#2fb872', 6)}
        ${div('in_m', 30, 395, 600, 0, '<span class="mono" style="font-size:24px;color:var(--teal)">python3 -m pip</span><span class="small"> → always the right one</span>')}</div>
     <div class="card" id="in_pure" style="left:1250px;top:110px;width:560px;height:420px">
        <div class="abs h2" style="left:36px;top:30px">Why <span class="mono sun">pypdf</span>?</div>

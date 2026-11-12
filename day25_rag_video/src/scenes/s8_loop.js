@@ -7,20 +7,20 @@
     ${div('lv_t', 110, 50, 0, 0, 'The loop, one file at a time', 'h1', 'font-size:58px')}
     <div class="card" id="lv_sort" style="left:110px;top:170px;width:820px;height:420px">
       <div class="abs small" style="left:30px;top:18px;letter-spacing:3px">sorted(os.listdir(folder))</div>
-      ${names.map((n, i) => `<div class="abs mono" id="lv_n${i}" style="left:40px;top:${70 + i * 56}px;font-size:26px;padding:4px 14px;border-radius:8px;background:#0b1130">${n}</div>`).join('')}
+      ${names.map((n, i) => `<div class="abs mono" id="lv_n${i}" style="left:40px;top:${70 + i * 56}px;font-size:26px;padding:4px 14px;border-radius:8px;background:#24050a">${n}</div>`).join('')}
       ${div('lv_same', 520, 350, 0, 0, 'same order, every run', 'hand', 'font-size:38px;color:var(--teal)')}</div>
     <div class="card" id="lv_split" style="left:990px;top:170px;width:820px;height:420px">
       <div class="abs small" style="left:30px;top:18px;letter-spacing:3px">os.path.splitext(name)[1].lower()</div>
       <div class="abs mono" style="left:40px;top:80px;font-size:40px"><span id="lv_a">remote_work_policy</span><span id="lv_b" style="display:inline-block;color:var(--rose)">.pdf</span></div>
       <div class="abs" id="lv_sc" style="left:420px;top:40px;width:70px;height:70px">${ICON.scissors()}</div>
-      <div class="abs mono" id="lv_tup" style="left:40px;top:170px;font-size:32px">(<span style="color:#ce9178">"remote_work_policy"</span>, <span style="color:#ce9178;background:rgba(255,77,109,.25);border-radius:6px">".pdf"</span>)</div>
+      <div class="abs mono" id="lv_tup" style="left:40px;top:170px;font-size:32px">(<span style="color:#ce9178">"remote_work_policy"</span>, <span style="color:#ce9178;background:rgba(230,57,70,.25);border-radius:6px">".pdf"</span>)</div>
       ${div('lv_idx', 470, 225, 0, 0, '↑ [1]', 'mono', 'font-size:30px;color:var(--rose)')}
       <div class="abs mono" id="lv_up" style="left:40px;top:300px;font-size:36px">"NOTES.PDF" → <span id="lv_low" style="color:var(--teal)">".pdf"</span></div></div>
     <div class="card" id="lv_get" style="left:110px;top:630px;width:820px;height:400px">
       <div class="abs mono" style="left:40px;top:40px;font-size:36px">LOADERS[<span style="color:#ce9178">".html"</span>]</div>
       <div class="abs" id="lv_boom" style="left:440px;top:24px;padding:12px 20px;border-radius:12px;background:var(--rose);font:700 30px var(--mono)">💥 KeyError</div>
       <div class="abs mono" style="left:40px;top:180px;font-size:36px">LOADERS.<span style="color:#dcdcaa">get</span>(<span style="color:#ce9178">".html"</span>)</div>
-      <div class="abs" id="lv_calm" style="left:520px;top:166px;padding:12px 20px;border-radius:12px;background:#1d2a6e;border:2.5px solid #569cd6;font:700 30px var(--mono);color:#569cd6">None 😌</div>
+      <div class="abs" id="lv_calm" style="left:520px;top:166px;padding:12px 20px;border-radius:12px;background:#55121c;border:2.5px solid #569cd6;font:700 30px var(--mono);color:#569cd6">None 😌</div>
       ${div('lv_gl', 40, 290, 760, 0, '.get never crashes — we deal with None ourselves', 'txt', 'font-size:28px;color:var(--teal)')}</div>
     <div class="card" id="lv_todo" style="left:990px;top:630px;width:820px;height:400px;border-color:var(--sun)">
       <div class="abs small" style="left:30px;top:20px;letter-spacing:3px;color:var(--sun)">A LOUD SKIP IS A TO-DO LIST</div>
@@ -29,14 +29,14 @@
   `);
   board('LOOPV2', ...G(5, 4), `
     ${div('l2v_t', 110, 60, 0, 0, '<span class="mono">pieces = loader(file_path)</span>', 'h1', 'font-size:56px')}
-    <div class="abs center col" id="l2v_var" style="left:700px;top:260px;width:520px;height:340px;border-radius:26px;border:4px solid var(--sun);background:#111a3f">
+    <div class="abs center col" id="l2v_var" style="left:700px;top:260px;width:520px;height:340px;border-radius:26px;border:4px solid var(--sun);background:#3a0a12">
       <div class="abs mono" style="left:24px;top:14px;font-size:30px;color:var(--sun)">loader</div>
       <div class="abs center" id="l2v_ft" style="left:110px;top:120px;width:300px;height:100px;border-radius:16px;border:3px solid var(--teal);font:700 32px var(--mono);color:var(--teal)">load_txt</div>
       <div class="abs center" id="l2v_fp" style="left:110px;top:120px;width:300px;height:100px;border-radius:16px;border:3px solid var(--rose);font:700 32px var(--mono);color:var(--rose)">load_pdf</div></div>
     ${[['txt', 'leave_policy.txt'], ['pdf', 'remote_work_policy.pdf'], ['txt', 'support_tickets.txt']].map(([ty, n], i) => fileIcon('l2v_f' + i, 200, 330, ty, n, .9)).join('')}
-    <div class="abs" id="l2v_docs" style="left:1350px;top:220px;width:480px;height:640px;border-radius:22px;border:3px solid var(--teal);background:#0b1130">
+    <div class="abs" id="l2v_docs" style="left:1350px;top:220px;width:480px;height:640px;border-radius:22px;border:3px solid var(--teal);background:#24050a">
       <div class="abs mono" style="left:24px;top:16px;font-size:28px;color:var(--teal)">documents = [</div>
-      ${[['leave_policy.txt', 'None'], ['remote_work_policy.pdf', '1'], ['remote_work_policy.pdf', '2'], ['support_tickets.txt', 'None']].map(([s, p], i) => `<div class="abs mono" id="l2v_d${i}" style="left:24px;top:${80 + i * 125}px;width:430px;padding:12px 16px;border-radius:12px;background:#16205a;font-size:19px;line-height:1.5"><span style="color:#ce9178">"source"</span>: <span style="color:var(--sun)">${s}</span><br><span style="color:#ce9178">"page"</span>: ${p}, <span style="color:#ce9178">"text"</span>: …</div>`).join('')}</div>
+      ${[['leave_policy.txt', 'None'], ['remote_work_policy.pdf', '1'], ['remote_work_policy.pdf', '2'], ['support_tickets.txt', 'None']].map(([s, p], i) => `<div class="abs mono" id="l2v_d${i}" style="left:24px;top:${80 + i * 125}px;width:430px;padding:12px 16px;border-radius:12px;background:#4a0e17;font-size:19px;line-height:1.5"><span style="color:#ce9178">"source"</span>: <span style="color:var(--sun)">${s}</span><br><span style="color:#ce9178">"page"</span>: ${p}, <span style="color:#ce9178">"text"</span>: …</div>`).join('')}</div>
     ${div('l2v_n', 700, 660, 520, 0, 'the dictionary already chose the function', 'hand center', 'font-size:40px;color:var(--sun)')}
   `);
   // a result card beside the VS Code window
@@ -44,7 +44,7 @@
      <div class="abs small" style="left:30px;top:22px;letter-spacing:3px">PIECES OF TEXT LOADED</div>
      <div class="abs" style="left:30px;top:70px;font:800 130px var(--serif)" ><span id="cmp_n" class="teal" data-dec="0">0</span></div>
      <div class="abs txt" style="left:220px;top:110px;font-size:34px">Day 25</div>
-     <div class="abs" style="left:30px;top:230px;font:700 46px var(--serif);color:#8e9bc4">4 <span style="font:500 28px var(--sans)">on Day 22</span></div></div>`);
+     <div class="abs" style="left:30px;top:230px;font:700 46px var(--serif);color:#cfa999">4 <span style="font:500 28px var(--sans)">on Day 22</span></div></div>`);
 
   // ================= animation =================
   let t = T('i01');
