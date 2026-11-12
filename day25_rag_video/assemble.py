@@ -2,7 +2,9 @@
 import json, subprocess, os, sys
 SEG = sys.argv[1]; OUT = sys.argv[2]; os.makedirs(OUT, exist_ok=True)
 parts = json.load(open('parts.json')); jobs = json.load(open('jobs.json'))
+only = sys.argv[3:]
 for i, p in enumerate(parts, 1):
+    if only and str(i) not in only: continue
     lst = os.path.join(SEG, f"list{i}.txt")
     with open(lst, 'w') as f:
         for j in jobs:
