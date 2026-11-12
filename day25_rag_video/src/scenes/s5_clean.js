@@ -134,7 +134,7 @@
   board('RAWS', ...G(2, 3), `
     ${div('rw_t', 110, 60, 0, 0, 'What is the little <span class="mono sun">r</span> ?', 'h1', 'font-size:64px')}
     <div class="abs mono" id="rw_big" style="left:110px;top:190px;font-size:150px"><span id="rw_r" style="color:var(--sun);display:inline-block">r</span><span style="color:#ce9178">"\\s+"</span></div>
-    ${div('rw_rl', 500, 260, 0, 0, '= a RAW string', 'h2', 'font-size:52px')}
+    ${div('rw_rl', 790, 255, 0, 0, '= a RAW string', 'h2', 'font-size:46px')}
     <div class="card" id="rw_esc" style="left:110px;top:420px;width:820px;height:380px">
       <div class="abs small" style="left:30px;top:22px;letter-spacing:3px">INSIDE A NORMAL STRING, \\ STARTS A CODE</div>
       ${[['"\\n"', 'a newline ↵'], ['"\\t"', 'a tab →'], ['"\\s"', '??? not a code']].map(([a, b], i) => `<div class="abs" id="rw_e${i}" style="left:30px;top:${90 + i * 90}px;display:flex;gap:30px;align-items:center"><span class="mono" style="font-size:40px;color:#ce9178;width:130px">${a}</span><span style="font-size:36px">→</span><span class="txt" style="font-size:32px;${i === 2 ? 'color:var(--rose)' : ''}">${b}</span></div>`).join('')}</div>

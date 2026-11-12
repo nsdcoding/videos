@@ -52,9 +52,9 @@
       ${['run the file yourself', 'try every question', 'swap the hyphen + whitespace lines, count the matches'].map((s, i) => `<div class="abs" id="ld_h${i}" style="left:${30 + [0, 420, 820][i]}px;top:90px;display:flex;gap:14px;align-items:center"><div style="width:44px;height:44px">${ICON.check('#ffd23f')}</div><span style="font:600 28px var(--sans)">${s}</span></div>`).join('')}</div>
   `);
   board('END', ...G(5, 0), `
-    ${div('en_eye', 0, 330, 1920, 0, 'Plural Labs · AI Developer Program', 'eyebrow center')}
-    ${div('en_t', 0, 400, 1920, 0, 'See you in the next class', 'center', 'font:800 120px var(--serif)')}
-    ${div('en_s', 0, 560, 1920, 0, 'Day 26 · <span class="sun">HTML pages</span> and <span class="vio">screenshots</span>', 'h2 center', 'font-size:48px;color:#cdd6ff')}
+    ${div('en_eye', 0, 330, 1920, 0, 'Plural Labs · AI Developer Program', 'eyebrow', 'text-align:center')}
+    ${div('en_t', 0, 400, 1920, 0, 'See you in the next class', '', 'font:800 120px var(--serif);text-align:center')}
+    ${div('en_s', 0, 560, 1920, 0, 'Day 26 · <span class="sun">HTML pages</span> and <span class="vio">screenshots</span>', 'h2', 'font-size:48px;color:#cdd6ff;text-align:center')}
   `);
 
   // ================= animation =================
