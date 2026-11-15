@@ -5,10 +5,11 @@ from common import *
 
 def signpost(text, color):
     post = Line(DOWN * 0.9, UP * 0.4, color=INK2, stroke_width=5)
-    board = RoundedRectangle(corner_radius=0.1, width=3.6, height=0.8, stroke_color=color, stroke_width=3,
+    t = T(text, 30, color, weight=BOLD)
+    board = RoundedRectangle(corner_radius=0.1, width=t.width + 0.6, height=0.8, stroke_color=color, stroke_width=3,
                              fill_color="#22221f", fill_opacity=1).move_to(UP * 0.6)
     board.qa_container = True
-    t = T(text, 30, color, weight=BOLD).move_to(board)
+    t.move_to(board)
     return VGroup(post, board, t)
 
 

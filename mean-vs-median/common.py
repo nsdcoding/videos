@@ -143,6 +143,11 @@ class Base(MovingCameraScene):
     def finish(self):
         self.until(self.ch["t1"])
 
+    def qa_mute(self, mob, on=True):
+        """Exclude mobjects hidden under an opaque overlay from the overlap checks (and re-include them)."""
+        for m in mob.get_family():
+            m.qa_ignore = on
+
     def drop(self, *ms):
         """Remove mobjects and every member of their families from the scene."""
         fam = []
@@ -290,7 +295,7 @@ MAPLE = [50, 52, 55, 58, 60, 62, 65, 68, 70]
 STREET = [42, 230, 35, 48, 30, 45, 38, 32, 40]
 
 
-def xy_axes(x_range, y_range, x_len, y_len, x_label, y_label, x_labels=None, font_size=22):
+def xy_axes(x_range, y_range, x_len, y_len, x_label, y_label, x_labels=None, font_size=22, y_vertical=False):
     """Axes with Inter tick labels and axis titles. x_labels: optional {value: text}."""
     ax = Axes(x_range=x_range, y_range=y_range, x_length=x_len, y_length=y_len,
               axis_config=dict(color=INK2, stroke_width=3, include_tip=False, tick_size=0.07),
@@ -309,7 +314,11 @@ def xy_axes(x_range, y_range, x_len, y_len, x_label, y_label, x_labels=None, fon
         xt = T(x_label, 24, MUTED).next_to(ax.x_axis, DOWN, buff=0.5).align_to(ax.x_axis, RIGHT)
     else:
         xt = VGroup()
-    yt = T(y_label, 24, MUTED).next_to(ax.y_axis, UP, buff=0.18).align_to(ax.y_axis, LEFT).shift(LEFT * 0.3)
+    if y_vertical:
+        ylabs = VGroup(*[l for l in labs if abs(l.get_x() - ax.c2p(x_range[0], 0)[0]) > 0.05 and l.get_x() < ax.c2p(x_range[0], 0)[0]])
+        yt = T(y_label, 22, MUTED).rotate(PI / 2).next_to(ylabs if len(ylabs) else ax.y_axis, LEFT, buff=0.15)
+    else:
+        yt = T(y_label, 24, MUTED).next_to(ax.y_axis, UP, buff=0.18).align_to(ax.y_axis, LEFT).shift(LEFT * 0.3)
     g = VGroup(ax, labs, xt, yt)
     g.ax, g.labs, g.xt, g.yt = ax, labs, xt, yt
     return g

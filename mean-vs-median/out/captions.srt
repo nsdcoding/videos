@@ -1,0 +1,1271 @@
+1
+00:00:00,600 --> 00:00:03,640
+Imagine you're moving, and you've narrowed it down to two towns.
+
+2
+00:00:03,990 --> 00:00:05,730
+Maple, and Pine Hill.
+
+3
+00:00:06,080 --> 00:00:09,287
+You look up the numbers, and both towns report the same average
+
+4
+00:00:09,287 --> 00:00:10,440
+household income.
+
+5
+00:00:10,790 --> 00:00:12,240
+Sixty thousand dollars a year.
+
+6
+00:00:13,240 --> 00:00:16,080
+Same average. So, same kind of town, right?
+
+7
+00:00:16,430 --> 00:00:18,190
+Let's actually meet the families.
+
+8
+00:00:18,540 --> 00:00:19,920
+Maple has nine households.
+
+9
+00:00:20,270 --> 00:00:24,622
+Their incomes, in thousands of dollars, are fifty,
+
+10
+00:00:24,622 --> 00:00:28,402
+fifty-two, fifty-five, fifty-eight, sixty,
+
+11
+00:00:28,402 --> 00:00:32,710
+sixty-two, sixty-five, sixty-eight, and seventy.
+
+12
+00:00:33,060 --> 00:00:34,940
+Everyone is fairly close to sixty.
+
+13
+00:00:35,940 --> 00:00:38,900
+Now Pine Hill. Also nine households.
+
+14
+00:00:39,250 --> 00:00:42,450
+Eight of them earn between thirty and forty-eight thousand.
+
+15
+00:00:42,800 --> 00:00:45,720
+And one family earns two hundred thirty thousand dollars a year.
+
+16
+00:00:46,720 --> 00:00:49,844
+Add it all up and divide, and yes, Pine Hill's average is also
+
+17
+00:00:49,844 --> 00:00:50,380
+sixty.
+
+18
+00:00:50,730 --> 00:00:52,740
+But look where the families actually are.
+
+19
+00:00:53,090 --> 00:00:55,510
+Eight out of nine households earn less than the average.
+
+20
+00:00:57,010 --> 00:00:59,078
+The average isn't technically wrong.
+
+21
+00:00:59,078 --> 00:01:01,700
+But it describes a family that doesn't live there.
+
+22
+00:01:03,200 --> 00:01:06,678
+Today, we'll meet the two most common kinds of average: the
+
+23
+00:01:06,678 --> 00:01:08,130
+mean, and the median.
+
+24
+00:01:08,480 --> 00:01:11,620
+And learn how to tell which one is lying to you.
+
+25
+00:01:12,620 --> 00:01:15,060
+This isn't just a puzzle about two made-up towns.
+
+26
+00:01:15,410 --> 00:01:18,170
+Every week, you hear averages in the news.
+
+27
+00:01:18,520 --> 00:01:21,019
+Average salary. Average house price.
+
+28
+00:01:21,019 --> 00:01:23,110
+Average wait time at the hospital.
+
+29
+00:01:23,460 --> 00:01:26,980
+Each of those is one number standing in for thousands of people.
+
+30
+00:01:27,330 --> 00:01:30,678
+If it's the wrong kind of average, it can push you into a bad
+
+31
+00:01:30,678 --> 00:01:31,450
+decision.
+
+32
+00:01:31,800 --> 00:01:35,128
+Like moving to Pine Hill expecting to earn what your neighbours
+
+33
+00:01:35,128 --> 00:01:35,570
+earn.
+
+34
+00:01:35,920 --> 00:01:38,457
+Or opening a fancy restaurant there, counting on
+
+35
+00:01:38,457 --> 00:01:41,160
+sixty-thousand-dollar customers who mostly aren't there.
+
+36
+00:01:42,160 --> 00:01:45,787
+The good news: telling the two averages apart takes a few
+
+37
+00:01:45,787 --> 00:01:47,830
+minutes, and no fancy math.
+
+38
+00:01:48,430 --> 00:01:51,170
+Let's start with the one you already know: the mean.
+
+39
+00:01:51,520 --> 00:01:54,060
+The mean is what most people call 'the average'.
+
+40
+00:01:54,410 --> 00:01:58,438
+To find it, add up all the values, then divide by how many there
+
+41
+00:01:58,438 --> 00:01:59,080
+are.
+
+42
+00:01:59,430 --> 00:02:00,580
+Let's do it for Pine Hill.
+
+43
+00:02:00,930 --> 00:02:04,077
+Thirty, plus thirty-two, plus thirty-five,
+
+44
+00:02:04,077 --> 00:02:07,750
+and so on, all the way up to two hundred thirty.
+
+45
+00:02:08,100 --> 00:02:09,750
+The total is five hundred forty.
+
+46
+00:02:10,350 --> 00:02:12,790
+There are nine households, so we divide by nine.
+
+47
+00:02:13,140 --> 00:02:15,440
+Five hundred forty divided by nine is sixty.
+
+48
+00:02:16,440 --> 00:02:19,485
+In math books, you'll see this written as a formula.
+
+49
+00:02:19,485 --> 00:02:22,130
+Let's decode it, one symbol at a time.
+
+50
+00:02:22,480 --> 00:02:24,849
+The letter x stands for one value.
+
+51
+00:02:24,849 --> 00:02:27,200
+Here, one household's income.
+
+52
+00:02:27,550 --> 00:02:29,999
+The small i underneath means 'which one'.
+
+53
+00:02:29,999 --> 00:02:33,781
+x one is the first household, x two is the second,
+
+54
+00:02:33,781 --> 00:02:34,670
+and so on.
+
+55
+00:02:35,020 --> 00:02:38,493
+This big zigzag letter is the Greek capital sigma.
+
+56
+00:02:38,493 --> 00:02:40,560
+It just means: add them all up.
+
+57
+00:02:41,360 --> 00:02:44,700
+The letter n means how many values there are.
+
+58
+00:02:44,700 --> 00:02:46,580
+For Pine Hill, n is nine.
+
+59
+00:02:46,930 --> 00:02:49,977
+And the x with a bar on top, called x bar,
+
+60
+00:02:49,977 --> 00:02:51,500
+is the name for the mean.
+
+61
+00:02:51,850 --> 00:02:54,602
+So the whole formula says: add up every value,
+
+62
+00:02:54,602 --> 00:02:56,600
+then divide by how many there are.
+
+63
+00:02:57,600 --> 00:02:59,374
+But what is the mean, really?
+
+64
+00:02:59,374 --> 00:03:01,310
+Here are two ways to picture it.
+
+65
+00:03:01,660 --> 00:03:04,310
+Picture one: fair shares.
+
+66
+00:03:04,660 --> 00:03:07,240
+Here are Pine Hill's nine incomes, as bars.
+
+67
+00:03:07,590 --> 00:03:11,530
+Imagine all nine families pour their income into one shared pot.
+
+68
+00:03:11,880 --> 00:03:14,924
+Then the pot is shared out equally, so every family gets the
+
+69
+00:03:14,924 --> 00:03:15,590
+same amount.
+
+70
+00:03:15,940 --> 00:03:18,184
+Every bar ends up at exactly sixty.
+
+71
+00:03:18,184 --> 00:03:18,910
+That's the mean.
+
+72
+00:03:20,410 --> 00:03:23,863
+So the mean answers one question: if everything were shared out
+
+73
+00:03:23,863 --> 00:03:25,740
+evenly, how much would each get?
+
+74
+00:03:26,740 --> 00:03:29,060
+Picture two: a balance beam.
+
+75
+00:03:29,410 --> 00:03:32,052
+Put each household on the line as an equal weight,
+
+76
+00:03:32,052 --> 00:03:33,390
+sitting at its income.
+
+77
+00:03:33,740 --> 00:03:36,940
+Where should the support go, so the beam balances perfectly?
+
+78
+00:03:37,290 --> 00:03:41,486
+Try forty. The beam tips to the right, because that one family
+
+79
+00:03:41,486 --> 00:03:42,590
+is so far out.
+
+80
+00:03:42,940 --> 00:03:45,020
+Try sixty, and it balances.
+
+81
+00:03:46,020 --> 00:03:49,490
+Here's why. Measure how far each family is from sixty.
+
+82
+00:03:49,840 --> 00:03:53,474
+The eight families on the left are thirty,
+
+83
+00:03:53,474 --> 00:03:57,484
+twenty-eight, twenty-five, twenty-two, twenty,
+
+84
+00:03:57,484 --> 00:04:00,420
+eighteen, fifteen, and twelve below.
+
+85
+00:04:00,770 --> 00:04:03,090
+Together, that's one hundred seventy below.
+
+86
+00:04:03,440 --> 00:04:07,010
+And the one family on the right is one hundred seventy above.
+
+87
+00:04:08,010 --> 00:04:11,182
+The distances below and above cancel out exactly.
+
+88
+00:04:11,182 --> 00:04:12,780
+That's what the mean always does.
+
+89
+00:04:14,280 --> 00:04:18,748
+And notice: one family, far enough away, balances eight families
+
+90
+00:04:18,748 --> 00:04:19,730
+all by itself.
+
+91
+00:04:21,230 --> 00:04:22,783
+That's the mean's big weakness.
+
+92
+00:04:22,783 --> 00:04:26,779
+Every value pulls on it, and the farther away a value is,
+
+93
+00:04:26,779 --> 00:04:28,110
+the harder it pulls.
+
+94
+00:04:29,110 --> 00:04:31,700
+Now, the second kind of average: the median.
+
+95
+00:04:32,050 --> 00:04:35,320
+The median is the middle value, once the values are in order.
+
+96
+00:04:35,670 --> 00:04:39,720
+Step one: sort. Line the incomes up from smallest to largest.
+
+97
+00:04:40,070 --> 00:04:44,140
+Thirty, thirty-two, thirty-five, thirty-eight,
+
+98
+00:04:44,140 --> 00:04:48,210
+forty, forty-two, forty-five, forty-eight,
+
+99
+00:04:48,210 --> 00:04:49,880
+two hundred thirty.
+
+100
+00:04:50,230 --> 00:04:52,173
+Step two: find the middle.
+
+101
+00:04:52,173 --> 00:04:57,340
+Cross one off each end, again and again, walking inward.
+
+102
+00:04:57,690 --> 00:04:59,759
+Thirty and two hundred thirty go.
+
+103
+00:04:59,759 --> 00:05:01,623
+Then thirty-two and forty-eight.
+
+104
+00:05:01,623 --> 00:05:03,486
+Then thirty-five and forty-five.
+
+105
+00:05:03,486 --> 00:05:05,350
+Then thirty-eight and forty-two.
+
+106
+00:05:05,700 --> 00:05:08,240
+One value is left standing: forty.
+
+107
+00:05:09,740 --> 00:05:12,930
+The median income in Pine Hill is forty thousand dollars.
+
+108
+00:05:13,930 --> 00:05:16,870
+Four families earn less, and four earn more.
+
+109
+00:05:16,870 --> 00:05:20,310
+That's the median's promise: it splits the group in half.
+
+110
+00:05:21,310 --> 00:05:24,278
+Compare that with the mean of sixty, where eight families were
+
+111
+00:05:24,278 --> 00:05:26,330
+below and only one was above.
+
+112
+00:05:27,830 --> 00:05:31,861
+In Maple, the middle value is sixty, exactly the same as its
+
+113
+00:05:31,861 --> 00:05:32,320
+mean.
+
+114
+00:05:33,320 --> 00:05:36,565
+You'll also hear the median called the fiftieth percentile,
+
+115
+00:05:36,565 --> 00:05:40,030
+or p fifty, because it sits halfway through the sorted list.
+
+116
+00:05:40,380 --> 00:05:42,892
+But what if there's an even number of values?
+
+117
+00:05:42,892 --> 00:05:44,170
+Then there's no single middle.
+
+118
+00:05:44,520 --> 00:05:47,750
+Say a new family moves to Pine Hill, earning fifty thousand.
+
+119
+00:05:48,100 --> 00:05:49,770
+Now there are ten households.
+
+120
+00:05:50,120 --> 00:05:53,940
+Cross off from both ends again, and this time two values are
+
+121
+00:05:53,940 --> 00:05:56,780
+left in the middle: forty and forty-two.
+
+122
+00:05:57,130 --> 00:05:59,781
+The rule: take the halfway point between them.
+
+123
+00:05:59,781 --> 00:06:01,990
+Add the two, and divide by two.
+
+124
+00:06:02,340 --> 00:06:04,538
+Forty plus forty-two is eighty-two.
+
+125
+00:06:04,538 --> 00:06:06,340
+Half of that is forty-one.
+
+126
+00:06:07,340 --> 00:06:10,460
+So with ten families, the median is forty-one thousand.
+
+127
+00:06:10,810 --> 00:06:14,005
+And the mean? Five hundred ninety, divided by ten,
+
+128
+00:06:14,005 --> 00:06:15,130
+which is fifty-nine.
+
+129
+00:06:15,730 --> 00:06:19,069
+For the rest of this video, let's go back to our original nine
+
+130
+00:06:19,069 --> 00:06:19,840
+households.
+
+131
+00:06:20,190 --> 00:06:22,431
+So which average is more trustworthy?
+
+132
+00:06:22,431 --> 00:06:23,460
+Let's stress test them.
+
+133
+00:06:23,810 --> 00:06:27,140
+Suppose Pine Hill's richest family has an amazing year.
+
+134
+00:06:27,490 --> 00:06:31,022
+Their income jumps from two hundred thirty thousand to two point
+
+135
+00:06:31,022 --> 00:06:33,110
+three million. Ten times more.
+
+136
+00:06:33,460 --> 00:06:35,760
+Nobody else's income changes at all.
+
+137
+00:06:36,110 --> 00:06:38,561
+The new total is two thousand six hundred ten.
+
+138
+00:06:38,561 --> 00:06:42,128
+Divided by nine, the mean becomes two hundred ninety thousand
+
+139
+00:06:42,128 --> 00:06:42,720
+dollars.
+
+140
+00:06:43,720 --> 00:06:47,635
+According to the mean, the typical family is now almost five
+
+141
+00:06:47,635 --> 00:06:51,360
+times richer. Yet not one of the other eight got a raise.
+
+142
+00:06:52,860 --> 00:06:57,320
+And the median? Sort, cross off, and the middle is still forty.
+
+143
+00:06:58,820 --> 00:07:02,284
+The median doesn't care how far away an extreme value is,
+
+144
+00:07:02,284 --> 00:07:04,590
+only which side of the middle it's on.
+
+145
+00:07:04,940 --> 00:07:08,160
+Values that sit far away from the rest are called outliers.
+
+146
+00:07:08,510 --> 00:07:10,647
+The mean gets dragged toward outliers.
+
+147
+00:07:10,647 --> 00:07:12,783
+The median hardly notices them.
+
+148
+00:07:12,783 --> 00:07:14,920
+Statisticians call that being robust.
+
+149
+00:07:15,920 --> 00:07:17,489
+But being robust has a cost.
+
+150
+00:07:17,489 --> 00:07:19,829
+Let's go back to two hundred thirty thousand,
+
+151
+00:07:19,829 --> 00:07:22,939
+and this time, the poorest family's income falls from thirty
+
+152
+00:07:22,939 --> 00:07:23,930
+thousand to ten.
+
+153
+00:07:24,280 --> 00:07:26,025
+Their life just got much harder.
+
+154
+00:07:26,025 --> 00:07:29,080
+The mean dips, to about fifty-seven point eight.
+
+155
+00:07:29,430 --> 00:07:31,075
+The median stays at forty.
+
+156
+00:07:31,075 --> 00:07:32,720
+It doesn't see the change at all.
+
+157
+00:07:34,220 --> 00:07:37,630
+The median ignores how far values are from the middle.
+
+158
+00:07:37,630 --> 00:07:39,977
+The mean uses every bit of that.
+
+159
+00:07:39,977 --> 00:07:41,260
+Each choice has a cost.
+
+160
+00:07:42,260 --> 00:07:45,590
+Now let's put everything back as it was, and step back to look
+
+161
+00:07:45,590 --> 00:07:47,170
+at the shape of the data.
+
+162
+00:07:47,520 --> 00:07:50,807
+Maple's incomes are spread evenly around the middle.
+
+163
+00:07:50,807 --> 00:07:53,480
+The left side is a mirror image of the right.
+
+164
+00:07:53,830 --> 00:07:55,185
+We call that symmetric.
+
+165
+00:07:55,185 --> 00:07:58,621
+And for symmetric data, the mean and the median land in the same
+
+166
+00:07:58,621 --> 00:07:59,030
+spot.
+
+167
+00:08:00,030 --> 00:08:02,940
+Pine Hill is lopsided: a crowd on the left,
+
+168
+00:08:02,940 --> 00:08:05,850
+and a long, thin tail stretching off to the right.
+
+169
+00:08:06,200 --> 00:08:07,593
+That's called right-skewed.
+
+170
+00:08:07,593 --> 00:08:11,137
+And in right-skewed data, the mean usually gets pulled toward
+
+171
+00:08:11,137 --> 00:08:12,750
+the tail, past the median.
+
+172
+00:08:13,750 --> 00:08:17,753
+Flip it, with the tail on the left, and the mean usually lands
+
+173
+00:08:17,753 --> 00:08:19,160
+below the median.
+
+174
+00:08:19,510 --> 00:08:22,560
+So here's a handy warning light: if the mean is much bigger than
+
+175
+00:08:22,560 --> 00:08:25,830
+the median, a few large values are probably pulling it up.
+
+176
+00:08:26,830 --> 00:08:29,607
+One honest caveat: this is a rule of thumb,
+
+177
+00:08:29,607 --> 00:08:32,798
+not a law. With oddly shaped data, it can fail.
+
+178
+00:08:32,798 --> 00:08:35,160
+So always look at the actual values too.
+
+179
+00:08:36,160 --> 00:08:38,005
+So which average should you use?
+
+180
+00:08:38,005 --> 00:08:40,030
+It depends on the question you're asking.
+
+181
+00:08:40,380 --> 00:08:42,820
+If your question is about totals, use the mean.
+
+182
+00:08:43,170 --> 00:08:46,225
+Say Pine Hill's town council wants to plan a budget from a two
+
+183
+00:08:46,225 --> 00:08:47,870
+percent local income tax.
+
+184
+00:08:48,220 --> 00:08:52,109
+Total income is the mean times the number of households.
+
+185
+00:08:52,109 --> 00:08:55,310
+Sixty times nine is five hundred forty thousand.
+
+186
+00:08:55,660 --> 00:08:58,304
+Two percent of that is ten thousand eight hundred dollars a
+
+187
+00:08:58,304 --> 00:08:58,700
+year.
+
+188
+00:08:59,050 --> 00:09:03,530
+And the richest family alone pays more than forty percent of it.
+
+189
+00:09:03,530 --> 00:09:05,880
+The council needs that outlier counted.
+
+190
+00:09:06,880 --> 00:09:08,336
+The median can't do this.
+
+191
+00:09:08,336 --> 00:09:12,056
+Forty times nine is three hundred sixty, which misses a third of
+
+192
+00:09:12,056 --> 00:09:13,100
+the real total.
+
+193
+00:09:14,100 --> 00:09:17,447
+But if your question is, what's life like for a typical family
+
+194
+00:09:17,447 --> 00:09:18,990
+here, use the median.
+
+195
+00:09:19,340 --> 00:09:22,683
+If you move to Pine Hill, forty thousand is a far better guess
+
+196
+00:09:22,683 --> 00:09:24,660
+for your neighbours' income than sixty.
+
+197
+00:09:25,660 --> 00:09:28,400
+And the mean and the median aren't the only options.
+
+198
+00:09:28,750 --> 00:09:31,781
+There's the mode, the value that appears most often.
+
+199
+00:09:31,781 --> 00:09:35,460
+But no income in Pine Hill repeats, so here there isn't one.
+
+200
+00:09:35,810 --> 00:09:39,332
+There's also the trimmed mean: drop the most extreme values at
+
+201
+00:09:39,332 --> 00:09:41,630
+each end, then take the mean of what's left.
+
+202
+00:09:41,980 --> 00:09:45,020
+Trim one from each end of Pine Hill, and the remaining seven add
+
+203
+00:09:45,020 --> 00:09:46,401
+up to two hundred eighty.
+
+204
+00:09:46,401 --> 00:09:48,500
+Divide by seven, and you get forty.
+
+205
+00:09:49,500 --> 00:09:52,169
+Here it happens to match the median exactly.
+
+206
+00:09:52,169 --> 00:09:56,282
+In general, a trimmed mean sits somewhere between the two ideas:
+
+207
+00:09:56,282 --> 00:10:00,600
+it uses most of the values, but one extreme one can't hijack it.
+
+208
+00:10:00,950 --> 00:10:04,152
+And when in doubt, report both the mean and the median.
+
+209
+00:10:04,152 --> 00:10:06,710
+The gap between them tells you something too.
+
+210
+00:10:07,710 --> 00:10:10,243
+This choice shows up everywhere data is used.
+
+211
+00:10:10,243 --> 00:10:11,530
+Let's visit four places.
+
+212
+00:10:11,880 --> 00:10:13,140
+First, money.
+
+213
+00:10:13,490 --> 00:10:16,969
+Incomes and house prices usually have a long right tail,
+
+214
+00:10:16,969 --> 00:10:20,016
+just like Pine Hill: lots of ordinary values,
+
+215
+00:10:20,016 --> 00:10:21,540
+and a few huge ones.
+
+216
+00:10:21,890 --> 00:10:25,333
+That's why the U.S. Census Bureau headlines median household
+
+217
+00:10:25,333 --> 00:10:26,780
+income, not the mean.
+
+218
+00:10:27,130 --> 00:10:30,950
+And why housing reports usually quote the median sale price.
+
+219
+00:10:31,300 --> 00:10:34,498
+If a company advertises its average salary,
+
+220
+00:10:34,498 --> 00:10:36,393
+ask whether the boss's pay is in there.
+
+221
+00:10:36,393 --> 00:10:39,592
+One huge salary can lift the mean, just like Pine Hill's richest
+
+222
+00:10:39,592 --> 00:10:40,370
+family.
+
+223
+00:10:41,370 --> 00:10:43,104
+Next, computer science.
+
+224
+00:10:43,104 --> 00:10:46,690
+Think about how long a website takes to respond.
+
+225
+00:10:47,040 --> 00:10:50,647
+Most requests are quick, but now and then one gets stuck and
+
+226
+00:10:50,647 --> 00:10:51,770
+takes ages.
+
+227
+00:10:52,120 --> 00:10:53,977
+It's the Pine Hill pattern again.
+
+228
+00:10:53,977 --> 00:10:57,677
+A few slow requests drag the mean up, so it no longer describes
+
+229
+00:10:57,677 --> 00:10:58,920
+a normal visit.
+
+230
+00:10:59,270 --> 00:11:03,050
+So engineers track the median, which they call p fifty,
+
+231
+00:11:03,050 --> 00:11:07,307
+alongside the slow tail, such as p ninety-nine: the time that
+
+232
+00:11:07,307 --> 00:11:10,390
+ninety-nine percent of requests beat or match.
+
+233
+00:11:11,390 --> 00:11:14,462
+In data science, one of the first jobs with new data is cleaning
+
+234
+00:11:14,462 --> 00:11:14,850
+it.
+
+235
+00:11:15,200 --> 00:11:18,790
+Suppose the richest family's income was typed with one extra
+
+236
+00:11:18,790 --> 00:11:22,001
+zero: two point three million instead of two hundred thirty
+
+237
+00:11:22,001 --> 00:11:22,620
+thousand.
+
+238
+00:11:22,970 --> 00:11:26,797
+As we saw, that one typo drags the mean to two hundred ninety
+
+239
+00:11:26,797 --> 00:11:28,640
+thousand. The median doesn't flinch.
+
+240
+00:11:29,640 --> 00:11:32,782
+So data scientists compare the mean and median as a quick check
+
+241
+00:11:32,782 --> 00:11:34,180
+for typos and outliers.
+
+242
+00:11:34,180 --> 00:11:37,149
+And when filling in missing values in skewed data,
+
+243
+00:11:37,149 --> 00:11:38,940
+they often use the median.
+
+244
+00:11:39,290 --> 00:11:41,112
+Finally, machine learning.
+
+245
+00:11:41,112 --> 00:11:44,710
+Here, the choice hides inside something called a loss function.
+
+246
+00:11:45,060 --> 00:11:48,461
+Imagine a model that must make one single guess for every Pine
+
+247
+00:11:48,461 --> 00:11:50,790
+Hill family's income. What's the best guess?
+
+248
+00:11:51,140 --> 00:11:53,270
+It depends on how you score the mistakes.
+
+249
+00:11:53,620 --> 00:11:57,460
+Score one: add up how far off the guess is for each family.
+
+250
+00:11:57,460 --> 00:11:59,380
+That's called absolute error.
+
+251
+00:11:59,730 --> 00:12:03,227
+Slide the guess along, and the total distance is smallest at
+
+252
+00:12:03,227 --> 00:12:04,760
+forty. The median.
+
+253
+00:12:05,760 --> 00:12:08,479
+Score two: square each distance before adding,
+
+254
+00:12:08,479 --> 00:12:10,295
+so big misses count extra.
+
+255
+00:12:10,295 --> 00:12:12,110
+That's called squared error.
+
+256
+00:12:12,460 --> 00:12:14,788
+Now the best guess is sixty.
+
+257
+00:12:14,788 --> 00:12:15,610
+The mean.
+
+258
+00:12:16,610 --> 00:12:19,389
+This works for any data, not just Pine Hill.
+
+259
+00:12:19,389 --> 00:12:22,161
+Minimising squared error lands on the mean.
+
+260
+00:12:22,161 --> 00:12:25,358
+Minimising absolute error lands on the median,
+
+261
+00:12:25,358 --> 00:12:29,200
+or with an even count, anywhere between the two middle values.
+
+262
+00:12:30,700 --> 00:12:33,978
+So when someone trains a model with mean squared error or mean
+
+263
+00:12:33,978 --> 00:12:37,680
+absolute error, they're choosing whether it aims for a mean or a
+
+264
+00:12:37,680 --> 00:12:38,310
+median.
+
+265
+00:12:38,660 --> 00:12:40,985
+Squared error chases outliers.
+
+266
+00:12:40,985 --> 00:12:43,311
+Absolute error shrugs them off.
+
+267
+00:12:43,311 --> 00:12:45,330
+Same trade-off, new setting.
+
+268
+00:12:46,330 --> 00:12:48,950
+Before we wrap up, here are the three most common mistakes
+
+269
+00:12:48,950 --> 00:12:50,220
+people make with averages.
+
+270
+00:12:50,570 --> 00:12:53,420
+Mistake one: taking the middle without sorting first.
+
+271
+00:12:53,770 --> 00:12:58,461
+Here are Pine Hill's incomes in the order the houses sit on the
+
+272
+00:12:58,461 --> 00:13:02,469
+street: forty-two, two hundred thirty, thirty-five,
+
+273
+00:13:02,469 --> 00:13:06,216
+forty-eight, thirty, forty-five, thirty-eight,
+
+274
+00:13:06,216 --> 00:13:08,220
+thirty-two, and forty.
+
+275
+00:13:08,570 --> 00:13:10,467
+The middle of that list is thirty.
+
+276
+00:13:10,467 --> 00:13:13,620
+That's not the median. It's just whoever lives in the middle
+
+277
+00:13:13,620 --> 00:13:14,050
+house.
+
+278
+00:13:15,050 --> 00:13:18,760
+Always sort first. Sorted, the middle is forty.
+
+279
+00:13:19,110 --> 00:13:22,270
+Mistake two: assuming half the people are above the average.
+
+280
+00:13:22,620 --> 00:13:24,986
+That's true for the median, by design.
+
+281
+00:13:24,986 --> 00:13:26,490
+It's not true for the mean.
+
+282
+00:13:26,840 --> 00:13:30,577
+In Pine Hill, only one family out of nine is above the mean.
+
+283
+00:13:30,577 --> 00:13:34,130
+So if you're below average there, you're in very good company.
+
+284
+00:13:35,130 --> 00:13:38,078
+Mistake three: deciding the median is always better,
+
+285
+00:13:38,078 --> 00:13:40,090
+and that outliers should just be deleted.
+
+286
+00:13:40,440 --> 00:13:42,238
+That rich family is real.
+
+287
+00:13:42,238 --> 00:13:46,065
+Their income is real money, and the town's tax budget depends on
+
+288
+00:13:46,065 --> 00:13:46,510
+it.
+
+289
+00:13:46,860 --> 00:13:50,528
+Remove a value only when you have evidence it's an error,
+
+290
+00:13:50,528 --> 00:13:54,632
+like that extra zero. Otherwise keep it, and choose the average
+
+291
+00:13:54,632 --> 00:13:55,930
+that fits your question.
+
+292
+00:13:56,930 --> 00:14:00,511
+And a bonus mistake: with an even count, picking one of the two
+
+293
+00:14:00,511 --> 00:14:03,000
+middle numbers instead of the halfway point between them.
+
+294
+00:14:03,350 --> 00:14:07,005
+Let's turn all of that into a recipe you can use on any set of
+
+295
+00:14:07,005 --> 00:14:07,610
+numbers.
+
+296
+00:14:07,960 --> 00:14:11,750
+Step one: sort the values, from smallest to largest.
+
+297
+00:14:12,100 --> 00:14:13,669
+Step two: find the mean.
+
+298
+00:14:13,669 --> 00:14:17,270
+Add them all up, and divide by how many there are.
+
+299
+00:14:17,620 --> 00:14:20,354
+Step three: find the median, the middle value.
+
+300
+00:14:20,354 --> 00:14:24,020
+With an even count, take the halfway point of the middle two.
+
+301
+00:14:24,370 --> 00:14:25,978
+Step four: compare them.
+
+302
+00:14:25,978 --> 00:14:29,922
+If they're close, the data is probably fairly balanced.
+
+303
+00:14:29,922 --> 00:14:34,100
+If the mean is much bigger, look for large values pulling it up.
+
+304
+00:14:34,450 --> 00:14:37,763
+Step five: match the average to your question.
+
+305
+00:14:37,763 --> 00:14:40,292
+Totals and fair shares: the mean.
+
+306
+00:14:40,292 --> 00:14:43,604
+A typical person or thing: the median.
+
+307
+00:14:43,604 --> 00:14:45,350
+Not sure? Report both.
+
+308
+00:14:46,850 --> 00:14:50,580
+For Pine Hill, the mean is sixty, and the median is forty.
+
+309
+00:14:50,580 --> 00:14:53,680
+Both are correct. They answer different questions.
+
+310
+00:14:54,680 --> 00:14:57,930
+An average only lies when you ask it the wrong question.
+
+311
+00:14:59,930 --> 00:15:01,410
+But here's a puzzle for next time.
+
+312
+00:15:01,760 --> 00:15:04,265
+Two towns can have the same mean and the same median,
+
+313
+00:15:04,265 --> 00:15:07,150
+and still be completely different places to live.
+
+314
+00:15:07,500 --> 00:15:11,178
+The missing piece is spread: how far values typically sit from
+
+315
+00:15:11,178 --> 00:15:11,830
+the middle.
+
+316
+00:15:12,180 --> 00:15:15,225
+Next time, we'll measure it with the standard deviation,
+
+317
+00:15:15,225 --> 00:15:17,650
+and see why it squares the distances first.
+
+318
+00:15:18,000 --> 00:15:18,970
+See you in the lab.
