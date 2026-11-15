@@ -1,0 +1,5 @@
+audio/*.wav
+audio/clips/
+audio/proc/
+build/
+media/

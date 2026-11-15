@@ -1,0 +1,2263 @@
+[
+ {
+  "id": "s001",
+  "text": "Imagine you're moving, and you've narrowed it down to two towns.",
+  "heard": "imagine you're moving to new mounted to two towns",
+  "diffs": [
+   [
+    "you've narrowed down",
+    "new mounted"
+   ]
+  ]
+ },
+ {
+  "id": "s002",
+  "text": "Maple, and Pine Hill.",
+  "heard": "maple and pine hill",
+  "diffs": []
+ },
+ {
+  "id": "s003",
+  "text": "You look up the numbers, and both towns report the same average household income.",
+  "heard": "you look up the numbers and elbows report the same average household income",
+  "diffs": [
+   [
+    "both towns",
+    "elbows"
+   ]
+  ]
+ },
+ {
+  "id": "s004",
+  "text": "Sixty thousand dollars a year.",
+  "heard": "sixty thousand dollars ear",
+  "diffs": [
+   [
+    "year",
+    "ear"
+   ]
+  ]
+ },
+ {
+  "id": "s005",
+  "text": "Same average. So, same kind of town, right?",
+  "heard": "same average so say i'm gonna don't know right",
+  "diffs": [
+   [
+    "same kind town",
+    "say i'm gonna don't know"
+   ]
+  ]
+ },
+ {
+  "id": "s006",
+  "text": "Let's actually meet the families.",
+  "heard": "but actually need the families",
+  "diffs": [
+   [
+    "let's",
+    "but"
+   ],
+   [
+    "meet",
+    "need"
+   ]
+  ]
+ },
+ {
+  "id": "s007",
+  "text": "Maple has nine households.",
+  "heard": "mabel has nine households",
+  "diffs": [
+   [
+    "maple",
+    "mabel"
+   ]
+  ]
+ },
+ {
+  "id": "s008",
+  "text": "Their incomes, in thousands of dollars, are fifty, fifty-two, fifty-five, fifty-eight, sixty, sixty-two, sixty-five, sixty-eight, and seventy.",
+  "heard": "they incomes in thousands of dollars are fifty fifty to fifty five fifty eight sixty sixty to sixty five sixty eight and seventy",
+  "diffs": [
+   [
+    "their",
+    "they"
+   ],
+   [
+    "two",
+    ""
+   ],
+   [
+    "two",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "s009",
+  "text": "Everyone is fairly close to sixty.",
+  "heard": "everyone is fairly close to sixty",
+  "diffs": []
+ },
+ {
+  "id": "s010",
+  "text": "Now Pine Hill. Also nine households.",
+  "heard": "now behind her you also nine households",
+  "diffs": [
+   [
+    "pine hill",
+    "behind her you"
+   ]
+  ]
+ },
+ {
+  "id": "s011",
+  "text": "Eight of them earn between thirty and forty-eight thousand.",
+  "heard": "it took them earn between thirty and forty eight thousand",
+  "diffs": [
+   [
+    "eight",
+    "took"
+   ]
+  ]
+ },
+ {
+  "id": "s012",
+  "text": "And one family earns two hundred thirty thousand dollars a year.",
+  "heard": "and one family earns two hundred thirty thousand dollars a year",
+  "diffs": []
+ },
+ {
+  "id": "s013",
+  "text": "Add it all up and divide, and yes, Pine Hill's average is also sixty.",
+  "heard": "added all up and divide mean yes i know the average is also sixty",
+  "diffs": [
+   [
+    "add",
+    "added"
+   ],
+   [
+    "",
+    "mean"
+   ],
+   [
+    "pine hill's",
+    "i know"
+   ]
+  ]
+ },
+ {
+  "id": "s014",
+  "text": "But look where the families actually are.",
+  "heard": "but look with the family's actually are",
+  "diffs": [
+   [
+    "where families",
+    "with family's"
+   ]
+  ]
+ },
+ {
+  "id": "s015",
+  "text": "Eight out of nine households earn less than the average.",
+  "heard": "in an nine households earn less than the average",
+  "diffs": [
+   [
+    "eight out",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "s016",
+  "text": "The average isn't technically wrong. But it describes a family that doesn't live there.",
+  "heard": "the average isn't technically wrong but it describes a family that doesn't live there",
+  "diffs": []
+ },
+ {
+  "id": "s017",
+  "text": "Today, we'll meet the two most common kinds of average: the mean, and the median.",
+  "heard": "today only did two most common cause of average the meaner than median",
+  "diffs": [
+   [
+    "we'll meet",
+    "only did"
+   ],
+   [
+    "kinds",
+    "cause"
+   ],
+   [
+    "mean",
+    "meaner than"
+   ]
+  ]
+ },
+ {
+  "id": "s018",
+  "text": "And learn how to tell which one is lying to you.",
+  "heard": "then market itself which one is lying to you",
+  "diffs": [
+   [
+    "learn how tell",
+    "then market itself"
+   ]
+  ]
+ },
+ {
+  "id": "s019",
+  "text": "This isn't just a puzzle about two made-up towns.",
+  "heard": "this isn't just the puzzle about two minutes towns",
+  "diffs": [
+   [
+    "made up",
+    "minutes"
+   ]
+  ]
+ },
+ {
+  "id": "s020",
+  "text": "Every week, you hear averages in the news.",
+  "heard": "every week you hear averages in the news",
+  "diffs": []
+ },
+ {
+  "id": "s021",
+  "text": "Average salary. Average house price. Average wait time at the hospital.",
+  "heard": "average salary average house price average wait time at the hospital",
+  "diffs": []
+ },
+ {
+  "id": "s022",
+  "text": "Each of those is one number standing in for thousands of people.",
+  "heard": "each of those is one number standing in for thousands of people",
+  "diffs": []
+ },
+ {
+  "id": "s023",
+  "text": "If it's the wrong kind of average, it can push you into a bad decision.",
+  "heard": "it is the wrong kind of average it to push you into a bad decision",
+  "diffs": [
+   [
+    "if",
+    ""
+   ],
+   [
+    "can",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "s024",
+  "text": "Like moving to Pine Hill expecting to earn what your neighbours earn.",
+  "heard": "let go into buying am expecting to burn which were neighbors are",
+  "diffs": [
+   [
+    "like moving pine hill",
+    "let go into buying am"
+   ],
+   [
+    "earn what your",
+    "burn which were"
+   ],
+   [
+    "earn",
+    "are"
+   ]
+  ]
+ },
+ {
+  "id": "s025",
+  "text": "Or opening a fancy restaurant there, counting on sixty-thousand-dollar customers who mostly aren't there.",
+  "heard": "or opening of fancy restaurant they're counting on sixty thousand dollar customers who mostly are there",
+  "diffs": [
+   [
+    "there",
+    "they're"
+   ],
+   [
+    "aren't",
+    "are"
+   ]
+  ]
+ },
+ {
+  "id": "s026",
+  "text": "The good news: telling the two averages apart takes a few minutes, and no fancy math.",
+  "heard": "the good news telling that to leverage is a part takes a few minutes and no fancy math",
+  "diffs": [
+   [
+    "two averages apart",
+    "leverage part"
+   ]
+  ]
+ },
+ {
+  "id": "s027",
+  "text": "Let's start with the one you already know: the mean.",
+  "heard": "that's thought with the one you already know that mean",
+  "diffs": [
+   [
+    "let's start",
+    "thought"
+   ]
+  ]
+ },
+ {
+  "id": "s028",
+  "text": "The mean is what most people call 'the average'.",
+  "heard": "to me is one more to go call the average",
+  "diffs": [
+   [
+    "mean what most people",
+    "me one more go"
+   ],
+   [
+    "'the average'",
+    "average"
+   ]
+  ]
+ },
+ {
+  "id": "s029",
+  "text": "To find it, add up all the values, then divide by how many there are.",
+  "heard": "to find it add up all the values then divide by how many there are",
+  "diffs": []
+ },
+ {
+  "id": "s030",
+  "text": "Let's do it for Pine Hill.",
+  "heard": "but still up for buying hill",
+  "diffs": [
+   [
+    "let's do",
+    "but still up"
+   ],
+   [
+    "pine",
+    "buying"
+   ]
+  ]
+ },
+ {
+  "id": "s031",
+  "text": "Thirty, plus thirty-two, plus thirty-five, and so on, all the way up to two hundred thirty.",
+  "heard": "thirty plus thirty two plus thirty five and so on all the way up to two hundred thirty",
+  "diffs": []
+ },
+ {
+  "id": "s032",
+  "text": "The total is five hundred forty.",
+  "heard": "the total is five hundred forty",
+  "diffs": []
+ },
+ {
+  "id": "s033",
+  "text": "There are nine households, so we divide by nine.",
+  "heard": "there are nine households so we divide by nine",
+  "diffs": []
+ },
+ {
+  "id": "s034",
+  "text": "Five hundred forty divided by nine is sixty.",
+  "heard": "five hundred forty divided by nine to sixty",
+  "diffs": []
+ },
+ {
+  "id": "s035",
+  "text": "In math books, you'll see this written as a formula. Let's decode it, one symbol at a time.",
+  "heard": "in math books you'll see this written as a formula let's be coated one so what time",
+  "diffs": [
+   [
+    "decode",
+    "be coated"
+   ],
+   [
+    "symbol at",
+    "so what"
+   ]
+  ]
+ },
+ {
+  "id": "s036",
+  "text": "The letter x stands for one value. Here, one household's income.",
+  "heard": "the letter at stands for one value here one household income",
+  "diffs": [
+   [
+    "x",
+    "at"
+   ],
+   [
+    "household's",
+    "household"
+   ]
+  ]
+ },
+ {
+  "id": "s037",
+  "text": "The small i underneath means 'which one'. x one is the first household, x two is the second, and so on.",
+  "heard": "the small hide underneath means which one x one is the first household x two is the second and so on",
+  "diffs": [
+   [
+    "i",
+    "hide"
+   ],
+   [
+    "'which one'",
+    "which one"
+   ]
+  ]
+ },
+ {
+  "id": "s038",
+  "text": "This big zigzag letter is the Greek capital sigma. It just means: add them all up.",
+  "heard": "this big zigzag let that is the greek capital signal it just means add them all up",
+  "diffs": [
+   [
+    "letter",
+    "let"
+   ],
+   [
+    "sigma",
+    "signal"
+   ]
+  ]
+ },
+ {
+  "id": "s039",
+  "text": "The letter n means how many values there are. For Pine Hill, n is nine.",
+  "heard": "the dead end means how many bodies there are four by neo end is nigh in",
+  "diffs": [
+   [
+    "letter n",
+    "dead end"
+   ],
+   [
+    "values",
+    "bodies"
+   ],
+   [
+    "for pine hill n nine",
+    "four by neo end nigh"
+   ]
+  ]
+ },
+ {
+  "id": "s040",
+  "text": "And the x with a bar on top, called x bar, is the name for the mean.",
+  "heard": "and the ex with the bar on top called ex bar is the name for the mean",
+  "diffs": []
+ },
+ {
+  "id": "s041",
+  "text": "So the whole formula says: add up every value, then divide by how many there are.",
+  "heard": "so the whole formula says out of every value then divide by how many there are",
+  "diffs": [
+   [
+    "add up",
+    "out"
+   ]
+  ]
+ },
+ {
+  "id": "s042",
+  "text": "But what is the mean, really? Here are two ways to picture it.",
+  "heard": "what is the main really care to waste the picture it",
+  "diffs": [
+   [
+    "but",
+    ""
+   ],
+   [
+    "mean",
+    "main"
+   ],
+   [
+    "here are two ways",
+    "care waste"
+   ]
+  ]
+ },
+ {
+  "id": "s043",
+  "text": "Picture one: fair shares.",
+  "heard": "big show one fair shares",
+  "diffs": [
+   [
+    "picture",
+    "big show"
+   ]
+  ]
+ },
+ {
+  "id": "s044",
+  "text": "Here are Pine Hill's nine incomes, as bars.",
+  "heard": "here are pioneers nine incomes as bars",
+  "diffs": [
+   [
+    "pine hill's",
+    "pioneers"
+   ]
+  ]
+ },
+ {
+  "id": "s045",
+  "text": "Imagine all nine families pour their income into one shared pot.",
+  "heard": "imagine online families for their income into one shared pot",
+  "diffs": [
+   [
+    "all nine",
+    "online"
+   ],
+   [
+    "pour",
+    "for"
+   ]
+  ]
+ },
+ {
+  "id": "s046",
+  "text": "Then the pot is shared out equally, so every family gets the same amount.",
+  "heard": "then the body showed up equally so every family gets the same amount",
+  "diffs": [
+   [
+    "pot shared out",
+    "body showed up"
+   ]
+  ]
+ },
+ {
+  "id": "s047",
+  "text": "Every bar ends up at exactly sixty. That's the mean.",
+  "heard": "every bar in tibet exactly sixty that's the main",
+  "diffs": [
+   [
+    "ends up at",
+    "tibet"
+   ],
+   [
+    "mean",
+    "main"
+   ]
+  ]
+ },
+ {
+  "id": "s048",
+  "text": "So the mean answers one question: if everything were shared out evenly, how much would each get?",
+  "heard": "so the main answered one question if everything were shared out evenly how much would each get",
+  "diffs": [
+   [
+    "mean answers",
+    "main answered"
+   ]
+  ]
+ },
+ {
+  "id": "s049",
+  "text": "Picture two: a balance beam.",
+  "heard": "it should to a balance being",
+  "diffs": [
+   [
+    "picture two",
+    "should"
+   ],
+   [
+    "beam",
+    "being"
+   ]
+  ]
+ },
+ {
+  "id": "s050",
+  "text": "Put each household on the line as an equal weight, sitting at its income.",
+  "heard": "put each household on the line as an equal weight sitting at its income",
+  "diffs": []
+ },
+ {
+  "id": "s051",
+  "text": "Where should the support go, so the beam balances perfectly?",
+  "heard": "where should the support go to the bean balances perfectly",
+  "diffs": [
+   [
+    "so beam",
+    "bean"
+   ]
+  ]
+ },
+ {
+  "id": "s052",
+  "text": "Try forty. The beam tips to the right, because that one family is so far out.",
+  "heard": "try forty the beam to to the right because no one family is so far out",
+  "diffs": [
+   [
+    "tips",
+    ""
+   ],
+   [
+    "",
+    "no"
+   ]
+  ]
+ },
+ {
+  "id": "s053",
+  "text": "Try sixty, and it balances.",
+  "heard": "try sixty and balances",
+  "diffs": []
+ },
+ {
+  "id": "s054",
+  "text": "Here's why. Measure how far each family is from sixty.",
+  "heard": "here's why measure all for his family is from sixty",
+  "diffs": [
+   [
+    "how far each",
+    "all for his"
+   ]
+  ]
+ },
+ {
+  "id": "s055",
+  "text": "The eight families on the left are thirty, twenty-eight, twenty-five, twenty-two, twenty, eighteen, fifteen, and twelve below.",
+  "heard": "the families on the left or thirty twenty eight twenty five twenty two twenty and eighteen fifteen and twelve below",
+  "diffs": [
+   [
+    "eight",
+    ""
+   ],
+   [
+    "are",
+    "or"
+   ]
+  ]
+ },
+ {
+  "id": "s056",
+  "text": "Together, that's one hundred seventy below.",
+  "heard": "together that's one hundred seventy below",
+  "diffs": []
+ },
+ {
+  "id": "s057",
+  "text": "And the one family on the right is one hundred seventy above.",
+  "heard": "and one for me on the right is one hundred seventy above",
+  "diffs": [
+   [
+    "family",
+    "for me"
+   ]
+  ]
+ },
+ {
+  "id": "s058",
+  "text": "The distances below and above cancel out exactly. That's what the mean always does.",
+  "heard": "the distance is below and above cancel out exactly that's what they mean always does",
+  "diffs": [
+   [
+    "distances",
+    "distance"
+   ],
+   [
+    "",
+    "they"
+   ]
+  ]
+ },
+ {
+  "id": "s059",
+  "text": "And notice: one family, far enough away, balances eight families all by itself.",
+  "heard": "and notice one family far enough away that this is the family's all by itself",
+  "diffs": [
+   [
+    "balances eight families",
+    "this family's"
+   ]
+  ]
+ },
+ {
+  "id": "s060",
+  "text": "That's the mean's big weakness. Every value pulls on it, and the farther away a value is, the harder it pulls.",
+  "heard": "that's the means big weakness every value pulls on it and the father way of value is the harder it pulls",
+  "diffs": [
+   [
+    "mean's",
+    "means"
+   ],
+   [
+    "farther away",
+    "father way"
+   ]
+  ]
+ },
+ {
+  "id": "s061",
+  "text": "Now, the second kind of average: the median.",
+  "heard": "now the second kind of average the median",
+  "diffs": []
+ },
+ {
+  "id": "s062",
+  "text": "The median is the middle value, once the values are in order.",
+  "heard": "the median is the middle value once the values are in order",
+  "diffs": []
+ },
+ {
+  "id": "s063",
+  "text": "Step one: sort. Line the incomes up from smallest to largest.",
+  "heard": "step one sword the guardian comes up from smallest to largest",
+  "diffs": [
+   [
+    "sort line incomes",
+    "sword guardian comes"
+   ]
+  ]
+ },
+ {
+  "id": "s064",
+  "text": "Thirty, thirty-two, thirty-five, thirty-eight, forty, forty-two, forty-five, forty-eight, two hundred thirty.",
+  "heard": "said the fed into thirty five thirty eight forty forty two forty five forty eight two hundred thirty",
+  "diffs": [
+   [
+    "thirty thirty two",
+    "said fed into"
+   ]
+  ]
+ },
+ {
+  "id": "s065",
+  "text": "Step two: find the middle. Cross one off each end, again and again, walking inward.",
+  "heard": "but so far into the middle cross one off each and again and again walking in order",
+  "diffs": [
+   [
+    "step two find",
+    "but so far into"
+   ],
+   [
+    "end",
+    ""
+   ],
+   [
+    "inward",
+    "order"
+   ]
+  ]
+ },
+ {
+  "id": "s066",
+  "text": "Thirty and two hundred thirty go. Then thirty-two and forty-eight. Then thirty-five and forty-five. Then thirty-eight and forty-two.",
+  "heard": "thirty and two hundred thirty go then thirty to forty eight and thirty five and forty five then thirty eight and forty two",
+  "diffs": [
+   [
+    "two",
+    ""
+   ],
+   [
+    "then",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "s067",
+  "text": "One value is left standing: forty.",
+  "heard": "one value is less spending forty",
+  "diffs": [
+   [
+    "left standing",
+    "less spending"
+   ]
+  ]
+ },
+ {
+  "id": "s068",
+  "text": "The median income in Pine Hill is forty thousand dollars.",
+  "heard": "the median income in pine hill is forty thousand dollars",
+  "diffs": []
+ },
+ {
+  "id": "s069",
+  "text": "Four families earn less, and four earn more. That's the median's promise: it splits the group in half.",
+  "heard": "for families and less than four or more that's the median to promise it splits the group and off",
+  "diffs": [
+   [
+    "",
+    "for families less than"
+   ],
+   [
+    "families earn less four earn",
+    "or"
+   ],
+   [
+    "median's",
+    "median"
+   ],
+   [
+    "half",
+    "off"
+   ]
+  ]
+ },
+ {
+  "id": "s070",
+  "text": "Compare that with the mean of sixty, where eight families were below and only one was above.",
+  "heard": "compare that with the mean of sixty one eight families were below i know you won was above",
+  "diffs": [
+   [
+    "where",
+    "one"
+   ],
+   [
+    "only one",
+    "i know you won"
+   ]
+  ]
+ },
+ {
+  "id": "s071",
+  "text": "In Maple, the middle value is sixty, exactly the same as its mean.",
+  "heard": "in may pull the middle value was sixty exactly the same as us mean",
+  "diffs": [
+   [
+    "maple",
+    "may pull"
+   ],
+   [
+    "",
+    "was"
+   ],
+   [
+    "its",
+    "us"
+   ]
+  ]
+ },
+ {
+  "id": "s072",
+  "text": "You'll also hear the median called the fiftieth percentile, or p fifty, because it sits halfway through the sorted list.",
+  "heard": "you also live in a game called the fiftieth percentile for p fifty because it's it's halfway to the sordid mess",
+  "diffs": [
+   [
+    "you'll",
+    "you"
+   ],
+   [
+    "hear median",
+    "live game"
+   ],
+   [
+    "or",
+    "for"
+   ],
+   [
+    "sits",
+    ""
+   ],
+   [
+    "through sorted list",
+    "sordid mess"
+   ]
+  ]
+ },
+ {
+  "id": "s073",
+  "text": "But what if there's an even number of values? Then there's no single middle.",
+  "heard": "what if there's an even number of bad years then is no single middle",
+  "diffs": [
+   [
+    "but",
+    ""
+   ],
+   [
+    "values",
+    "bad years"
+   ],
+   [
+    "there's",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "s074",
+  "text": "Say a new family moves to Pine Hill, earning fifty thousand.",
+  "heard": "say no family moves to buying halo earning fifty thousand",
+  "diffs": [
+   [
+    "new",
+    "no"
+   ],
+   [
+    "pine hill",
+    "buying halo"
+   ]
+  ]
+ },
+ {
+  "id": "s075",
+  "text": "Now there are ten households.",
+  "heard": "now there are ten households",
+  "diffs": []
+ },
+ {
+  "id": "s076",
+  "text": "Cross off from both ends again, and this time two values are left in the middle: forty and forty-two.",
+  "heard": "cross off from gold is again and this time to values i lived in the new forty and forty two",
+  "diffs": [
+   [
+    "both ends",
+    "gold"
+   ],
+   [
+    "two",
+    ""
+   ],
+   [
+    "are left middle",
+    "i lived new"
+   ]
+  ]
+ },
+ {
+  "id": "s077",
+  "text": "The rule: take the halfway point between them. Add the two, and divide by two.",
+  "heard": "the rule to die off with wood between them on that too and divide by two",
+  "diffs": [
+   [
+    "take halfway point",
+    "die off with wood"
+   ],
+   [
+    "add two",
+    "on too"
+   ]
+  ]
+ },
+ {
+  "id": "s078",
+  "text": "Forty plus forty-two is eighty-two. Half of that is forty-one.",
+  "heard": "forty plus forty two is a need to half of that is forty one",
+  "diffs": [
+   [
+    "eighty two",
+    "need"
+   ]
+  ]
+ },
+ {
+  "id": "s079",
+  "text": "So with ten families, the median is forty-one thousand.",
+  "heard": "so what ten families the median is forty one thousand",
+  "diffs": [
+   [
+    "with",
+    "what"
+   ]
+  ]
+ },
+ {
+  "id": "s080",
+  "text": "And the mean? Five hundred ninety, divided by ten, which is fifty-nine.",
+  "heard": "and the mean five and ninety the weather by ten which is fifty nine",
+  "diffs": [
+   [
+    "hundred",
+    ""
+   ],
+   [
+    "divided",
+    "weather"
+   ]
+  ]
+ },
+ {
+  "id": "s081",
+  "text": "For the rest of this video, let's go back to our original nine households.",
+  "heard": "for the rest of his video let's go back to our wish no nine households",
+  "diffs": [
+   [
+    "this",
+    "his"
+   ],
+   [
+    "original",
+    "wish no"
+   ]
+  ]
+ },
+ {
+  "id": "s082",
+  "text": "So which average is more trustworthy? Let's stress test them.",
+  "heard": "so which averages more trustworthy that stress test them",
+  "diffs": [
+   [
+    "average",
+    "averages"
+   ],
+   [
+    "let's",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "s083",
+  "text": "Suppose Pine Hill's richest family has an amazing year.",
+  "heard": "so boss pioneers which is family has an amazing year",
+  "diffs": [
+   [
+    "suppose pine hill's richest",
+    "so boss pioneers which"
+   ]
+  ]
+ },
+ {
+  "id": "s084",
+  "text": "Their income jumps from two hundred thirty thousand to two point three million. Ten times more.",
+  "heard": "their income gems from two hundred thirty thousand to two point three million ten times more",
+  "diffs": [
+   [
+    "jumps",
+    "gems"
+   ]
+  ]
+ },
+ {
+  "id": "s085",
+  "text": "Nobody else's income changes at all.",
+  "heard": "nobody else's income changes at all",
+  "diffs": []
+ },
+ {
+  "id": "s086",
+  "text": "The new total is two thousand six hundred ten. Divided by nine, the mean becomes two hundred ninety thousand dollars.",
+  "heard": "the new total is two thousand six hundred ten divided by nine the mean becomes two hundred ninety thousand dollars",
+  "diffs": []
+ },
+ {
+  "id": "s087",
+  "text": "According to the mean, the typical family is now almost five times richer. Yet not one of the other eight got a raise.",
+  "heard": "according to the mean the typical family is now almost five times richer yet to not one of the other day to goner res",
+  "diffs": [
+   [
+    "eight got raise",
+    "day goner res"
+   ]
+  ]
+ },
+ {
+  "id": "s088",
+  "text": "And the median? Sort, cross off, and the middle is still forty.",
+  "heard": "and the median sword to cross off and the middle is still forty",
+  "diffs": [
+   [
+    "sort",
+    "sword"
+   ]
+  ]
+ },
+ {
+  "id": "s089",
+  "text": "The median doesn't care how far away an extreme value is, only which side of the middle it's on.",
+  "heard": "the median doesn't care how far away in extreme value is all we would side of the middle it's on",
+  "diffs": [
+   [
+    "only which",
+    "all we would"
+   ]
+  ]
+ },
+ {
+  "id": "s090",
+  "text": "Values that sit far away from the rest are called outliers.",
+  "heard": "values this if our way from the rest are called out my ears",
+  "diffs": [
+   [
+    "sit far away",
+    "this if our way"
+   ],
+   [
+    "outliers",
+    "out my ears"
+   ]
+  ]
+ },
+ {
+  "id": "s091",
+  "text": "The mean gets dragged toward outliers. The median hardly notices them. Statisticians call that being robust.",
+  "heard": "the main gets dragged toward our myers the median hardly notice is the statisticians call that being robust",
+  "diffs": [
+   [
+    "mean",
+    "main"
+   ],
+   [
+    "outliers",
+    "our myers"
+   ],
+   [
+    "notices them",
+    "notice"
+   ]
+  ]
+ },
+ {
+  "id": "s092",
+  "text": "But being robust has a cost. Let's go back to two hundred thirty thousand, and this time, the poorest family's income falls from thirty thousand to ten.",
+  "heard": "but being robust has a cost let's go back to two hundred thirty thousand and this time the poorest families income falls from thirty thousand to ten",
+  "diffs": [
+   [
+    "family's",
+    "families"
+   ]
+  ]
+ },
+ {
+  "id": "s093",
+  "text": "Their life just got much harder. The mean dips, to about fifty-seven point eight.",
+  "heard": "they're left is god much harder than mean gets to about fifty seven point eight",
+  "diffs": [
+   [
+    "their life just got",
+    "they're left god"
+   ],
+   [
+    "",
+    "than"
+   ],
+   [
+    "dips",
+    "gets"
+   ]
+  ]
+ },
+ {
+  "id": "s094",
+  "text": "The median stays at forty. It doesn't see the change at all.",
+  "heard": "the media stays at forty it doesn't seem to change a ball",
+  "diffs": [
+   [
+    "median",
+    "media"
+   ],
+   [
+    "see",
+    "seem"
+   ],
+   [
+    "at all",
+    "ball"
+   ]
+  ]
+ },
+ {
+  "id": "s095",
+  "text": "The median ignores how far values are from the middle. The mean uses every bit of that. Each choice has a cost.",
+  "heard": "the median in most hall five ideas are from the middle the main use is every bit of that each choice has a cost",
+  "diffs": [
+   [
+    "ignores how far values",
+    "most hall five ideas"
+   ],
+   [
+    "mean uses",
+    "main use"
+   ]
+  ]
+ },
+ {
+  "id": "s096",
+  "text": "Now let's put everything back as it was, and step back to look at the shape of the data.",
+  "heard": "now let's put everything back as it was and step back to look at the shape of the data",
+  "diffs": []
+ },
+ {
+  "id": "s097",
+  "text": "Maple's incomes are spread evenly around the middle. The left side is a mirror image of the right.",
+  "heard": "maples income so spread evenly around the middle the left side is a mirror image of the right",
+  "diffs": [
+   [
+    "maple's incomes are",
+    "maples income so"
+   ]
+  ]
+ },
+ {
+  "id": "s098",
+  "text": "We call that symmetric. And for symmetric data, the mean and the median land in the same spot.",
+  "heard": "we call that's a metric enforce a letter day that the mean and median when in the same spot",
+  "diffs": [
+   [
+    "symmetric for symmetric data",
+    "metric enforce letter day"
+   ],
+   [
+    "land",
+    "when"
+   ]
+  ]
+ },
+ {
+  "id": "s099",
+  "text": "Pine Hill is lopsided: a crowd on the left, and a long, thin tail stretching off to the right.",
+  "heard": "hi new is lopsided a product been a long thin tail stretching off to the right to",
+  "diffs": [
+   [
+    "pine hill",
+    "hi new"
+   ],
+   [
+    "crowd on left",
+    "product been"
+   ]
+  ]
+ },
+ {
+  "id": "s100",
+  "text": "That's called right-skewed. And in right-skewed data, the mean usually gets pulled toward the tail, past the median.",
+  "heard": "that's cool right skewed and and rice que de dah dah mean usually gets pulled toward the tail past the median",
+  "diffs": [
+   [
+    "called",
+    "cool"
+   ],
+   [
+    "right skewed data",
+    "rice que de dah dah"
+   ]
+  ]
+ },
+ {
+  "id": "s101",
+  "text": "Flip it, with the tail on the left, and the mean usually lands below the median.",
+  "heard": "flip it would detail on the left and the mean usually amends below the median",
+  "diffs": [
+   [
+    "with tail",
+    "would detail"
+   ],
+   [
+    "lands",
+    "amends"
+   ]
+  ]
+ },
+ {
+  "id": "s102",
+  "text": "So here's a handy warning light: if the mean is much bigger than the median, a few large values are probably pulling it up.",
+  "heard": "so it is a handy warning light is the main is much bigger than the median a few large values are probably put it up",
+  "diffs": [
+   [
+    "here's",
+    ""
+   ],
+   [
+    "if mean",
+    "main"
+   ],
+   [
+    "pulling",
+    "put"
+   ]
+  ]
+ },
+ {
+  "id": "s103",
+  "text": "One honest caveat: this is a rule of thumb, not a law. With oddly shaped data, it can fail. So always look at the actual values too.",
+  "heard": "one honest to up to this is a rule of thumb normal with on the ship day that it can fail so always look at the actual values too",
+  "diffs": [
+   [
+    "caveat",
+    "up"
+   ],
+   [
+    "not law",
+    "normal"
+   ],
+   [
+    "oddly shaped data",
+    "on ship day"
+   ]
+  ]
+ },
+ {
+  "id": "s104",
+  "text": "So which average should you use? It depends on the question you're asking.",
+  "heard": "so which average should you use it depends on the question you're asking",
+  "diffs": []
+ },
+ {
+  "id": "s105",
+  "text": "If your question is about totals, use the mean.",
+  "heard": "if your question is about totals used to mean",
+  "diffs": [
+   [
+    "use",
+    "used"
+   ]
+  ]
+ },
+ {
+  "id": "s106",
+  "text": "Say Pine Hill's town council wants to plan a budget from a two percent local income tax.",
+  "heard": "said pioneers town council was the plan of budget from a two percent local income tax",
+  "diffs": [
+   [
+    "say pine hill's",
+    "said pioneers"
+   ],
+   [
+    "wants",
+    "was"
+   ]
+  ]
+ },
+ {
+  "id": "s107",
+  "text": "Total income is the mean times the number of households. Sixty times nine is five hundred forty thousand.",
+  "heard": "for low-income it is the mean time and the number of households sixty times nine is five hundred forty thousand",
+  "diffs": [
+   [
+    "total",
+    "for low"
+   ],
+   [
+    "times",
+    "time"
+   ]
+  ]
+ },
+ {
+  "id": "s108",
+  "text": "Two percent of that is ten thousand eight hundred dollars a year.",
+  "heard": "two percent of that is ten thousand eight hundred dollars a year",
+  "diffs": []
+ },
+ {
+  "id": "s109",
+  "text": "And the richest family alone pays more than forty percent of it. The council needs that outlier counted.",
+  "heard": "and every just i'm a i'm own pays more than forty percent of it the council own needs that all fly you're prone to it",
+  "diffs": [
+   [
+    "richest family alone",
+    "every just i'm i'm own"
+   ],
+   [
+    "",
+    "own"
+   ],
+   [
+    "outlier counted",
+    "all fly you're prone"
+   ]
+  ]
+ },
+ {
+  "id": "s110",
+  "text": "The median can't do this. Forty times nine is three hundred sixty, which misses a third of the real total.",
+  "heard": "the median can do this for exams nine is three hundred sixty which misses a third on the real total",
+  "diffs": [
+   [
+    "can't",
+    "can"
+   ],
+   [
+    "forty times",
+    "for exams"
+   ],
+   [
+    "",
+    "on"
+   ]
+  ]
+ },
+ {
+  "id": "s111",
+  "text": "But if your question is, what's life like for a typical family here, use the median.",
+  "heard": "but if your question is what's life like for a typical family here use the median",
+  "diffs": []
+ },
+ {
+  "id": "s112",
+  "text": "If you move to Pine Hill, forty thousand is a far better guess for your neighbours' income than sixty.",
+  "heard": "if you multiply know forty thousand is a far better guess we're neighbors income than sixty",
+  "diffs": [
+   [
+    "move pine hill",
+    "multiply know"
+   ],
+   [
+    "for your neighbours'",
+    "we're neighbours"
+   ]
+  ]
+ },
+ {
+  "id": "s113",
+  "text": "And the mean and the median aren't the only options.",
+  "heard": "and the mean and median are the only options",
+  "diffs": [
+   [
+    "aren't",
+    "are"
+   ]
+  ]
+ },
+ {
+  "id": "s114",
+  "text": "There's the mode, the value that appears most often. But no income in Pine Hill repeats, so here there isn't one.",
+  "heard": "is the mode the value of that appears most often but no income and when hill repeats so you there isn't one",
+  "diffs": [
+   [
+    "there's",
+    ""
+   ],
+   [
+    "pine",
+    "when"
+   ],
+   [
+    "here",
+    "you"
+   ]
+  ]
+ },
+ {
+  "id": "s115",
+  "text": "There's also the trimmed mean: drop the most extreme values at each end, then take the mean of what's left.",
+  "heard": "is also good friend mean drop the most extreme values of the junk then take the mena what's left",
+  "diffs": [
+   [
+    "there's",
+    ""
+   ],
+   [
+    "trimmed",
+    "good friend"
+   ],
+   [
+    "at each end",
+    "junk"
+   ],
+   [
+    "mean",
+    "mena"
+   ]
+  ]
+ },
+ {
+  "id": "s116",
+  "text": "Trim one from each end of Pine Hill, and the remaining seven add up to two hundred eighty. Divide by seven, and you get forty.",
+  "heard": "someone from the gen of pine help and the remaining seven add up to two hundred eighty two by by seven then you get forty",
+  "diffs": [
+   [
+    "trim one",
+    "someone"
+   ],
+   [
+    "each end",
+    "gen"
+   ],
+   [
+    "hill",
+    "help"
+   ],
+   [
+    "divide",
+    "two by"
+   ],
+   [
+    "",
+    "then"
+   ]
+  ]
+ },
+ {
+  "id": "s117",
+  "text": "Here it happens to match the median exactly. In general, a trimmed mean sits somewhere between the two ideas: it uses most of the values, but one extreme one can't hijack it.",
+  "heard": "here it happens the match the median exactly in general agenda mean it's it's somewhere between the two ideas that uses most of the values one extreme one can hijack it",
+  "diffs": [
+   [
+    "trimmed",
+    "agenda"
+   ],
+   [
+    "sits",
+    ""
+   ],
+   [
+    "but",
+    ""
+   ],
+   [
+    "can't",
+    "can"
+   ]
+  ]
+ },
+ {
+  "id": "s118",
+  "text": "And when in doubt, report both the mean and the median. The gap between them tells you something too.",
+  "heard": "there when in doubt report both the mean and median the gap between them tell you something too",
+  "diffs": [
+   [
+    "",
+    "there"
+   ],
+   [
+    "tells",
+    "tell"
+   ]
+  ]
+ },
+ {
+  "id": "s119",
+  "text": "This choice shows up everywhere data is used. Let's visit four places.",
+  "heard": "this shows shows up every word is used this visit for places",
+  "diffs": [
+   [
+    "choice",
+    "shows"
+   ],
+   [
+    "everywhere data",
+    "every word"
+   ],
+   [
+    "let's",
+    "this"
+   ],
+   [
+    "four",
+    "for"
+   ]
+  ]
+ },
+ {
+  "id": "s120",
+  "text": "First, money.",
+  "heard": "first the money",
+  "diffs": []
+ },
+ {
+  "id": "s121",
+  "text": "Incomes and house prices usually have a long right tail, just like Pine Hill: lots of ordinary values, and a few huge ones.",
+  "heard": "incomes and house prices usually have a long ride tail just like pie know lots of ordinary values and a few huge ones",
+  "diffs": [
+   [
+    "right",
+    "ride"
+   ],
+   [
+    "pine hill",
+    "pie know"
+   ]
+  ]
+ },
+ {
+  "id": "s122",
+  "text": "That's why the U.S. Census Bureau headlines median household income, not the mean.",
+  "heard": "that's why the us census bureau headlines median household income not demean",
+  "diffs": [
+   [
+    "u",
+    "us"
+   ],
+   [
+    "mean",
+    "demean"
+   ]
+  ]
+ },
+ {
+  "id": "s123",
+  "text": "And why housing reports usually quote the median sale price.",
+  "heard": "and why housing reports usually quote the median sale price",
+  "diffs": []
+ },
+ {
+  "id": "s124",
+  "text": "If a company advertises its average salary, ask whether the boss's pay is in there. One huge salary can lift the mean, just like Pine Hill's richest family.",
+  "heard": "if a company advertises it's average salary ask whether the bosses pay isn't there one huge salary can live the mean just like pine hills richest family",
+  "diffs": [
+   [
+    "its",
+    ""
+   ],
+   [
+    "boss's",
+    "bosses"
+   ],
+   [
+    "",
+    "isn't"
+   ],
+   [
+    "lift",
+    "live"
+   ],
+   [
+    "hill's",
+    "hills"
+   ]
+  ]
+ },
+ {
+  "id": "s125",
+  "text": "Next, computer science. Think about how long a website takes to respond.",
+  "heard": "next computer science think about how long the website takes to respond",
+  "diffs": []
+ },
+ {
+  "id": "s126",
+  "text": "Most requests are quick, but now and then one gets stuck and takes ages.",
+  "heard": "most requests are quick but now and then one gets dark and takes ages",
+  "diffs": [
+   [
+    "stuck",
+    "dark"
+   ]
+  ]
+ },
+ {
+  "id": "s127",
+  "text": "It's the Pine Hill pattern again. A few slow requests drag the mean up, so it no longer describes a normal visit.",
+  "heard": "it's the pineal pattern again a few slow request drag the mean op so no longer describes a normal visit",
+  "diffs": [
+   [
+    "pine hill",
+    "pineal"
+   ],
+   [
+    "requests",
+    "request"
+   ],
+   [
+    "up",
+    "op"
+   ]
+  ]
+ },
+ {
+  "id": "s128",
+  "text": "So engineers track the median, which they call p fifty, alongside the slow tail, such as p ninety-nine: the time that ninety-nine percent of requests beat or match.",
+  "heard": "so engineers shock the median which they call the fifty alongside the slow tail such as pineda nine the time that ninety nine percent of requests beat or match",
+  "diffs": [
+   [
+    "track",
+    "shock"
+   ],
+   [
+    "p",
+    ""
+   ],
+   [
+    "p ninety",
+    "pineda"
+   ]
+  ]
+ },
+ {
+  "id": "s129",
+  "text": "In data science, one of the first jobs with new data is cleaning it.",
+  "heard": "in data science one of the first jobs with new day that is cleaning it",
+  "diffs": [
+   [
+    "data",
+    "day"
+   ]
+  ]
+ },
+ {
+  "id": "s130",
+  "text": "Suppose the richest family's income was typed with one extra zero: two point three million instead of two hundred thirty thousand.",
+  "heard": "suppose the richest families income was tied with one extra zero two point three million is that of two and a dirty dozen",
+  "diffs": [
+   [
+    "family's",
+    "families"
+   ],
+   [
+    "typed",
+    "tied"
+   ],
+   [
+    "instead",
+    ""
+   ],
+   [
+    "hundred thirty thousand",
+    "dirty dozen"
+   ]
+  ]
+ },
+ {
+  "id": "s131",
+  "text": "As we saw, that one typo drags the mean to two hundred ninety thousand. The median doesn't flinch.",
+  "heard": "as we saw that one typo drives the means to two and a ninety thousand the median doesn't flinch",
+  "diffs": [
+   [
+    "drags mean",
+    "drives means"
+   ],
+   [
+    "hundred",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "s132",
+  "text": "So data scientists compare the mean and median as a quick check for typos and outliers. And when filling in missing values in skewed data, they often use the median.",
+  "heard": "so did the scientists compare the mean and median as a quick check for couples in our laps and when filling in missing values is skewed data they often use the media",
+  "diffs": [
+   [
+    "data",
+    "did"
+   ],
+   [
+    "typos outliers",
+    "couples our laps"
+   ],
+   [
+    "median",
+    "media"
+   ]
+  ]
+ },
+ {
+  "id": "s133",
+  "text": "Finally, machine learning. Here, the choice hides inside something called a loss function.",
+  "heard": "finally a machine learning hear the choice hides inside something called a loss function",
+  "diffs": [
+   [
+    "here",
+    "hear"
+   ]
+  ]
+ },
+ {
+  "id": "s134",
+  "text": "Imagine a model that must make one single guess for every Pine Hill family's income. What's the best guess?",
+  "heard": "imagine a model that must make one single guess for every pie know family's income was the best guess",
+  "diffs": [
+   [
+    "pine hill",
+    "pie know"
+   ],
+   [
+    "what's",
+    "was"
+   ]
+  ]
+ },
+ {
+  "id": "s135",
+  "text": "It depends on how you score the mistakes.",
+  "heard": "it depends on how you score the mistakes",
+  "diffs": []
+ },
+ {
+  "id": "s136",
+  "text": "Score one: add up how far off the guess is for each family. That's called absolute error.",
+  "heard": "school and add up how far off the guesses breach family that's called absolute air",
+  "diffs": [
+   [
+    "score one",
+    "school"
+   ],
+   [
+    "guess for each",
+    "guesses breach"
+   ],
+   [
+    "error",
+    "air"
+   ]
+  ]
+ },
+ {
+  "id": "s137",
+  "text": "Slide the guess along, and the total distance is smallest at forty. The median.",
+  "heard": "slide guess so long and the total distance is smallest that afforded the median",
+  "diffs": [
+   [
+    "along",
+    "so long"
+   ],
+   [
+    "at forty",
+    "afforded"
+   ]
+  ]
+ },
+ {
+  "id": "s138",
+  "text": "Score two: square each distance before adding, so big misses count extra. That's called squared error.",
+  "heard": "score to square teach distance before adding so big mrs coward extra that's cool swear there",
+  "diffs": [
+   [
+    "two",
+    ""
+   ],
+   [
+    "each",
+    "teach"
+   ],
+   [
+    "misses count",
+    "mrs coward"
+   ],
+   [
+    "called squared error",
+    "cool swear there"
+   ]
+  ]
+ },
+ {
+  "id": "s139",
+  "text": "Now the best guess is sixty. The mean.",
+  "heard": "now the best guess is sixty the mean",
+  "diffs": []
+ },
+ {
+  "id": "s140",
+  "text": "This works for any data, not just Pine Hill. Minimising squared error lands on the mean. Minimising absolute error lands on the median, or with an even count, anywhere between the two middle values.",
+  "heard": "this works for any data know just by nail minimizing square their lands on the mean minimizing absolute their lands on the median or within even count anywhere between the two little values",
+  "diffs": [
+   [
+    "not",
+    "know"
+   ],
+   [
+    "pine hill",
+    "by nail"
+   ],
+   [
+    "squared error",
+    "square their"
+   ],
+   [
+    "error",
+    "their"
+   ],
+   [
+    "with",
+    "within"
+   ],
+   [
+    "middle",
+    "little"
+   ]
+  ]
+ },
+ {
+  "id": "s141",
+  "text": "So when someone trains a model with mean squared error or mean absolute error, they're choosing whether it aims for a mean or a median.",
+  "heard": "so when someone trends a model would mean scored error or me an absolute terror that choosing whether it aims for mean or median",
+  "diffs": [
+   [
+    "trains",
+    "trends"
+   ],
+   [
+    "with",
+    "would"
+   ],
+   [
+    "squared",
+    "scored"
+   ],
+   [
+    "mean",
+    "me"
+   ],
+   [
+    "error they're",
+    "terror"
+   ]
+  ]
+ },
+ {
+  "id": "s142",
+  "text": "Squared error chases outliers. Absolute error shrugs them off. Same trade-off, new setting.",
+  "heard": "squirt eric chase is our wires absolute error shrug them off saying tradeoff new setting",
+  "diffs": [
+   [
+    "squared error chases outliers",
+    "squirt eric chase our wires"
+   ],
+   [
+    "shrugs",
+    "shrug"
+   ],
+   [
+    "same trade off",
+    "saying tradeoff"
+   ]
+  ]
+ },
+ {
+  "id": "s143",
+  "text": "Before we wrap up, here are the three most common mistakes people make with averages.",
+  "heard": "before about here are the three most common mistakes people make with averages",
+  "diffs": [
+   [
+    "we wrap up",
+    "about"
+   ]
+  ]
+ },
+ {
+  "id": "s144",
+  "text": "Mistake one: taking the middle without sorting first.",
+  "heard": "mistake want to do know without sorting first",
+  "diffs": [
+   [
+    "one taking middle",
+    "want do know"
+   ]
+  ]
+ },
+ {
+  "id": "s145",
+  "text": "Here are Pine Hill's incomes in the order the houses sit on the street: forty-two, two hundred thirty, thirty-five, forty-eight, thirty, forty-five, thirty-eight, thirty-two, and forty.",
+  "heard": "there are plenty hills game comes in the order that causes sit on the street forty two two hundred thirty thirty five forty eight thirty forty five thirty eight thirty two and forty",
+  "diffs": [
+   [
+    "here",
+    "there"
+   ],
+   [
+    "pine hill's incomes",
+    "plenty hills game comes"
+   ],
+   [
+    "houses",
+    "causes"
+   ]
+  ]
+ },
+ {
+  "id": "s146",
+  "text": "The middle of that list is thirty. That's not the median. It's just whoever lives in the middle house.",
+  "heard": "the middle of that list is thirty that's not the median is just whoever lives in the middle jobs",
+  "diffs": [
+   [
+    "house",
+    "jobs"
+   ]
+  ]
+ },
+ {
+  "id": "s147",
+  "text": "Always sort first. Sorted, the middle is forty.",
+  "heard": "always sort first sorted the middle was forty",
+  "diffs": [
+   [
+    "",
+    "was"
+   ]
+  ]
+ },
+ {
+  "id": "s148",
+  "text": "Mistake two: assuming half the people are above the average.",
+  "heard": "mistake to assume when half the people are above the average",
+  "diffs": [
+   [
+    "two assuming",
+    "assume when"
+   ]
+  ]
+ },
+ {
+  "id": "s149",
+  "text": "That's true for the median, by design. It's not true for the mean.",
+  "heard": "that's true for the media and by design it's not true for the moon",
+  "diffs": [
+   [
+    "median",
+    "media"
+   ],
+   [
+    "mean",
+    "moon"
+   ]
+  ]
+ },
+ {
+  "id": "s150",
+  "text": "In Pine Hill, only one family out of nine is above the mean. So if you're below average there, you're in very good company.",
+  "heard": "in by hello only won some money out of nine is above the mean so if you're below average day during very good company",
+  "diffs": [
+   [
+    "pine hill",
+    "by hello"
+   ],
+   [
+    "one family",
+    "won some money"
+   ],
+   [
+    "there you're",
+    "day during"
+   ]
+  ]
+ },
+ {
+  "id": "s151",
+  "text": "Mistake three: deciding the median is always better, and that outliers should just be deleted.",
+  "heard": "his victory deciding the median is always better than an outlier should just be deleted",
+  "diffs": [
+   [
+    "mistake three",
+    "his victory"
+   ],
+   [
+    "outliers",
+    "than outlier"
+   ]
+  ]
+ },
+ {
+  "id": "s152",
+  "text": "That rich family is real. Their income is real money, and the town's tax budget depends on it.",
+  "heard": "that rich family israel their income is real money in the town stacks budget depends on it",
+  "diffs": [
+   [
+    "real",
+    "israel"
+   ],
+   [
+    "town's tax",
+    "town stacks"
+   ]
+  ]
+ },
+ {
+  "id": "s153",
+  "text": "Remove a value only when you have evidence it's an error, like that extra zero. Otherwise keep it, and choose the average that fits your question.",
+  "heard": "removal about you or you when you have evidence it's an error like that extra zero otherwise keep it and choose the average that fits your question",
+  "diffs": [
+   [
+    "remove value only",
+    "removal about you or you"
+   ]
+  ]
+ },
+ {
+  "id": "s154",
+  "text": "And a bonus mistake: with an even count, picking one of the two middle numbers instead of the halfway point between them.",
+  "heard": "and a bonus mistake with an even count to get one of the two metal numbers instead of the halfway point between them",
+  "diffs": [
+   [
+    "picking",
+    "get"
+   ],
+   [
+    "middle",
+    "metal"
+   ]
+  ]
+ },
+ {
+  "id": "s155",
+  "text": "Let's turn all of that into a recipe you can use on any set of numbers.",
+  "heard": "western all of that into a recipe you can use on any set of numbers",
+  "diffs": [
+   [
+    "let's turn",
+    "western"
+   ]
+  ]
+ },
+ {
+  "id": "s156",
+  "text": "Step one: sort the values, from smallest to largest.",
+  "heard": "stop want so what the values from smallest to largest",
+  "diffs": [
+   [
+    "step one sort",
+    "stop want so what"
+   ]
+  ]
+ },
+ {
+  "id": "s157",
+  "text": "Step two: find the mean. Add them all up, and divide by how many there are.",
+  "heard": "stabbed to find the mean on the mod up and divide by how many there are",
+  "diffs": [
+   [
+    "step two",
+    "stabbed"
+   ],
+   [
+    "add them all",
+    "on mod"
+   ]
+  ]
+ },
+ {
+  "id": "s158",
+  "text": "Step three: find the median, the middle value. With an even count, take the halfway point of the middle two.",
+  "heard": "step three find the median them no value within even tell take the halfway point of the middle too",
+  "diffs": [
+   [
+    "middle",
+    "them no"
+   ],
+   [
+    "with",
+    "within"
+   ],
+   [
+    "count",
+    "tell"
+   ],
+   [
+    "two",
+    "too"
+   ]
+  ]
+ },
+ {
+  "id": "s159",
+  "text": "Step four: compare them. If they're close, the data is probably fairly balanced. If the mean is much bigger, look for large values pulling it up.",
+  "heard": "step four compare them with their close the day is probably fairly balanced with the mean is much bigger look for large values pulling up",
+  "diffs": [
+   [
+    "if they're",
+    "with their"
+   ],
+   [
+    "data",
+    "day"
+   ],
+   [
+    "if",
+    "with"
+   ]
+  ]
+ },
+ {
+  "id": "s160",
+  "text": "Step five: match the average to your question. Totals and fair shares: the mean. A typical person or thing: the median. Not sure? Report both.",
+  "heard": "step five match the average to your question sodas and fair shares the main a typical person of saying the median not sure the report both",
+  "diffs": [
+   [
+    "totals",
+    "sodas"
+   ],
+   [
+    "mean",
+    "main"
+   ],
+   [
+    "or thing",
+    "saying"
+   ]
+  ]
+ },
+ {
+  "id": "s161",
+  "text": "For Pine Hill, the mean is sixty, and the median is forty. Both are correct. They answer different questions.",
+  "heard": "four by a narrow the mean is sixty and the media news for the both are correct they s a different questions",
+  "diffs": [
+   [
+    "for pine hill",
+    "four by narrow"
+   ],
+   [
+    "median forty",
+    "media news for"
+   ],
+   [
+    "answer",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "s162",
+  "text": "An average only lies when you ask it the wrong question.",
+  "heard": "an average all realize when you asking the wrong question",
+  "diffs": [
+   [
+    "only lies",
+    "all realize"
+   ],
+   [
+    "ask",
+    "asking"
+   ]
+  ]
+ },
+ {
+  "id": "s163",
+  "text": "But here's a puzzle for next time.",
+  "heard": "but as the basel for next on",
+  "diffs": [
+   [
+    "here's puzzle",
+    "as basel"
+   ],
+   [
+    "time",
+    "on"
+   ]
+  ]
+ },
+ {
+  "id": "s164",
+  "text": "Two towns can have the same mean and the same median, and still be completely different places to live.",
+  "heard": "two it sounds can have the same mean and the same median as still be completely different places to live",
+  "diffs": [
+   [
+    "towns",
+    "sounds"
+   ],
+   [
+    "",
+    "as"
+   ]
+  ]
+ },
+ {
+  "id": "s165",
+  "text": "The missing piece is spread: how far values typically sit from the middle.",
+  "heard": "the missing piece is spread off our values typically said from the middle",
+  "diffs": [
+   [
+    "how far",
+    "off our"
+   ],
+   [
+    "sit",
+    "said"
+   ]
+  ]
+ },
+ {
+  "id": "s166",
+  "text": "Next time, we'll measure it with the standard deviation, and see why it squares the distances first.",
+  "heard": "next time will measure with the standard deviation and see white squares the distances first",
+  "diffs": [
+   [
+    "we'll",
+    "will"
+   ],
+   [
+    "why",
+    "white"
+   ]
+  ]
+ },
+ {
+  "id": "s167",
+  "text": "See you in the lab.",
+  "heard": "see you in the lab",
+  "diffs": []
+ }
+]

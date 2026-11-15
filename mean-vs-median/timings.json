@@ -1,0 +1,1174 @@
+{
+ "total": 922.47,
+ "segments": [
+  {
+   "id": "s001",
+   "chapter": "Two Towns",
+   "start": 0.6,
+   "end": 3.64,
+   "text": "Imagine you're moving, and you've narrowed it down to two towns."
+  },
+  {
+   "id": "s002",
+   "chapter": "Two Towns",
+   "start": 3.99,
+   "end": 5.73,
+   "text": "Maple, and Pine Hill."
+  },
+  {
+   "id": "s003",
+   "chapter": "Two Towns",
+   "start": 6.08,
+   "end": 10.44,
+   "text": "You look up the numbers, and both towns report the same average household income."
+  },
+  {
+   "id": "s004",
+   "chapter": "Two Towns",
+   "start": 10.79,
+   "end": 12.24,
+   "text": "Sixty thousand dollars a year."
+  },
+  {
+   "id": "s005",
+   "chapter": "Two Towns",
+   "start": 13.24,
+   "end": 16.08,
+   "text": "Same average. So, same kind of town, right?"
+  },
+  {
+   "id": "s006",
+   "chapter": "Two Towns",
+   "start": 16.43,
+   "end": 18.19,
+   "text": "Let's actually meet the families."
+  },
+  {
+   "id": "s007",
+   "chapter": "Two Towns",
+   "start": 18.54,
+   "end": 19.92,
+   "text": "Maple has nine households."
+  },
+  {
+   "id": "s008",
+   "chapter": "Two Towns",
+   "start": 20.27,
+   "end": 32.71,
+   "text": "Their incomes, in thousands of dollars, are fifty, fifty-two, fifty-five, fifty-eight, sixty, sixty-two, sixty-five, sixty-eight, and seventy."
+  },
+  {
+   "id": "s009",
+   "chapter": "Two Towns",
+   "start": 33.06,
+   "end": 34.94,
+   "text": "Everyone is fairly close to sixty."
+  },
+  {
+   "id": "s010",
+   "chapter": "Two Towns",
+   "start": 35.94,
+   "end": 38.9,
+   "text": "Now Pine Hill. Also nine households."
+  },
+  {
+   "id": "s011",
+   "chapter": "Two Towns",
+   "start": 39.25,
+   "end": 42.45,
+   "text": "Eight of them earn between thirty and forty-eight thousand."
+  },
+  {
+   "id": "s012",
+   "chapter": "Two Towns",
+   "start": 42.8,
+   "end": 45.72,
+   "text": "And one family earns two hundred thirty thousand dollars a year."
+  },
+  {
+   "id": "s013",
+   "chapter": "Two Towns",
+   "start": 46.72,
+   "end": 50.38,
+   "text": "Add it all up and divide, and yes, Pine Hill's average is also sixty."
+  },
+  {
+   "id": "s014",
+   "chapter": "Two Towns",
+   "start": 50.73,
+   "end": 52.74,
+   "text": "But look where the families actually are."
+  },
+  {
+   "id": "s015",
+   "chapter": "Two Towns",
+   "start": 53.09,
+   "end": 55.51,
+   "text": "Eight out of nine households earn less than the average."
+  },
+  {
+   "id": "s016",
+   "chapter": "Two Towns",
+   "start": 57.01,
+   "end": 61.7,
+   "text": "The average isn't technically wrong. But it describes a family that doesn't live there."
+  },
+  {
+   "id": "s017",
+   "chapter": "Two Towns",
+   "start": 63.2,
+   "end": 68.13,
+   "text": "Today, we'll meet the two most common kinds of average: the mean, and the median."
+  },
+  {
+   "id": "s018",
+   "chapter": "Two Towns",
+   "start": 68.48,
+   "end": 71.62,
+   "text": "And learn how to tell which one is lying to you."
+  },
+  {
+   "id": "s019",
+   "chapter": "Why It Matters",
+   "start": 72.62,
+   "end": 75.06,
+   "text": "This isn't just a puzzle about two made-up towns."
+  },
+  {
+   "id": "s020",
+   "chapter": "Why It Matters",
+   "start": 75.41,
+   "end": 78.17,
+   "text": "Every week, you hear averages in the news."
+  },
+  {
+   "id": "s021",
+   "chapter": "Why It Matters",
+   "start": 78.52,
+   "end": 83.11,
+   "text": "Average salary. Average house price. Average wait time at the hospital."
+  },
+  {
+   "id": "s022",
+   "chapter": "Why It Matters",
+   "start": 83.46,
+   "end": 86.98,
+   "text": "Each of those is one number standing in for thousands of people."
+  },
+  {
+   "id": "s023",
+   "chapter": "Why It Matters",
+   "start": 87.33,
+   "end": 91.45,
+   "text": "If it's the wrong kind of average, it can push you into a bad decision."
+  },
+  {
+   "id": "s024",
+   "chapter": "Why It Matters",
+   "start": 91.8,
+   "end": 95.57,
+   "text": "Like moving to Pine Hill expecting to earn what your neighbours earn."
+  },
+  {
+   "id": "s025",
+   "chapter": "Why It Matters",
+   "start": 95.92,
+   "end": 101.16,
+   "text": "Or opening a fancy restaurant there, counting on sixty-thousand-dollar customers who mostly aren't there."
+  },
+  {
+   "id": "s026",
+   "chapter": "Why It Matters",
+   "start": 102.16,
+   "end": 107.83,
+   "text": "The good news: telling the two averages apart takes a few minutes, and no fancy math."
+  },
+  {
+   "id": "s027",
+   "chapter": "The Mean",
+   "start": 108.43,
+   "end": 111.17,
+   "text": "Let's start with the one you already know: the mean."
+  },
+  {
+   "id": "s028",
+   "chapter": "The Mean",
+   "start": 111.52,
+   "end": 114.06,
+   "text": "The mean is what most people call 'the average'."
+  },
+  {
+   "id": "s029",
+   "chapter": "The Mean",
+   "start": 114.41,
+   "end": 119.08,
+   "text": "To find it, add up all the values, then divide by how many there are."
+  },
+  {
+   "id": "s030",
+   "chapter": "The Mean",
+   "start": 119.43,
+   "end": 120.58,
+   "text": "Let's do it for Pine Hill."
+  },
+  {
+   "id": "s031",
+   "chapter": "The Mean",
+   "start": 120.93,
+   "end": 127.75,
+   "text": "Thirty, plus thirty-two, plus thirty-five, and so on, all the way up to two hundred thirty."
+  },
+  {
+   "id": "s032",
+   "chapter": "The Mean",
+   "start": 128.1,
+   "end": 129.75,
+   "text": "The total is five hundred forty."
+  },
+  {
+   "id": "s033",
+   "chapter": "The Mean",
+   "start": 130.35,
+   "end": 132.79,
+   "text": "There are nine households, so we divide by nine."
+  },
+  {
+   "id": "s034",
+   "chapter": "The Mean",
+   "start": 133.14,
+   "end": 135.44,
+   "text": "Five hundred forty divided by nine is sixty."
+  },
+  {
+   "id": "s035",
+   "chapter": "The Mean",
+   "start": 136.44,
+   "end": 142.13,
+   "text": "In math books, you'll see this written as a formula. Let's decode it, one symbol at a time."
+  },
+  {
+   "id": "s036",
+   "chapter": "The Mean",
+   "start": 142.48,
+   "end": 147.2,
+   "text": "The letter x stands for one value. Here, one household's income."
+  },
+  {
+   "id": "s037",
+   "chapter": "The Mean",
+   "start": 147.55,
+   "end": 154.67,
+   "text": "The small i underneath means 'which one'. x one is the first household, x two is the second, and so on."
+  },
+  {
+   "id": "s038",
+   "chapter": "The Mean",
+   "start": 155.02,
+   "end": 160.56,
+   "text": "This big zigzag letter is the Greek capital sigma. It just means: add them all up."
+  },
+  {
+   "id": "s039",
+   "chapter": "The Mean",
+   "start": 161.36,
+   "end": 166.58,
+   "text": "The letter n means how many values there are. For Pine Hill, n is nine."
+  },
+  {
+   "id": "s040",
+   "chapter": "The Mean",
+   "start": 166.93,
+   "end": 171.5,
+   "text": "And the x with a bar on top, called x bar, is the name for the mean."
+  },
+  {
+   "id": "s041",
+   "chapter": "The Mean",
+   "start": 171.85,
+   "end": 176.6,
+   "text": "So the whole formula says: add up every value, then divide by how many there are."
+  },
+  {
+   "id": "s042",
+   "chapter": "The Mean",
+   "start": 177.6,
+   "end": 181.31,
+   "text": "But what is the mean, really? Here are two ways to picture it."
+  },
+  {
+   "id": "s043",
+   "chapter": "The Mean",
+   "start": 181.66,
+   "end": 184.31,
+   "text": "Picture one: fair shares."
+  },
+  {
+   "id": "s044",
+   "chapter": "The Mean",
+   "start": 184.66,
+   "end": 187.24,
+   "text": "Here are Pine Hill's nine incomes, as bars."
+  },
+  {
+   "id": "s045",
+   "chapter": "The Mean",
+   "start": 187.59,
+   "end": 191.53,
+   "text": "Imagine all nine families pour their income into one shared pot."
+  },
+  {
+   "id": "s046",
+   "chapter": "The Mean",
+   "start": 191.88,
+   "end": 195.59,
+   "text": "Then the pot is shared out equally, so every family gets the same amount."
+  },
+  {
+   "id": "s047",
+   "chapter": "The Mean",
+   "start": 195.94,
+   "end": 198.91,
+   "text": "Every bar ends up at exactly sixty. That's the mean."
+  },
+  {
+   "id": "s048",
+   "chapter": "The Mean",
+   "start": 200.41,
+   "end": 205.74,
+   "text": "So the mean answers one question: if everything were shared out evenly, how much would each get?"
+  },
+  {
+   "id": "s049",
+   "chapter": "The Mean",
+   "start": 206.74,
+   "end": 209.06,
+   "text": "Picture two: a balance beam."
+  },
+  {
+   "id": "s050",
+   "chapter": "The Mean",
+   "start": 209.41,
+   "end": 213.39,
+   "text": "Put each household on the line as an equal weight, sitting at its income."
+  },
+  {
+   "id": "s051",
+   "chapter": "The Mean",
+   "start": 213.74,
+   "end": 216.94,
+   "text": "Where should the support go, so the beam balances perfectly?"
+  },
+  {
+   "id": "s052",
+   "chapter": "The Mean",
+   "start": 217.29,
+   "end": 222.59,
+   "text": "Try forty. The beam tips to the right, because that one family is so far out."
+  },
+  {
+   "id": "s053",
+   "chapter": "The Mean",
+   "start": 222.94,
+   "end": 225.02,
+   "text": "Try sixty, and it balances."
+  },
+  {
+   "id": "s054",
+   "chapter": "The Mean",
+   "start": 226.02,
+   "end": 229.49,
+   "text": "Here's why. Measure how far each family is from sixty."
+  },
+  {
+   "id": "s055",
+   "chapter": "The Mean",
+   "start": 229.84,
+   "end": 240.42,
+   "text": "The eight families on the left are thirty, twenty-eight, twenty-five, twenty-two, twenty, eighteen, fifteen, and twelve below."
+  },
+  {
+   "id": "s056",
+   "chapter": "The Mean",
+   "start": 240.77,
+   "end": 243.09,
+   "text": "Together, that's one hundred seventy below."
+  },
+  {
+   "id": "s057",
+   "chapter": "The Mean",
+   "start": 243.44,
+   "end": 247.01,
+   "text": "And the one family on the right is one hundred seventy above."
+  },
+  {
+   "id": "s058",
+   "chapter": "The Mean",
+   "start": 248.01,
+   "end": 252.78,
+   "text": "The distances below and above cancel out exactly. That's what the mean always does."
+  },
+  {
+   "id": "s059",
+   "chapter": "The Mean",
+   "start": 254.28,
+   "end": 259.73,
+   "text": "And notice: one family, far enough away, balances eight families all by itself."
+  },
+  {
+   "id": "s060",
+   "chapter": "The Mean",
+   "start": 261.23,
+   "end": 268.11,
+   "text": "That's the mean's big weakness. Every value pulls on it, and the farther away a value is, the harder it pulls."
+  },
+  {
+   "id": "s061",
+   "chapter": "The Median",
+   "start": 269.11,
+   "end": 271.7,
+   "text": "Now, the second kind of average: the median."
+  },
+  {
+   "id": "s062",
+   "chapter": "The Median",
+   "start": 272.05,
+   "end": 275.32,
+   "text": "The median is the middle value, once the values are in order."
+  },
+  {
+   "id": "s063",
+   "chapter": "The Median",
+   "start": 275.67,
+   "end": 279.72,
+   "text": "Step one: sort. Line the incomes up from smallest to largest."
+  },
+  {
+   "id": "s064",
+   "chapter": "The Median",
+   "start": 280.07,
+   "end": 289.88,
+   "text": "Thirty, thirty-two, thirty-five, thirty-eight, forty, forty-two, forty-five, forty-eight, two hundred thirty."
+  },
+  {
+   "id": "s065",
+   "chapter": "The Median",
+   "start": 290.23,
+   "end": 297.34,
+   "text": "Step two: find the middle. Cross one off each end, again and again, walking inward."
+  },
+  {
+   "id": "s066",
+   "chapter": "The Median",
+   "start": 297.69,
+   "end": 305.35,
+   "text": "Thirty and two hundred thirty go. Then thirty-two and forty-eight. Then thirty-five and forty-five. Then thirty-eight and forty-two."
+  },
+  {
+   "id": "s067",
+   "chapter": "The Median",
+   "start": 305.7,
+   "end": 308.24,
+   "text": "One value is left standing: forty."
+  },
+  {
+   "id": "s068",
+   "chapter": "The Median",
+   "start": 309.74,
+   "end": 312.93,
+   "text": "The median income in Pine Hill is forty thousand dollars."
+  },
+  {
+   "id": "s069",
+   "chapter": "The Median",
+   "start": 313.93,
+   "end": 320.31,
+   "text": "Four families earn less, and four earn more. That's the median's promise: it splits the group in half."
+  },
+  {
+   "id": "s070",
+   "chapter": "The Median",
+   "start": 321.31,
+   "end": 326.33,
+   "text": "Compare that with the mean of sixty, where eight families were below and only one was above."
+  },
+  {
+   "id": "s071",
+   "chapter": "The Median",
+   "start": 327.83,
+   "end": 332.32,
+   "text": "In Maple, the middle value is sixty, exactly the same as its mean."
+  },
+  {
+   "id": "s072",
+   "chapter": "The Median",
+   "start": 333.32,
+   "end": 340.03,
+   "text": "You'll also hear the median called the fiftieth percentile, or p fifty, because it sits halfway through the sorted list."
+  },
+  {
+   "id": "s073",
+   "chapter": "The Median",
+   "start": 340.38,
+   "end": 344.17,
+   "text": "But what if there's an even number of values? Then there's no single middle."
+  },
+  {
+   "id": "s074",
+   "chapter": "The Median",
+   "start": 344.52,
+   "end": 347.75,
+   "text": "Say a new family moves to Pine Hill, earning fifty thousand."
+  },
+  {
+   "id": "s075",
+   "chapter": "The Median",
+   "start": 348.1,
+   "end": 349.77,
+   "text": "Now there are ten households."
+  },
+  {
+   "id": "s076",
+   "chapter": "The Median",
+   "start": 350.12,
+   "end": 356.78,
+   "text": "Cross off from both ends again, and this time two values are left in the middle: forty and forty-two."
+  },
+  {
+   "id": "s077",
+   "chapter": "The Median",
+   "start": 357.13,
+   "end": 361.99,
+   "text": "The rule: take the halfway point between them. Add the two, and divide by two."
+  },
+  {
+   "id": "s078",
+   "chapter": "The Median",
+   "start": 362.34,
+   "end": 366.34,
+   "text": "Forty plus forty-two is eighty-two. Half of that is forty-one."
+  },
+  {
+   "id": "s079",
+   "chapter": "The Median",
+   "start": 367.34,
+   "end": 370.46,
+   "text": "So with ten families, the median is forty-one thousand."
+  },
+  {
+   "id": "s080",
+   "chapter": "The Median",
+   "start": 370.81,
+   "end": 375.13,
+   "text": "And the mean? Five hundred ninety, divided by ten, which is fifty-nine."
+  },
+  {
+   "id": "s081",
+   "chapter": "The Median",
+   "start": 375.73,
+   "end": 379.84,
+   "text": "For the rest of this video, let's go back to our original nine households."
+  },
+  {
+   "id": "s082",
+   "chapter": "Stress Test",
+   "start": 380.19,
+   "end": 383.46,
+   "text": "So which average is more trustworthy? Let's stress test them."
+  },
+  {
+   "id": "s083",
+   "chapter": "Stress Test",
+   "start": 383.81,
+   "end": 387.14,
+   "text": "Suppose Pine Hill's richest family has an amazing year."
+  },
+  {
+   "id": "s084",
+   "chapter": "Stress Test",
+   "start": 387.49,
+   "end": 393.11,
+   "text": "Their income jumps from two hundred thirty thousand to two point three million. Ten times more."
+  },
+  {
+   "id": "s085",
+   "chapter": "Stress Test",
+   "start": 393.46,
+   "end": 395.76,
+   "text": "Nobody else's income changes at all."
+  },
+  {
+   "id": "s086",
+   "chapter": "Stress Test",
+   "start": 396.11,
+   "end": 402.72,
+   "text": "The new total is two thousand six hundred ten. Divided by nine, the mean becomes two hundred ninety thousand dollars."
+  },
+  {
+   "id": "s087",
+   "chapter": "Stress Test",
+   "start": 403.72,
+   "end": 411.36,
+   "text": "According to the mean, the typical family is now almost five times richer. Yet not one of the other eight got a raise."
+  },
+  {
+   "id": "s088",
+   "chapter": "Stress Test",
+   "start": 412.86,
+   "end": 417.32,
+   "text": "And the median? Sort, cross off, and the middle is still forty."
+  },
+  {
+   "id": "s089",
+   "chapter": "Stress Test",
+   "start": 418.82,
+   "end": 424.59,
+   "text": "The median doesn't care how far away an extreme value is, only which side of the middle it's on."
+  },
+  {
+   "id": "s090",
+   "chapter": "Stress Test",
+   "start": 424.94,
+   "end": 428.16,
+   "text": "Values that sit far away from the rest are called outliers."
+  },
+  {
+   "id": "s091",
+   "chapter": "Stress Test",
+   "start": 428.51,
+   "end": 434.92,
+   "text": "The mean gets dragged toward outliers. The median hardly notices them. Statisticians call that being robust."
+  },
+  {
+   "id": "s092",
+   "chapter": "Stress Test",
+   "start": 435.92,
+   "end": 443.93,
+   "text": "But being robust has a cost. Let's go back to two hundred thirty thousand, and this time, the poorest family's income falls from thirty thousand to ten."
+  },
+  {
+   "id": "s093",
+   "chapter": "Stress Test",
+   "start": 444.28,
+   "end": 449.08,
+   "text": "Their life just got much harder. The mean dips, to about fifty-seven point eight."
+  },
+  {
+   "id": "s094",
+   "chapter": "Stress Test",
+   "start": 449.43,
+   "end": 452.72,
+   "text": "The median stays at forty. It doesn't see the change at all."
+  },
+  {
+   "id": "s095",
+   "chapter": "Stress Test",
+   "start": 454.22,
+   "end": 461.26,
+   "text": "The median ignores how far values are from the middle. The mean uses every bit of that. Each choice has a cost."
+  },
+  {
+   "id": "s096",
+   "chapter": "Stress Test",
+   "start": 462.26,
+   "end": 467.17,
+   "text": "Now let's put everything back as it was, and step back to look at the shape of the data."
+  },
+  {
+   "id": "s097",
+   "chapter": "Stress Test",
+   "start": 467.52,
+   "end": 473.48,
+   "text": "Maple's incomes are spread evenly around the middle. The left side is a mirror image of the right."
+  },
+  {
+   "id": "s098",
+   "chapter": "Stress Test",
+   "start": 473.83,
+   "end": 479.03,
+   "text": "We call that symmetric. And for symmetric data, the mean and the median land in the same spot."
+  },
+  {
+   "id": "s099",
+   "chapter": "Stress Test",
+   "start": 480.03,
+   "end": 485.85,
+   "text": "Pine Hill is lopsided: a crowd on the left, and a long, thin tail stretching off to the right."
+  },
+  {
+   "id": "s100",
+   "chapter": "Stress Test",
+   "start": 486.2,
+   "end": 492.75,
+   "text": "That's called right-skewed. And in right-skewed data, the mean usually gets pulled toward the tail, past the median."
+  },
+  {
+   "id": "s101",
+   "chapter": "Stress Test",
+   "start": 493.75,
+   "end": 499.16,
+   "text": "Flip it, with the tail on the left, and the mean usually lands below the median."
+  },
+  {
+   "id": "s102",
+   "chapter": "Stress Test",
+   "start": 499.51,
+   "end": 505.83,
+   "text": "So here's a handy warning light: if the mean is much bigger than the median, a few large values are probably pulling it up."
+  },
+  {
+   "id": "s103",
+   "chapter": "Stress Test",
+   "start": 506.83,
+   "end": 515.16,
+   "text": "One honest caveat: this is a rule of thumb, not a law. With oddly shaped data, it can fail. So always look at the actual values too."
+  },
+  {
+   "id": "s104",
+   "chapter": "Which One to Trust",
+   "start": 516.16,
+   "end": 520.03,
+   "text": "So which average should you use? It depends on the question you're asking."
+  },
+  {
+   "id": "s105",
+   "chapter": "Which One to Trust",
+   "start": 520.38,
+   "end": 522.82,
+   "text": "If your question is about totals, use the mean."
+  },
+  {
+   "id": "s106",
+   "chapter": "Which One to Trust",
+   "start": 523.17,
+   "end": 527.87,
+   "text": "Say Pine Hill's town council wants to plan a budget from a two percent local income tax."
+  },
+  {
+   "id": "s107",
+   "chapter": "Which One to Trust",
+   "start": 528.22,
+   "end": 535.31,
+   "text": "Total income is the mean times the number of households. Sixty times nine is five hundred forty thousand."
+  },
+  {
+   "id": "s108",
+   "chapter": "Which One to Trust",
+   "start": 535.66,
+   "end": 538.7,
+   "text": "Two percent of that is ten thousand eight hundred dollars a year."
+  },
+  {
+   "id": "s109",
+   "chapter": "Which One to Trust",
+   "start": 539.05,
+   "end": 545.88,
+   "text": "And the richest family alone pays more than forty percent of it. The council needs that outlier counted."
+  },
+  {
+   "id": "s110",
+   "chapter": "Which One to Trust",
+   "start": 546.88,
+   "end": 553.1,
+   "text": "The median can't do this. Forty times nine is three hundred sixty, which misses a third of the real total."
+  },
+  {
+   "id": "s111",
+   "chapter": "Which One to Trust",
+   "start": 554.1,
+   "end": 558.99,
+   "text": "But if your question is, what's life like for a typical family here, use the median."
+  },
+  {
+   "id": "s112",
+   "chapter": "Which One to Trust",
+   "start": 559.34,
+   "end": 564.66,
+   "text": "If you move to Pine Hill, forty thousand is a far better guess for your neighbours' income than sixty."
+  },
+  {
+   "id": "s113",
+   "chapter": "Which One to Trust",
+   "start": 565.66,
+   "end": 568.4,
+   "text": "And the mean and the median aren't the only options."
+  },
+  {
+   "id": "s114",
+   "chapter": "Which One to Trust",
+   "start": 568.75,
+   "end": 575.46,
+   "text": "There's the mode, the value that appears most often. But no income in Pine Hill repeats, so here there isn't one."
+  },
+  {
+   "id": "s115",
+   "chapter": "Which One to Trust",
+   "start": 575.81,
+   "end": 581.63,
+   "text": "There's also the trimmed mean: drop the most extreme values at each end, then take the mean of what's left."
+  },
+  {
+   "id": "s116",
+   "chapter": "Which One to Trust",
+   "start": 581.98,
+   "end": 588.5,
+   "text": "Trim one from each end of Pine Hill, and the remaining seven add up to two hundred eighty. Divide by seven, and you get forty."
+  },
+  {
+   "id": "s117",
+   "chapter": "Which One to Trust",
+   "start": 589.5,
+   "end": 600.6,
+   "text": "Here it happens to match the median exactly. In general, a trimmed mean sits somewhere between the two ideas: it uses most of the values, but one extreme one can't hijack it."
+  },
+  {
+   "id": "s118",
+   "chapter": "Which One to Trust",
+   "start": 600.95,
+   "end": 606.71,
+   "text": "And when in doubt, report both the mean and the median. The gap between them tells you something too."
+  },
+  {
+   "id": "s119",
+   "chapter": "Real World",
+   "start": 607.71,
+   "end": 611.53,
+   "text": "This choice shows up everywhere data is used. Let's visit four places."
+  },
+  {
+   "id": "s120",
+   "chapter": "Real World",
+   "start": 611.88,
+   "end": 613.14,
+   "text": "First, money."
+  },
+  {
+   "id": "s121",
+   "chapter": "Real World",
+   "start": 613.49,
+   "end": 621.54,
+   "text": "Incomes and house prices usually have a long right tail, just like Pine Hill: lots of ordinary values, and a few huge ones."
+  },
+  {
+   "id": "s122",
+   "chapter": "Real World",
+   "start": 621.89,
+   "end": 626.78,
+   "text": "That's why the U.S. Census Bureau headlines median household income, not the mean."
+  },
+  {
+   "id": "s123",
+   "chapter": "Real World",
+   "start": 627.13,
+   "end": 630.95,
+   "text": "And why housing reports usually quote the median sale price."
+  },
+  {
+   "id": "s124",
+   "chapter": "Real World",
+   "start": 631.3,
+   "end": 640.37,
+   "text": "If a company advertises its average salary, ask whether the boss's pay is in there. One huge salary can lift the mean, just like Pine Hill's richest family."
+  },
+  {
+   "id": "s125",
+   "chapter": "Real World",
+   "start": 641.37,
+   "end": 646.69,
+   "text": "Next, computer science. Think about how long a website takes to respond."
+  },
+  {
+   "id": "s126",
+   "chapter": "Real World",
+   "start": 647.04,
+   "end": 651.77,
+   "text": "Most requests are quick, but now and then one gets stuck and takes ages."
+  },
+  {
+   "id": "s127",
+   "chapter": "Real World",
+   "start": 652.12,
+   "end": 658.92,
+   "text": "It's the Pine Hill pattern again. A few slow requests drag the mean up, so it no longer describes a normal visit."
+  },
+  {
+   "id": "s128",
+   "chapter": "Real World",
+   "start": 659.27,
+   "end": 670.39,
+   "text": "So engineers track the median, which they call p fifty, alongside the slow tail, such as p ninety-nine: the time that ninety-nine percent of requests beat or match."
+  },
+  {
+   "id": "s129",
+   "chapter": "Real World",
+   "start": 671.39,
+   "end": 674.85,
+   "text": "In data science, one of the first jobs with new data is cleaning it."
+  },
+  {
+   "id": "s130",
+   "chapter": "Real World",
+   "start": 675.2,
+   "end": 682.62,
+   "text": "Suppose the richest family's income was typed with one extra zero: two point three million instead of two hundred thirty thousand."
+  },
+  {
+   "id": "s131",
+   "chapter": "Real World",
+   "start": 682.97,
+   "end": 688.64,
+   "text": "As we saw, that one typo drags the mean to two hundred ninety thousand. The median doesn't flinch."
+  },
+  {
+   "id": "s132",
+   "chapter": "Real World",
+   "start": 689.64,
+   "end": 698.94,
+   "text": "So data scientists compare the mean and median as a quick check for typos and outliers. And when filling in missing values in skewed data, they often use the median."
+  },
+  {
+   "id": "s133",
+   "chapter": "Real World",
+   "start": 699.29,
+   "end": 704.71,
+   "text": "Finally, machine learning. Here, the choice hides inside something called a loss function."
+  },
+  {
+   "id": "s134",
+   "chapter": "Real World",
+   "start": 705.06,
+   "end": 710.79,
+   "text": "Imagine a model that must make one single guess for every Pine Hill family's income. What's the best guess?"
+  },
+  {
+   "id": "s135",
+   "chapter": "Real World",
+   "start": 711.14,
+   "end": 713.27,
+   "text": "It depends on how you score the mistakes."
+  },
+  {
+   "id": "s136",
+   "chapter": "Real World",
+   "start": 713.62,
+   "end": 719.38,
+   "text": "Score one: add up how far off the guess is for each family. That's called absolute error."
+  },
+  {
+   "id": "s137",
+   "chapter": "Real World",
+   "start": 719.73,
+   "end": 724.76,
+   "text": "Slide the guess along, and the total distance is smallest at forty. The median."
+  },
+  {
+   "id": "s138",
+   "chapter": "Real World",
+   "start": 725.76,
+   "end": 732.11,
+   "text": "Score two: square each distance before adding, so big misses count extra. That's called squared error."
+  },
+  {
+   "id": "s139",
+   "chapter": "Real World",
+   "start": 732.46,
+   "end": 735.61,
+   "text": "Now the best guess is sixty. The mean."
+  },
+  {
+   "id": "s140",
+   "chapter": "Real World",
+   "start": 736.61,
+   "end": 749.2,
+   "text": "This works for any data, not just Pine Hill. Minimising squared error lands on the mean. Minimising absolute error lands on the median, or with an even count, anywhere between the two middle values."
+  },
+  {
+   "id": "s141",
+   "chapter": "Real World",
+   "start": 750.7,
+   "end": 758.31,
+   "text": "So when someone trains a model with mean squared error or mean absolute error, they're choosing whether it aims for a mean or a median."
+  },
+  {
+   "id": "s142",
+   "chapter": "Real World",
+   "start": 758.66,
+   "end": 765.33,
+   "text": "Squared error chases outliers. Absolute error shrugs them off. Same trade-off, new setting."
+  },
+  {
+   "id": "s143",
+   "chapter": "Common Mistakes",
+   "start": 766.33,
+   "end": 770.22,
+   "text": "Before we wrap up, here are the three most common mistakes people make with averages."
+  },
+  {
+   "id": "s144",
+   "chapter": "Common Mistakes",
+   "start": 770.57,
+   "end": 773.42,
+   "text": "Mistake one: taking the middle without sorting first."
+  },
+  {
+   "id": "s145",
+   "chapter": "Common Mistakes",
+   "start": 773.77,
+   "end": 788.22,
+   "text": "Here are Pine Hill's incomes in the order the houses sit on the street: forty-two, two hundred thirty, thirty-five, forty-eight, thirty, forty-five, thirty-eight, thirty-two, and forty."
+  },
+  {
+   "id": "s146",
+   "chapter": "Common Mistakes",
+   "start": 788.57,
+   "end": 794.05,
+   "text": "The middle of that list is thirty. That's not the median. It's just whoever lives in the middle house."
+  },
+  {
+   "id": "s147",
+   "chapter": "Common Mistakes",
+   "start": 795.05,
+   "end": 798.76,
+   "text": "Always sort first. Sorted, the middle is forty."
+  },
+  {
+   "id": "s148",
+   "chapter": "Common Mistakes",
+   "start": 799.11,
+   "end": 802.27,
+   "text": "Mistake two: assuming half the people are above the average."
+  },
+  {
+   "id": "s149",
+   "chapter": "Common Mistakes",
+   "start": 802.62,
+   "end": 806.49,
+   "text": "That's true for the median, by design. It's not true for the mean."
+  },
+  {
+   "id": "s150",
+   "chapter": "Common Mistakes",
+   "start": 806.84,
+   "end": 814.13,
+   "text": "In Pine Hill, only one family out of nine is above the mean. So if you're below average there, you're in very good company."
+  },
+  {
+   "id": "s151",
+   "chapter": "Common Mistakes",
+   "start": 815.13,
+   "end": 820.09,
+   "text": "Mistake three: deciding the median is always better, and that outliers should just be deleted."
+  },
+  {
+   "id": "s152",
+   "chapter": "Common Mistakes",
+   "start": 820.44,
+   "end": 826.51,
+   "text": "That rich family is real. Their income is real money, and the town's tax budget depends on it."
+  },
+  {
+   "id": "s153",
+   "chapter": "Common Mistakes",
+   "start": 826.86,
+   "end": 835.93,
+   "text": "Remove a value only when you have evidence it's an error, like that extra zero. Otherwise keep it, and choose the average that fits your question."
+  },
+  {
+   "id": "s154",
+   "chapter": "Common Mistakes",
+   "start": 836.93,
+   "end": 843.0,
+   "text": "And a bonus mistake: with an even count, picking one of the two middle numbers instead of the halfway point between them."
+  },
+  {
+   "id": "s155",
+   "chapter": "Recipe",
+   "start": 843.35,
+   "end": 847.61,
+   "text": "Let's turn all of that into a recipe you can use on any set of numbers."
+  },
+  {
+   "id": "s156",
+   "chapter": "Recipe",
+   "start": 847.96,
+   "end": 851.75,
+   "text": "Step one: sort the values, from smallest to largest."
+  },
+  {
+   "id": "s157",
+   "chapter": "Recipe",
+   "start": 852.1,
+   "end": 857.27,
+   "text": "Step two: find the mean. Add them all up, and divide by how many there are."
+  },
+  {
+   "id": "s158",
+   "chapter": "Recipe",
+   "start": 857.62,
+   "end": 864.02,
+   "text": "Step three: find the median, the middle value. With an even count, take the halfway point of the middle two."
+  },
+  {
+   "id": "s159",
+   "chapter": "Recipe",
+   "start": 864.37,
+   "end": 874.1,
+   "text": "Step four: compare them. If they're close, the data is probably fairly balanced. If the mean is much bigger, look for large values pulling it up."
+  },
+  {
+   "id": "s160",
+   "chapter": "Recipe",
+   "start": 874.45,
+   "end": 885.35,
+   "text": "Step five: match the average to your question. Totals and fair shares: the mean. A typical person or thing: the median. Not sure? Report both."
+  },
+  {
+   "id": "s161",
+   "chapter": "Recipe",
+   "start": 886.85,
+   "end": 893.68,
+   "text": "For Pine Hill, the mean is sixty, and the median is forty. Both are correct. They answer different questions."
+  },
+  {
+   "id": "s162",
+   "chapter": "Recipe",
+   "start": 894.68,
+   "end": 897.93,
+   "text": "An average only lies when you ask it the wrong question."
+  },
+  {
+   "id": "s163",
+   "chapter": "Next Time",
+   "start": 899.93,
+   "end": 901.41,
+   "text": "But here's a puzzle for next time."
+  },
+  {
+   "id": "s164",
+   "chapter": "Next Time",
+   "start": 901.76,
+   "end": 907.15,
+   "text": "Two towns can have the same mean and the same median, and still be completely different places to live."
+  },
+  {
+   "id": "s165",
+   "chapter": "Next Time",
+   "start": 907.5,
+   "end": 911.83,
+   "text": "The missing piece is spread: how far values typically sit from the middle."
+  },
+  {
+   "id": "s166",
+   "chapter": "Next Time",
+   "start": 912.18,
+   "end": 917.65,
+   "text": "Next time, we'll measure it with the standard deviation, and see why it squares the distances first."
+  },
+  {
+   "id": "s167",
+   "chapter": "Next Time",
+   "start": 918.0,
+   "end": 918.97,
+   "text": "See you in the lab."
+  }
+ ]
+}
