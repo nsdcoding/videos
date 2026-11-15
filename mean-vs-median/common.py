@@ -305,8 +305,10 @@ def xy_axes(x_range, y_range, x_len, y_len, x_label, y_label, x_labels=None, fon
     for v in np.arange(y_range[0], y_range[1] + 1e-9, y_range[2]):
         t = T(f"{v:g}", font_size, INK2).next_to(ax.c2p(x_range[0], v), LEFT, buff=0.14); t.qa_clip_ok = True
         labs.add(t)
-    xt = T(x_label, 24, MUTED).next_to(labs, DOWN, buff=0.08).align_to(ax.x_axis, RIGHT)
-    xt.next_to(ax.x_axis, DOWN, buff=0.5).align_to(ax.x_axis, RIGHT)
+    if x_label:
+        xt = T(x_label, 24, MUTED).next_to(ax.x_axis, DOWN, buff=0.5).align_to(ax.x_axis, RIGHT)
+    else:
+        xt = VGroup()
     yt = T(y_label, 24, MUTED).next_to(ax.y_axis, UP, buff=0.18).align_to(ax.y_axis, LEFT).shift(LEFT * 0.3)
     g = VGroup(ax, labs, xt, yt)
     g.ax, g.labs, g.xt, g.yt = ax, labs, xt, yt
