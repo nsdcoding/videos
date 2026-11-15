@@ -43,8 +43,9 @@ class S06Trust(Base):
         # ── s106 council + tax ──
         self.at("s106", 0.0)
         road = VGroup(stem, lft, rgt, q, sR)
-        self.play(FadeOut(road), sL[0].animate.set_opacity(0), run_time=0.3)
-        self.play(sL.animate.scale(0.6).to_corner(UR, buff=0.4).shift(UP * 0.5), run_time=0.5)
+        self.play(FadeOut(road), FadeOut(sL[0]), run_time=0.3)
+        sL.remove(sL[0])
+        self.play(sL.animate.scale(0.6).to_corner(UR, buff=0.4), run_time=0.5)
         hall = town_hall().move_to(LEFT * 4.6 + UP * 1.2)
         hl_ = T("Pine Hill council", 26, INK2).next_to(hall, DOWN, buff=0.2)
         tax = chip("2% income tax", AQUA, 32).next_to(hall, RIGHT, buff=0.6)
@@ -115,10 +116,10 @@ class S06Trust(Base):
         self.play(GrowFromEdge(b1, DOWN), FadeIn(l1), FadeIn(v1), run_time=0.6)
         self.until(word_time("s110", word_index("s110", "forty")))
         self.play(GrowFromEdge(b2, DOWN), FadeIn(l2), FadeIn(v2), run_time=0.6)
-        gap = DashedLine(ax.c2p(2, 360) + UP * 0.0, ax.c2p(2, 540), color=RED_, stroke_width=4)
-        top = DashedLine(ax.c2p(1.45, 540), ax.c2p(2.55, 540), color=RED_, stroke_width=2)
+        gap = DashedLine(ax.c2p(2.4, 360), ax.c2p(2.4, 540), color=RED_, stroke_width=4)
+        top = DashedLine(ax.c2p(1.45, 540), ax.c2p(2.5, 540), color=RED_, stroke_width=2)
         gl = VGroup(T("180 missing", 30, RED_, weight=BOLD), T("= one third", 28, RED_)).arrange(DOWN, buff=0.1)
-        gl.next_to(ax.c2p(2.6, 450), RIGHT, buff=0.2)
+        gl.next_to(ax.c2p(2.5, 450), RIGHT, buff=0.25)
         self.until(word_time("s110", word_index("s110", "misses")))
         self.play(Create(top), Create(gap), FadeIn(gl, shift=LEFT * 0.2), run_time=0.8)
         # ── s111 typical → median ──
@@ -128,7 +129,8 @@ class S06Trust(Base):
         self.play(FadeIn(sR2, shift=UP * 0.3), sL.animate.set_opacity(0.4), run_time=0.7)
         # ── s112 your neighbours ──
         self.at("s112", 0.0)
-        self.play(sR2[0].animate.set_opacity(0), run_time=0.2)
+        self.play(FadeOut(sR2[0]), run_time=0.2)
+        sR2.remove(sR2[0])
         self.play(sR2.animate.scale(0.6).next_to(sL, LEFT, buff=0.4).align_to(sL, DOWN), run_time=0.5)
         axp = money_axis(); axp.shift(DOWN * 0.6 - axp.axis.get_center()); L = axp.axis
         dots = dot_plot(PINE, L, [BLUE_] * 8 + [ORANGE_])

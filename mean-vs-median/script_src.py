@@ -13,9 +13,18 @@ import json, pathlib
 D = 0.35  # default pause between segments
 S = []
 
-def seg(chapter, text, visual, pause=D):
-    S.append(dict(id=f"s{len(S)+1:03d}", chapter=chapter, text=text,
-                  visual=visual, pause_after=pause))
+N = [0]  # auto-id counter; inserted segments use explicit ids so existing ids (and their audio) stay stable
+
+
+def seg(chapter, text, visual, pause=D, sid=None):
+    if sid is None:
+        N[0] += 1; sid = f"s{N[0]:03d}"
+    S.append(dict(id=sid, chapter=chapter, text=text, visual=visual, pause_after=pause))
+
+
+def skip():
+    """A retired segment: keep the numbering of later ids unchanged."""
+    N[0] += 1
 
 # ───────────────────────── 1. HOOK ─────────────────────────
 c = "Two Towns"
@@ -51,10 +60,20 @@ seg(c, "Eight out of nine households earn less than the average.",
     "Counter '8 of 9 below the average' builds dot by dot.", 1.5)
 seg(c, "The average isn't technically wrong. But it describes a family that doesn't live there.",
     "Dashed red box around the empty zone 49–229 near the marker: 'nobody lives near here'.", 1.5)
-seg(c, "Today, we'll meet the two most common kinds of average: the mean, and the median.",
-    "Title card: 'MEAN' (warn) vs 'MEDIAN' (violet) slide together.")
-seg(c, "And learn how to tell which one is lying to you.",
-    "Subtitle line types on: 'Which average is lying to you?'", 1.0)
+seg(c, "What tells these towns apart is comparing two kinds of average: the mean, and the median.",
+    "Title card: 'MEAN' (warn) vs 'MEDIAN' (violet) slide together; subtitle 'Which average is lying to you?'", 1.0)
+skip()  # s018 retired: replaced by the channel welcome + 'today you will learn' preview
+
+# ─────────── 1b. WELCOME (channel intro, same pattern as the Math Lab TV reference intro) ───────────
+c = "Welcome"
+seg(c, "Welcome to Math Lab TV. Where math is something you can see.",
+    "Logo (violet rounded square with a green bell curve) + MATH LAB TV + tagline 'where math is something you can see'.", 1.0, sid="s017a")
+seg(c, "Today you will learn exactly what the mean and the median are, and how each one is calculated.",
+    "Preview ① : x-bar formula morphs beside a sorted row whose middle tile glows violet.", sid="s017b")
+seg(c, "You will see why one rich family can make an average lie.",
+    "Preview ② : Pine Hill dot plot; the orange outlier drags the warn mean marker; median stays.", sid="s017c")
+seg(c, "And you will learn how to pick the right one, every time.",
+    "Preview ③ : the two signposts TOTALS → mean / TYPICAL → median.", 1.0, sid="s017d")
 
 # ───────────────────────── 2. WHY IT MATTERS ─────────────────────────
 c = "Why It Matters"
@@ -366,7 +385,14 @@ seg(c, "Step five: match the average to your question. Totals and fair shares: t
 seg(c, "For Pine Hill, the mean is sixty, and the median is forty. Both are correct. They answer different questions.",
     "Final card: 'Pine Hill — mean 60 (fair share) | median 40 (typical family)'.", 1.0)
 seg(c, "An average only lies when you ask it the wrong question.",
-    "Line types on in violet, centred.", 2.0)
+    "Line types on in violet, centred.", 1.5)
+
+# ─────────── 9b. SUBSCRIBE (channel outro, same pattern as the Math Lab TV reference outro) ───────────
+c = "Subscribe"
+seg(c, "Look around your world, and notice which kind of average people quote to you.",
+    "Four everyday cards (salary, house price, wait time, page load), each stamped 'mean or median?'.", 0.6, sid="s162a")
+seg(c, "If this lesson made things clear for you, please subscribe to Math Lab TV, so we can keep building together.",
+    "Logo + red SUBSCRIBE button; a cursor clicks it; it turns grey 'SUBSCRIBED ✓' and 'so we can keep building together' appears.", 0.8, sid="s162b")
 
 # ───────────────────────── 10. NEXT TIME ─────────────────────────
 c = "Next Time"
@@ -378,8 +404,8 @@ seg(c, "The missing piece is spread: how far values typically sit from the middl
     "Spread arrows: short for Maple, long for Cedar.")
 seg(c, "Next time, we'll measure it with the standard deviation, and see why it squares the distances first.",
     "Card: 'Next: Standard Deviation'.")
-seg(c, "See you in the lab.",
-    "Math Lab TV end card.", 2.0)
+seg(c, "I will see you in the next video.",
+    "Logo stays at the top; 'next: standard deviation' chip; Maple vs Cedar spread visual holds.", 2.0)
 
 if __name__ == "__main__":
     out = pathlib.Path(__file__).parent

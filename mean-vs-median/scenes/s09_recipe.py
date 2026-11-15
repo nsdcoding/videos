@@ -58,4 +58,6 @@ class S09Recipe(Base):
         self.play(AddTextLetterByLetter(line[0]), run_time=1.2)
         self.play(AddTextLetterByLetter(line[1]), run_time=1.5)
         self.remove(line); self.add(g)
+        self.until(SEGS["s162"]["end"] + 0.7)
+        self.play(FadeOut(g), run_time=0.5)
         self.finish()

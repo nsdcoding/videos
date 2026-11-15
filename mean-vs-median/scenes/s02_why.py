@@ -52,19 +52,15 @@ class S02Why(Base):
 
     def construct(self):
         fr = self.camera.frame
-        # rebuild the end state of scene 1 so the cut is seamless
-        wm = glow(TB("MEAN", 110, WARN), WARN)
-        wd = glow(TB("MEDIAN", 110, VIOLET), VIOLET)
-        vs = T("vs", 48, MUTED)
-        row = VGroup(wm, vs, wd).arrange(RIGHT, buff=0.55).move_to(UP * 0.6)
-        sub = T("Which average is lying to you?", 44, INK).move_to(DOWN * 1.0)
-        title = VGroup(row, sub)
-        self.add(title)
+        # callback: the two towns, which then shrink into the corner
+        title = VGroup(chip("Maple", INK, 40), chip("Pine Hill", INK, 40)).arrange(RIGHT, buff=0.8).move_to(UP * 0.6)
         # ── s019 title shrinks away, first headline card in ──
         cards = VGroup(news_card("Average salary rises"), news_card("Average home price\nhits record"),
                        news_card("Average wait time up")).arrange(RIGHT, buff=0.45).move_to(UP * 0.35)
-        self.at("s019", 0.3)
-        self.play(title.animate.scale(0.25).to_corner(UR, buff=0.4), run_time=0.9)
+        self.at("s019", 0.0)
+        self.play(FadeIn(title, scale=0.9), run_time=0.5)
+        self.until(word_time("s019", word_index("s019", "made-up")))
+        self.play(title.animate.scale(0.5).to_corner(UR, buff=0.4), run_time=0.8)
         self.play(FadeIn(cards[0], shift=UP * 0.8), run_time=0.7)
         # ── s020 the other two cards ──
         self.at("s020", 0.0)

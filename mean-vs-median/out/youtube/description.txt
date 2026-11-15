@@ -1,19 +1,21 @@
 Mean vs median explained simply: which average should you trust, and when does the "average" lie? Learn it with one real example.
 Essential statistics for data science, machine learning (MSE vs MAE), finance (median income, house prices) and computer science (p50 latency).
 
-Two towns both report an average household income of $60,000. In one of them, 8 out of 9 families earn less than that "average". In this 15-minute explainer for people who don't think of themselves as "math people", we work through ONE example step by step and find out which average tells the truth.
+Two towns both report an average household income of $60,000. In one of them, 8 out of 9 families earn less than that "average". In this 16-minute explainer for people who don't think of themselves as "math people", we work through ONE example step by step and find out which average tells the truth.
 
 ⏱ CHAPTERS
 0:00 Two towns, same average: the hook
-1:12 Why the wrong average misleads you
-1:48 The mean: formula, fair shares & balance beam
-4:28 The median: sort, find the middle, even counts
-6:19 Outliers, robustness & skewed data
-8:35 Which average to use (totals vs typical)
-10:07 Finance, computer science, data science & ML
-12:46 3 common mistakes
-14:03 Recipe recap
-14:59 Next: standard deviation
+1:08 Welcome to Math Lab TV + what you'll learn
+1:27 Why the wrong average misleads you
+2:03 The mean: formula, fair shares & balance beam
+4:44 The median: sort, find the middle, even counts
+6:35 Outliers, robustness & skewed data
+8:51 Which average to use (totals vs typical)
+10:22 Finance, computer science, data science & ML
+13:01 3 common mistakes
+14:18 Recipe recap
+15:14 Look around your world + subscribe
+15:26 Next: standard deviation
 
 📐 KEY FORMULAS
 • Mean: x̄ = (Σ xᵢ) / n → add all the values, divide by how many there are

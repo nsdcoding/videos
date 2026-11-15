@@ -93,7 +93,7 @@ class S01TwoTowns(Base):
         eq = TB("=", 96, INK).move_to((cA.get_center() + cB.get_center()) / 2)
         self.play(GrowFromCenter(eq), run_time=0.5)
         self.play(eq.animate.scale(1.25), rate_func=there_and_back, run_time=0.6)
-        q = TB("?", 72, RED_).next_to(eq, UP, buff=0.1)
+        q = TB("?", 72, RED_).next_to(eq, UP, buff=0.3)
         self.at("s005", 1.6)
         self.play(FadeIn(q, shift=DOWN * 0.6), rate_func=rate_functions.ease_out_bounce, run_time=0.8)
         # ── s006 push into Maple ──
@@ -106,11 +106,11 @@ class S01TwoTowns(Base):
         # ── Maple section ──
         ax = money_axis(); ax.shift(DOWN * 0.3 - ax.axis.get_center())
         L = ax.axis
-        title = TB("Maple", 44).to_corner(UR, buff=0.5).shift(DOWN * 0.15)
+        title = TB("Maple", 44).to_corner(UR, buff=0.32)
         homes = VGroup(*[house(0.55) for _ in range(9)]).arrange(RIGHT, buff=0.45).move_to(UP * 2.25)
         self.at("s007", 0.0)
         cnt = ValueTracker(1)
-        ctext = always_redraw(lambda: T(f"households: {int(cnt.get_value())}", 30, INK2).to_edge(UP, buff=0.55))
+        ctext = always_redraw(lambda: T(f"households: {int(cnt.get_value())}", 28, INK2).next_to(title, LEFT, buff=0.5))
         self.add(ctext)
         self.play(FadeIn(title, shift=LEFT * 0.4), LaggedStart(*[FadeIn(h, shift=UP * 0.5) for h in homes], lag_ratio=0.12),
                   cnt.animate.set_value(9), run_time=1.3, rate_func=linear)
@@ -175,7 +175,7 @@ class S01TwoTowns(Base):
         self.play(FadeIn(tag, shift=UP * 0.2), Flash(md, color=ORANGE_, line_length=0.25), run_time=0.6)
         # ── s013 the mean marker at 60 ──
         self.at("s013", 1.2)
-        tri = Triangle(color=WARN, fill_opacity=1).scale(0.16).rotate(PI).next_to(L2.n2p(60), UP, buff=0.75)
+        tri = Triangle(color=WARN, fill_opacity=1).scale(0.16).rotate(PI).next_to(L2.n2p(60), UP, buff=1.0)
         stem = DashedLine(tri.get_bottom(), L2.n2p(60), color=WARN, stroke_width=3)
         mlab = T("average = 60", 28, WARN).next_to(tri, LEFT, buff=0.15)
         mk = VGroup(stem, tri)
@@ -192,17 +192,17 @@ class S01TwoTowns(Base):
         rings = VGroup(*[Circle(0.14, color=BLUE_, stroke_width=2.5).move_to(d) for d in dots2[:8]])
         k = ValueTracker(0)
         below = always_redraw(lambda: T(f"{int(k.get_value())} of 9 below the average", 30, BLUE_)
-                              .move_to([L2.n2p(36)[0], 1.15, 0]))
+                              .move_to([L2.n2p(36)[0], 1.6, 0]))
         self.add(below)
-        self.play(LaggedStart(*[Create(r) for r in rings], lag_ratio=0.12), k.animate.set_value(8),
-                  run_time=1.4, rate_func=linear)
+        self.play(LaggedStart(*[d.animate(rate_func=there_and_back).scale(1.6) for d in dots2[:8]], lag_ratio=0.12),
+                  k.animate(rate_func=linear).set_value(8), run_time=1.4)
         below.clear_updaters()
-        nums = rings
+        nums = VGroup()
         # ── s016 empty zone ──
         self.at("s016", 0.0)
         self.play(fr.animate.scale(1 / 0.55).move_to(PX_OFF), FadeOut(nums), FadeIn(homes2), FadeIn(title2), run_time=1.1)
-        zone = DashedVMobject(Rectangle(width=L2.n2p(218)[0] - L2.n2p(51)[0], height=1.0), num_dashes=60)
-        zone.set_stroke(RED_, 3).move_to((L2.n2p(51) + L2.n2p(218)) / 2 + UP * 0.6)
+        zone = DashedVMobject(Rectangle(width=L2.n2p(218)[0] - L2.n2p(66)[0], height=1.0), num_dashes=60)
+        zone.set_stroke(RED_, 3).move_to((L2.n2p(66) + L2.n2p(218)) / 2 + UP * 0.6)
         zlab = T("nobody lives near here", 30, RED_).move_to(L2.n2p(145) + UP * 0.6)
         self.at("s016", 2.0)
         self.play(Create(zone), run_time=0.9)
@@ -219,14 +219,11 @@ class S01TwoTowns(Base):
         row = VGroup(wm.copy(), vs.copy(), wd.copy()).arrange(RIGHT, buff=0.55).move_to(UP * 0.6)
         tm, tv, td = row[0].get_center(), row[1].get_center(), row[2].get_center()
         wm.move_to(LEFT * 11 + UP * 0.6); wd.move_to(RIGHT * 11 + UP * 0.6); vs.move_to(tv)
-        self.at("s017", 2.6)
-        self.play(wm.animate.move_to(tm), run_time=0.8, rate_func=rate_functions.ease_out_back)
-        self.at("s017", 3.6)
-        self.play(wd.animate.move_to(td), FadeIn(vs, scale=0.5), run_time=0.8,
-                  rate_func=rate_functions.ease_out_back)
-        # ── s018 subtitle types on ──
-        self.at("s018", 0.6)
+        self.until(word_time("s017", word_index("s017", "mean")) - 0.3)
+        self.play(wm.animate.move_to(tm), run_time=0.7, rate_func=rate_functions.ease_out_back)
+        self.until(word_time("s017", word_index("s017", "median")) - 0.3)
         sub = T("Which average is lying to you?", 44, INK).move_to(DOWN * 1.0)
-        self.play(AddTextLetterByLetter(sub), run_time=1.6)
-        self.play(Circumscribe(sub, color=RED_, buff=0.15), run_time=1.0)
+        self.play(wd.animate.move_to(td), FadeIn(vs, scale=0.5), run_time=0.7,
+                  rate_func=rate_functions.ease_out_back)
+        self.play(FadeIn(sub, shift=UP * 0.2), run_time=0.5)
         self.finish()

@@ -38,8 +38,8 @@ class S05Stress(Base):
         self.play(FadeIn(gm, shift=RIGHT * 0.3), FadeIn(gd, shift=LEFT * 0.3), FadeIn(st), run_time=0.9)
         ax = money_axis(); ax.shift(DOWN * 0.95 - ax.axis.get_center()); L = ax.axis
         dots = dot_plot(PINE, L, [BLUE_] * 8 + [ORANGE_], r=0.1)
-        mk = marker(L, 60, WARN, "", height=0.8)
-        dm = diamond(L, 40, VIOLET, height=0.8)
+        mk = marker(L, 60, WARN, "", height=1.15)
+        dm = diamond(L, 40, VIOLET, height=1.15)
         self.play(FadeIn(ax), LaggedStart(*[FadeIn(d, shift=DOWN * 0.3) for d in dots], lag_ratio=0.04),
                   FadeIn(mk), FadeIn(dm), run_time=1.0)
         # ── s083 the rich family ──
@@ -110,7 +110,7 @@ class S05Stress(Base):
         rope = Line(ring.get_left(), mk.tri.get_right(), color=ORANGE_, stroke_width=4)
         self.play(Create(rope), run_time=0.6)
         drag = T("dragged", 28, WARN).next_to(mk, UP, buff=0.05)
-        anch = T("anchored", 28, VIOLET).next_to(dm, UP, buff=0.5); anch.set_x(max(anch.get_x(), -5.9))
+        anch = T("anchored", 28, VIOLET).next_to(dm, UP, buff=0.75); anch.set_x(max(anch.get_x(), -5.9))
         self.play(FadeIn(drag), FadeIn(anch), run_time=0.5)
         rob = chip("robust = hardly moved by outliers", VIOLET, 32).move_to(UP * 0.55)
         self.until(word_time("s091", word_index("s091", "statisticians")))
@@ -173,7 +173,7 @@ class S05Stress(Base):
         # ── s098 symmetric: both at 60 ──
         self.at("s098", 0.0)
         self.play(FadeOut(pairs), FadeOut(mirt), fr.animate.scale(2).move_to(ORIGIN), FadeIn(nP), run_time=0.9)
-        mmM = marker(LM, 60, WARN, "", height=0.95); dmM = diamond(LM, 60, VIOLET, height=1.3)
+        mmM = marker(LM, 60, WARN, "", height=1.15); dmM = diamond(LM, 60, VIOLET, height=1.5)
         sym = T("symmetric: mean = median", 28, INK).next_to(dmM, RIGHT, buff=0.35)
         self.play(FadeIn(mmM), FadeIn(dmM), FadeIn(sym, shift=LEFT * 0.2), run_time=0.8)
         # ── s099 Pine Hill's long tail ──
@@ -185,9 +185,9 @@ class S05Stress(Base):
         self.play(GrowArrow(tail), FadeIn(tt), run_time=1.0)
         # ── s100 right-skewed ──
         self.at("s100", 0.0)
-        rs = glow(TB("right-skewed", 36, ORANGE_), ORANGE_).move_to([LP.n2p(170)[0], 0.3, 0])
+        rs = glow(TB("right-skewed", 30, ORANGE_), ORANGE_).move_to([LP.n2p(185)[0], 0.25, 0])
         self.play(FadeIn(rs), run_time=0.5)
-        mmP = marker(LP, 60, WARN, "", height=0.75); dmP = diamond(LP, 40, VIOLET, height=0.75)
+        mmP = marker(LP, 60, WARN, "", height=0.75); dmP = diamond(LP, 40, VIOLET, height=1.1)
         self.until(word_time("s100", word_index("s100", "mean")))
         self.play(FadeOut(crowd), FadeIn(dmP), FadeIn(mmP), run_time=0.6)
         pull = Arrow(mmP.tri.get_right(), mmP.tri.get_right() + RIGHT * 1.2, buff=0.05, color=WARN, stroke_width=4)
@@ -199,7 +199,7 @@ class S05Stress(Base):
         self.play(FadeOut(VGroup(dM, mmM, dmM, sym, mir)), Transform(nM, TB("mirror of Pine Hill (shape only)", 28, INK2)
                   .move_to(nM, aligned_edge=LEFT)), run_time=0.6)
         self.play(LaggedStart(*[FadeIn(d, shift=DOWN * 0.3) for d in dF], lag_ratio=0.04), run_time=0.8)
-        mF = marker(LM, 180, WARN, "mean", height=0.75, fs=24, label_dir=LEFT); dF_ = diamond(LM, 200, VIOLET, "median", height=1.15, fs=24, label_dir=RIGHT)
+        mF = marker(LM, 180, WARN, "mean", height=0.75, fs=24, label_dir=LEFT); dF_ = diamond(LM, 200, VIOLET, "median", height=1.4, fs=24, label_dir=RIGHT)
         self.play(FadeIn(mF), FadeIn(dF_), run_time=0.7)
         # ── s102 warning light ──
         self.at("s102", 0.0)

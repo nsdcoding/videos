@@ -114,15 +114,36 @@
   {
     "id": "s017",
     "chapter": "Two Towns",
-    "text": "Today, we'll meet the two most common kinds of average: the mean, and the median.",
-    "visual": "Title card: 'MEAN' (warn) vs 'MEDIAN' (violet) slide together.",
+    "text": "What tells these towns apart is comparing two kinds of average: the mean, and the median.",
+    "visual": "Title card: 'MEAN' (warn) vs 'MEDIAN' (violet) slide together; subtitle 'Which average is lying to you?'",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s017a",
+    "chapter": "Welcome",
+    "text": "Welcome to Math Lab TV. Where math is something you can see.",
+    "visual": "Logo (violet rounded square with a green bell curve) + MATH LAB TV + tagline 'where math is something you can see'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s017b",
+    "chapter": "Welcome",
+    "text": "Today you will learn exactly what the mean and the median are, and how each one is calculated.",
+    "visual": "Preview ① : x-bar formula morphs beside a sorted row whose middle tile glows violet.",
     "pause_after": 0.35
   },
   {
-    "id": "s018",
-    "chapter": "Two Towns",
-    "text": "And learn how to tell which one is lying to you.",
-    "visual": "Subtitle line types on: 'Which average is lying to you?'",
+    "id": "s017c",
+    "chapter": "Welcome",
+    "text": "You will see why one rich family can make an average lie.",
+    "visual": "Preview ② : Pine Hill dot plot; the orange outlier drags the warn mean marker; median stays.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s017d",
+    "chapter": "Welcome",
+    "text": "And you will learn how to pick the right one, every time.",
+    "visual": "Preview ③ : the two signposts TOTALS → mean / TYPICAL → median.",
     "pause_after": 1.0
   },
   {
@@ -1131,7 +1152,21 @@
     "chapter": "Recipe",
     "text": "An average only lies when you ask it the wrong question.",
     "visual": "Line types on in violet, centred.",
-    "pause_after": 2.0
+    "pause_after": 1.5
+  },
+  {
+    "id": "s162a",
+    "chapter": "Subscribe",
+    "text": "Look around your world, and notice which kind of average people quote to you.",
+    "visual": "Four everyday cards (salary, house price, wait time, page load), each stamped 'mean or median?'.",
+    "pause_after": 0.6
+  },
+  {
+    "id": "s162b",
+    "chapter": "Subscribe",
+    "text": "If this lesson made things clear for you, please subscribe to Math Lab TV, so we can keep building together.",
+    "visual": "Logo + red SUBSCRIBE button; a cursor clicks it; it turns grey 'SUBSCRIBED ✓' and 'so we can keep building together' appears.",
+    "pause_after": 0.8
   },
   {
     "id": "s163",
@@ -1164,8 +1199,8 @@
   {
     "id": "s167",
     "chapter": "Next Time",
-    "text": "See you in the lab.",
-    "visual": "Math Lab TV end card.",
+    "text": "I will see you in the next video.",
+    "visual": "Logo stays at the top; 'next: standard deviation' chip; Maple vs Cedar spread visual holds.",
     "pause_after": 2.0
   }
 ]

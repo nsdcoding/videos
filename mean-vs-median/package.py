@@ -10,6 +10,7 @@ TITLE = "Mean vs Median: Which Average Is Lying to You? | Statistics for Data Sc
 
 CH_TITLES = {
     "Two Towns": "Two towns, same average: the hook",
+    "Welcome": "Welcome to Math Lab TV + what you'll learn",
     "Why It Matters": "Why the wrong average misleads you",
     "The Mean": "The mean: formula, fair shares & balance beam",
     "The Median": "The median: sort, find the middle, even counts",
@@ -18,6 +19,7 @@ CH_TITLES = {
     "Real World": "Finance, computer science, data science & ML",
     "Common Mistakes": "3 common mistakes",
     "Recipe": "Recipe recap",
+    "Subscribe": "Look around your world + subscribe",
     "Next Time": "Next: standard deviation",
 }
 

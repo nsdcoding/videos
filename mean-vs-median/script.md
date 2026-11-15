@@ -1,6 +1,6 @@
 # Mean Versus Median: Which Average Is Lying to You?
 
-167 segments · 2415 words · est. 17.8 min at 150 wpm (incl. 101 s pauses)
+172 segments · 2496 words · est. 18.4 min at 150 wpm (incl. 104 s pauses)
 
 
 ## Two Towns
@@ -37,10 +37,19 @@
   - *Visual:* Counter '8 of 9 below the average' builds dot by dot.
 - **s016** The average isn't technically wrong. But it describes a family that doesn't live there. ⏸1.5s
   - *Visual:* Dashed red box around the empty zone 49–229 near the marker: 'nobody lives near here'.
-- **s017** Today, we'll meet the two most common kinds of average: the mean, and the median.
-  - *Visual:* Title card: 'MEAN' (warn) vs 'MEDIAN' (violet) slide together.
-- **s018** And learn how to tell which one is lying to you. ⏸1.0s
-  - *Visual:* Subtitle line types on: 'Which average is lying to you?'
+- **s017** What tells these towns apart is comparing two kinds of average: the mean, and the median. ⏸1.0s
+  - *Visual:* Title card: 'MEAN' (warn) vs 'MEDIAN' (violet) slide together; subtitle 'Which average is lying to you?'
+
+## Welcome
+
+- **s017a** Welcome to Math Lab TV. Where math is something you can see. ⏸1.0s
+  - *Visual:* Logo (violet rounded square with a green bell curve) + MATH LAB TV + tagline 'where math is something you can see'.
+- **s017b** Today you will learn exactly what the mean and the median are, and how each one is calculated.
+  - *Visual:* Preview ① : x-bar formula morphs beside a sorted row whose middle tile glows violet.
+- **s017c** You will see why one rich family can make an average lie.
+  - *Visual:* Preview ② : Pine Hill dot plot; the orange outlier drags the warn mean marker; median stays.
+- **s017d** And you will learn how to pick the right one, every time. ⏸1.0s
+  - *Visual:* Preview ③ : the two signposts TOTALS → mean / TYPICAL → median.
 
 ## Why It Matters
 
@@ -351,8 +360,15 @@
   - *Visual:* Item 5 with the two signposts.
 - **s161** For Pine Hill, the mean is sixty, and the median is forty. Both are correct. They answer different questions. ⏸1.0s
   - *Visual:* Final card: 'Pine Hill — mean 60 (fair share) | median 40 (typical family)'.
-- **s162** An average only lies when you ask it the wrong question. ⏸2.0s
+- **s162** An average only lies when you ask it the wrong question. ⏸1.5s
   - *Visual:* Line types on in violet, centred.
+
+## Subscribe
+
+- **s162a** Look around your world, and notice which kind of average people quote to you. ⏸0.6s
+  - *Visual:* Four everyday cards (salary, house price, wait time, page load), each stamped 'mean or median?'.
+- **s162b** If this lesson made things clear for you, please subscribe to Math Lab TV, so we can keep building together. ⏸0.8s
+  - *Visual:* Logo + red SUBSCRIBE button; a cursor clicks it; it turns grey 'SUBSCRIBED ✓' and 'so we can keep building together' appears.
 
 ## Next Time
 
@@ -364,5 +380,5 @@
   - *Visual:* Spread arrows: short for Maple, long for Cedar.
 - **s166** Next time, we'll measure it with the standard deviation, and see why it squares the distances first.
   - *Visual:* Card: 'Next: Standard Deviation'.
-- **s167** See you in the lab. ⏸2.0s
-  - *Visual:* Math Lab TV end card.
+- **s167** I will see you in the next video. ⏸2.0s
+  - *Visual:* Logo stays at the top; 'next: standard deviation' chip; Maple vs Cedar spread visual holds.

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Two 1280x720 thumbnails (A/B) for YouTube Test & compare, rendered from HTML with Playwright."""
 import pathlib
-import subprocess
+import subprocess, json
+MINS = round(json.loads((pathlib.Path(__file__).parent / "timings.json").read_text())["total"] / 60)
 
 HERE = pathlib.Path(__file__).parent
 OUT = HERE / "out" / "youtube"; OUT.mkdir(parents=True, exist_ok=True)
@@ -52,7 +53,7 @@ def thumb_a():
     svg = dotplot_svg(PINE, 590, 30, 470, colors=[C["blue"]] * 8 + [C["orange"]], mean=60, median=40, fs=26,
                       marker_h=150, labels=False, r=15)
     body = f"""
-<div style="position:absolute;left:56px;top:40px" class="badge">Explained in 15 minutes</div>
+<div style="position:absolute;left:56px;top:40px" class="badge">Explained in {MINS} minutes</div>
 <div class="h" style="position:absolute;left:52px;top:118px;font-size:128px;color:{C['warn']}">MEAN</div>
 <div class="h" style="position:absolute;left:58px;top:236px;font-size:54px;color:{C['muted']}">vs</div>
 <div class="h" style="position:absolute;left:52px;top:292px;font-size:128px;color:{C['violet']}">MEDIAN</div>
@@ -87,7 +88,7 @@ def thumb_b():
   {panel("BALANCED", C['ink2'], m, "mean = median = 60", C['aqua'])}
   {panel("SKEWED", C['orange'], p, "mean 60 ≠ median 40", C['red'])}
 </div>
-<div style="position:absolute;left:56px;top:600px" class="badge">Explained in 15 minutes</div>"""
+<div style="position:absolute;left:56px;top:600px" class="badge">Explained in {MINS} minutes</div>"""
     return BASE % dict(C, body=body)
 
 

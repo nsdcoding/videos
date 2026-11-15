@@ -6,4 +6,4 @@ Chapters: automatic from the description timestamps (first at 0:00, all ≥ 10 s
 Thumbnails: upload thumbnail_A.png and thumbnail_B.png to "Test & compare"
 Playlist suggestion: "Statistics from zero" · End screen: link the next video (standard deviation) in the last 20 s
 Comments: on · pin the comment in pinned_comment.txt
-Video length: 15:22 (922.5 s)
+Video length: 15:50 (950.1 s)

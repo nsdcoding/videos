@@ -31,7 +31,7 @@ def report_card(title, headline, kind_icon):
                            fill_color="#22221f", fill_opacity=1)
     box.qa_container = True
     t = T(title, 24, MUTED).move_to(box.get_corner(UL) + RIGHT * 0.3 + DOWN * 0.35, aligned_edge=LEFT)
-    h = T(headline, 34, VIOLET, weight=BOLD).next_to(t, DOWN, buff=0.3, aligned_edge=LEFT)
+    h = T(headline, 30, VIOLET, weight=BOLD).next_to(t, DOWN, buff=0.3, aligned_edge=LEFT)
     lines = VGroup(*[Line(ORIGIN, RIGHT * w, stroke_width=6, color="#3a3a37") for w in (4.6, 3.8, 2.4)])
     lines.arrange(DOWN, buff=0.18, aligned_edge=LEFT).next_to(h, DOWN, buff=0.35, aligned_edge=LEFT)
     kind_icon.scale(0.6).move_to(box.get_corner(DR) + UL * 0.55)
@@ -148,7 +148,7 @@ class S07Real(Base):
         self.add(rmk)
         self.until(word_time("s127", word_index("s127", "drag")))
         self.play(rmk.animate.shift((RL.n2p(mean_rt)[0] - rmk.get_x()) * RIGHT), run_time=1.0)
-        ml = T(f"mean ≈ {mean_rt:.0f} ms", 26, WARN, weight=BOLD).next_to(rmk, UP, buff=0.08)
+        ml = T(f"mean ≈ {mean_rt:.0f} ms", 26, WARN, weight=BOLD).next_to(rmk.tri, RIGHT, buff=0.15)
         self.play(FadeIn(ml), run_time=0.4)
         # ── s128 p50 and p99 ──
         self.at("s128", 0.0)
@@ -268,11 +268,11 @@ class S07Real(Base):
         sqs = always_redraw(lambda: VGroup(*[Square(side_length=abs(TL.n2p(v)[0] - TL.n2p(c.get_value())[0]), color=WARN,
                                                     stroke_width=1.5, fill_opacity=0.06).move_to(TL.n2p((v + c.get_value()) / 2), aligned_edge=DOWN)
                                              for v in vals()[:8]]))
-        self.play(FadeIn(sqs), run_time=0.5)
+        self.play(FadeIn(sqs), FadeOut(glab), run_time=0.5)
         self.play(c.animate.set_value(30), run_time=0.8)
         # ── s139 min at 60 ──
         self.at("s139", 0.0)
-        self.play(FadeOut(sqs), c.animate.set_value(0), run_time=0.4)
+        self.play(FadeOut(sqs), c.animate.set_value(0), FadeIn(glab), run_time=0.4)
         p2 = always_redraw(lambda: Dot(ax2.c2p(c.get_value(), min(sq(c.get_value()), 100)), radius=0.09, color=WARN))
         cv2 = always_redraw(lambda: curve_on(ax2, sq, 0, max(c.get_value(), 0.5), 100, WARN))
         self.add(p2, cv2)
@@ -280,7 +280,7 @@ class S07Real(Base):
         cv2.clear_updaters()
         self.play(c.animate.set_value(60), run_time=0.7)
         m2 = VGroup(DashedLine(ax2.c2p(60, 0), ax2.c2p(60, 32.8), color=WARN, stroke_width=2),
-                    T("min at 60 = the mean", 22, WARN, weight=BOLD).move_to(ax2.c2p(90, 14)))
+                    T("min at 60 = mean", 22, WARN, weight=BOLD).move_to(ax2.c2p(94, 14)))
         self.play(FadeIn(m2), Flash(ax2.c2p(60, 32.8), color=WARN), run_time=0.7)
         # ── s140 general rule ──
         self.at("s140", 0.0)

@@ -13,6 +13,7 @@ B = HERE / "build"
 FPS = 30
 SCENES = [  # (chapter name, scene file stem, class)
     ("Two Towns", "s01_two_towns", "S01TwoTowns"),
+    ("Welcome", "s01b_welcome", "S01bWelcome"),
     ("Why It Matters", "s02_why", "S02Why"),
     ("The Mean", "s03_mean", "S03Mean"),
     ("The Median", "s04_median", "S04Median"),
@@ -21,6 +22,7 @@ SCENES = [  # (chapter name, scene file stem, class)
     ("Real World", "s07_real", "S07Real"),
     ("Common Mistakes", "s08_mistakes", "S08Mistakes"),
     ("Recipe", "s09_recipe", "S09Recipe"),
+    ("Subscribe", "s09b_subscribe", "S09bSubscribe"),
     ("Next Time", "s10_next", "S10Next"),
 ]
 MAXC = 64  # max characters per subtitle line
@@ -159,6 +161,6 @@ if __name__ == "__main__":
     if mode == "srt":
         srt()
     elif mode == "sample":
-        assemble(["Two Towns", "Why It Matters"], "sample.mp4")
+        assemble(["Two Towns", "Welcome", "Why It Matters"], "sample.mp4")
     else:
         srt(); assemble([s[0] for s in SCENES], "mean_vs_median.mp4")

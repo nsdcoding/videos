@@ -38,15 +38,15 @@ class S04Median(Base):
         # ── s063 sort ──
         self.at("s063", 0.0)
         self.play(FadeOut(VGroup(word, dg)), run_time=0.5)
-        step1 = chip("step 1: sort", INK, 30).to_edge(UP, buff=0.45).shift(RIGHT * 3.5)
+        step1 = chip("step 1: sort", INK, 30).to_edge(UP, buff=0.4).shift(RIGHT * 4.6)
         street = tiles(STREET).move_to(UP * 1.6)
-        lab = T("in street order", 26, MUTED).next_to(street, UP, buff=0.3)
+        lab = T("in street order", 26, MUTED).next_to(street, UP, buff=0.6)
         self.play(FadeIn(step1), LaggedStart(*[FadeIn(t, shift=DOWN * 0.4) for t in street], lag_ratio=0.06), FadeIn(lab),
                   run_time=1.0)
         target = tiles(PINE).move_to(UP * 1.6)
         order = sorted(range(9), key=lambda i: STREET[i])
         self.at("s063", 2.2)
-        lab2 = T("sorted: smallest → largest", 26, MUTED).next_to(target, UP, buff=0.3)
+        lab2 = T("sorted: smallest → largest", 26, MUTED).next_to(target, UP, buff=0.6)
         self.play(*[street[i].animate.move_to(target[k]) for k, i in enumerate(order)],
                   Transform(lab, lab2), run_time=1.6, path_arc=0.8)
         row = VGroup(*[street[i] for i in order])
@@ -81,9 +81,9 @@ class S04Median(Base):
         self.at("s068", 0.0)
         ax = money_axis(); ax.shift(DOWN * 0.75 - ax.axis.get_center()); L = ax.axis
         dots = dot_plot(PINE, L, [BLUE_] * 4 + [VIOLET] + [BLUE_] * 3 + [ORANGE_], r=0.1)
-        card = glow(T("median = 40", 40, VIOLET, weight=BOLD), VIOLET).move_to(UP * 0.55 + LEFT * 3.2)
+        card = glow(T("median = 40", 40, VIOLET, weight=BOLD), VIOLET).move_to(UP * 0.55 + LEFT * 0.6)
         self.play(FadeIn(ax), LaggedStart(*[FadeIn(d, shift=DOWN * 0.3) for d in dots], lag_ratio=0.05), run_time=1.0)
-        dm = diamond(L, 40, VIOLET, height=0.85)
+        dm = diamond(L, 40, VIOLET, height=1.1)
         self.play(FadeIn(card, shift=UP * 0.2), FadeIn(dm, shift=DOWN * 0.3), run_time=0.7)
         # ── s069 four below, four above ──
         self.at("s069", 0.0)
@@ -115,8 +115,8 @@ class S04Median(Base):
         self.at("s071", 0.0)
         mdots = dot_plot(MAPLE, L, [INK] * 9, r=0.1)
         mt = TB("Maple", 40).move_to(UP * 2.3 + LEFT * 4.6)
-        mmed = diamond(L, 60, VIOLET, height=1.25)
-        mmean = marker(L, 60, WARN, "", height=0.85)
+        mmed = diamond(L, 60, VIOLET, height=1.6)
+        mmean = marker(L, 60, WARN, "", height=1.2)
         both = T("mean = median = 60", 32, INK, weight=BOLD).next_to(mmed, UP, buff=0.2)
         both[:4].set_color(WARN); both[5:11].set_color(VIOLET)
         self.play(FadeOut(VGroup(dots, dm, mm, cmp_)), FadeIn(mt), run_time=0.5)

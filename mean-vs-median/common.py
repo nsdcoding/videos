@@ -77,7 +77,9 @@ def money_axis(x_max=240, step=20, length=12.2, label="Household income (thousan
 
 
 def dot(color=BLUE_, r=0.13):
-    return Dot(radius=r, color=color).set_stroke(BG, 2)
+    d = Dot(radius=r, color=color).set_stroke(BG, 2)
+    d.qa_dot = True
+    return d
 
 
 def chip(text, color=INK, size=30, fill=None, pad=0.22):
@@ -219,6 +221,43 @@ class Base(MovingCameraScene):
         textfam = set()
         for m in texts:
             for s in m.get_family(): textfam.add(id(s))
+        textfam_all = set()
+        for m in self.mobjects:
+            for sub in m.get_family():
+                if isinstance(sub, (Text, MathTex, Tex, MarkupText)):
+                    for s2 in sub.get_family(): textfam_all.add(id(s2))
+        # text crossed by strokes (lines, arrows, curves, outlines): sample points along each stroke path
+        strokes = []
+        for m in self.mobjects:
+            for sub in m.get_family():
+                if (isinstance(sub, VMobject) and not isinstance(sub, (Text, MathTex, Tex, MarkupText))
+                        and len(sub.points) >= 4 and sub.get_stroke_width() > 0.5 and sub.get_stroke_opacity() > 0.3
+                        and not getattr(sub, "qa_container", False) and not getattr(sub, "qa_ignore", False)
+                        and id(sub) not in textfam_all and sub.get_stroke_color().to_hex().lower() != BG.lower()):
+                    strokes.append(sub)
+        f = self.camera.frame; sc = 8 / f.height; cc = f.get_center()
+        ts_ = np.array([0.0, 0.25, 0.5, 0.75, 1.0])
+        for st in strokes:
+            P = st.points[: len(st.points) // 4 * 4].reshape(-1, 4, 3)
+            pts = (((1 - ts_)[None, :, None] ** 3 * P[:, None, 0] + 3 * ((1 - ts_) ** 2 * ts_)[None, :, None] * P[:, None, 1]
+                    + 3 * ((1 - ts_) * ts_ ** 2)[None, :, None] * P[:, None, 2] + (ts_ ** 3)[None, :, None] * P[:, None, 3]))
+            pts = (pts.reshape(-1, 3)[:, :2] - cc[:2]) * sc
+            for a, A in boxes:
+                m = 0.03
+                inside = ((pts[:, 0] > A[0] + m) & (pts[:, 0] < A[2] - m) & (pts[:, 1] > A[1] + m) & (pts[:, 1] < A[3] - m))
+                if inside.any():
+                    self.qa_log.append(dict(t=t, kind="text_stroke", a=name(a), b=type(st).__name__))
+        # marker heads (mean triangle / median diamond) sitting on dots
+        fam = [sub for m in self.mobjects for sub in m.get_family()]
+        heads = [h for h in fam if getattr(h, "qa_head", False) and h.get_fill_opacity() > 0.3]
+        dots_ = [d for d in fam if getattr(d, "qa_dot", False) and d.get_fill_opacity() > 0.3]
+        for h in heads:
+            H_ = self._screen_box(h)
+            for d in dots_:
+                D_ = self._screen_box(d)
+                ox = min(H_[2], D_[2]) - max(H_[0], D_[0]); oy = min(H_[3], D_[3]) - max(H_[1], D_[1])
+                if ox > 0.01 and oy > -0.02:
+                    self.qa_log.append(dict(t=t, kind="marker_dot", a=type(h).__name__, b="Dot")); break
         for a, A in boxes:
             for s in shapes:
                 if id(s) in textfam: continue
@@ -344,6 +383,7 @@ def marker(axis, v, color, label, height=0.75, fs=28, side=UP, label_dir=UP):
     tri.move_to(axis.n2p(v) + UP * height)
     stem = DashedLine(tri.get_bottom(), axis.n2p(v), color=color, stroke_width=3)
     lab = T(label, fs, color, weight=BOLD).next_to(tri, label_dir, buff=0.12)
+    tri.qa_head = True
     g = VGroup(stem, tri, lab); g.tri, g.lab = tri, lab
     return g
 
@@ -351,6 +391,7 @@ def marker(axis, v, color, label, height=0.75, fs=28, side=UP, label_dir=UP):
 def diamond(axis, v, color=VIOLET, label=None, height=0.75, fs=28, label_dir=UP):
     d = Square(0.22, color=color, fill_opacity=1, stroke_width=0).rotate(PI / 4).move_to(axis.n2p(v) + UP * height)
     stem = DashedLine(d.get_bottom(), axis.n2p(v), color=color, stroke_width=3)
+    d.qa_head = True
     g = VGroup(stem, d)
     if label:
         lab = T(label, fs, color, weight=BOLD).next_to(d, label_dir, buff=0.12); g.add(lab); g.lab = lab
@@ -399,3 +440,26 @@ def hl(t, color, fill=0.22):
 
 def unhl(t, color):
     return [t[0].animate.set_stroke(color).set_fill("#22221f", 1), t[1].animate.set_color(color)]
+
+
+def logo_mark(size=1.0):
+    """Channel mark: violet rounded square with a green bell curve (as in the Math Lab TV intro/outro)."""
+    sq = RoundedRectangle(corner_radius=0.16 * size, width=size, height=size, stroke_color=VIOLET, stroke_width=5 * size,
+                          fill_color=BG, fill_opacity=1)
+    sq.qa_container = True
+    xs = np.linspace(-0.36, 0.36, 60) * size
+    curve = VMobject(stroke_color=AQUA, stroke_width=5 * size).set_points_smoothly(
+        [np.array([x, -0.24 * size + 0.5 * size * np.exp(-(x / (0.14 * size)) ** 2), 0]) for x in xs])
+    curve.qa_ignore = True
+    return VGroup(sq, curve)
+
+
+def logo(size=1.0, tagline=False):
+    mark = logo_mark(size)
+    name = Text("MATH LAB TV", font=FONT_D, weight=BOLD, font_size=int(78 * size), color=INK)
+    g = VGroup(mark, name).arrange(RIGHT, buff=0.32 * size)
+    if tagline:
+        tl = T("where math is something you can see", int(34 * size), INK2)
+        tl.next_to(g, DOWN, buff=0.35 * size)
+        g = VGroup(g, tl)
+    return g
