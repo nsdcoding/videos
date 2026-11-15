@@ -283,3 +283,108 @@ def dot_plot(values, axis, colors, r=0.1, gap=0.02):
         d.value = v
         g.add(d)
     return g
+
+
+PINE = [30, 32, 35, 38, 40, 42, 45, 48, 230]
+MAPLE = [50, 52, 55, 58, 60, 62, 65, 68, 70]
+STREET = [42, 230, 35, 48, 30, 45, 38, 32, 40]
+
+
+def xy_axes(x_range, y_range, x_len, y_len, x_label, y_label, x_labels=None, font_size=22):
+    """Axes with Inter tick labels and axis titles. x_labels: optional {value: text}."""
+    ax = Axes(x_range=x_range, y_range=y_range, x_length=x_len, y_length=y_len,
+              axis_config=dict(color=INK2, stroke_width=3, include_tip=False, tick_size=0.07),
+              x_axis_config=dict(include_ticks=True), y_axis_config=dict(include_ticks=True))
+    labs = VGroup()
+    xs = np.arange(x_range[0], x_range[1] + 1e-9, x_range[2])
+    for v in xs:
+        if x_labels is not None and v not in x_labels: continue
+        txt = x_labels[v] if x_labels else f"{v:g}"
+        t = T(txt, font_size, INK2).next_to(ax.c2p(v, y_range[0]), DOWN, buff=0.14); t.qa_clip_ok = True
+        labs.add(t)
+    for v in np.arange(y_range[0], y_range[1] + 1e-9, y_range[2]):
+        t = T(f"{v:g}", font_size, INK2).next_to(ax.c2p(x_range[0], v), LEFT, buff=0.14); t.qa_clip_ok = True
+        labs.add(t)
+    xt = T(x_label, 24, MUTED).next_to(labs, DOWN, buff=0.08).align_to(ax.x_axis, RIGHT)
+    xt.next_to(ax.x_axis, DOWN, buff=0.5).align_to(ax.x_axis, RIGHT)
+    yt = T(y_label, 24, MUTED).next_to(ax.y_axis, UP, buff=0.18).align_to(ax.y_axis, LEFT).shift(LEFT * 0.3)
+    g = VGroup(ax, labs, xt, yt)
+    g.ax, g.labs, g.xt, g.yt = ax, labs, xt, yt
+    return g
+
+
+def tile(v, color=INK, size=0.78, fs=30, fill="#22221f"):
+    sq = RoundedRectangle(corner_radius=0.1, width=size * (1.35 if v >= 100 else 1), height=size,
+                          stroke_color=color, stroke_width=2.5, fill_color=fill, fill_opacity=1)
+    sq.qa_container = True
+    t = T(str(v), fs, color, weight=BOLD).move_to(sq)
+    g = VGroup(sq, t); g.value = v
+    return g
+
+
+def tiles(values, colors=None, buff=0.18, **kw):
+    colors = colors or [BLUE_ if v < 100 else ORANGE_ for v in values]
+    return VGroup(*[tile(v, c, **kw) for v, c in zip(values, colors)]).arrange(RIGHT, buff=buff)
+
+
+def marker(axis, v, color, label, height=0.75, fs=28, side=UP, label_dir=UP):
+    """Triangle pointer above axis value v with dashed stem and a label."""
+    tri = Triangle(color=color, fill_opacity=1, stroke_width=0).scale(0.15).rotate(PI)
+    tri.move_to(axis.n2p(v) + UP * height)
+    stem = DashedLine(tri.get_bottom(), axis.n2p(v), color=color, stroke_width=3)
+    lab = T(label, fs, color, weight=BOLD).next_to(tri, label_dir, buff=0.12)
+    g = VGroup(stem, tri, lab); g.tri, g.lab = tri, lab
+    return g
+
+
+def diamond(axis, v, color=VIOLET, label=None, height=0.75, fs=28, label_dir=UP):
+    d = Square(0.22, color=color, fill_opacity=1, stroke_width=0).rotate(PI / 4).move_to(axis.n2p(v) + UP * height)
+    stem = DashedLine(d.get_bottom(), axis.n2p(v), color=color, stroke_width=3)
+    g = VGroup(stem, d)
+    if label:
+        lab = T(label, fs, color, weight=BOLD).next_to(d, label_dir, buff=0.12); g.add(lab); g.lab = lab
+    g.tri = d
+    return g
+
+
+def defcard(sym_tex, words, color=INK, fs=30, w=None):
+    """A definition card: [symbol]  =  plain words."""
+    s = MathTex(sym_tex, color=color, font_size=fs * 1.6)
+    e = T("=", fs, MUTED)
+    t = T(words, fs, INK)
+    row = VGroup(s, e, t).arrange(RIGHT, buff=0.22)
+    box = RoundedRectangle(corner_radius=0.14, width=(w or row.width + 0.6), height=row.height + 0.42,
+                           stroke_color=color, stroke_width=2, fill_color="#22221f", fill_opacity=1)
+    box.qa_container = True
+    row.move_to(box)
+    return VGroup(box, row)
+
+
+def frac(num, den, color=INK, fs=72):
+    return MathTex(r"{" + str(num) + r"\over " + str(den) + r"}", color=color, font_size=fs)
+
+
+def two_col(left_title, left_lines, right_title, right_lines, lc=WARN, rc=VIOLET, w=5.6):
+    cols = VGroup()
+    for title, lines, c in ((left_title, left_lines, lc), (right_title, right_lines, rc)):
+        tt = TB(title, 40, c)
+        ls = VGroup(*[T("• " + l, 28, INK) for l in lines]).arrange(DOWN, aligned_edge=LEFT, buff=0.22)
+        inner = VGroup(tt, ls).arrange(DOWN, aligned_edge=LEFT, buff=0.35)
+        box = RoundedRectangle(corner_radius=0.18, width=w, height=inner.height + 0.7, stroke_color=c,
+                               stroke_width=2.5, fill_color="#22221f", fill_opacity=1)
+        box.qa_container = True
+        inner.move_to(box).align_to(box, LEFT).shift(RIGHT * 0.4)
+        cols.add(VGroup(box, inner))
+    hmax = max(c[0].height for c in cols)
+    for c in cols:
+        c[0].stretch_to_fit_height(hmax); c[1].align_to(c[0], UP).shift(DOWN * 0.35)
+    return cols.arrange(RIGHT, buff=0.5)
+
+
+def hl(t, color, fill=0.22):
+    """Animations that highlight a tile (box + number) without filling over its number."""
+    return [t[0].animate.set_stroke(color).set_fill(color, fill), t[1].animate.set_color(color)]
+
+
+def unhl(t, color):
+    return [t[0].animate.set_stroke(color).set_fill("#22221f", 1), t[1].animate.set_color(color)]

@@ -9,9 +9,11 @@ def news_card(headline, w=4.1, h=2.5):
     box = RoundedRectangle(corner_radius=0.16, width=w, height=h, stroke_color=INK2, stroke_width=2,
                            fill_color="#22221f", fill_opacity=1)
     box.qa_container = True
-    bar = Rectangle(width=w, height=0.36, stroke_width=0, fill_color="#2c2c29", fill_opacity=1)
-    bar.move_to(box.get_top(), aligned_edge=UP)
+    # header strip clipped to the card's rounded shape, with the border redrawn on top
+    strip = Rectangle(width=w, height=0.36).move_to(box.get_top(), aligned_edge=UP)
+    bar = Intersection(strip, box.copy(), stroke_width=0, fill_color="#2c2c29", fill_opacity=1)
     bar.qa_container = True
+    rim = box.copy().set_fill(opacity=0); rim.qa_container = True
     tag = T("NEWS", 18, MUTED, weight=BOLD).move_to(bar).align_to(box, LEFT).shift(RIGHT * 0.25)
     hl = T(headline, 28, INK, weight=BOLD, line_spacing=0.9)
     if hl.width > w - 0.5:
@@ -19,7 +21,7 @@ def news_card(headline, w=4.1, h=2.5):
     hl.next_to(bar, DOWN, buff=0.28).align_to(box, LEFT).shift(RIGHT * 0.25)
     lines = VGroup(*[Line(ORIGIN, RIGHT * (w - 0.5) * f, stroke_width=6, color="#3a3a37") for f in (1, 0.9, 0.6)])
     lines.arrange(DOWN, buff=0.18, aligned_edge=LEFT).next_to(hl, DOWN, buff=0.3).align_to(hl, LEFT)
-    return VGroup(box, bar, tag, hl, lines)
+    return VGroup(box, bar, tag, hl, lines, rim)
 
 
 def wallet():
@@ -72,10 +74,10 @@ class S02Why(Base):
         # ── s021 highlight each with an icon ──
         icons = [wallet(), house(0.5, INK), clock()]
         for k, (c, ic, w) in enumerate(zip(cards, icons, (0, 2, 5))):
-            ic.move_to(c[0].get_corner(DR) + UL * 0.45)
+            ic.move_to(c[0].get_corner(DR) + LEFT * 0.62 + UP * 0.5)
             self.until(word_time("s021", w))
             others = [cc for j, cc in enumerate(cards) if j != k]
-            self.play(c[0].animate.set_stroke(WARN, 3), *[cc[0].animate.set_stroke(INK2, 2) for cc in others],
+            self.play(c[5].animate.set_stroke(WARN, 3), *[cc[5].animate.set_stroke(INK2, 2) for cc in others],
                       Create(ic), c.animate.shift(UP * 0.15), *[cc.animate.align_to(cards[0], DOWN) for cc in others],
                       run_time=0.6)
         # ── s022 many dots → one number ──
