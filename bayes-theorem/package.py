@@ -1,26 +1,31 @@
 #!/usr/bin/env python3
-"""YouTube package: title, description (chapters from timings.json), tags, pinned comment, settings."""
-import json, math, pathlib
-from common import CHAPTERS, TIM
+"""YouTube package: title options, description (chapters from timings.json), tags, pinned comment, settings."""
+import math, pathlib
+from common import CHAPTERS, TIM, SEGS
 
 HERE = pathlib.Path(__file__).parent
 OUT = HERE / "out" / "youtube"; OUT.mkdir(parents=True, exist_ok=True)
 
-TITLE = "Mean vs Median: Which Average Lies? | Machine Learning, Data Science, Finance & CS"
+TITLES = [
+    "Bayes' Theorem Explained Simply: Why a 90% Accurate Test Means 8% | ML, Data Science, Finance, CS",
+    "Bayes' Theorem Explained Simply, With Real Examples | Machine Learning, Data Science, Finance & CS",
+    "Bayes' Theorem for Beginners: Count People, Not Percentages (ML, Data Science, Finance, CS)",
+]
+TITLE = TITLES[0]   # recommended
 
 CH_TITLES = {
-    "Two Towns": "Two towns, same average: the hook",
+    "The Positive Test": "A positive test: 90% accurate, but only an 8% chance?",
     "Welcome": "Welcome to Math Lab TV + what you'll learn",
-    "Why It Matters": "Why the wrong average misleads you",
-    "The Mean": "The mean: formula, fair shares & balance beam",
-    "The Median": "The median: sort, find the middle, even counts",
-    "Stress Test": "Outliers, robustness & skewed data",
-    "Which One to Trust": "Which average to use (totals vs typical)",
-    "Real World": "Finance, computer science, data science & ML",
-    "Common Mistakes": "3 common mistakes",
-    "Recipe": "Recipe recap",
+    "Why It Matters": "Why it matters: alarms, spam, fraud and a study of doctors",
+    "Count the Crowd": "Count the crowd: 1,000 people, 9 real vs 99 false alarms",
+    "Bayes' Rule": "Bayes' theorem: the formula, symbol by symbol",
+    "Test Again": "Test again: posterior becomes prior, the odds shortcut",
+    "What Moves the Answer": "What moves the answer: base rate, hit rate, false alarms",
+    "Real World": "Machine learning, data science, finance & computer science",
+    "Common Mistakes": "3 common mistakes (+ a bonus)",
+    "Recipe": "Recipe recap: Bayes in five steps",
     "Subscribe": "Look around your world + subscribe",
-    "Next Time": "Next: standard deviation",
+    "Next Time": "Next: p-values",
 }
 
 
@@ -43,67 +48,70 @@ def main():
     total = TIM["total"]
     mins = round(total / 60)
     ch = chapters()
-    from common import SEGS
-    rw = {k: ts(SEGS[v]["start"]) for k, v in (("fin", "s120"), ("cs", "s125"), ("ds", "s129"), ("ml", "s133"))}
-    desc = f"""Mean vs median explained simply, with real uses in Machine Learning, Data Science (DS), Finance and Computer Science (CS).
-Learn which average to trust: MSE vs MAE loss in machine learning, outliers in data science, median income in finance, p50 latency in CS.
+    at = lambda sid: ts(SEGS[sid]["start"])
+    desc = f"""Bayes' theorem explained simply, with real examples from Machine Learning (ML), Data Science (DS), Finance and Computer Science (CS).
+Learn Bayes' rule by counting people: base rates, false positives, precision vs recall, naive Bayes spam filters, fraud alerts and Bayesian updating.
 
-Two towns both report an average household income of $60,000. In one of them, 8 out of 9 families earn less than that "average". In this {mins}-minute explainer for people who don't think of themselves as "math people", we work through ONE example step by step and find out which average tells the truth.
+You take a screening test that catches 9 out of 10 people who have a condition and gives a false alarm to only 1 in 10 healthy people. It comes back positive. Most people guess there's a 90% chance they have it. The real answer is about 8%. In this {mins}-minute explainer for people who don't think of themselves as "math people", we picture 1,000 people, count them, and see exactly where the other 92% went.
 
 ⏱ CHAPTERS
 """ + "\n".join(f"{t} {name}" for t, name, _ in ch) + f"""
 
 🌍 WHERE YOU'LL USE IT
-• Finance ({rw['fin']}): median household income, median house prices, and why "average salary" can mislead
-• Computer Science / CS ({rw['cs']}): p50 (median) and p99 latency instead of mean response time
-• Data Science / DS ({rw['ds']}): spotting typos and outliers, filling missing values with the median
-• Machine Learning / ML ({rw['ml']}): loss functions; minimising MSE gives the mean, minimising MAE gives the median
+• Machine Learning / ML ({at('s093')}): recall vs precision, and why a model can be 99% accurate and useless
+• Data Science / DS ({at('s098')}): Bayesian updating (today's posterior is tomorrow's prior) and judging automated flags
+• Finance ({at('s101')}): fraud detectors, "was this you?" checks, and market warning signals
+• Computer Science / CS ({at('s104')}): naive Bayes spam filters and intrusion alarms
 
 📐 KEY FORMULAS
-• Mean: x̄ = (Σ xᵢ) / n → add all the values, divide by how many there are
-  (Σ "sigma" = add them all up · xᵢ = one value · n = how many values · x̄ "x-bar" = the mean)
-• Median: sort the values and take the middle one. Even count: (middle₁ + middle₂) / 2
-• Trimmed mean: drop the most extreme values at each end, then take the mean of the rest
-• Minimising squared error (MSE) → the mean · minimising absolute error (MAE) → the median
+• Bayes' theorem: P(A | B) = P(B | A) × P(A) / P(B)
+  P( ) = "the probability of" · A = has the condition · B = tests positive · | = "given"
+  P(A) = the prior (base rate) · P(B | A) = the likelihood (hit rate) · P(A | B) = the posterior (the answer)
+• The bottom part: P(B) = P(B | A) × P(A) + P(B | not A) × P(not A) → real positives + false alarms
+• In plain words: real positives ÷ all positives
+• Odds shortcut: posterior odds = prior odds × likelihood ratio (here 90% ÷ 10% = 9)
 
-✅ WORKED EXAMPLE: PINE HILL (incomes in $ thousands)
-30, 32, 35, 38, 40, 42, 45, 48, 230
-• Mean = 540 ÷ 9 = 60 → $60,000 (only 1 of the 9 families is above it)
-• Median = 40 → $40,000 (4 families below, 4 above)
-• With a 10th family earning 50: median = (40 + 42) ÷ 2 = 41, mean = 590 ÷ 10 = 59
-• If the top income jumps to 2,300: mean = 2,610 ÷ 9 = 290, median is still 40
-• Trimmed mean (drop 30 and 230): 280 ÷ 7 = 40
-Maple (50, 52, 55, 58, 60, 62, 65, 68, 70) is symmetric, so its mean and median are both 60.
+✅ WORKED EXAMPLE (1,000 people, condition in 1 in 100, test catches 9 in 10, false alarm 1 in 10)
+• 10 have it → 9 test positive, 1 is missed
+• 990 healthy → 99 false alarms, 891 correctly cleared
+• Positive: 9 ÷ 108 = 1 in 12 ≈ 8.3% (more than 8× the starting 1%)
+• Negative: 1 ÷ 892 ≈ 0.1% (about 1 in 900)
+• Overall accuracy really is 90%: (9 + 891) ÷ 1,000
+• Second independent positive: 81 ÷ 180 = 45% · third: 729 ÷ 828 ≈ 88%
+• Same test, base rate 1 in 10 → 50% · 1 in 5 → about 69% · 1 in 2 → 90%
+• False alarms cut to 1 in 100 → about 48% · perfect hit rate → only about 9%
+(Illustrative numbers for a screening test, not any specific disease or product.)
 
 🧭 THE RECIPE
-1. Sort the values
-2. Find the mean (add up ÷ how many)
-3. Find the median (the middle value)
-4. Compare them. If the mean is much bigger, a few large values are pulling it up (a rule of thumb, not a law)
-5. Match the question: totals & fair shares → mean · a typical person → median · unsure → report both
+1. Start with the base rate: how common is it, before any evidence?
+2. Picture a crowd: e.g. 1,000 people, so there are no fractions
+3. Split it with the test: count the true positives and the false alarms
+4. Keep the matches and divide: real cases ÷ all positives
+5. Update: when new, independent evidence arrives, the answer becomes the next base rate
+"A test result is a clue, not a verdict."
 
-▶ NEXT VIDEO: Two towns can have the same mean AND the same median and still be completely different places to live. Next time: standard deviation, how far values typically sit from the middle, and why it squares the distances first.
+▶ NEXT VIDEO: p-values. A p-value is often described as "the chance the result is a fluke", but that flips the question, exactly like mistake one. Next time: what a p-value really measures, and why Bayes is the missing piece.
 
 #machinelearning #datascience #statistics
 """
     first2 = desc.split("\n")[:2]
-    tags = ["mean vs median", "median vs mean", "mean and median", "which average to use",
+    tags = ["bayes theorem", "bayes theorem explained", "bayes rule", "bayes' theorem examples", "conditional probability",
+            "base rate fallacy", "false positives", "precision and recall", "naive bayes", "bayesian statistics",
             "machine learning", "statistics for machine learning", "data science", "statistics for data science",
-            "finance", "statistics for finance", "computer science", "CS", "DS", "ML",
-            "MSE vs MAE", "loss function", "median income", "median house price", "p50 latency",
-            "outliers", "skewed data", "robust statistics", "statistics for beginners", "statistics explained",
-            "Math Lab TV"]
+            "finance", "statistics for finance", "computer science", "ML", "DS", "CS",
+            "probability for beginners", "statistics explained", "Math Lab TV"]
     tag_str = ", ".join(tags)
-    assert len(TITLE) < 100 and len(tag_str) < 500
+    assert all(len(t) < 100 for t in TITLES) and len(tag_str) < 500
 
     s = {c["name"]: ts(0 if k == 0 else c["t0"]) for k, c in enumerate(CHAPTERS)}
-    pinned = f"""📌 Quick summary: the MEAN is the "fair share" (add everything up, split it evenly). The MEDIAN is the "typical one" (the middle value once you sort). In Pine Hill the mean is $60k but the median is $40k, because one very rich family drags the mean up ({s['Stress Test']}).
+    pinned = f"""📌 Quick summary: a positive result from a good test (catches 9 in 10, false alarm 1 in 10) means only about an 8% chance when the condition affects 1 in 100 people. Picture 1,000 people: 9 real positives vs 99 false alarms ({s['Count the Crowd']}). The rarer the thing, the more the false alarms win ({s['What Moves the Answer']}).
 
-Two clarifications:
-1️⃣ "Mean much bigger than median means a right tail" is a rule of thumb, not a law. With oddly shaped or lumpy data it can fail, so always look at the actual values ({s['Stress Test']}).
-2️⃣ "Minimising absolute error gives the median": with an even number of values, ANY guess between the two middle values gives the same smallest total, and the median (their midpoint) is one of them ({s['Real World']}).
+Worth adding:
+1️⃣ The numbers are illustrative, chosen so the counting comes out in whole people. Real tests have their own hit and false-alarm rates, and your own base rate depends on age, symptoms and history. Ask your doctor what YOUR result means.
+2️⃣ Multiplying the odds test after test assumes each test's mistakes are independent of the last. A repeat of the same test on the same sample can repeat the same false alarm ({at('s080')}).
+3️⃣ The study of doctors ({at('s021')}) is Gigerenzer et al. (2007): in a screening puzzle with numbers like ours, about 21% of the gynaecologists picked the right answer (about 1 in 10) and 47% picked "9 in 10".
 
-Which "average" have you seen in the news that you now suspect is the mean? 👇"""
+Where have you seen an alarm that was usually a false alarm? 👇"""
 
     settings = f"""Category: Education
 Language: English · Captions: upload out/captions.srt (English)
@@ -111,16 +119,18 @@ Audience: Not made for kids
 License: Standard YouTube License · Allow embedding: on
 Chapters: automatic from the description timestamps (first at 0:00, all ≥ 10 s)
 Thumbnails: upload thumbnail_A.png and thumbnail_B.png to "Test & compare"
-Playlist suggestion: "Statistics from zero" · End screen: link the next video (standard deviation) in the last 20 s
+Playlist suggestion: "Statistics from zero" · End screen: link the next video (p-values) in the last 20 s
 Comments: on · pin the comment in pinned_comment.txt
 Video length: {ts(total)} ({total:.1f} s)"""
 
-    (OUT / "title.txt").write_text(TITLE + "\n")
+    (OUT / "title.txt").write_text("\n".join(f"{'★ ' if t == TITLE else '  '}{t}  ({len(t)} chars)" for t in TITLES) + "\n")
     (OUT / "description.txt").write_text(desc)
     (OUT / "tags.txt").write_text(tag_str + "\n")
     (OUT / "pinned_comment.txt").write_text(pinned + "\n")
     (OUT / "settings.txt").write_text(settings + "\n")
-    print(f"title: {len(TITLE)} chars | tags: {len(tag_str)} chars | description: {len(desc)} chars")
+    for t in TITLES:
+        print(f"{len(t):3d}  {t}")
+    print(f"tags: {len(tag_str)} chars | description: {len(desc)} chars")
     print("first two lines:\n  " + "\n  ".join(first2))
     for t, n, d in ch:
         print(f"  {t} {n}  ({d}s)")

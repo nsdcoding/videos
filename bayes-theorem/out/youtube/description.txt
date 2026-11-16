@@ -1,0 +1,55 @@
+Bayes' theorem explained simply, with real examples from Machine Learning (ML), Data Science (DS), Finance and Computer Science (CS).
+Learn Bayes' rule by counting people: base rates, false positives, precision vs recall, naive Bayes spam filters, fraud alerts and Bayesian updating.
+
+You take a screening test that catches 9 out of 10 people who have a condition and gives a false alarm to only 1 in 10 healthy people. It comes back positive. Most people guess there's a 90% chance they have it. The real answer is about 8%. In this 15-minute explainer for people who don't think of themselves as "math people", we picture 1,000 people, count them, and see exactly where the other 92% went.
+
+⏱ CHAPTERS
+0:00 A positive test: 90% accurate, but only an 8% chance?
+1:04 Welcome to Math Lab TV + what you'll learn
+1:26 Why it matters: alarms, spam, fraud and a study of doctors
+2:28 Count the crowd: 1,000 people, 9 real vs 99 false alarms
+4:27 Bayes' theorem: the formula, symbol by symbol
+6:33 Test again: posterior becomes prior, the odds shortcut
+8:17 What moves the answer: base rate, hit rate, false alarms
+9:35 Machine learning, data science, finance & computer science
+12:13 3 common mistakes (+ a bonus)
+13:39 Recipe recap: Bayes in five steps
+14:33 Look around your world + subscribe
+14:47 Next: p-values
+
+🌍 WHERE YOU'LL USE IT
+• Machine Learning / ML (9:41): recall vs precision, and why a model can be 99% accurate and useless
+• Data Science / DS (10:28): Bayesian updating (today's posterior is tomorrow's prior) and judging automated flags
+• Finance (10:56): fraud detectors, "was this you?" checks, and market warning signals
+• Computer Science / CS (11:32): naive Bayes spam filters and intrusion alarms
+
+📐 KEY FORMULAS
+• Bayes' theorem: P(A | B) = P(B | A) × P(A) / P(B)
+  P( ) = "the probability of" · A = has the condition · B = tests positive · | = "given"
+  P(A) = the prior (base rate) · P(B | A) = the likelihood (hit rate) · P(A | B) = the posterior (the answer)
+• The bottom part: P(B) = P(B | A) × P(A) + P(B | not A) × P(not A) → real positives + false alarms
+• In plain words: real positives ÷ all positives
+• Odds shortcut: posterior odds = prior odds × likelihood ratio (here 90% ÷ 10% = 9)
+
+✅ WORKED EXAMPLE (1,000 people, condition in 1 in 100, test catches 9 in 10, false alarm 1 in 10)
+• 10 have it → 9 test positive, 1 is missed
+• 990 healthy → 99 false alarms, 891 correctly cleared
+• Positive: 9 ÷ 108 = 1 in 12 ≈ 8.3% (more than 8× the starting 1%)
+• Negative: 1 ÷ 892 ≈ 0.1% (about 1 in 900)
+• Overall accuracy really is 90%: (9 + 891) ÷ 1,000
+• Second independent positive: 81 ÷ 180 = 45% · third: 729 ÷ 828 ≈ 88%
+• Same test, base rate 1 in 10 → 50% · 1 in 5 → about 69% · 1 in 2 → 90%
+• False alarms cut to 1 in 100 → about 48% · perfect hit rate → only about 9%
+(Illustrative numbers for a screening test, not any specific disease or product.)
+
+🧭 THE RECIPE
+1. Start with the base rate: how common is it, before any evidence?
+2. Picture a crowd: e.g. 1,000 people, so there are no fractions
+3. Split it with the test: count the true positives and the false alarms
+4. Keep the matches and divide: real cases ÷ all positives
+5. Update: when new, independent evidence arrives, the answer becomes the next base rate
+"A test result is a clue, not a verdict."
+
+▶ NEXT VIDEO: p-values. A p-value is often described as "the chance the result is a fluke", but that flips the question, exactly like mistake one. Next time: what a p-value really measures, and why Bayes is the missing piece.
+
+#machinelearning #datascience #statistics

@@ -33,6 +33,8 @@ FONT, FONT_D = "Inter", "Inter Display"
 # subtitles occupy the bottom 175 px; chapter label occupies top-left 520x110 px
 PX = 8 / 1080
 SAFE_BOTTOM = -4 + 175 * PX          # content must stay above this
+EDGE = 40 * PX                         # text keeps >= 40 px from the frame border
+BOX_PAD = 10 * PX                      # text keeps >= 10 px from the border of its box
 LABEL_BOX = (-7.111, 4 - 110 * PX, -7.111 + 520 * PX, 4)  # x0, y0, x1, y1
 
 
@@ -159,6 +161,8 @@ class Base(MovingCameraScene):
                 continue  # fully off-screen
             if (x0 < -W + 0.05 or x1 > W - 0.05 or y1 > H - 0.05 or y0 < -H + 0.05) and not getattr(m, "qa_clip_ok", False):
                 self.qa_log.append(dict(t=t, kind="clipped", a=name(m)))
+            elif x0 < -W + EDGE or x1 > W - EDGE or y1 > H - EDGE:
+                self.qa_log.append(dict(t=t, kind="near_frame_edge", a=name(m)))
             if y0 < SAFE_BOTTOM:
                 self.qa_log.append(dict(t=t, kind="under_subtitles", a=name(m)))
             lx0, ly0, lx1, ly1 = LABEL_BOX
@@ -205,10 +209,29 @@ class Base(MovingCameraScene):
                     + 3 * ((1 - ts_) * ts_ ** 2)[None, :, None] * P[:, None, 2] + (ts_ ** 3)[None, :, None] * P[:, None, 3]))
             pts = (pts.reshape(-1, 3)[:, :2] - cc[:2]) * sc
             for a, A in boxes:
-                m = 0.03
+                m = -0.02   # a stroke within ~3 px of a label's box counts as touching it
                 inside = ((pts[:, 0] > A[0] + m) & (pts[:, 0] < A[2] - m) & (pts[:, 1] > A[1] + m) & (pts[:, 1] < A[3] - m))
                 if inside.any():
                     self.qa_log.append(dict(t=t, kind="text_stroke", a=name(a), b=type(st).__name__))
+        # text touching the border of the box/chip/card it sits in
+        conts = []
+        for m in self.mobjects:
+            for sub in m.get_family():
+                if getattr(sub, "qa_container", False) and not getattr(sub, "qa_ignore", False) and len(sub.points) > 0 \
+                        and max(sub.get_fill_opacity(), sub.get_stroke_opacity()) > 0.3:
+                    conts.append(sub)
+        for c_ in conts:
+            C = self._screen_box(c_)
+            for a, A in boxes:
+                cx, cy = (A[0] + A[2]) / 2, (A[1] + A[3]) / 2
+                if not (C[0] < cx < C[2] and C[1] < cy < C[3]):
+                    continue
+                if (A[2] - A[0]) > (C[2] - C[0]) * 0.98 and (A[3] - A[1]) > (C[3] - C[1]) * 0.98:
+                    continue  # text bigger than the box: not its container
+                sc_ = 8 / self.camera.frame.height
+                pad = BOX_PAD * min(1.0, sc_)
+                if A[0] - C[0] < pad or C[2] - A[2] < pad or A[1] - C[1] < pad * 0.6 or C[3] - A[3] < pad * 0.6:
+                    self.qa_log.append(dict(t=t, kind="text_box_border", a=name(a), b=type(c_).__name__))
         # marker heads (mean triangle / median diamond) sitting on dots
         fam = [sub for m in self.mobjects for sub in m.get_family()]
         heads = [h for h in fam if getattr(h, "qa_head", False) and h.get_fill_opacity() > 0.3]
@@ -492,3 +515,65 @@ def beam_scale(width=6.0, color=INK2):
     R.add_updater(lambda m: m.shift(beam.get_end() - m[1].get_end()))
     g = VGroup(base, beam, L, R)
     return g, th, L, R
+
+
+def step_chip(n, text, color=INK, size=30):
+    num = TB(str(n), int(size * 1.1), BG)
+    disc = Circle(radius=size / 100, stroke_width=0, fill_color=color, fill_opacity=1)
+    disc.qa_container = True
+    num.move_to(disc)
+    t = T(text, size, color, weight=BOLD).next_to(disc, RIGHT, buff=0.2)
+    return VGroup(disc, num, t)
+
+
+def stacks_axes(y_max=120, step=20, x_len=4.6, y_len=4.4, title="people who tested positive"):
+    return xy_axes([0, 2, 1], [0, y_max, step], x_len, y_len, None, title, x_labels={}, font_size=22)
+
+
+def stack(ax, x, n, color, per_row=5, unit=1):
+    """n countable squares; each row holds per_row squares, one square = `unit` people on the y axis."""
+    pitch = (ax.c2p(0, per_row * unit)[1] - ax.c2p(0, 0)[1])
+    g = VGroup()
+    x0 = ax.c2p(x, 0)[0] - (per_row - 1) / 2 * pitch
+    for k in range(n):
+        c, r = k % per_row, k // per_row
+        g.add(Square(pitch * 0.82, stroke_width=0, fill_color=color, fill_opacity=0.95)
+              .move_to([x0 + c * pitch, ax.c2p(0, 0)[1] + (r + 0.5) * pitch, 0]))
+    return g
+
+
+def bar(ax, x, v, color, width=1.2, opacity=0.9):
+    r = Rectangle(width=width, height=max(1e-3, ax.c2p(0, v)[1] - ax.c2p(0, 0)[1]), stroke_width=0,
+                  fill_color=color, fill_opacity=opacity)
+    return r.move_to(ax.c2p(x, 0), aligned_edge=DOWN)
+
+
+def domain_tile(text, color, w=2.9, h=1.5, size=40):
+    box = card(w, h, color)
+    t = TB(text, size, color).move_to(box)
+    return VGroup(box, t)
+
+
+def gauge(value, color, label, r=1.1, size=26):
+    """Half-circle gauge filled to value (0–100)."""
+    track = Arc(radius=r, start_angle=PI, angle=-PI).set_stroke(GRID, 16)
+    fill = Arc(radius=r, start_angle=PI, angle=-PI * value / 100).set_stroke(color, 16)
+    num = TB(f"{value:g}%", 44, color).move_to(track.get_center() + DOWN * 0.15 + UP * 0.1)
+    num.move_to([track.get_center()[0], track.get_bottom()[1] + 0.35, 0])
+    lab = T(label, size, color, weight=BOLD).next_to(track, DOWN, buff=0.3)
+    g = VGroup(track, fill, num, lab); g.fill = fill
+    return g
+
+
+def loop_arrows(left, right, color_top=VIOLET, color_bot=WARN):
+    """Two curved arrows forming a loop between mobjects `left` and `right`."""
+    a1 = CurvedArrow(left.get_top() + UP * 0.15, right.get_top() + UP * 0.15, angle=-PI / 2.5, color=color_top, stroke_width=5)
+    a2 = CurvedArrow(right.get_bottom() + DOWN * 0.15, left.get_bottom() + DOWN * 0.15, angle=-PI / 2.5, color=color_bot, stroke_width=5)
+    return VGroup(a1, a2)
+
+
+def tube(color=AQUA, h=1.6, w=0.5, fill=0.35):
+    body = RoundedRectangle(corner_radius=w * 0.4, width=w, height=h).set_stroke(INK2, 4)
+    liq = Rectangle(width=w * 0.8, height=h * fill).set_stroke(width=0).set_fill(color, 0.85)
+    liq.move_to(body.get_bottom() + UP * (h * fill / 2 + 0.06))
+    return VGroup(body, liq)

@@ -16,7 +16,7 @@ def clinic():
 
 
 def clipboard():
-    b = RoundedRectangle(corner_radius=0.12, width=2.6, height=3.2).set_stroke(INK2, 3).set_fill("#22221f", 1)
+    b = RoundedRectangle(corner_radius=0.12, width=3.1, height=3.2).set_stroke(INK2, 3).set_fill("#22221f", 1)
     b.qa_container = True
     clip = RoundedRectangle(corner_radius=0.08, width=1.0, height=0.3).set_stroke(INK2, 3).set_fill(BG, 1).move_to(b.get_top())
     clip.qa_container = True
@@ -77,7 +77,7 @@ class S01Hook(Base):
             sq = VGroup(*[Square(0.4, stroke_width=0, fill_color=color, fill_opacity=0.95) for _ in range(10)]).arrange(RIGHT, buff=0.16)
             sq.move_to(box.get_top() + DOWN * 0.55)
             rings = VGroup(*[ring(s, AQUA, 4, 0.05) for s in sq[:n_ring]]) if color == ORANGE_ else VGroup(ring(sq[3], AQUA, 4, 0.05))
-            cap = T(caption, 28, INK).move_to(box.get_bottom() + UP * 0.48)
+            cap = T(caption, 26, INK).move_to(box.get_bottom() + UP * 0.48)
             return VGroup(box, sq, rings, cap)
         c1 = stat(ORANGE_, 9, "catches 9 of 10 who have it").move_to(RIGHT * 3.25 + UP * 0.75)
         self.play(FadeOut(arr), FadeIn(c1[0]), FadeIn(c1[1], lag_ratio=0.1), run_time=0.8)
@@ -96,7 +96,7 @@ class S01Hook(Base):
         flap = env[1]
         self.play(Rotate(flap, PI, axis=RIGHT, about_point=env[0].get_top()), run_time=0.5)
         self.until(word_time("s005", word_index("s005", "positive")) - 0.1)
-        stamp = pill("POSITIVE", AQUA, 64, pad=0.3).rotate(8 * DEGREES).move_to(env[0])
+        stamp = pill("POSITIVE", AQUA, 50, pad=0.26).rotate(8 * DEGREES).move_to(env[0])
         self.play(FadeIn(stamp, scale=1.8), run_time=0.35, rate_func=rate_functions.ease_out_back)
         self.play(Flash(stamp, color=AQUA, line_length=0.35, flash_radius=1.8), run_time=0.6)
 

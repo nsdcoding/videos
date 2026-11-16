@@ -1,44 +1,39 @@
 #!/usr/bin/env python3
-"""Two 1280x720 thumbnails (A/B) for YouTube Test & compare, rendered from HTML with Playwright."""
-import pathlib
-import subprocess, json
-MINS = round(json.loads((pathlib.Path(__file__).parent / "timings.json").read_text())["total"] / 60)
+"""Two 1280x720 thumbnails (A/B) for YouTube Test & compare, rendered from HTML with Playwright.
+Both use the running example: 1,000 people → 9 real positives vs 99 false alarms → 9/108 ≈ 8%."""
+import json, pathlib, subprocess
 
 HERE = pathlib.Path(__file__).parent
 OUT = HERE / "out" / "youtube"; OUT.mkdir(parents=True, exist_ok=True)
-PINE = [30, 32, 35, 38, 40, 42, 45, 48, 230]
-MAPLE = [50, 52, 55, 58, 60, 62, 65, 68, 70]
+MINS = round(json.loads((HERE / "timings.json").read_text())["total"] / 60)
 C = dict(bg="#1a1a19", blue="#3987e5", orange="#d95926", aqua="#199e70", violet="#9085e9", warn="#fab219",
-         ink="#f0efec", ink2="#c3c2b7", muted="#898781", red="#d03b3b")
+         ink="#f0efec", ink2="#c3c2b7", muted="#898781", red="#d03b3b", card="#22221f")
 
 
-def dotplot_svg(vals, w, x0, y0, xmax=240, step=40, r=11, colors=None, mean=None, median=None, fs=22, marker_h=70,
-                labels=True, mean_lab="mean", med_lab="median", lab_fs=30):
-    sx = lambda v: x0 + v / xmax * w
-    out = [f'<line x1="{x0}" y1="{y0}" x2="{x0 + w}" y2="{y0}" stroke="{C["ink2"]}" stroke-width="4"/>']
-    for v in range(0, xmax + 1, step):
-        out.append(f'<line x1="{sx(v)}" y1="{y0}" x2="{sx(v)}" y2="{y0 + 10}" stroke="{C["ink2"]}" stroke-width="3"/>')
-        out.append(f'<text x="{sx(v)}" y="{y0 + 36}" fill="{C["ink2"]}" font-size="{fs}" text-anchor="middle">{v}</text>')
-    placed = []
-    for i, v in enumerate(vals):
-        x = sx(v); lvl = 0
-        while any(abs(x - px) < 2 * r + 2 and pl == lvl for px, pl in placed): lvl += 1
-        placed.append((x, lvl))
-        col = (colors or [C["blue"]] * len(vals))[i]
-        out.append(f'<circle cx="{x}" cy="{y0 - r - 4 - lvl * (2 * r + 2)}" r="{r}" fill="{col}" stroke="{C["bg"]}" stroke-width="3"/>')
-    if mean is not None:
-        x = sx(mean); top = y0 - marker_h - 20
-        out.append(f'<line x1="{x}" y1="{y0}" x2="{x}" y2="{top + 18}" stroke="{C["warn"]}" stroke-width="5" stroke-dasharray="9 7"/>')
-        out.append(f'<polygon points="{x - 16},{top} {x + 16},{top} {x},{top + 24}" fill="{C["warn"]}"/>')
-        if labels:
-            out.append(f'<text x="{x + 22}" y="{top + 8}" fill="{C["warn"]}" font-size="{lab_fs}" font-weight="800">{mean_lab}</text>')
-    if median is not None:
-        x = sx(median); top = y0 - marker_h - 75
-        out.append(f'<line x1="{x}" y1="{y0}" x2="{x}" y2="{top + 18}" stroke="{C["violet"]}" stroke-width="5" stroke-dasharray="9 7"/>')
-        out.append(f'<rect x="{x - 13}" y="{top - 13}" width="26" height="26" fill="{C["violet"]}" transform="rotate(45 {x} {top})"/>')
-        if labels:
-            out.append(f'<text x="{x - 22}" y="{top + 10}" fill="{C["violet"]}" font-size="{lab_fs}" font-weight="800" text-anchor="end">{med_lab}</text>')
+def stacks_svg(x0, y0, h, cell, per_row=5, label_fs=34, tick_fs=22, ymax=120, step=20, xs=(90, 240), axis_w=330,
+               names=("have it", "false alarms"), name_fs=26):
+    """Countable stacks on a numbered y axis: 9 orange (have it) vs 99 blue (false alarms)."""
+    unit = h / ymax                       # px per person
+    pitch = per_row * unit                # one row of squares = per_row people
+    out = [f'<line x1="{x0}" y1="{y0}" x2="{x0}" y2="{y0 - h - 6}" stroke="{C["ink2"]}" stroke-width="4"/>',
+           f'<line x1="{x0}" y1="{y0}" x2="{x0 + axis_w}" y2="{y0}" stroke="{C["ink2"]}" stroke-width="4"/>']
+    for v in range(0, ymax + 1, step):
+        y = y0 - v * unit
+        out.append(f'<line x1="{x0 - 10}" y1="{y}" x2="{x0}" y2="{y}" stroke="{C["ink2"]}" stroke-width="3"/>')
+        out.append(f'<text x="{x0 - 16}" y="{y + 8}" fill="{C["ink2"]}" font-size="{tick_fs}" text-anchor="end">{v}</text>')
+    for n, cx, col, lab, name in ((9, x0 + xs[0], C["orange"], "9", names[0]), (99, x0 + xs[1], C["blue"], "99", names[1])):
+        left = cx - per_row * pitch / 2
+        for k in range(n):
+            c, r = k % per_row, k // per_row
+            out.append(f'<rect x="{left + c * pitch + 1.5}" y="{y0 - (r + 1) * pitch + 1.5}" width="{pitch - 3}" height="{pitch - 3}" fill="{col}"/>')
+        top = y0 - math_ceil(n / per_row) * pitch
+        out.append(f'<text x="{cx}" y="{top - 12}" fill="{col}" font-size="{label_fs}" font-weight="900" text-anchor="middle">{lab}</text>')
+        out.append(f'<text x="{cx}" y="{y0 + 36}" fill="{col}" font-size="{name_fs}" font-weight="700" text-anchor="middle">{name}</text>')
     return "\n".join(out)
+
+
+def math_ceil(x):
+    return int(-(-x // 1))
 
 
 BASE = """<!doctype html><html><head><meta charset="utf-8"><style>
@@ -50,43 +45,39 @@ svg text{font-family:'Inter'}
 
 
 def thumb_a():
-    svg = dotplot_svg(PINE, 590, 30, 470, colors=[C["blue"]] * 8 + [C["orange"]], mean=60, median=40, fs=26,
-                      marker_h=150, labels=False, r=15)
+    svg = stacks_svg(70, 470, 400, None)
     body = f"""
 <div style="position:absolute;left:56px;top:40px" class="badge">Explained in {MINS} minutes</div>
-<div class="h" style="position:absolute;left:52px;top:118px;font-size:128px;color:{C['warn']}">MEAN</div>
-<div class="h" style="position:absolute;left:58px;top:236px;font-size:54px;color:{C['muted']}">vs</div>
-<div class="h" style="position:absolute;left:52px;top:292px;font-size:128px;color:{C['violet']}">MEDIAN</div>
-<div style="position:absolute;left:58px;top:450px;font-size:40px;font-weight:800;line-height:1.18;color:{C['ink']}">
-  8 of 9 families earn<br><span style="color:{C['red']}">less than the “average”</span></div>
-<svg style="position:absolute;left:610px;top:40px" width="660" height="560" viewBox="0 0 660 560">
-  <rect x="30" y="10" width="560" height="120" rx="18" fill="#22221f" stroke="{C['ink2']}" stroke-width="2"/>
-  <polygon points="60,40 92,40 76,64" fill="{C['warn']}"/>
-  <text x="110" y="62" fill="{C['warn']}" font-size="40" font-weight="900">mean = $60k</text>
-  <rect x="64" y="84" width="24" height="24" fill="{C['violet']}" transform="rotate(45 76 96)"/>
-  <text x="110" y="110" fill="{C['violet']}" font-size="40" font-weight="900">median = $40k</text>
-  {svg}
-  <text x="30" y="545" fill="{C['muted']}" font-size="24">one town · household income (thousand $)</text>
+<div class="h" style="position:absolute;left:52px;top:118px;font-size:120px;color:{C['violet']}">BAYES'<br>THEOREM</div>
+<div style="position:absolute;left:58px;top:360px;font-size:44px;font-weight:800;line-height:1.2">
+  test says <span style="color:{C['aqua']}">positive</span>:</div>
+<div style="position:absolute;left:58px;top:420px;display:flex;align-items:baseline;gap:26px">
+  <div class="h" style="font-size:104px;color:{C['muted']};text-decoration:line-through;text-decoration-color:{C['red']};text-decoration-thickness:10px">90%</div>
+  <div class="h" style="font-size:52px;color:{C['muted']}">vs</div>
+  <div class="h" style="font-size:118px;color:{C['violet']}">8%</div>
+</div>
+<div style="position:absolute;left:60px;top:560px;font-size:30px;color:{C['ink2']}">gut feeling vs real chance</div>
+<svg style="position:absolute;left:760px;top:40px" width="480" height="560" viewBox="0 0 480 560">
+  <text x="20" y="34" fill="{C['ink']}" font-size="30" font-weight="800">108 positives out of 1,000</text>
+  {svg.replace('x1="70"', 'x1="70"')}
 </svg>"""
     return BASE % dict(C, body=body)
 
 
 def thumb_b():
-    m = dotplot_svg(MAPLE, 500, 30, 175, xmax=240, colors=[C["ink"]] * 9, mean=60, median=60, fs=22, marker_h=72, labels=False, r=12)
-    p = dotplot_svg(PINE, 500, 30, 175, xmax=240, colors=[C["blue"]] * 8 + [C["orange"]], mean=60, median=40, fs=22,
-                    marker_h=72, labels=False, r=12)
-    panel = lambda title, col, svg, verdict, vcol: f"""
-<div style="width:560px;height:330px;border:4px solid {col};border-radius:24px;background:#22221f;position:relative">
-  <div style="position:absolute;left:26px;top:16px;font-size:36px;font-weight:900;color:{col}">{title}</div>
-  <svg style="position:absolute;left:0;top:66px" width="560" height="220" viewBox="0 0 560 220">{svg}</svg>
-  <div style="position:absolute;left:26px;bottom:16px;font-size:32px;font-weight:800;color:{vcol}">{verdict}</div>
-</div>"""
+    svg = stacks_svg(50, 280, 220, None, label_fs=28, tick_fs=18, xs=(55, 130), axis_w=170, names=("real", "false"), name_fs=22)
     body = f"""
-<div class="h" style="position:absolute;left:0;right:0;top:34px;text-align:center;font-size:132px">
-  <span style="color:{C['warn']}">MEAN</span> <span style="color:{C['muted']};font-size:64px">vs</span> <span style="color:{C['violet']}">MEDIAN</span></div>
-<div style="position:absolute;left:56px;top:210px;display:flex;gap:48px">
-  {panel("BALANCED", C['ink2'], m, "mean = median = 60", C['aqua'])}
-  {panel("SKEWED", C['orange'], p, "mean 60 ≠ median 40", C['red'])}
+<div class="h" style="position:absolute;left:0;right:0;top:34px;text-align:center;font-size:128px;color:{C['violet']}">BAYES' THEOREM</div>
+<div style="position:absolute;left:56px;top:200px;width:560px;height:360px;border:4px solid {C['muted']};border-radius:24px;background:{C['card']}">
+  <div style="position:absolute;left:30px;top:22px;font-size:36px;font-weight:900;color:{C['muted']}">YOUR GUT</div>
+  <div class="h" style="position:absolute;left:30px;top:100px;font-size:170px;color:{C['muted']}">90%</div>
+  <div style="position:absolute;left:24px;top:182px;width:440px;height:12px;background:{C['red']};transform:rotate(-8deg)"></div>
+  <div style="position:absolute;left:30px;bottom:24px;font-size:32px;font-weight:700;color:{C['ink2']}">"the test is 90% accurate"</div>
+</div>
+<div style="position:absolute;left:660px;top:200px;width:560px;height:360px;border:4px solid {C['violet']};border-radius:24px;background:{C['card']}">
+  <div style="position:absolute;left:30px;top:22px;font-size:36px;font-weight:900;color:{C['violet']}">REAL CHANCE</div>
+  <div class="h" style="position:absolute;left:30px;top:100px;font-size:170px;color:{C['violet']}">8%</div>
+  <svg style="position:absolute;left:330px;top:24px" width="220" height="330" viewBox="0 0 220 330">{svg}</svg>
 </div>
 <div style="position:absolute;left:56px;top:600px" class="badge">Explained in {MINS} minutes</div>"""
     return BASE % dict(C, body=body)
@@ -101,7 +92,6 @@ if __name__ == "__main__":
 (async () => { const b = await chromium.launch(); const p = await b.newPage({viewport:{width:1280,height:720}, deviceScaleFactor:1});
 for (const [src, dst] of JSON.parse(process.argv[2])) { await p.goto('file://' + src); await p.waitForTimeout(400); await p.screenshot({path: dst}); }
 await b.close(); })();""")
-    import json
     subprocess.run(["node", str(js), json.dumps(shots)], check=True)
     from PIL import Image
     for n in ("A", "B"):

@@ -81,10 +81,10 @@ if __name__ == "__main__":
                     str(lim)], check=True)
     # final loudness: two-pass loudnorm (linear) to -14 LUFS, 48 kHz
     o = subprocess.run(["ffmpeg", "-nostats", "-i", str(lim), "-af",
-                        "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"],
+                        "loudnorm=I=-14:TP=-2.0:LRA=11:print_format=json", "-f", "null", "-"],
                        capture_output=True, text=True).stderr
     m = json.loads(o[o.rindex("{"):o.rindex("}") + 1])
-    af = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+    af = (f"loudnorm=I=-14:TP=-2.0:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
           f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(lim), "-af", af,
                     "-ar", "48000", "-t", f"{total:.3f}", str(HERE / "audio" / "voiceover.wav")], check=True)

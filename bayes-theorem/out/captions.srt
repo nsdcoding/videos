@@ -1,0 +1,1275 @@
+1
+00:00:00,600 --> 00:00:03,025
+Imagine you go for a routine health check,
+
+2
+00:00:03,025 --> 00:00:05,450
+and the doctor suggests a quick screening test.
+
+3
+00:00:05,800 --> 00:00:08,167
+It looks for a condition that is fairly rare.
+
+4
+00:00:08,167 --> 00:00:11,250
+About one in every hundred people your age has it.
+
+5
+00:00:11,600 --> 00:00:14,193
+The test is good. If you have the condition,
+
+6
+00:00:14,193 --> 00:00:16,370
+it catches it nine times out of ten.
+
+7
+00:00:16,720 --> 00:00:20,426
+And if you are healthy, it only gives a false alarm one time in
+
+8
+00:00:20,426 --> 00:00:20,820
+ten.
+
+9
+00:00:21,170 --> 00:00:23,048
+A few days later, the result comes back.
+
+10
+00:00:23,048 --> 00:00:23,660
+Positive.
+
+11
+00:00:24,660 --> 00:00:26,294
+So, how worried should you be?
+
+12
+00:00:26,294 --> 00:00:28,220
+What is the chance you actually have it?
+
+13
+00:00:28,570 --> 00:00:30,770
+Take a second, and make your own guess.
+
+14
+00:00:32,270 --> 00:00:34,223
+Most people say about ninety percent.
+
+15
+00:00:34,223 --> 00:00:37,090
+After all, the test is ninety percent accurate.
+
+16
+00:00:37,440 --> 00:00:41,140
+Here's the surprise. The real answer is about eight percent.
+
+17
+00:00:43,140 --> 00:00:46,330
+Not ninety. Eight. Less than one in ten.
+
+18
+00:00:47,330 --> 00:00:49,612
+Nothing in that story is a trick.
+
+19
+00:00:49,612 --> 00:00:51,207
+The test really is good.
+
+20
+00:00:51,207 --> 00:00:53,490
+Your gut just left out one number.
+
+21
+00:00:53,840 --> 00:00:55,920
+How rare the condition was to begin with.
+
+22
+00:00:56,920 --> 00:00:59,958
+The tool that puts that number back in is called Bayes' theorem.
+
+23
+00:00:59,958 --> 00:01:03,184
+And by the end of this video, you will be able to do this in
+
+24
+00:01:03,184 --> 00:01:03,780
+your head.
+
+25
+00:01:04,780 --> 00:01:06,308
+Welcome to Math Lab TV.
+
+26
+00:01:06,308 --> 00:01:08,490
+Where math is something you can see.
+
+27
+00:01:09,190 --> 00:01:12,236
+Today you will learn how to turn a test result into a real
+
+28
+00:01:12,236 --> 00:01:14,580
+probability, just by counting people.
+
+29
+00:01:14,930 --> 00:01:17,415
+You will see Bayes' theorem as a formula,
+
+30
+00:01:17,415 --> 00:01:19,900
+and exactly what every symbol means.
+
+31
+00:01:20,250 --> 00:01:24,018
+And you will see how evidence adds up, in spam filters,
+
+32
+00:01:24,018 --> 00:01:26,140
+fraud alerts and machine learning.
+
+33
+00:01:26,740 --> 00:01:28,330
+This isn't just about medical tests.
+
+34
+00:01:28,680 --> 00:01:31,833
+Any time a rare thing meets an imperfect detector,
+
+35
+00:01:31,833 --> 00:01:33,310
+the same trap is waiting.
+
+36
+00:01:33,660 --> 00:01:35,363
+A smoke alarm going off.
+
+37
+00:01:35,363 --> 00:01:37,312
+An email flagged as spam.
+
+38
+00:01:37,312 --> 00:01:40,470
+A message from your bank asking, was this you?
+
+39
+00:01:40,820 --> 00:01:43,217
+Each one is a positive test.
+
+40
+00:01:43,217 --> 00:01:47,045
+And each one asks the same question: given this alarm,
+
+41
+00:01:47,045 --> 00:01:49,200
+how likely is the real thing?
+
+42
+00:01:50,200 --> 00:01:51,776
+And smart people get this wrong.
+
+43
+00:01:51,776 --> 00:01:55,610
+In one well known study, doctors were given a screening puzzle
+
+44
+00:01:55,610 --> 00:01:56,960
+with numbers like ours.
+
+45
+00:01:57,310 --> 00:01:59,719
+Only about one in five picked the right answer.
+
+46
+00:01:59,719 --> 00:02:01,190
+Almost half picked nine in ten.
+
+47
+00:02:02,190 --> 00:02:04,677
+That's not because doctors are bad at math.
+
+48
+00:02:04,677 --> 00:02:08,400
+It's because the numbers came as percentages of percentages.
+
+49
+00:02:08,750 --> 00:02:11,902
+Change the form, and the problem becomes easy.
+
+50
+00:02:11,902 --> 00:02:15,286
+So here is the trick for this whole video: stop thinking in
+
+51
+00:02:15,286 --> 00:02:17,760
+percentages, and start counting people.
+
+52
+00:02:18,760 --> 00:02:20,827
+And Bayes isn't only about tests.
+
+53
+00:02:20,827 --> 00:02:24,289
+It's a rule for changing your mind by the right amount when new
+
+54
+00:02:24,289 --> 00:02:27,950
+evidence arrives. Not too little, and not too much.
+
+55
+00:02:28,950 --> 00:02:31,509
+Let's do it. Picture one thousand people,
+
+56
+00:02:31,509 --> 00:02:33,000
+all taking the same test.
+
+57
+00:02:33,350 --> 00:02:35,410
+Each little square is one person.
+
+58
+00:02:35,410 --> 00:02:37,690
+Forty across, twenty five down.
+
+59
+00:02:37,690 --> 00:02:38,830
+One thousand.
+
+60
+00:02:39,180 --> 00:02:42,120
+Step one. How many of them have the condition?
+
+61
+00:02:42,120 --> 00:02:44,510
+One in a hundred. So, ten people.
+
+62
+00:02:44,860 --> 00:02:47,200
+The other nine hundred and ninety are healthy.
+
+63
+00:02:47,550 --> 00:02:50,790
+Step two. Test the ten people who have the condition.
+
+64
+00:02:50,790 --> 00:02:52,410
+It catches nine of them.
+
+65
+00:02:52,760 --> 00:02:56,470
+So, nine true positives, and one person the test misses.
+
+66
+00:02:56,820 --> 00:03:00,527
+Step three. Test the nine hundred and ninety healthy people.
+
+67
+00:03:00,527 --> 00:03:03,080
+It wrongly flags one in ten of them.
+
+68
+00:03:03,430 --> 00:03:05,120
+That's ninety nine false alarms.
+
+69
+00:03:06,120 --> 00:03:09,910
+Now, look only at the people holding a positive result.
+
+70
+00:03:10,260 --> 00:03:12,267
+Nine of them actually have the condition.
+
+71
+00:03:12,267 --> 00:03:13,787
+Ninety nine are healthy.
+
+72
+00:03:13,787 --> 00:03:16,120
+One hundred and eight positives in total.
+
+73
+00:03:16,470 --> 00:03:19,887
+If your test is positive, you are one of these one hundred and
+
+74
+00:03:19,887 --> 00:03:22,010
+eight. And only nine of them are sick.
+
+75
+00:03:22,360 --> 00:03:24,001
+Nine out of one hundred and eight.
+
+76
+00:03:24,001 --> 00:03:26,020
+That's one in twelve, about eight percent.
+
+77
+00:03:28,020 --> 00:03:31,560
+The test did its job. It caught almost everyone who was sick.
+
+78
+00:03:31,910 --> 00:03:36,358
+But healthy people outnumber sick people ninety nine to one.
+
+79
+00:03:36,358 --> 00:03:40,322
+So even a small false alarm rate creates a crowd of false
+
+80
+00:03:40,322 --> 00:03:41,070
+alarms.
+
+81
+00:03:42,070 --> 00:03:45,610
+Here, the false alarms outnumber the real cases eleven to one.
+
+82
+00:03:46,610 --> 00:03:50,721
+And yes, the test really is ninety percent accurate overall.
+
+83
+00:03:50,721 --> 00:03:54,613
+Nine true positives, plus eight hundred and ninety one healthy
+
+84
+00:03:54,613 --> 00:03:56,056
+people correctly cleared.
+
+85
+00:03:56,056 --> 00:03:58,520
+Nine hundred right answers out of a thousand.
+
+86
+00:03:59,520 --> 00:04:02,517
+And notice, the positive result still mattered.
+
+87
+00:04:02,517 --> 00:04:05,513
+Before the test, your chance was one in a hundred.
+
+88
+00:04:05,513 --> 00:04:07,330
+After it, one in twelve.
+
+89
+00:04:07,680 --> 00:04:09,525
+That's more than eight times higher.
+
+90
+00:04:09,525 --> 00:04:11,166
+The test moved you a lot.
+
+91
+00:04:11,166 --> 00:04:13,620
+It just didn't move you anywhere near certain.
+
+92
+00:04:14,620 --> 00:04:17,565
+And a negative result? Of the eight hundred and ninety two
+
+93
+00:04:17,565 --> 00:04:20,250
+people who test negative, just one has the condition.
+
+94
+00:04:20,600 --> 00:04:23,649
+So a negative test drops your chance from one in a hundred to
+
+95
+00:04:23,649 --> 00:04:25,304
+about one in nine hundred.
+
+96
+00:04:25,304 --> 00:04:26,600
+That's very reassuring.
+
+97
+00:04:28,100 --> 00:04:31,962
+What we just did, counting people, is exactly Bayes' theorem.
+
+98
+00:04:31,962 --> 00:04:34,470
+Let's write it the way you'll see it in books.
+
+99
+00:04:34,820 --> 00:04:36,507
+Here is the same crowd as a tree.
+
+100
+00:04:36,507 --> 00:04:38,927
+One thousand people split into ten who have it,
+
+101
+00:04:38,927 --> 00:04:40,980
+and nine hundred and ninety who don't.
+
+102
+00:04:41,330 --> 00:04:43,467
+Then each branch splits again by the test result.
+
+103
+00:04:43,467 --> 00:04:46,823
+Nine and one on top. Ninety nine and eight hundred and ninety
+
+104
+00:04:46,823 --> 00:04:47,740
+one below.
+
+105
+00:04:48,090 --> 00:04:51,501
+A positive result means you're on one of the two positive
+
+106
+00:04:51,501 --> 00:04:53,767
+leaves. Nine, or ninety nine.
+
+107
+00:04:53,767 --> 00:04:54,990
+That's all Bayes is doing.
+
+108
+00:04:55,990 --> 00:04:59,108
+First, the symbols. A capital P, with brackets,
+
+109
+00:04:59,108 --> 00:05:01,940
+means the probability of whatever is inside.
+
+110
+00:05:02,290 --> 00:05:04,371
+A means having the condition.
+
+111
+00:05:04,371 --> 00:05:06,220
+B means testing positive.
+
+112
+00:05:06,570 --> 00:05:08,630
+And this vertical bar means given.
+
+113
+00:05:08,630 --> 00:05:12,340
+So, P of A given B is the chance you have the condition,
+
+114
+00:05:12,340 --> 00:05:14,400
+given that you tested positive.
+
+115
+00:05:14,750 --> 00:05:16,365
+That's the number we want.
+
+116
+00:05:16,365 --> 00:05:17,980
+And here is Bayes' theorem.
+
+117
+00:05:18,980 --> 00:05:24,587
+P of A given B equals P of B given A, times P of A,
+
+118
+00:05:24,587 --> 00:05:26,710
+divided by P of B.
+
+119
+00:05:27,060 --> 00:05:29,150
+Now let's match each piece to our crowd.
+
+120
+00:05:29,500 --> 00:05:31,162
+P of A is the base rate.
+
+121
+00:05:31,162 --> 00:05:34,060
+How common the condition is before any test.
+
+122
+00:05:34,060 --> 00:05:35,310
+Ten in a thousand.
+
+123
+00:05:35,660 --> 00:05:39,352
+P of B given A is how good the test is at catching it.
+
+124
+00:05:39,352 --> 00:05:40,440
+Nine out of ten.
+
+125
+00:05:40,790 --> 00:05:43,942
+Multiply those two, and you get the true positives.
+
+126
+00:05:43,942 --> 00:05:45,130
+Nine in a thousand.
+
+127
+00:05:45,480 --> 00:05:49,808
+P of B, on the bottom, is the chance of testing positive at all.
+
+128
+00:05:49,808 --> 00:05:53,100
+Real or false, that's one hundred and eight in a thousand.
+
+129
+00:05:53,450 --> 00:05:55,761
+Divide, and the thousands cancel.
+
+130
+00:05:55,761 --> 00:05:58,085
+Nine out of one hundred and eight.
+
+131
+00:05:58,085 --> 00:06:00,410
+The same answer we got by counting.
+
+132
+00:06:01,910 --> 00:06:05,658
+So the formula is just a short way of saying: real positives,
+
+133
+00:06:05,658 --> 00:06:07,630
+divided by all positives.
+
+134
+00:06:08,630 --> 00:06:10,397
+The bottom part is where people slip.
+
+135
+00:06:10,397 --> 00:06:11,970
+It hides the false alarms.
+
+136
+00:06:12,320 --> 00:06:16,673
+Written out in full, P of B is the true positives from the sick,
+
+137
+00:06:16,673 --> 00:06:18,850
+plus the false alarms from the healthy.
+
+138
+00:06:19,200 --> 00:06:20,506
+Three names you'll hear.
+
+139
+00:06:20,506 --> 00:06:22,462
+The base rate is called the prior.
+
+140
+00:06:22,462 --> 00:06:24,853
+The answer is called the posterior.
+
+141
+00:06:24,853 --> 00:06:28,330
+And P of B given A is called the likelihood.
+
+142
+00:06:28,680 --> 00:06:30,860
+Prior means before the evidence.
+
+143
+00:06:30,860 --> 00:06:32,550
+Posterior means after.
+
+144
+00:06:33,550 --> 00:06:37,441
+So you tested positive, and your chance is now about one in
+
+145
+00:06:37,441 --> 00:06:40,040
+twelve. What would a sensible doctor do next?
+
+146
+00:06:40,390 --> 00:06:43,212
+Test again. And here is the beautiful part.
+
+147
+00:06:43,212 --> 00:06:46,460
+The answer from the first test becomes the starting point for
+
+148
+00:06:46,460 --> 00:06:47,330
+the second.
+
+149
+00:06:47,680 --> 00:06:50,040
+Yesterday's posterior is today's prior.
+
+150
+00:06:51,040 --> 00:06:53,281
+Take our one hundred and eight positives.
+
+151
+00:06:53,281 --> 00:06:55,741
+Nine are sick, ninety nine are healthy.
+
+152
+00:06:55,741 --> 00:06:57,140
+They all take a second test.
+
+153
+00:06:57,490 --> 00:07:00,836
+To avoid fractions of people, picture ten times as many.
+
+154
+00:07:00,836 --> 00:07:04,156
+Ninety people who have it, and nine hundred and ninety who
+
+155
+00:07:04,156 --> 00:07:04,570
+don't.
+
+156
+00:07:04,920 --> 00:07:06,882
+The test catches nine in ten of the sick,
+
+157
+00:07:06,882 --> 00:07:09,193
+and wrongly flags one in ten of the healthy.
+
+158
+00:07:09,193 --> 00:07:10,110
+Same as before.
+
+159
+00:07:10,460 --> 00:07:12,857
+After a second positive: eighty one sick,
+
+160
+00:07:12,857 --> 00:07:14,130
+and ninety nine healthy.
+
+161
+00:07:14,480 --> 00:07:16,889
+Eighty one out of one hundred and eighty.
+
+162
+00:07:16,889 --> 00:07:18,120
+That's forty five percent.
+
+163
+00:07:19,620 --> 00:07:22,925
+One percent, then eight, then forty five.
+
+164
+00:07:22,925 --> 00:07:25,790
+Each positive pushes the number up.
+
+165
+00:07:26,140 --> 00:07:27,769
+There's a neat shortcut here.
+
+166
+00:07:27,769 --> 00:07:29,600
+Compare sick to healthy as odds.
+
+167
+00:07:29,950 --> 00:07:34,361
+Before any test, the odds are one sick person for every ninety
+
+168
+00:07:34,361 --> 00:07:35,180
+nine healthy.
+
+169
+00:07:35,530 --> 00:07:39,232
+A sick person is nine times more likely to test positive than a
+
+170
+00:07:39,232 --> 00:07:42,230
+healthy one. Ninety percent, versus ten.
+
+171
+00:07:42,580 --> 00:07:45,676
+So each positive multiplies the odds of having it by nine.
+
+172
+00:07:45,676 --> 00:07:48,772
+One to ninety nine becomes nine to ninety nine,
+
+173
+00:07:48,772 --> 00:07:50,790
+then eighty one to ninety nine.
+
+174
+00:07:51,140 --> 00:07:54,060
+A third positive makes it seven hundred and twenty nine to
+
+175
+00:07:54,060 --> 00:07:56,390
+ninety nine. About eighty eight percent.
+
+176
+00:07:57,390 --> 00:07:59,153
+One important condition.
+
+177
+00:07:59,153 --> 00:08:02,047
+This only works if the second test makes its mistakes
+
+178
+00:08:02,047 --> 00:08:03,810
+independently of the first.
+
+179
+00:08:04,160 --> 00:08:07,100
+If you repeat the same test on the same sample,
+
+180
+00:08:07,100 --> 00:08:10,040
+it might simply repeat the same false alarm.
+
+181
+00:08:10,040 --> 00:08:12,980
+Then the second positive tells you much less.
+
+182
+00:08:13,330 --> 00:08:16,778
+That's one reason doctors often confirm with a different kind of
+
+183
+00:08:16,778 --> 00:08:17,190
+test.
+
+184
+00:08:18,190 --> 00:08:20,444
+So what actually moves the answer?
+
+185
+00:08:20,444 --> 00:08:22,089
+There are only three dials.
+
+186
+00:08:22,089 --> 00:08:25,190
+The base rate, the hit rate, and the false alarm rate.
+
+187
+00:08:25,540 --> 00:08:29,207
+Let's turn the base rate dial first, and keep the test exactly
+
+188
+00:08:29,207 --> 00:08:29,920
+the same.
+
+189
+00:08:30,270 --> 00:08:32,890
+At one in a hundred, we're at eight percent.
+
+190
+00:08:32,890 --> 00:08:35,510
+At one in ten, it jumps to fifty percent.
+
+191
+00:08:35,860 --> 00:08:37,692
+Let's check that middle one by counting.
+
+192
+00:08:37,692 --> 00:08:40,819
+With one in ten, a thousand people means one hundred sick,
+
+193
+00:08:40,819 --> 00:08:42,830
+and the test catches ninety of them.
+
+194
+00:08:43,180 --> 00:08:46,264
+Nine hundred healthy, and one in ten flagged.
+
+195
+00:08:46,264 --> 00:08:50,009
+Ninety false alarms. Ninety real, ninety false.
+
+196
+00:08:50,009 --> 00:08:51,110
+Fifty percent.
+
+197
+00:08:52,110 --> 00:08:54,718
+And only when half the people have the condition does your gut's
+
+198
+00:08:54,718 --> 00:08:56,850
+ninety percent finally become right.
+
+199
+00:08:58,350 --> 00:09:01,750
+The rarer the condition, the more the false alarms win.
+
+200
+00:09:02,750 --> 00:09:04,899
+Now turn the false alarm dial instead.
+
+201
+00:09:04,899 --> 00:09:08,768
+Same base rate, one in a hundred, but a test that wrongly flags
+
+202
+00:09:08,768 --> 00:09:11,560
+only one healthy person in a hundred.
+
+203
+00:09:11,910 --> 00:09:15,196
+Now there are about ten false alarms instead of ninety nine,
+
+204
+00:09:15,196 --> 00:09:17,760
+and a positive means about forty eight percent.
+
+205
+00:09:18,110 --> 00:09:21,447
+And the hit rate dial? Push it from nine in ten all the way to
+
+206
+00:09:21,447 --> 00:09:24,172
+perfect, and the answer barely moves.
+
+207
+00:09:24,172 --> 00:09:26,470
+From about eight percent to about nine.
+
+208
+00:09:27,470 --> 00:09:30,951
+So, a rule of thumb. When the thing you're looking for is rare,
+
+209
+00:09:30,951 --> 00:09:33,790
+the false alarm rate matters far more than the hit rate.
+
+210
+00:09:35,290 --> 00:09:38,345
+Now let's see where this shows up in the real world.
+
+211
+00:09:38,345 --> 00:09:41,620
+The labels change, but the counting is the same.
+
+212
+00:09:41,970 --> 00:09:46,250
+Machine learning. A classifier is just a test run by a computer.
+
+213
+00:09:46,600 --> 00:09:48,946
+Engineers have names for our numbers.
+
+214
+00:09:48,946 --> 00:09:51,930
+Catching nine out of ten sick people is called recall.
+
+215
+00:09:52,280 --> 00:09:55,367
+And nine out of one hundred and eight, the share of alarms that
+
+216
+00:09:55,367 --> 00:09:57,420
+are real, is called precision.
+
+217
+00:09:57,770 --> 00:09:59,907
+When the thing you're looking for is rare,
+
+218
+00:09:59,907 --> 00:10:03,322
+a model can have great recall and still terrible precision.
+
+219
+00:10:03,322 --> 00:10:04,820
+That's the base rate at work.
+
+220
+00:10:05,820 --> 00:10:09,137
+That's why teams measure precision on data with the real base
+
+221
+00:10:09,137 --> 00:10:13,556
+rate. On a balanced test set, half positive and half negative,
+
+222
+00:10:13,556 --> 00:10:16,650
+our same test would show ninety percent precision.
+
+223
+00:10:16,650 --> 00:10:19,080
+In the real world, about eight percent.
+
+224
+00:10:20,080 --> 00:10:23,590
+And here's a trap. A model that simply says healthy to everyone
+
+225
+00:10:23,590 --> 00:10:27,320
+is ninety nine percent accurate, and completely useless.
+
+226
+00:10:28,320 --> 00:10:32,150
+Data science. Bayes is the engine of Bayesian statistics.
+
+227
+00:10:32,500 --> 00:10:36,156
+You start with a prior belief, say, about how often visitors to
+
+228
+00:10:36,156 --> 00:10:39,781
+a website buy something, and update it as each day's data comes
+
+229
+00:10:39,781 --> 00:10:40,190
+in.
+
+230
+00:10:40,540 --> 00:10:43,628
+Each day's posterior becomes the next day's prior.
+
+231
+00:10:43,628 --> 00:10:45,760
+Exactly like our second test.
+
+232
+00:10:46,760 --> 00:10:49,999
+And before trusting any automated flag on a dashboard,
+
+233
+00:10:49,999 --> 00:10:52,514
+a good analyst asks: of all the past flags,
+
+234
+00:10:52,514 --> 00:10:55,029
+how many were real? That's precision again,
+
+235
+00:10:55,029 --> 00:10:56,570
+measured on real data.
+
+236
+00:10:56,920 --> 00:11:00,230
+Finance. Banks run fraud detectors on card payments.
+
+237
+00:11:00,580 --> 00:11:04,020
+Fraud is rare, far rarer than one in a hundred payments.
+
+238
+00:11:04,020 --> 00:11:07,620
+So even a detector as good as our test would flag mostly honest
+
+239
+00:11:07,620 --> 00:11:08,240
+payments.
+
+240
+00:11:08,590 --> 00:11:11,411
+That's one reason many banks send a quick,
+
+241
+00:11:11,411 --> 00:11:15,162
+was this you, message instead of simply blocking the card.
+
+242
+00:11:15,162 --> 00:11:19,370
+In Bayes terms, your reply is a second, independent test.
+
+243
+00:11:20,370 --> 00:11:23,051
+The same idea applies to market signals.
+
+244
+00:11:23,051 --> 00:11:26,853
+A warning sign that fired before most crashes may also fire in
+
+245
+00:11:26,853 --> 00:11:30,653
+many calm years. Always ask how often it fires when nothing
+
+246
+00:11:30,653 --> 00:11:31,320
+happens.
+
+247
+00:11:32,320 --> 00:11:36,441
+Computer science. Some of the first really effective spam
+
+248
+00:11:36,441 --> 00:11:38,890
+filters were built on Bayes' theorem.
+
+249
+00:11:39,240 --> 00:11:41,698
+The prior is how much of all email is spam.
+
+250
+00:11:41,698 --> 00:11:43,750
+The evidence is the words inside.
+
+251
+00:11:44,100 --> 00:11:47,626
+Each word nudges the odds up or down, just like each positive
+
+252
+00:11:47,626 --> 00:11:50,490
+test. The filter multiplies them together.
+
+253
+00:11:50,840 --> 00:11:55,765
+To keep it simple, it treats every word as independent of the
+
+254
+00:11:55,765 --> 00:11:59,526
+others. That shortcut is why it's called naive Bayes.
+
+255
+00:11:59,526 --> 00:12:03,010
+It isn't true, but it works surprisingly well.
+
+256
+00:12:04,010 --> 00:12:06,334
+Computer security has the same problem.
+
+257
+00:12:06,334 --> 00:12:09,665
+An intrusion alarm that fires on just one in a thousand normal
+
+258
+00:12:09,665 --> 00:12:12,690
+logins can still bury the few real attacks under false alarms.
+
+259
+00:12:13,690 --> 00:12:17,022
+Before we wrap up, here are the three most common mistakes
+
+260
+00:12:17,022 --> 00:12:18,020
+people make with Bayes.
+
+261
+00:12:18,370 --> 00:12:20,650
+Mistake one: flipping the question.
+
+262
+00:12:21,000 --> 00:12:23,540
+The chance of a positive test, if you're sick,
+
+263
+00:12:23,540 --> 00:12:25,889
+is ninety percent. The chance you're sick,
+
+264
+00:12:25,889 --> 00:12:28,620
+if you test positive, is about eight percent.
+
+265
+00:12:28,970 --> 00:12:30,510
+Same words, swapped around.
+
+266
+00:12:30,510 --> 00:12:32,380
+Completely different numbers.
+
+267
+00:12:33,380 --> 00:12:36,935
+In courtrooms, this flip has a name: the prosecutor's fallacy.
+
+268
+00:12:36,935 --> 00:12:40,010
+The chance of the evidence if someone is innocent is not the
+
+269
+00:12:40,010 --> 00:12:42,440
+chance they're innocent, given the evidence.
+
+270
+00:12:43,440 --> 00:12:45,960
+Mistake two: ignoring the base rate.
+
+271
+00:12:46,310 --> 00:12:49,250
+Take the same test, but give it only to patients who already
+
+272
+00:12:49,250 --> 00:12:52,240
+have symptoms. Say one in five of them has the condition.
+
+273
+00:12:52,590 --> 00:12:56,516
+Out of a thousand, that's one hundred and eighty true positives,
+
+274
+00:12:56,516 --> 00:12:58,092
+against eighty false alarms.
+
+275
+00:12:58,092 --> 00:13:00,830
+Now a positive means about seventy percent.
+
+276
+00:13:01,180 --> 00:13:02,791
+Same test. Same result.
+
+277
+00:13:02,791 --> 00:13:05,120
+The base rate changed everything.
+
+278
+00:13:07,120 --> 00:13:10,180
+Mistake three: counting the same clue twice.
+
+279
+00:13:10,530 --> 00:13:14,008
+If two tests share the same weakness, or two news stories copy
+
+280
+00:13:14,008 --> 00:13:17,706
+the same source, they are really one piece of evidence,
+
+281
+00:13:17,706 --> 00:13:18,360
+not two.
+
+282
+00:13:18,710 --> 00:13:20,924
+Multiply them as if they were independent,
+
+283
+00:13:20,924 --> 00:13:22,640
+and you'll end up far too confident.
+
+284
+00:13:23,640 --> 00:13:27,218
+And a bonus mistake: deciding the test is useless because the
+
+285
+00:13:27,218 --> 00:13:28,930
+answer was only eight percent.
+
+286
+00:13:29,280 --> 00:13:32,554
+It isn't. A positive raised the chance more than eightfold,
+
+287
+00:13:32,554 --> 00:13:35,608
+and a negative almost rules the condition out.
+
+288
+00:13:35,608 --> 00:13:37,245
+A good test is a strong clue.
+
+289
+00:13:37,245 --> 00:13:38,680
+It's just not a verdict.
+
+290
+00:13:39,680 --> 00:13:42,858
+Let's turn all of that into a recipe you can use for any yes or
+
+291
+00:13:42,858 --> 00:13:43,580
+no question.
+
+292
+00:13:43,930 --> 00:13:46,225
+Step one: start with the base rate.
+
+293
+00:13:46,225 --> 00:13:49,680
+How common is the thing, before any evidence?
+
+294
+00:13:50,030 --> 00:13:52,097
+Step two: picture a crowd.
+
+295
+00:13:52,097 --> 00:13:55,570
+One thousand people usually avoids fractions.
+
+296
+00:13:55,920 --> 00:13:58,416
+Step three: split the crowd with the test.
+
+297
+00:13:58,416 --> 00:14:01,940
+Count the true positives, and the false alarms.
+
+298
+00:14:02,290 --> 00:14:05,755
+Step four: keep only the people who match the evidence,
+
+299
+00:14:05,755 --> 00:14:09,440
+and divide. Real cases, over all positives.
+
+300
+00:14:09,790 --> 00:14:13,981
+Step five: update. When new, independent evidence arrives,
+
+301
+00:14:13,981 --> 00:14:16,270
+your answer becomes the new base rate.
+
+302
+00:14:17,770 --> 00:14:20,603
+For our test: one in a hundred to start.
+
+303
+00:14:20,603 --> 00:14:23,872
+Nine real positives, ninety nine false alarms.
+
+304
+00:14:23,872 --> 00:14:25,180
+About eight percent.
+
+305
+00:14:26,180 --> 00:14:29,227
+A test result is a clue, not a verdict.
+
+306
+00:14:29,227 --> 00:14:31,580
+Bayes tells you how much the clue is worth.
+
+307
+00:14:33,580 --> 00:14:37,451
+Look around your world, and notice how many alarms are false
+
+308
+00:14:37,451 --> 00:14:40,630
+alarms, and how rare the real thing usually is.
+
+309
+00:14:41,230 --> 00:14:43,293
+If this lesson made things clear for you,
+
+310
+00:14:43,293 --> 00:14:46,176
+please subscribe to Math Lab TV, so we can keep building
+
+311
+00:14:46,176 --> 00:14:47,010
+together.
+
+312
+00:14:47,810 --> 00:14:49,270
+But here's a puzzle for next time.
+
+313
+00:14:49,620 --> 00:14:52,763
+Scientists often report a number called a p-value,
+
+314
+00:14:52,763 --> 00:14:56,521
+and it's very often described as the chance that a result is a
+
+315
+00:14:56,521 --> 00:14:56,950
+fluke.
+
+316
+00:14:57,300 --> 00:15:00,780
+That description flips the question, just like mistake one.
+
+317
+00:15:01,130 --> 00:15:04,393
+Next time, we'll see what a p-value really measures,
+
+318
+00:15:04,393 --> 00:15:06,350
+and why Bayes is the missing piece.
+
+319
+00:15:06,700 --> 00:15:08,060
+I will see you in the next video.

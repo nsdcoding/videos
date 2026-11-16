@@ -1,0 +1,8 @@
+📌 Quick summary: a positive result from a good test (catches 9 in 10, false alarm 1 in 10) means only about an 8% chance when the condition affects 1 in 100 people. Picture 1,000 people: 9 real positives vs 99 false alarms (2:28). The rarer the thing, the more the false alarms win (8:17).
+
+Worth adding:
+1️⃣ The numbers are illustrative, chosen so the counting comes out in whole people. Real tests have their own hit and false-alarm rates, and your own base rate depends on age, symptoms and history. Ask your doctor what YOUR result means.
+2️⃣ Multiplying the odds test after test assumes each test's mistakes are independent of the last. A repeat of the same test on the same sample can repeat the same false alarm (7:57).
+3️⃣ The study of doctors (1:50) is Gigerenzer et al. (2007): in a screening puzzle with numbers like ours, about 21% of the gynaecologists picked the right answer (about 1 in 10) and 47% picked "9 in 10".
+
+Where have you seen an alarm that was usually a false alarm? 👇

@@ -7,32 +7,6 @@ PX = 1.7     # left edge of the right-hand panel
 GRID_AT = LEFT * 2.6 + UP * 0.45
 
 
-def step_chip(n, text, color=INK):
-    num = TB(str(n), 34, BG)
-    disc = Circle(radius=0.3, stroke_width=0, fill_color=color, fill_opacity=1)
-    disc.qa_container = True
-    num.move_to(disc)
-    t = T(text, 30, color, weight=BOLD).next_to(disc, RIGHT, buff=0.2)
-    return VGroup(disc, num, t)
-
-
-def stacks_axes():
-    """Axes for the positive stacks: 5 people per row of squares, y counts people (0–100)."""
-    axg = xy_axes([0, 2, 1], [0, 120, 20], 4.6, 4.4, None, "people who tested positive", x_labels={}, font_size=22)
-    return axg
-
-
-def stack(ax, x, n, color, per_row=5):
-    pitch = (ax.c2p(0, 5)[1] - ax.c2p(0, 0)[1])     # one row = 5 people
-    g = VGroup()
-    x0 = ax.c2p(x, 0)[0] - (per_row - 1) / 2 * pitch
-    for k in range(n):
-        c, r = k % per_row, k // per_row
-        g.add(Square(pitch * 0.82, stroke_width=0, fill_color=color, fill_opacity=0.95)
-              .move_to([x0 + c * pitch, ax.c2p(0, 0)[1] + (r + 0.5) * pitch, 0]))
-    return g
-
-
 class S04Crowd(Base):
     CHAPTER = "Count the Crowd"
 
@@ -203,7 +177,7 @@ class S04Crowd(Base):
         # ── s039 balance beam: 10 vs 990, then 9 vs 99 ──
         self.at("s039", 0.0)
         self.play(FadeOut(VGroup(sg, pos_s, pos_h, l9, l99, c9, c99, g9, fr1, box8, job)), run_time=0.6)
-        bs, th, PL, PR = beam_scale(5.0)
+        bs, th, PL, PR = beam_scale(4.4)
         bs.move_to(UP * 0.3)
         lab_l = pill("10 have it", ORANGE_, 30); lab_r = pill("990 healthy", BLUE_, 30)
         lab_l.add_updater(lambda m: m.next_to(PL[0], LEFT, buff=0.2))
@@ -307,7 +281,7 @@ class S04Crowd(Base):
         self.play(FadeIn(nt), run_time=0.4)
         self.until(word_time("s044", word_index("s044", "just")) - 0.1)
         mc = g3.cell[MISSED]
-        mring = Circle(radius=0.22, color=ORANGE_, stroke_width=4).move_to(mc)
+        mring = ring(mc, ORANGE_, 4, 0.04)
         n1 = VGroup(TB("1", 56, ORANGE_), T("has it", 30, ORANGE_)).arrange(RIGHT, buff=0.25, aligned_edge=DOWN)
         n1.next_to(nt, DOWN, buff=0.45).align_to(nt, LEFT)
         self.play(Create(mring), FadeIn(n1), run_time=0.6)
