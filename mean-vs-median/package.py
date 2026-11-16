@@ -6,7 +6,7 @@ from common import CHAPTERS, TIM
 HERE = pathlib.Path(__file__).parent
 OUT = HERE / "out" / "youtube"; OUT.mkdir(parents=True, exist_ok=True)
 
-TITLE = "Mean vs Median: Which Average Is Lying to You? | Statistics for Data Science, ML & Finance"
+TITLE = "Mean vs Median: Which Average Lies? | Machine Learning, Data Science, Finance & CS"
 
 CH_TITLES = {
     "Two Towns": "Two towns, same average: the hook",
@@ -43,13 +43,21 @@ def main():
     total = TIM["total"]
     mins = round(total / 60)
     ch = chapters()
-    desc = f"""Mean vs median explained simply: which average should you trust, and when does the "average" lie? Learn it with one real example.
-Essential statistics for data science, machine learning (MSE vs MAE), finance (median income, house prices) and computer science (p50 latency).
+    from common import SEGS
+    rw = {k: ts(SEGS[v]["start"]) for k, v in (("fin", "s120"), ("cs", "s125"), ("ds", "s129"), ("ml", "s133"))}
+    desc = f"""Mean vs median explained simply, with real uses in Machine Learning, Data Science (DS), Finance and Computer Science (CS).
+Learn which average to trust: MSE vs MAE loss in machine learning, outliers in data science, median income in finance, p50 latency in CS.
 
 Two towns both report an average household income of $60,000. In one of them, 8 out of 9 families earn less than that "average". In this {mins}-minute explainer for people who don't think of themselves as "math people", we work through ONE example step by step and find out which average tells the truth.
 
 ⏱ CHAPTERS
-""" + "\n".join(f"{t} {name}" for t, name, _ in ch) + """
+""" + "\n".join(f"{t} {name}" for t, name, _ in ch) + f"""
+
+🌍 WHERE YOU'LL USE IT
+• Finance ({rw['fin']}): median household income, median house prices, and why "average salary" can mislead
+• Computer Science / CS ({rw['cs']}): p50 (median) and p99 latency instead of mean response time
+• Data Science / DS ({rw['ds']}): spotting typos and outliers, filling missing values with the median
+• Machine Learning / ML ({rw['ml']}): loss functions; minimising MSE gives the mean, minimising MAE gives the median
 
 📐 KEY FORMULAS
 • Mean: x̄ = (Σ xᵢ) / n → add all the values, divide by how many there are
@@ -76,14 +84,15 @@ Maple (50, 52, 55, 58, 60, 62, 65, 68, 70) is symmetric, so its mean and median 
 
 ▶ NEXT VIDEO: Two towns can have the same mean AND the same median and still be completely different places to live. Next time: standard deviation, how far values typically sit from the middle, and why it squares the distances first.
 
-#statistics #datascience #machinelearning
+#machinelearning #datascience #statistics
 """
     first2 = desc.split("\n")[:2]
-    tags = ["mean vs median", "mean and median", "median vs mean", "which average to use", "mean median",
-            "statistics for beginners", "statistics explained", "average explained", "skewed data", "outliers",
-            "robust statistics", "data science", "machine learning", "MSE vs MAE", "loss function",
-            "median income", "median house price", "p50 latency", "percentiles", "trimmed mean",
-            "descriptive statistics", "math for beginners", "Math Lab TV"]
+    tags = ["mean vs median", "median vs mean", "mean and median", "which average to use",
+            "machine learning", "statistics for machine learning", "data science", "statistics for data science",
+            "finance", "statistics for finance", "computer science", "CS", "DS", "ML",
+            "MSE vs MAE", "loss function", "median income", "median house price", "p50 latency",
+            "outliers", "skewed data", "robust statistics", "statistics for beginners", "statistics explained",
+            "Math Lab TV"]
     tag_str = ", ".join(tags)
     assert len(TITLE) < 100 and len(tag_str) < 500
 

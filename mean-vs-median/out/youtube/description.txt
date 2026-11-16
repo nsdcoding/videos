@@ -1,5 +1,5 @@
-Mean vs median explained simply: which average should you trust, and when does the "average" lie? Learn it with one real example.
-Essential statistics for data science, machine learning (MSE vs MAE), finance (median income, house prices) and computer science (p50 latency).
+Mean vs median explained simply, with real uses in Machine Learning, Data Science (DS), Finance and Computer Science (CS).
+Learn which average to trust: MSE vs MAE loss in machine learning, outliers in data science, median income in finance, p50 latency in CS.
 
 Two towns both report an average household income of $60,000. In one of them, 8 out of 9 families earn less than that "average". In this 16-minute explainer for people who don't think of themselves as "math people", we work through ONE example step by step and find out which average tells the truth.
 
@@ -16,6 +16,12 @@ Two towns both report an average household income of $60,000. In one of them, 8 
 14:18 Recipe recap
 15:14 Look around your world + subscribe
 15:26 Next: standard deviation
+
+🌍 WHERE YOU'LL USE IT
+• Finance (10:27): median household income, median house prices, and why "average salary" can mislead
+• Computer Science / CS (10:56): p50 (median) and p99 latency instead of mean response time
+• Data Science / DS (11:26): spotting typos and outliers, filling missing values with the median
+• Machine Learning / ML (11:54): loss functions; minimising MSE gives the mean, minimising MAE gives the median
 
 📐 KEY FORMULAS
 • Mean: x̄ = (Σ xᵢ) / n → add all the values, divide by how many there are
@@ -42,4 +48,4 @@ Maple (50, 52, 55, 58, 60, 62, 65, 68, 70) is symmetric, so its mean and median 
 
 ▶ NEXT VIDEO: Two towns can have the same mean AND the same median and still be completely different places to live. Next time: standard deviation, how far values typically sit from the middle, and why it squares the distances first.
 
-#statistics #datascience #machinelearning
+#machinelearning #datascience #statistics
