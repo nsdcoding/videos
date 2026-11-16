@@ -1,9 +1,9 @@
 # Bayes' Theorem Explained Simply, With Real Examples
 
-136 segments · 2293 words · est. 16.7 min at 150 wpm (incl. 84 s pauses)
+143 segments · 2475 words · est. 18.0 min at 150 wpm (incl. 91 s pauses)
 
 
-## The Positive Test  ·  178 words, ~71 s
+## The Positive Test  ·  186 words, ~74 s
 
 - **s001** Imagine you go for a routine health check, and the doctor suggests a quick screening test.
   - *Visual:* Line-art clinic door draws on; a small person icon walks to it; a clipboard with 'screening test' pops up.
@@ -17,9 +17,11 @@
   - *Visual:* An envelope slides in and opens; 'POSITIVE' stamps on in aqua.
 - **s006** So, how worried should you be? What is the chance you actually have it?
   - *Visual:* A probability meter appears: a horizontal axis 0%–100% with ticks every 10, title 'chance you have it'.
+- **s006a** Take a second, and make your own guess. ⏸1.5s
+  - *Visual:* The meter waits; a blinking '?' cursor sits on it; tiny clock ticks.
 - **s007** Most people say about ninety percent. After all, the test is ninety percent accurate.
   - *Visual:* A grey 'gut feeling' pointer slides to 90% on the meter.
-- **s008** Here's the surprise. The real answer is about eight percent. ⏸1.5s
+- **s008** Here's the surprise. The real answer is about eight percent. ⏸2.0s
   - *Visual:* A violet pointer drops in at 8.3%; the grey 90% pointer is crossed out in red.
 - **s009** Not ninety. Eight. Less than one in ten. ⏸1.0s
   - *Visual:* Big comparison: '90%' (grey, struck) vs '≈ 8%' (violet), camera pushes in on the violet number.
@@ -32,13 +34,13 @@
 
 ## Welcome  ·  60 words, ~24 s
 
-- **s013** Welcome to Math Lab TV. Where math is something you can see. ⏸1.0s
+- **s013** Welcome to Math Lab TV. Where math is something you can see. ⏸0.7s
   - *Visual:* Logo (violet rounded square with a green bell curve) + MATH LAB TV + tagline 'where math is something you can see'.
 - **s014** Today you will learn how to turn a test result into a real probability, just by counting people.
   - *Visual:* Small logo moves top-right. Big ① (aqua); mini grid where 108 squares light up and 9 turn orange; caption 'turn a test result into a real probability'.
 - **s015** You will see Bayes' theorem as a formula, and exactly what every symbol means.
   - *Visual:* Big ② (violet); the formula P(A|B) = P(B|A)·P(A) / P(B) writes on; caption 'the formula, symbol by symbol'.
-- **s016** And you will see how evidence adds up, in spam filters, fraud alerts and machine learning. ⏸1.0s
+- **s016** And you will see how evidence adds up, in spam filters, fraud alerts and machine learning. ⏸0.6s
   - *Visual:* Big ③ (warn); a mini meter walks 1% → 8% → 45%; caption 'how evidence adds up'.
 
 ## Why It Matters  ·  167 words, ~67 s
@@ -86,7 +88,7 @@
   - *Visual:* The 108 ringed squares fly out into two stacks on new axes (y 'people who tested positive' 0–100, ticks every 20): an orange bar of 9 and a blue bar of 99, each built from countable squares.
 - **s036** If your test is positive, you are one of these one hundred and eight. And only nine of them are sick.
   - *Visual:* A 'you are somewhere in here' bracket over both stacks; the orange 9 glows.
-- **s037** Nine out of one hundred and eight. That's one in twelve, about eight percent. ⏸1.5s
+- **s037** Nine out of one hundred and eight. That's one in twelve, about eight percent. ⏸2.0s
   - *Visual:* Fraction 9 / 108 (LaTeX) = 1/12 ≈ 8.3%, in violet.
 - **s038** The test did its job. It caught almost everyone who was sick.
   - *Visual:* Tick on '9 of 10 caught'.
@@ -148,7 +150,7 @@
 - **s065** Prior means before the evidence. Posterior means after. ⏸1.0s
   - *Visual:* Timeline arrow: 'before evidence → after evidence', prior 1% → posterior 8.3%.
 
-## Test Again  ·  281 words, ~112 s
+## Test Again  ·  287 words, ~115 s
 
 - **s066** So you tested positive, and your chance is now about one in twelve. What would a sensible doctor do next?
   - *Visual:* The violet '1 in 12' card; a second test tube icon slides in.
@@ -158,7 +160,7 @@
   - *Visual:* Text card with the loop arrow; 'posterior → prior'.
 - **s069** Take our one hundred and eight positives. Nine are sick, ninety nine are healthy. They all take a second test.
   - *Visual:* The two stacks (9 orange, 99 blue) return on their axes.
-- **s070** To avoid fractions of people, picture ten times as many. Ninety sick, and nine hundred and ninety healthy.
+- **s070** To avoid fractions of people, picture ten times as many. Ninety people who have it, and nine hundred and ninety who don't.
   - *Visual:* '× 10' badge; stacks rescale: y axis now 0–1,000, ticks every 200; bars 90 and 990.
 - **s071** The test catches nine in ten of the sick, and wrongly flags one in ten of the healthy. Same as before.
   - *Visual:* Aqua rings sweep the bars: 90 → 81 kept; 990 → 99 kept.
@@ -174,7 +176,7 @@
   - *Visual:* Beam: 1 orange vs 99 blue → '1 : 99'.
 - **s077** A sick person is nine times more likely to test positive than a healthy one. Ninety percent, versus ten.
   - *Visual:* '90% ÷ 10% = 9' chip, labelled 'likelihood ratio'.
-- **s078** So each positive multiplies the sick side by nine. One to ninety nine becomes nine to ninety nine, then eighty one to ninety nine.
+- **s078** So each positive multiplies the odds of having it by nine. One to ninety nine becomes nine to ninety nine, then eighty one to ninety nine.
   - *Visual:* Odds ladder: 1 : 99 → × 9 → 9 : 99 → × 9 → 81 : 99; beam levels out step by step.
 - **s079** A third positive makes it seven hundred and twenty nine to ninety nine. About eighty eight percent. ⏸1.0s
   - *Visual:* '729 : 99 → 729 / 828 ≈ 88%'; meter pointer hops to 88%. Beam tips toward 'sick'.
@@ -185,7 +187,7 @@
 - **s082** That's one reason doctors often confirm with a different kind of test. ⏸1.0s
   - *Visual:* Second tube changes shape and colour: 'different method'.
 
-## What Moves the Answer  ·  179 words, ~72 s
+## What Moves the Answer  ·  221 words, ~88 s
 
 - **s083** So what actually moves the answer? There are only three dials. The base rate, the hit rate, and the false alarm rate.
   - *Visual:* Three dials: 'base rate' (warn) at 1 in 100, 'hit rate' (aqua) at 9 in 10, 'false alarm rate' (blue) at 1 in 10.
@@ -193,6 +195,10 @@
   - *Visual:* Axes: x 'base rate (%)' 0–50 (ticks every 10), y 'chance you have it after a positive (%)' 0–100 (ticks every 20).
 - **s085** At one in a hundred, we're at eight percent. At one in ten, it jumps to fifty percent.
   - *Visual:* A violet curve traces from left; dots pinned at (1, 8.3) and (10, 50) with labels.
+- **s085a** Let's check that middle one by counting. With one in ten, a thousand people means one hundred sick, and the test catches ninety of them.
+  - *Visual:* Mini crowd: 100 orange squares (ten columns of the 40 x 25 grid), 90 ringed aqua.
+- **s085b** Nine hundred healthy, and one in ten flagged. Ninety false alarms. Ninety real, ninety false. Fifty percent. ⏸1.0s
+  - *Visual:* 900 blue, 90 ringed; two equal stacks 90 | 90 on axes 0–100; '90 / 180 = 50%' violet.
 - **s086** And only when half the people have the condition does your gut's ninety percent finally become right. ⏸1.5s
   - *Visual:* Curve reaches (50, 90); a grey 'gut: 90%' dashed line meets it there.
 - **s087** The rarer the condition, the more the false alarms win. ⏸1.0s
@@ -206,7 +212,7 @@
 - **s091** So, a rule of thumb. When the thing you're looking for is rare, the false alarm rate matters far more than the hit rate. ⏸1.5s
   - *Visual:* Rule-of-thumb card: 'rare thing → false alarm rate matters most' (labelled 'rule of thumb').
 
-## Real World  ·  296 words, ~118 s
+## Real World  ·  422 words, ~169 s
 
 - **s092** Now let's see where this shows up in the real world. The labels change, but the counting is the same.
   - *Visual:* Four domain tiles: ML, DS, FINANCE, CS.
@@ -218,6 +224,8 @@
   - *Visual:* 'precision = 9 / 108 ≈ 8%' (violet), with the two stacks.
 - **s096** When the thing you're looking for is rare, a model can have great recall and still terrible precision. That's the base rate at work. ⏸1.0s
   - *Visual:* Two gauges side by side: recall 90% (full), precision 8% (nearly empty).
+- **s096a** That's why teams measure precision on data with the real base rate. On a balanced test set, half positive and half negative, our same test would show ninety percent precision. In the real world, about eight percent. ⏸1.0s
+  - *Visual:* Two panels: 'balanced test set (50% positive) → precision 90%' vs 'real world (1% positive) → precision 8%'.
 - **s097** And here's a trap. A model that simply says healthy to everyone is ninety nine percent accurate, and completely useless. ⏸1.0s
   - *Visual:* Grid of 1,000 all marked 'healthy': '990 / 1000 correct = 99% accuracy' with a red '0 of 10 caught'.
 - **s098** Data science. Bayes is the engine of Bayesian statistics.
@@ -226,12 +234,16 @@
   - *Visual:* Axes x 'purchase rate (%)' 0–10, y 'belief (shape only)': a wide warn curve narrows into a violet curve as day-1, day-2, day-3 data chips arrive. Labelled 'shape only'.
 - **s100** Each day's posterior becomes the next day's prior. Exactly like our second test. ⏸1.0s
   - *Visual:* Loop arrow posterior → prior, as in the Test Again chapter.
+- **s100a** And before trusting any automated flag on a dashboard, a good analyst asks: of all the past flags, how many were real? That's precision again, measured on real data.
+  - *Visual:* Dashboard card with a column of past flags: few aqua-ringed orange (real), many blue (false); 'real ÷ all flags'.
 - **s101** Finance. Banks run fraud detectors on card payments.
   - *Visual:* Finance tile expands: card + payment stream.
 - **s102** Fraud is rare, far rarer than one in a hundred payments. So even a detector as good as our test would flag mostly honest payments.
   - *Visual:* Same 1,000-grid relabelled 'payments', with even fewer orange squares; aqua flags land mostly on blue ('honest').
 - **s103** That's one reason many banks send a quick, was this you, message instead of simply blocking the card. In Bayes terms, your reply is a second, independent test. ⏸1.0s
   - *Visual:* Phone with 'Was this you?' → reply 'Yes' → meter drops / 'No' → meter jumps.
+- **s103a** The same idea applies to market signals. A warning sign that fired before most crashes may also fire in many calm years. Always ask how often it fires when nothing happens. ⏸1.0s
+  - *Visual:* Timeline of years (axis 'year 1–20', generic, labelled 'illustration'): signal flags on several years, only two of them crash years.
 - **s104** Computer science. Some of the first really effective spam filters were built on Bayes' theorem.
   - *Visual:* CS tile expands: inbox with a spam folder.
 - **s105** The prior is how much of all email is spam. The evidence is the words inside.
@@ -240,6 +252,8 @@
   - *Visual:* Odds ladder like before: '× (FREE)' up, '× (meeting)' down. Each arrow labelled 'shape only' factors.
 - **s107** To keep it simple, it treats every word as independent of the others. That shortcut is why it's called naive Bayes. It isn't true, but it works surprisingly well. ⏸1.0s
   - *Visual:* 'naive Bayes = assume words are independent' card; a check mark 'works surprisingly well'.
+- **s107a** Computer security has the same problem. An intrusion alarm that fires on just one in a thousand normal logins can still bury the few real attacks under false alarms. ⏸1.0s
+  - *Visual:* Login stream: thousands of blue login dots, rare orange attack dots; aqua alarms mostly on blue.
 
 ## Common Mistakes  ·  230 words, ~92 s
 
@@ -259,7 +273,7 @@
   - *Visual:* Same 40 x 25 grid; now 200 squares (five columns) turn orange; warn tag 'base rate 1 in 5'.
 - **s115** Out of a thousand, that's one hundred and eighty true positives, against eighty false alarms. Now a positive means about seventy percent.
   - *Visual:* Stacks: orange 180 vs blue 80 (axis 0–200, ticks every 50); '180 / 260 ≈ 69%' in violet.
-- **s116** Same test. Same result. The base rate changed everything. ⏸1.5s
+- **s116** Same test. Same result. The base rate changed everything. ⏸2.0s
   - *Visual:* Side by side: 'base rate 1 in 100 → 8%' vs 'base rate 1 in 5 → 69%'.
 - **s117** Mistake three: counting the same clue twice.
   - *Visual:* Card 3 flips: 'Counting a clue twice'.
@@ -288,7 +302,7 @@
   - *Visual:* Item 5: 'Update' + 'posterior becomes the next prior'.
 - **s128** For our test: one in a hundred to start. Nine real positives, ninety nine false alarms. About eight percent. ⏸1.0s
   - *Visual:* Summary strip under the card: '1 in 100 → 9 real vs 99 false → 9/108 ≈ 8%'.
-- **s129** A test result is a clue, not a verdict. Bayes tells you how much the clue is worth. ⏸1.5s
+- **s129** A test result is a clue, not a verdict. Bayes tells you how much the clue is worth. ⏸2.0s
   - *Visual:* Closing line types on in violet, centred.
 
 ## Subscribe  ·  40 words, ~16 s

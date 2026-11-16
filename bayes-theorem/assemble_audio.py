@@ -74,14 +74,19 @@ if __name__ == "__main__":
     full = np.concatenate(parts)
     write(HERE / "audio" / "voice_raw.wav", full)
     total = len(full) / SR
+    # gentle oversampled peak limiter (touches ~1% of samples) so linear loudnorm can reach -14 LUFS under -1.5 dBTP
+    lim = HERE / "audio" / "voice_lim.wav"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(HERE / "audio" / "voice_raw.wav"), "-af",
+                    "aresample=96000,alimiter=limit=0.35:attack=1:release=40:level=disabled,aresample=24000",
+                    str(lim)], check=True)
     # final loudness: two-pass loudnorm (linear) to -14 LUFS, 48 kHz
-    o = subprocess.run(["ffmpeg", "-nostats", "-i", str(HERE / "audio" / "voice_raw.wav"), "-af",
+    o = subprocess.run(["ffmpeg", "-nostats", "-i", str(lim), "-af",
                         "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"],
                        capture_output=True, text=True).stderr
     m = json.loads(o[o.rindex("{"):o.rindex("}") + 1])
     af = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
           f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(HERE / "audio" / "voice_raw.wav"), "-af", af,
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(lim), "-af", af,
                     "-ar", "48000", "-t", f"{total:.3f}", str(HERE / "audio" / "voiceover.wav")], check=True)
     (HERE / "timings.json").write_text(json.dumps(dict(total=round(total, 3), segments=timings), indent=1))
     print(f"total {total:.2f}s = {total/60:.2f} min; {len(timings)} segments")

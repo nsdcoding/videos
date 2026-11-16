@@ -1,0 +1,1006 @@
+{
+ "total": 911.56,
+ "segments": [
+  {
+   "id": "s001",
+   "chapter": "The Positive Test",
+   "start": 0.6,
+   "end": 5.45,
+   "text": "Imagine you go for a routine health check, and the doctor suggests a quick screening test."
+  },
+  {
+   "id": "s002",
+   "chapter": "The Positive Test",
+   "start": 5.8,
+   "end": 11.25,
+   "text": "It looks for a condition that is fairly rare. About one in every hundred people your age has it."
+  },
+  {
+   "id": "s003",
+   "chapter": "The Positive Test",
+   "start": 11.6,
+   "end": 16.37,
+   "text": "The test is good. If you have the condition, it catches it nine times out of ten."
+  },
+  {
+   "id": "s004",
+   "chapter": "The Positive Test",
+   "start": 16.72,
+   "end": 20.82,
+   "text": "And if you are healthy, it only gives a false alarm one time in ten."
+  },
+  {
+   "id": "s005",
+   "chapter": "The Positive Test",
+   "start": 21.17,
+   "end": 23.66,
+   "text": "A few days later, the result comes back. Positive."
+  },
+  {
+   "id": "s006",
+   "chapter": "The Positive Test",
+   "start": 24.66,
+   "end": 28.22,
+   "text": "So, how worried should you be? What is the chance you actually have it?"
+  },
+  {
+   "id": "s006a",
+   "chapter": "The Positive Test",
+   "start": 28.57,
+   "end": 30.77,
+   "text": "Take a second, and make your own guess."
+  },
+  {
+   "id": "s007",
+   "chapter": "The Positive Test",
+   "start": 32.27,
+   "end": 37.09,
+   "text": "Most people say about ninety percent. After all, the test is ninety percent accurate."
+  },
+  {
+   "id": "s008",
+   "chapter": "The Positive Test",
+   "start": 37.44,
+   "end": 41.14,
+   "text": "Here's the surprise. The real answer is about eight percent."
+  },
+  {
+   "id": "s009",
+   "chapter": "The Positive Test",
+   "start": 43.14,
+   "end": 46.33,
+   "text": "Not ninety. Eight. Less than one in ten."
+  },
+  {
+   "id": "s010",
+   "chapter": "The Positive Test",
+   "start": 47.33,
+   "end": 53.49,
+   "text": "Nothing in that story is a trick. The test really is good. Your gut just left out one number."
+  },
+  {
+   "id": "s011",
+   "chapter": "The Positive Test",
+   "start": 53.84,
+   "end": 55.92,
+   "text": "How rare the condition was to begin with."
+  },
+  {
+   "id": "s012",
+   "chapter": "The Positive Test",
+   "start": 56.92,
+   "end": 63.78,
+   "text": "The tool that puts that number back in is called Bayes' theorem. And by the end of this video, you will be able to do this in your head."
+  },
+  {
+   "id": "s013",
+   "chapter": "Welcome",
+   "start": 64.78,
+   "end": 68.49,
+   "text": "Welcome to Math Lab TV. Where math is something you can see."
+  },
+  {
+   "id": "s014",
+   "chapter": "Welcome",
+   "start": 69.19,
+   "end": 74.58,
+   "text": "Today you will learn how to turn a test result into a real probability, just by counting people."
+  },
+  {
+   "id": "s015",
+   "chapter": "Welcome",
+   "start": 74.93,
+   "end": 79.9,
+   "text": "You will see Bayes' theorem as a formula, and exactly what every symbol means."
+  },
+  {
+   "id": "s016",
+   "chapter": "Welcome",
+   "start": 80.25,
+   "end": 86.14,
+   "text": "And you will see how evidence adds up, in spam filters, fraud alerts and machine learning."
+  },
+  {
+   "id": "s017",
+   "chapter": "Why It Matters",
+   "start": 86.74,
+   "end": 88.33,
+   "text": "This isn't just about medical tests."
+  },
+  {
+   "id": "s018",
+   "chapter": "Why It Matters",
+   "start": 88.68,
+   "end": 93.31,
+   "text": "Any time a rare thing meets an imperfect detector, the same trap is waiting."
+  },
+  {
+   "id": "s019",
+   "chapter": "Why It Matters",
+   "start": 93.66,
+   "end": 100.47,
+   "text": "A smoke alarm going off. An email flagged as spam. A message from your bank asking, was this you?"
+  },
+  {
+   "id": "s020",
+   "chapter": "Why It Matters",
+   "start": 100.82,
+   "end": 109.2,
+   "text": "Each one is a positive test. And each one asks the same question: given this alarm, how likely is the real thing?"
+  },
+  {
+   "id": "s021",
+   "chapter": "Why It Matters",
+   "start": 110.2,
+   "end": 116.96,
+   "text": "And smart people get this wrong. In one well known study, doctors were given a screening puzzle with numbers like ours."
+  },
+  {
+   "id": "s022",
+   "chapter": "Why It Matters",
+   "start": 117.31,
+   "end": 121.19,
+   "text": "Only about one in five picked the right answer. Almost half picked nine in ten."
+  },
+  {
+   "id": "s023",
+   "chapter": "Why It Matters",
+   "start": 122.19,
+   "end": 128.4,
+   "text": "That's not because doctors are bad at math. It's because the numbers came as percentages of percentages."
+  },
+  {
+   "id": "s024",
+   "chapter": "Why It Matters",
+   "start": 128.75,
+   "end": 137.76,
+   "text": "Change the form, and the problem becomes easy. So here is the trick for this whole video: stop thinking in percentages, and start counting people."
+  },
+  {
+   "id": "s025",
+   "chapter": "Why It Matters",
+   "start": 138.76,
+   "end": 147.95,
+   "text": "And Bayes isn't only about tests. It's a rule for changing your mind by the right amount when new evidence arrives. Not too little, and not too much."
+  },
+  {
+   "id": "s026",
+   "chapter": "Count the Crowd",
+   "start": 148.95,
+   "end": 153.0,
+   "text": "Let's do it. Picture one thousand people, all taking the same test."
+  },
+  {
+   "id": "s027",
+   "chapter": "Count the Crowd",
+   "start": 153.35,
+   "end": 158.83,
+   "text": "Each little square is one person. Forty across, twenty five down. One thousand."
+  },
+  {
+   "id": "s028",
+   "chapter": "Count the Crowd",
+   "start": 159.18,
+   "end": 164.51,
+   "text": "Step one. How many of them have the condition? One in a hundred. So, ten people."
+  },
+  {
+   "id": "s029",
+   "chapter": "Count the Crowd",
+   "start": 164.86,
+   "end": 167.2,
+   "text": "The other nine hundred and ninety are healthy."
+  },
+  {
+   "id": "s030",
+   "chapter": "Count the Crowd",
+   "start": 167.55,
+   "end": 172.41,
+   "text": "Step two. Test the ten people who have the condition. It catches nine of them."
+  },
+  {
+   "id": "s031",
+   "chapter": "Count the Crowd",
+   "start": 172.76,
+   "end": 176.47,
+   "text": "So, nine true positives, and one person the test misses."
+  },
+  {
+   "id": "s032",
+   "chapter": "Count the Crowd",
+   "start": 176.82,
+   "end": 183.08,
+   "text": "Step three. Test the nine hundred and ninety healthy people. It wrongly flags one in ten of them."
+  },
+  {
+   "id": "s033",
+   "chapter": "Count the Crowd",
+   "start": 183.43,
+   "end": 185.12,
+   "text": "That's ninety nine false alarms."
+  },
+  {
+   "id": "s034",
+   "chapter": "Count the Crowd",
+   "start": 186.12,
+   "end": 189.91,
+   "text": "Now, look only at the people holding a positive result."
+  },
+  {
+   "id": "s035",
+   "chapter": "Count the Crowd",
+   "start": 190.26,
+   "end": 196.12,
+   "text": "Nine of them actually have the condition. Ninety nine are healthy. One hundred and eight positives in total."
+  },
+  {
+   "id": "s036",
+   "chapter": "Count the Crowd",
+   "start": 196.47,
+   "end": 202.01,
+   "text": "If your test is positive, you are one of these one hundred and eight. And only nine of them are sick."
+  },
+  {
+   "id": "s037",
+   "chapter": "Count the Crowd",
+   "start": 202.36,
+   "end": 206.02,
+   "text": "Nine out of one hundred and eight. That's one in twelve, about eight percent."
+  },
+  {
+   "id": "s038",
+   "chapter": "Count the Crowd",
+   "start": 208.02,
+   "end": 211.56,
+   "text": "The test did its job. It caught almost everyone who was sick."
+  },
+  {
+   "id": "s039",
+   "chapter": "Count the Crowd",
+   "start": 211.91,
+   "end": 221.07,
+   "text": "But healthy people outnumber sick people ninety nine to one. So even a small false alarm rate creates a crowd of false alarms."
+  },
+  {
+   "id": "s040",
+   "chapter": "Count the Crowd",
+   "start": 222.07,
+   "end": 225.61,
+   "text": "Here, the false alarms outnumber the real cases eleven to one."
+  },
+  {
+   "id": "s041",
+   "chapter": "Count the Crowd",
+   "start": 226.61,
+   "end": 238.52,
+   "text": "And yes, the test really is ninety percent accurate overall. Nine true positives, plus eight hundred and ninety one healthy people correctly cleared. Nine hundred right answers out of a thousand."
+  },
+  {
+   "id": "s042",
+   "chapter": "Count the Crowd",
+   "start": 239.52,
+   "end": 247.33,
+   "text": "And notice, the positive result still mattered. Before the test, your chance was one in a hundred. After it, one in twelve."
+  },
+  {
+   "id": "s043",
+   "chapter": "Count the Crowd",
+   "start": 247.68,
+   "end": 253.62,
+   "text": "That's more than eight times higher. The test moved you a lot. It just didn't move you anywhere near certain."
+  },
+  {
+   "id": "s044",
+   "chapter": "Count the Crowd",
+   "start": 254.62,
+   "end": 260.25,
+   "text": "And a negative result? Of the eight hundred and ninety two people who test negative, just one has the condition."
+  },
+  {
+   "id": "s045",
+   "chapter": "Count the Crowd",
+   "start": 260.6,
+   "end": 266.6,
+   "text": "So a negative test drops your chance from one in a hundred to about one in nine hundred. That's very reassuring."
+  },
+  {
+   "id": "s046",
+   "chapter": "Bayes' Rule",
+   "start": 268.1,
+   "end": 274.47,
+   "text": "What we just did, counting people, is exactly Bayes' theorem. Let's write it the way you'll see it in books."
+  },
+  {
+   "id": "s047",
+   "chapter": "Bayes' Rule",
+   "start": 274.82,
+   "end": 280.98,
+   "text": "Here is the same crowd as a tree. One thousand people split into ten who have it, and nine hundred and ninety who don't."
+  },
+  {
+   "id": "s048",
+   "chapter": "Bayes' Rule",
+   "start": 281.33,
+   "end": 287.74,
+   "text": "Then each branch splits again by the test result. Nine and one on top. Ninety nine and eight hundred and ninety one below."
+  },
+  {
+   "id": "s049",
+   "chapter": "Bayes' Rule",
+   "start": 288.09,
+   "end": 294.99,
+   "text": "A positive result means you're on one of the two positive leaves. Nine, or ninety nine. That's all Bayes is doing."
+  },
+  {
+   "id": "s050",
+   "chapter": "Bayes' Rule",
+   "start": 295.99,
+   "end": 301.94,
+   "text": "First, the symbols. A capital P, with brackets, means the probability of whatever is inside."
+  },
+  {
+   "id": "s051",
+   "chapter": "Bayes' Rule",
+   "start": 302.29,
+   "end": 306.22,
+   "text": "A means having the condition. B means testing positive."
+  },
+  {
+   "id": "s052",
+   "chapter": "Bayes' Rule",
+   "start": 306.57,
+   "end": 314.4,
+   "text": "And this vertical bar means given. So, P of A given B is the chance you have the condition, given that you tested positive."
+  },
+  {
+   "id": "s053",
+   "chapter": "Bayes' Rule",
+   "start": 314.75,
+   "end": 317.98,
+   "text": "That's the number we want. And here is Bayes' theorem."
+  },
+  {
+   "id": "s054",
+   "chapter": "Bayes' Rule",
+   "start": 318.98,
+   "end": 326.71,
+   "text": "P of A given B equals P of B given A, times P of A, divided by P of B."
+  },
+  {
+   "id": "s055",
+   "chapter": "Bayes' Rule",
+   "start": 327.06,
+   "end": 329.15,
+   "text": "Now let's match each piece to our crowd."
+  },
+  {
+   "id": "s056",
+   "chapter": "Bayes' Rule",
+   "start": 329.5,
+   "end": 335.31,
+   "text": "P of A is the base rate. How common the condition is before any test. Ten in a thousand."
+  },
+  {
+   "id": "s057",
+   "chapter": "Bayes' Rule",
+   "start": 335.66,
+   "end": 340.44,
+   "text": "P of B given A is how good the test is at catching it. Nine out of ten."
+  },
+  {
+   "id": "s058",
+   "chapter": "Bayes' Rule",
+   "start": 340.79,
+   "end": 345.13,
+   "text": "Multiply those two, and you get the true positives. Nine in a thousand."
+  },
+  {
+   "id": "s059",
+   "chapter": "Bayes' Rule",
+   "start": 345.48,
+   "end": 353.1,
+   "text": "P of B, on the bottom, is the chance of testing positive at all. Real or false, that's one hundred and eight in a thousand."
+  },
+  {
+   "id": "s060",
+   "chapter": "Bayes' Rule",
+   "start": 353.45,
+   "end": 360.41,
+   "text": "Divide, and the thousands cancel. Nine out of one hundred and eight. The same answer we got by counting."
+  },
+  {
+   "id": "s061",
+   "chapter": "Bayes' Rule",
+   "start": 361.91,
+   "end": 367.63,
+   "text": "So the formula is just a short way of saying: real positives, divided by all positives."
+  },
+  {
+   "id": "s062",
+   "chapter": "Bayes' Rule",
+   "start": 368.63,
+   "end": 371.97,
+   "text": "The bottom part is where people slip. It hides the false alarms."
+  },
+  {
+   "id": "s063",
+   "chapter": "Bayes' Rule",
+   "start": 372.32,
+   "end": 378.85,
+   "text": "Written out in full, P of B is the true positives from the sick, plus the false alarms from the healthy."
+  },
+  {
+   "id": "s064",
+   "chapter": "Bayes' Rule",
+   "start": 379.2,
+   "end": 388.33,
+   "text": "Three names you'll hear. The base rate is called the prior. The answer is called the posterior. And P of B given A is called the likelihood."
+  },
+  {
+   "id": "s065",
+   "chapter": "Bayes' Rule",
+   "start": 388.68,
+   "end": 392.55,
+   "text": "Prior means before the evidence. Posterior means after."
+  },
+  {
+   "id": "s066",
+   "chapter": "Test Again",
+   "start": 393.55,
+   "end": 400.04,
+   "text": "So you tested positive, and your chance is now about one in twelve. What would a sensible doctor do next?"
+  },
+  {
+   "id": "s067",
+   "chapter": "Test Again",
+   "start": 400.39,
+   "end": 407.33,
+   "text": "Test again. And here is the beautiful part. The answer from the first test becomes the starting point for the second."
+  },
+  {
+   "id": "s068",
+   "chapter": "Test Again",
+   "start": 407.68,
+   "end": 410.04,
+   "text": "Yesterday's posterior is today's prior."
+  },
+  {
+   "id": "s069",
+   "chapter": "Test Again",
+   "start": 411.04,
+   "end": 417.14,
+   "text": "Take our one hundred and eight positives. Nine are sick, ninety nine are healthy. They all take a second test."
+  },
+  {
+   "id": "s070",
+   "chapter": "Test Again",
+   "start": 417.49,
+   "end": 424.57,
+   "text": "To avoid fractions of people, picture ten times as many. Ninety people who have it, and nine hundred and ninety who don't."
+  },
+  {
+   "id": "s071",
+   "chapter": "Test Again",
+   "start": 424.92,
+   "end": 430.11,
+   "text": "The test catches nine in ten of the sick, and wrongly flags one in ten of the healthy. Same as before."
+  },
+  {
+   "id": "s072",
+   "chapter": "Test Again",
+   "start": 430.46,
+   "end": 434.13,
+   "text": "After a second positive: eighty one sick, and ninety nine healthy."
+  },
+  {
+   "id": "s073",
+   "chapter": "Test Again",
+   "start": 434.48,
+   "end": 438.12,
+   "text": "Eighty one out of one hundred and eighty. That's forty five percent."
+  },
+  {
+   "id": "s074",
+   "chapter": "Test Again",
+   "start": 439.62,
+   "end": 445.79,
+   "text": "One percent, then eight, then forty five. Each positive pushes the number up."
+  },
+  {
+   "id": "s075",
+   "chapter": "Test Again",
+   "start": 446.14,
+   "end": 449.6,
+   "text": "There's a neat shortcut here. Compare sick to healthy as odds."
+  },
+  {
+   "id": "s076",
+   "chapter": "Test Again",
+   "start": 449.95,
+   "end": 455.18,
+   "text": "Before any test, the odds are one sick person for every ninety nine healthy."
+  },
+  {
+   "id": "s077",
+   "chapter": "Test Again",
+   "start": 455.53,
+   "end": 462.23,
+   "text": "A sick person is nine times more likely to test positive than a healthy one. Ninety percent, versus ten."
+  },
+  {
+   "id": "s078",
+   "chapter": "Test Again",
+   "start": 462.58,
+   "end": 470.79,
+   "text": "So each positive multiplies the odds of having it by nine. One to ninety nine becomes nine to ninety nine, then eighty one to ninety nine."
+  },
+  {
+   "id": "s079",
+   "chapter": "Test Again",
+   "start": 471.14,
+   "end": 476.39,
+   "text": "A third positive makes it seven hundred and twenty nine to ninety nine. About eighty eight percent."
+  },
+  {
+   "id": "s080",
+   "chapter": "Test Again",
+   "start": 477.39,
+   "end": 483.81,
+   "text": "One important condition. This only works if the second test makes its mistakes independently of the first."
+  },
+  {
+   "id": "s081",
+   "chapter": "Test Again",
+   "start": 484.16,
+   "end": 492.98,
+   "text": "If you repeat the same test on the same sample, it might simply repeat the same false alarm. Then the second positive tells you much less."
+  },
+  {
+   "id": "s082",
+   "chapter": "Test Again",
+   "start": 493.33,
+   "end": 497.19,
+   "text": "That's one reason doctors often confirm with a different kind of test."
+  },
+  {
+   "id": "s083",
+   "chapter": "What Moves the Answer",
+   "start": 498.19,
+   "end": 505.19,
+   "text": "So what actually moves the answer? There are only three dials. The base rate, the hit rate, and the false alarm rate."
+  },
+  {
+   "id": "s084",
+   "chapter": "What Moves the Answer",
+   "start": 505.54,
+   "end": 509.92,
+   "text": "Let's turn the base rate dial first, and keep the test exactly the same."
+  },
+  {
+   "id": "s085",
+   "chapter": "What Moves the Answer",
+   "start": 510.27,
+   "end": 515.51,
+   "text": "At one in a hundred, we're at eight percent. At one in ten, it jumps to fifty percent."
+  },
+  {
+   "id": "s085a",
+   "chapter": "What Moves the Answer",
+   "start": 515.86,
+   "end": 522.83,
+   "text": "Let's check that middle one by counting. With one in ten, a thousand people means one hundred sick, and the test catches ninety of them."
+  },
+  {
+   "id": "s085b",
+   "chapter": "What Moves the Answer",
+   "start": 523.18,
+   "end": 531.11,
+   "text": "Nine hundred healthy, and one in ten flagged. Ninety false alarms. Ninety real, ninety false. Fifty percent."
+  },
+  {
+   "id": "s086",
+   "chapter": "What Moves the Answer",
+   "start": 532.11,
+   "end": 536.85,
+   "text": "And only when half the people have the condition does your gut's ninety percent finally become right."
+  },
+  {
+   "id": "s087",
+   "chapter": "What Moves the Answer",
+   "start": 538.35,
+   "end": 541.75,
+   "text": "The rarer the condition, the more the false alarms win."
+  },
+  {
+   "id": "s088",
+   "chapter": "What Moves the Answer",
+   "start": 542.75,
+   "end": 551.56,
+   "text": "Now turn the false alarm dial instead. Same base rate, one in a hundred, but a test that wrongly flags only one healthy person in a hundred."
+  },
+  {
+   "id": "s089",
+   "chapter": "What Moves the Answer",
+   "start": 551.91,
+   "end": 557.76,
+   "text": "Now there are about ten false alarms instead of ninety nine, and a positive means about forty eight percent."
+  },
+  {
+   "id": "s090",
+   "chapter": "What Moves the Answer",
+   "start": 558.11,
+   "end": 566.47,
+   "text": "And the hit rate dial? Push it from nine in ten all the way to perfect, and the answer barely moves. From about eight percent to about nine."
+  },
+  {
+   "id": "s091",
+   "chapter": "What Moves the Answer",
+   "start": 567.47,
+   "end": 573.79,
+   "text": "So, a rule of thumb. When the thing you're looking for is rare, the false alarm rate matters far more than the hit rate."
+  },
+  {
+   "id": "s092",
+   "chapter": "Real World",
+   "start": 575.29,
+   "end": 581.62,
+   "text": "Now let's see where this shows up in the real world. The labels change, but the counting is the same."
+  },
+  {
+   "id": "s093",
+   "chapter": "Real World",
+   "start": 581.97,
+   "end": 586.25,
+   "text": "Machine learning. A classifier is just a test run by a computer."
+  },
+  {
+   "id": "s094",
+   "chapter": "Real World",
+   "start": 586.6,
+   "end": 591.93,
+   "text": "Engineers have names for our numbers. Catching nine out of ten sick people is called recall."
+  },
+  {
+   "id": "s095",
+   "chapter": "Real World",
+   "start": 592.28,
+   "end": 597.42,
+   "text": "And nine out of one hundred and eight, the share of alarms that are real, is called precision."
+  },
+  {
+   "id": "s096",
+   "chapter": "Real World",
+   "start": 597.77,
+   "end": 604.82,
+   "text": "When the thing you're looking for is rare, a model can have great recall and still terrible precision. That's the base rate at work."
+  },
+  {
+   "id": "s096a",
+   "chapter": "Real World",
+   "start": 605.82,
+   "end": 619.08,
+   "text": "That's why teams measure precision on data with the real base rate. On a balanced test set, half positive and half negative, our same test would show ninety percent precision. In the real world, about eight percent."
+  },
+  {
+   "id": "s097",
+   "chapter": "Real World",
+   "start": 620.08,
+   "end": 627.32,
+   "text": "And here's a trap. A model that simply says healthy to everyone is ninety nine percent accurate, and completely useless."
+  },
+  {
+   "id": "s098",
+   "chapter": "Real World",
+   "start": 628.32,
+   "end": 632.15,
+   "text": "Data science. Bayes is the engine of Bayesian statistics."
+  },
+  {
+   "id": "s099",
+   "chapter": "Real World",
+   "start": 632.5,
+   "end": 640.19,
+   "text": "You start with a prior belief, say, about how often visitors to a website buy something, and update it as each day's data comes in."
+  },
+  {
+   "id": "s100",
+   "chapter": "Real World",
+   "start": 640.54,
+   "end": 645.76,
+   "text": "Each day's posterior becomes the next day's prior. Exactly like our second test."
+  },
+  {
+   "id": "s100a",
+   "chapter": "Real World",
+   "start": 646.76,
+   "end": 656.57,
+   "text": "And before trusting any automated flag on a dashboard, a good analyst asks: of all the past flags, how many were real? That's precision again, measured on real data."
+  },
+  {
+   "id": "s101",
+   "chapter": "Real World",
+   "start": 656.92,
+   "end": 660.23,
+   "text": "Finance. Banks run fraud detectors on card payments."
+  },
+  {
+   "id": "s102",
+   "chapter": "Real World",
+   "start": 660.58,
+   "end": 668.24,
+   "text": "Fraud is rare, far rarer than one in a hundred payments. So even a detector as good as our test would flag mostly honest payments."
+  },
+  {
+   "id": "s103",
+   "chapter": "Real World",
+   "start": 668.59,
+   "end": 679.37,
+   "text": "That's one reason many banks send a quick, was this you, message instead of simply blocking the card. In Bayes terms, your reply is a second, independent test."
+  },
+  {
+   "id": "s103a",
+   "chapter": "Real World",
+   "start": 680.37,
+   "end": 691.32,
+   "text": "The same idea applies to market signals. A warning sign that fired before most crashes may also fire in many calm years. Always ask how often it fires when nothing happens."
+  },
+  {
+   "id": "s104",
+   "chapter": "Real World",
+   "start": 692.32,
+   "end": 698.89,
+   "text": "Computer science. Some of the first really effective spam filters were built on Bayes' theorem."
+  },
+  {
+   "id": "s105",
+   "chapter": "Real World",
+   "start": 699.24,
+   "end": 703.75,
+   "text": "The prior is how much of all email is spam. The evidence is the words inside."
+  },
+  {
+   "id": "s106",
+   "chapter": "Real World",
+   "start": 704.1,
+   "end": 710.49,
+   "text": "Each word nudges the odds up or down, just like each positive test. The filter multiplies them together."
+  },
+  {
+   "id": "s107",
+   "chapter": "Real World",
+   "start": 710.84,
+   "end": 723.01,
+   "text": "To keep it simple, it treats every word as independent of the others. That shortcut is why it's called naive Bayes. It isn't true, but it works surprisingly well."
+  },
+  {
+   "id": "s107a",
+   "chapter": "Real World",
+   "start": 724.01,
+   "end": 732.69,
+   "text": "Computer security has the same problem. An intrusion alarm that fires on just one in a thousand normal logins can still bury the few real attacks under false alarms."
+  },
+  {
+   "id": "s108",
+   "chapter": "Common Mistakes",
+   "start": 733.69,
+   "end": 738.02,
+   "text": "Before we wrap up, here are the three most common mistakes people make with Bayes."
+  },
+  {
+   "id": "s109",
+   "chapter": "Common Mistakes",
+   "start": 738.37,
+   "end": 740.65,
+   "text": "Mistake one: flipping the question."
+  },
+  {
+   "id": "s110",
+   "chapter": "Common Mistakes",
+   "start": 741.0,
+   "end": 748.62,
+   "text": "The chance of a positive test, if you're sick, is ninety percent. The chance you're sick, if you test positive, is about eight percent."
+  },
+  {
+   "id": "s111",
+   "chapter": "Common Mistakes",
+   "start": 748.97,
+   "end": 752.38,
+   "text": "Same words, swapped around. Completely different numbers."
+  },
+  {
+   "id": "s112",
+   "chapter": "Common Mistakes",
+   "start": 753.38,
+   "end": 762.44,
+   "text": "In courtrooms, this flip has a name: the prosecutor's fallacy. The chance of the evidence if someone is innocent is not the chance they're innocent, given the evidence."
+  },
+  {
+   "id": "s113",
+   "chapter": "Common Mistakes",
+   "start": 763.44,
+   "end": 765.96,
+   "text": "Mistake two: ignoring the base rate."
+  },
+  {
+   "id": "s114",
+   "chapter": "Common Mistakes",
+   "start": 766.31,
+   "end": 772.24,
+   "text": "Take the same test, but give it only to patients who already have symptoms. Say one in five of them has the condition."
+  },
+  {
+   "id": "s115",
+   "chapter": "Common Mistakes",
+   "start": 772.59,
+   "end": 780.83,
+   "text": "Out of a thousand, that's one hundred and eighty true positives, against eighty false alarms. Now a positive means about seventy percent."
+  },
+  {
+   "id": "s116",
+   "chapter": "Common Mistakes",
+   "start": 781.18,
+   "end": 785.12,
+   "text": "Same test. Same result. The base rate changed everything."
+  },
+  {
+   "id": "s117",
+   "chapter": "Common Mistakes",
+   "start": 787.12,
+   "end": 790.18,
+   "text": "Mistake three: counting the same clue twice."
+  },
+  {
+   "id": "s118",
+   "chapter": "Common Mistakes",
+   "start": 790.53,
+   "end": 798.36,
+   "text": "If two tests share the same weakness, or two news stories copy the same source, they are really one piece of evidence, not two."
+  },
+  {
+   "id": "s119",
+   "chapter": "Common Mistakes",
+   "start": 798.71,
+   "end": 802.64,
+   "text": "Multiply them as if they were independent, and you'll end up far too confident."
+  },
+  {
+   "id": "s120",
+   "chapter": "Common Mistakes",
+   "start": 803.64,
+   "end": 808.93,
+   "text": "And a bonus mistake: deciding the test is useless because the answer was only eight percent."
+  },
+  {
+   "id": "s121",
+   "chapter": "Common Mistakes",
+   "start": 809.28,
+   "end": 818.68,
+   "text": "It isn't. A positive raised the chance more than eightfold, and a negative almost rules the condition out. A good test is a strong clue. It's just not a verdict."
+  },
+  {
+   "id": "s122",
+   "chapter": "Recipe",
+   "start": 819.68,
+   "end": 823.58,
+   "text": "Let's turn all of that into a recipe you can use for any yes or no question."
+  },
+  {
+   "id": "s123",
+   "chapter": "Recipe",
+   "start": 823.93,
+   "end": 829.68,
+   "text": "Step one: start with the base rate. How common is the thing, before any evidence?"
+  },
+  {
+   "id": "s124",
+   "chapter": "Recipe",
+   "start": 830.03,
+   "end": 835.57,
+   "text": "Step two: picture a crowd. One thousand people usually avoids fractions."
+  },
+  {
+   "id": "s125",
+   "chapter": "Recipe",
+   "start": 835.92,
+   "end": 841.94,
+   "text": "Step three: split the crowd with the test. Count the true positives, and the false alarms."
+  },
+  {
+   "id": "s126",
+   "chapter": "Recipe",
+   "start": 842.29,
+   "end": 849.44,
+   "text": "Step four: keep only the people who match the evidence, and divide. Real cases, over all positives."
+  },
+  {
+   "id": "s127",
+   "chapter": "Recipe",
+   "start": 849.79,
+   "end": 856.27,
+   "text": "Step five: update. When new, independent evidence arrives, your answer becomes the new base rate."
+  },
+  {
+   "id": "s128",
+   "chapter": "Recipe",
+   "start": 857.77,
+   "end": 865.18,
+   "text": "For our test: one in a hundred to start. Nine real positives, ninety nine false alarms. About eight percent."
+  },
+  {
+   "id": "s129",
+   "chapter": "Recipe",
+   "start": 866.18,
+   "end": 871.58,
+   "text": "A test result is a clue, not a verdict. Bayes tells you how much the clue is worth."
+  },
+  {
+   "id": "s130",
+   "chapter": "Subscribe",
+   "start": 873.58,
+   "end": 880.63,
+   "text": "Look around your world, and notice how many alarms are false alarms, and how rare the real thing usually is."
+  },
+  {
+   "id": "s131",
+   "chapter": "Subscribe",
+   "start": 881.23,
+   "end": 887.01,
+   "text": "If this lesson made things clear for you, please subscribe to Math Lab TV, so we can keep building together."
+  },
+  {
+   "id": "s132",
+   "chapter": "Next Time",
+   "start": 887.81,
+   "end": 889.27,
+   "text": "But here's a puzzle for next time."
+  },
+  {
+   "id": "s133",
+   "chapter": "Next Time",
+   "start": 889.62,
+   "end": 896.95,
+   "text": "Scientists often report a number called a p-value, and it's very often described as the chance that a result is a fluke."
+  },
+  {
+   "id": "s134",
+   "chapter": "Next Time",
+   "start": 897.3,
+   "end": 900.78,
+   "text": "That description flips the question, just like mistake one."
+  },
+  {
+   "id": "s135",
+   "chapter": "Next Time",
+   "start": 901.13,
+   "end": 906.35,
+   "text": "Next time, we'll see what a p-value really measures, and why Bayes is the missing piece."
+  },
+  {
+   "id": "s136",
+   "chapter": "Next Time",
+   "start": 906.7,
+   "end": 908.06,
+   "text": "I will see you in the next video."
+  }
+ ]
+}

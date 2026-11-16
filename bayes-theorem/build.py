@@ -12,18 +12,18 @@ HERE = pathlib.Path(__file__).parent
 B = HERE / "build"
 FPS = 30
 SCENES = [  # (chapter name, scene file stem, class)
-    ("Two Towns", "s01_two_towns", "S01TwoTowns"),
-    ("Welcome", "s01b_welcome", "S01bWelcome"),
-    ("Why It Matters", "s02_why", "S02Why"),
-    ("The Mean", "s03_mean", "S03Mean"),
-    ("The Median", "s04_median", "S04Median"),
-    ("Stress Test", "s05_stress", "S05Stress"),
-    ("Which One to Trust", "s06_trust", "S06Trust"),
-    ("Real World", "s07_real", "S07Real"),
-    ("Common Mistakes", "s08_mistakes", "S08Mistakes"),
-    ("Recipe", "s09_recipe", "S09Recipe"),
-    ("Subscribe", "s09b_subscribe", "S09bSubscribe"),
-    ("Next Time", "s10_next", "S10Next"),
+    ("The Positive Test", "s01_hook", "S01Hook"),
+    ("Welcome", "s02_welcome", "S02Welcome"),
+    ("Why It Matters", "s03_why", "S03Why"),
+    ("Count the Crowd", "s04_crowd", "S04Crowd"),
+    ("Bayes' Rule", "s05_rule", "S05Rule"),
+    ("Test Again", "s06_again", "S06Again"),
+    ("What Moves the Answer", "s07_dials", "S07Dials"),
+    ("Real World", "s08_real", "S08Real"),
+    ("Common Mistakes", "s09_mistakes", "S09Mistakes"),
+    ("Recipe", "s10_recipe", "S10Recipe"),
+    ("Subscribe", "s11_subscribe", "S11Subscribe"),
+    ("Next Time", "s12_next", "S12Next"),
 ]
 MAXC = 64  # max characters per subtitle line
 
@@ -138,7 +138,7 @@ def normalise(ch, stem, cls):
     return out, n
 
 
-def assemble(names, out_name):
+def assemble(names, out_name, t_cut=None):
     total = TIM["total"]
     parts, frames = [], 0
     for ch, stem, cls in SCENES:
@@ -147,6 +147,8 @@ def assemble(names, out_name):
     lst = B / "concat.txt"; lst.write_text("".join(f"file '{p}'\n" for p in parts))
     t0 = next(c for c in CHAPTERS if c["name"] == names[0])["t0"]
     t1 = next(c for c in CHAPTERS if c["name"] == names[-1])["t1"]
+    if t_cut:
+        frames = round(t_cut * FPS) - round(t0 * FPS); t1 = t_cut
     (B / "overlay.ass").write_text(ass(t0, t1, total))
     out = HERE / "out" / out_name; out.parent.mkdir(exist_ok=True)
     run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(lst),
@@ -161,6 +163,8 @@ if __name__ == "__main__":
     if mode == "srt":
         srt()
     elif mode == "sample":
-        assemble(["Two Towns", "Welcome", "Why It Matters"], "sample.mp4")
+        # hook, welcome, why it matters, and the start of the lesson (up to the 990 healthy people)
+        assemble(["The Positive Test", "Welcome", "Why It Matters", "Count the Crowd"], "sample.mp4",
+                 t_cut=SEGS["s030"]["start"] - 0.3)
     else:
-        srt(); assemble([s[0] for s in SCENES], "mean_vs_median.mp4")
+        srt(); assemble([s[0] for s in SCENES], "bayes_theorem.mp4")

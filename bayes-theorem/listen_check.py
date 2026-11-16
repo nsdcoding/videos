@@ -26,7 +26,7 @@ def norm(t):
     t = re.sub(r"(\d+)\.(\d+)", lambda m: spell(m[1]) + " point " + " ".join(spell(d) for d in m[2]), t)
     t = re.sub(r"\d+", lambda m: spell(m[0]), t)
     t = re.sub(r"[^a-z' ]", " ", t)
-    alias = {"ex": "x", "neighbors": "neighbours", "minimizing": "minimising", "p": "p", "okay": "ok"}
+    alias = {"bayes's": "bayes'", "bayes": "bayes'", "pvalue": "p", "ex": "x", "neighbors": "neighbours", "minimizing": "minimising", "p": "p", "okay": "ok"}
     return [alias.get(w, w) for w in t.split() if w not in ("and", "a", "the", "an", "of", "to", "in", "is", "it's", "it", "that", "that's", "s")]
 
 def stt_sphinx(c, wav):
@@ -37,6 +37,31 @@ def stt_sphinx(c, wav):
     d = Decoder(samprate=16000, logfn="/dev/null")
     d.start_utt(); d.process_raw(raw, full_utt=True); d.end_utt()
     return d.hyp().hypstr if d.hyp() else ""
+
+def stt_gemini(c, wav):
+    """Blind transcription with Gemini on Vertex AI (the model never sees the script)."""
+    import time
+    proj = json.loads(SA.read_text())["project_id"]
+    url = (f"https://aiplatform.googleapis.com/v1/projects/{proj}/locations/global/publishers/google/"
+           "models/gemini-3-flash-preview:generateContent")
+    body = {"contents": [{"role": "user", "parts": [
+        {"inlineData": {"mimeType": "audio/wav", "data": base64.b64encode(pathlib.Path(wav).read_bytes()).decode()}},
+        {"text": "Transcribe this English speech exactly as spoken, word for word. Do not correct grammar or "
+                 "mispronunciations: if a word sounds wrong, write what you actually hear. Write numbers as words. "
+                 "Output only the transcript."}]}], "generationConfig": {"temperature": 0}}
+    r = None
+    for attempt in range(5):
+        if not c.valid:
+            import google.auth.transport.requests as gr; c.refresh(gr.Request())
+        try:
+            r = requests.post(url, json=body, headers={"Authorization": f"Bearer {c.token}"}, timeout=60)
+        except requests.exceptions.RequestException:
+            time.sleep(min(30, 2 ** attempt)); continue
+        if r.status_code == 200:
+            parts = r.json()["candidates"][0]["content"]["parts"]
+            return " ".join(p.get("text", "") for p in parts if not p.get("thought"))
+        time.sleep(2 ** attempt)
+    return "<<STT FAILED>>"
 
 def stt_google(c, wav):
     audio = base64.b64encode(pathlib.Path(wav).read_bytes()[44:]).decode()
@@ -56,12 +81,25 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         S = [s for s in S if s["id"] in sys.argv[1:]]
     def job(s):
-        heard = stt_sphinx(c, HERE / "audio" / "clips" / f"{s['id']}.wav")
+        wav = HERE / "audio" / "clips" / f"{s['id']}.wav"
+        cache = HERE / "audio" / "stt_cache"; cache.mkdir(exist_ok=True)
+        cf = cache / f"{s['id']}.json"
+        h = (HERE / "audio" / "clips" / f"{s['id']}.hash").read_text()
+        if cf.exists() and json.loads(cf.read_text())["hash"] == h:
+            heard = json.loads(cf.read_text())["heard"]
+        else:
+            heard = stt_gemini(c, wav)
+            if heard == "<<STT FAILED>>":   # some clips only go through when resampled to 16 kHz
+                import subprocess, tempfile
+                t16 = pathlib.Path(tempfile.mkdtemp()) / "a.wav"
+                subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(wav), "-ar", "16000", str(t16)], check=True)
+                heard = stt_gemini(c, t16)
+            if heard != "<<STT FAILED>>": cf.write_text(json.dumps(dict(hash=h, heard=heard)))
         a, b = norm(s["text"]), norm(heard)
         diffs = [(" ".join(a[i1:i2]), " ".join(b[j1:j2]))
                  for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, a, b).get_opcodes() if op != "equal"]
         return dict(id=s["id"], text=s["text"], heard=heard, diffs=diffs)
-    with ThreadPoolExecutor(6) as ex:
+    with ThreadPoolExecutor(4) as ex:
         res = list(ex.map(job, S))
     (HERE / "audio" / "listen_check.json").write_text(json.dumps(res, indent=1))
     bad = [r for r in res if r["diffs"]]

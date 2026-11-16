@@ -43,10 +43,12 @@ seg(c, "A few days later, the result comes back. Positive.",
     "An envelope slides in and opens; 'POSITIVE' stamps on in aqua.", 1.0)
 seg(c, "So, how worried should you be? What is the chance you actually have it?",
     "A probability meter appears: a horizontal axis 0%–100% with ticks every 10, title 'chance you have it'.")
+seg(c, "Take a second, and make your own guess.",
+    "The meter waits; a blinking '?' cursor sits on it; tiny clock ticks.", 1.5, sid="s006a")
 seg(c, "Most people say about ninety percent. After all, the test is ninety percent accurate.",
     "A grey 'gut feeling' pointer slides to 90% on the meter.")
 seg(c, "Here's the surprise. The real answer is about eight percent.",
-    "A violet pointer drops in at 8.3%; the grey 90% pointer is crossed out in red.", 1.5)
+    "A violet pointer drops in at 8.3%; the grey 90% pointer is crossed out in red.", 2.0)
 seg(c, "Not ninety. Eight. Less than one in ten.",
     "Big comparison: '90%' (grey, struck) vs '≈ 8%' (violet), camera pushes in on the violet number.", 1.0)
 seg(c, "Nothing in that story is a trick. The test really is good. Your gut just left out one number.",
@@ -59,13 +61,13 @@ seg(c, "The tool that puts that number back in is called Bayes' theorem. And by 
 # ─────────── 2. WELCOME (channel intro) ───────────
 c = "Welcome"
 seg(c, "Welcome to Math Lab TV. Where math is something you can see.",
-    "Logo (violet rounded square with a green bell curve) + MATH LAB TV + tagline 'where math is something you can see'.", 1.0)
+    "Logo (violet rounded square with a green bell curve) + MATH LAB TV + tagline 'where math is something you can see'.", 0.7)
 seg(c, "Today you will learn how to turn a test result into a real probability, just by counting people.",
     "Small logo moves top-right. Big ① (aqua); mini grid where 108 squares light up and 9 turn orange; caption 'turn a test result into a real probability'.")
 seg(c, "You will see Bayes' theorem as a formula, and exactly what every symbol means.",
     "Big ② (violet); the formula P(A|B) = P(B|A)·P(A) / P(B) writes on; caption 'the formula, symbol by symbol'.")
 seg(c, "And you will see how evidence adds up, in spam filters, fraud alerts and machine learning.",
-    "Big ③ (warn); a mini meter walks 1% → 8% → 45%; caption 'how evidence adds up'.", 1.0)
+    "Big ③ (warn); a mini meter walks 1% → 8% → 45%; caption 'how evidence adds up'.", 0.6)
 
 # ───────────────────────── 3. WHY IT MATTERS ─────────────────────────
 c = "Why It Matters"
@@ -113,7 +115,7 @@ seg(c, "Nine of them actually have the condition. Ninety nine are healthy. One h
 seg(c, "If your test is positive, you are one of these one hundred and eight. And only nine of them are sick.",
     "A 'you are somewhere in here' bracket over both stacks; the orange 9 glows.")
 seg(c, "Nine out of one hundred and eight. That's one in twelve, about eight percent.",
-    "Fraction 9 / 108 (LaTeX) = 1/12 ≈ 8.3%, in violet.", 1.5)
+    "Fraction 9 / 108 (LaTeX) = 1/12 ≈ 8.3%, in violet.", 2.0)
 seg(c, "The test did its job. It caught almost everyone who was sick.",
     "Tick on '9 of 10 caught'.")
 seg(c, "But healthy people outnumber sick people ninety nine to one. So even a small false alarm rate creates a crowd of false alarms.",
@@ -184,7 +186,7 @@ seg(c, "Yesterday's posterior is today's prior.",
     "Text card with the loop arrow; 'posterior → prior'.", 1.0)
 seg(c, "Take our one hundred and eight positives. Nine are sick, ninety nine are healthy. They all take a second test.",
     "The two stacks (9 orange, 99 blue) return on their axes.")
-seg(c, "To avoid fractions of people, picture ten times as many. Ninety sick, and nine hundred and ninety healthy.",
+seg(c, "To avoid fractions of people, picture ten times as many. Ninety people who have it, and nine hundred and ninety who don't.",
     "'× 10' badge; stacks rescale: y axis now 0–1,000, ticks every 200; bars 90 and 990.")
 seg(c, "The test catches nine in ten of the sick, and wrongly flags one in ten of the healthy. Same as before.",
     "Aqua rings sweep the bars: 90 → 81 kept; 990 → 99 kept.")
@@ -200,7 +202,7 @@ seg(c, "Before any test, the odds are one sick person for every ninety nine heal
     "Beam: 1 orange vs 99 blue → '1 : 99'.")
 seg(c, "A sick person is nine times more likely to test positive than a healthy one. Ninety percent, versus ten.",
     "'90% ÷ 10% = 9' chip, labelled 'likelihood ratio'.")
-seg(c, "So each positive multiplies the sick side by nine. One to ninety nine becomes nine to ninety nine, then eighty one to ninety nine.",
+seg(c, "So each positive multiplies the odds of having it by nine. One to ninety nine becomes nine to ninety nine, then eighty one to ninety nine.",
     "Odds ladder: 1 : 99 → × 9 → 9 : 99 → × 9 → 81 : 99; beam levels out step by step.")
 seg(c, "A third positive makes it seven hundred and twenty nine to ninety nine. About eighty eight percent.",
     "'729 : 99 → 729 / 828 ≈ 88%'; meter pointer hops to 88%. Beam tips toward 'sick'.", 1.0)
@@ -219,6 +221,10 @@ seg(c, "Let's turn the base rate dial first, and keep the test exactly the same.
     "Axes: x 'base rate (%)' 0–50 (ticks every 10), y 'chance you have it after a positive (%)' 0–100 (ticks every 20).")
 seg(c, "At one in a hundred, we're at eight percent. At one in ten, it jumps to fifty percent.",
     "A violet curve traces from left; dots pinned at (1, 8.3) and (10, 50) with labels.")
+seg(c, "Let's check that middle one by counting. With one in ten, a thousand people means one hundred sick, and the test catches ninety of them.",
+    "Mini crowd: 100 orange squares (ten columns of the 40 x 25 grid), 90 ringed aqua.", sid="s085a")
+seg(c, "Nine hundred healthy, and one in ten flagged. Ninety false alarms. Ninety real, ninety false. Fifty percent.",
+    "900 blue, 90 ringed; two equal stacks 90 | 90 on axes 0–100; '90 / 180 = 50%' violet.", 1.0, sid="s085b")
 seg(c, "And only when half the people have the condition does your gut's ninety percent finally become right.",
     "Curve reaches (50, 90); a grey 'gut: 90%' dashed line meets it there.", 1.5)
 seg(c, "The rarer the condition, the more the false alarms win.",
@@ -244,6 +250,8 @@ seg(c, "And nine out of one hundred and eight, the share of alarms that are real
     "'precision = 9 / 108 ≈ 8%' (violet), with the two stacks.")
 seg(c, "When the thing you're looking for is rare, a model can have great recall and still terrible precision. That's the base rate at work.",
     "Two gauges side by side: recall 90% (full), precision 8% (nearly empty).", 1.0)
+seg(c, "That's why teams measure precision on data with the real base rate. On a balanced test set, half positive and half negative, our same test would show ninety percent precision. In the real world, about eight percent.",
+    "Two panels: 'balanced test set (50% positive) → precision 90%' vs 'real world (1% positive) → precision 8%'.", 1.0, sid="s096a")
 seg(c, "And here's a trap. A model that simply says healthy to everyone is ninety nine percent accurate, and completely useless.",
     "Grid of 1,000 all marked 'healthy': '990 / 1000 correct = 99% accuracy' with a red '0 of 10 caught'.", 1.0)
 seg(c, "Data science. Bayes is the engine of Bayesian statistics.",
@@ -252,12 +260,16 @@ seg(c, "You start with a prior belief, say, about how often visitors to a websit
     "Axes x 'purchase rate (%)' 0–10, y 'belief (shape only)': a wide warn curve narrows into a violet curve as day-1, day-2, day-3 data chips arrive. Labelled 'shape only'.")
 seg(c, "Each day's posterior becomes the next day's prior. Exactly like our second test.",
     "Loop arrow posterior → prior, as in the Test Again chapter.", 1.0)
+seg(c, "And before trusting any automated flag on a dashboard, a good analyst asks: of all the past flags, how many were real? That's precision again, measured on real data.",
+    "Dashboard card with a column of past flags: few aqua-ringed orange (real), many blue (false); 'real ÷ all flags'.", sid="s100a")
 seg(c, "Finance. Banks run fraud detectors on card payments.",
     "Finance tile expands: card + payment stream.")
 seg(c, "Fraud is rare, far rarer than one in a hundred payments. So even a detector as good as our test would flag mostly honest payments.",
     "Same 1,000-grid relabelled 'payments', with even fewer orange squares; aqua flags land mostly on blue ('honest').")
 seg(c, "That's one reason many banks send a quick, was this you, message instead of simply blocking the card. In Bayes terms, your reply is a second, independent test.",
     "Phone with 'Was this you?' → reply 'Yes' → meter drops / 'No' → meter jumps.", 1.0)
+seg(c, "The same idea applies to market signals. A warning sign that fired before most crashes may also fire in many calm years. Always ask how often it fires when nothing happens.",
+    "Timeline of years (axis 'year 1–20', generic, labelled 'illustration'): signal flags on several years, only two of them crash years.", 1.0, sid="s103a")
 seg(c, "Computer science. Some of the first really effective spam filters were built on Bayes' theorem.",
     "CS tile expands: inbox with a spam folder.")
 seg(c, "The prior is how much of all email is spam. The evidence is the words inside.",
@@ -266,6 +278,8 @@ seg(c, "Each word nudges the odds up or down, just like each positive test. The 
     "Odds ladder like before: '× (FREE)' up, '× (meeting)' down. Each arrow labelled 'shape only' factors.")
 seg(c, "To keep it simple, it treats every word as independent of the others. That shortcut is why it's called naive Bayes. It isn't true, but it works surprisingly well.",
     "'naive Bayes = assume words are independent' card; a check mark 'works surprisingly well'.", 1.0)
+seg(c, "Computer security has the same problem. An intrusion alarm that fires on just one in a thousand normal logins can still bury the few real attacks under false alarms.",
+    "Login stream: thousands of blue login dots, rare orange attack dots; aqua alarms mostly on blue.", 1.0, sid="s107a")
 
 # ───────────────────────── 6. COMMON MISTAKES ─────────────────────────
 c = "Common Mistakes"
@@ -286,7 +300,7 @@ seg(c, "Take the same test, but give it only to patients who already have sympto
 seg(c, "Out of a thousand, that's one hundred and eighty true positives, against eighty false alarms. Now a positive means about seventy percent.",
     "Stacks: orange 180 vs blue 80 (axis 0–200, ticks every 50); '180 / 260 ≈ 69%' in violet.")
 seg(c, "Same test. Same result. The base rate changed everything.",
-    "Side by side: 'base rate 1 in 100 → 8%' vs 'base rate 1 in 5 → 69%'.", 1.5)
+    "Side by side: 'base rate 1 in 100 → 8%' vs 'base rate 1 in 5 → 69%'.", 2.0)
 seg(c, "Mistake three: counting the same clue twice.",
     "Card 3 flips: 'Counting a clue twice'.")
 seg(c, "If two tests share the same weakness, or two news stories copy the same source, they are really one piece of evidence, not two.",
@@ -315,7 +329,7 @@ seg(c, "Step five: update. When new, independent evidence arrives, your answer b
 seg(c, "For our test: one in a hundred to start. Nine real positives, ninety nine false alarms. About eight percent.",
     "Summary strip under the card: '1 in 100 → 9 real vs 99 false → 9/108 ≈ 8%'.", 1.0)
 seg(c, "A test result is a clue, not a verdict. Bayes tells you how much the clue is worth.",
-    "Closing line types on in violet, centred.", 1.5)
+    "Closing line types on in violet, centred.", 2.0)
 
 # ─────────── 8. SUBSCRIBE (channel outro) ───────────
 c = "Subscribe"

@@ -42,6 +42,13 @@
     "pause_after": 0.35
   },
   {
+    "id": "s006a",
+    "chapter": "The Positive Test",
+    "text": "Take a second, and make your own guess.",
+    "visual": "The meter waits; a blinking '?' cursor sits on it; tiny clock ticks.",
+    "pause_after": 1.5
+  },
+  {
     "id": "s007",
     "chapter": "The Positive Test",
     "text": "Most people say about ninety percent. After all, the test is ninety percent accurate.",
@@ -53,7 +60,7 @@
     "chapter": "The Positive Test",
     "text": "Here's the surprise. The real answer is about eight percent.",
     "visual": "A violet pointer drops in at 8.3%; the grey 90% pointer is crossed out in red.",
-    "pause_after": 1.5
+    "pause_after": 2.0
   },
   {
     "id": "s009",
@@ -88,7 +95,7 @@
     "chapter": "Welcome",
     "text": "Welcome to Math Lab TV. Where math is something you can see.",
     "visual": "Logo (violet rounded square with a green bell curve) + MATH LAB TV + tagline 'where math is something you can see'.",
-    "pause_after": 1.0
+    "pause_after": 0.7
   },
   {
     "id": "s014",
@@ -109,7 +116,7 @@
     "chapter": "Welcome",
     "text": "And you will see how evidence adds up, in spam filters, fraud alerts and machine learning.",
     "visual": "Big ③ (warn); a mini meter walks 1% → 8% → 45%; caption 'how evidence adds up'.",
-    "pause_after": 1.0
+    "pause_after": 0.6
   },
   {
     "id": "s017",
@@ -256,7 +263,7 @@
     "chapter": "Count the Crowd",
     "text": "Nine out of one hundred and eight. That's one in twelve, about eight percent.",
     "visual": "Fraction 9 / 108 (LaTeX) = 1/12 ≈ 8.3%, in violet.",
-    "pause_after": 1.5
+    "pause_after": 2.0
   },
   {
     "id": "s038",
@@ -485,7 +492,7 @@
   {
     "id": "s070",
     "chapter": "Test Again",
-    "text": "To avoid fractions of people, picture ten times as many. Ninety sick, and nine hundred and ninety healthy.",
+    "text": "To avoid fractions of people, picture ten times as many. Ninety people who have it, and nine hundred and ninety who don't.",
     "visual": "'× 10' badge; stacks rescale: y axis now 0–1,000, ticks every 200; bars 90 and 990.",
     "pause_after": 0.35
   },
@@ -541,7 +548,7 @@
   {
     "id": "s078",
     "chapter": "Test Again",
-    "text": "So each positive multiplies the sick side by nine. One to ninety nine becomes nine to ninety nine, then eighty one to ninety nine.",
+    "text": "So each positive multiplies the odds of having it by nine. One to ninety nine becomes nine to ninety nine, then eighty one to ninety nine.",
     "visual": "Odds ladder: 1 : 99 → × 9 → 9 : 99 → × 9 → 81 : 99; beam levels out step by step.",
     "pause_after": 0.35
   },
@@ -593,6 +600,20 @@
     "text": "At one in a hundred, we're at eight percent. At one in ten, it jumps to fifty percent.",
     "visual": "A violet curve traces from left; dots pinned at (1, 8.3) and (10, 50) with labels.",
     "pause_after": 0.35
+  },
+  {
+    "id": "s085a",
+    "chapter": "What Moves the Answer",
+    "text": "Let's check that middle one by counting. With one in ten, a thousand people means one hundred sick, and the test catches ninety of them.",
+    "visual": "Mini crowd: 100 orange squares (ten columns of the 40 x 25 grid), 90 ringed aqua.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s085b",
+    "chapter": "What Moves the Answer",
+    "text": "Nine hundred healthy, and one in ten flagged. Ninety false alarms. Ninety real, ninety false. Fifty percent.",
+    "visual": "900 blue, 90 ringed; two equal stacks 90 | 90 on axes 0–100; '90 / 180 = 50%' violet.",
+    "pause_after": 1.0
   },
   {
     "id": "s086",
@@ -672,6 +693,13 @@
     "pause_after": 1.0
   },
   {
+    "id": "s096a",
+    "chapter": "Real World",
+    "text": "That's why teams measure precision on data with the real base rate. On a balanced test set, half positive and half negative, our same test would show ninety percent precision. In the real world, about eight percent.",
+    "visual": "Two panels: 'balanced test set (50% positive) → precision 90%' vs 'real world (1% positive) → precision 8%'.",
+    "pause_after": 1.0
+  },
+  {
     "id": "s097",
     "chapter": "Real World",
     "text": "And here's a trap. A model that simply says healthy to everyone is ninety nine percent accurate, and completely useless.",
@@ -700,6 +728,13 @@
     "pause_after": 1.0
   },
   {
+    "id": "s100a",
+    "chapter": "Real World",
+    "text": "And before trusting any automated flag on a dashboard, a good analyst asks: of all the past flags, how many were real? That's precision again, measured on real data.",
+    "visual": "Dashboard card with a column of past flags: few aqua-ringed orange (real), many blue (false); 'real ÷ all flags'.",
+    "pause_after": 0.35
+  },
+  {
     "id": "s101",
     "chapter": "Real World",
     "text": "Finance. Banks run fraud detectors on card payments.",
@@ -718,6 +753,13 @@
     "chapter": "Real World",
     "text": "That's one reason many banks send a quick, was this you, message instead of simply blocking the card. In Bayes terms, your reply is a second, independent test.",
     "visual": "Phone with 'Was this you?' → reply 'Yes' → meter drops / 'No' → meter jumps.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s103a",
+    "chapter": "Real World",
+    "text": "The same idea applies to market signals. A warning sign that fired before most crashes may also fire in many calm years. Always ask how often it fires when nothing happens.",
+    "visual": "Timeline of years (axis 'year 1–20', generic, labelled 'illustration'): signal flags on several years, only two of them crash years.",
     "pause_after": 1.0
   },
   {
@@ -746,6 +788,13 @@
     "chapter": "Real World",
     "text": "To keep it simple, it treats every word as independent of the others. That shortcut is why it's called naive Bayes. It isn't true, but it works surprisingly well.",
     "visual": "'naive Bayes = assume words are independent' card; a check mark 'works surprisingly well'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s107a",
+    "chapter": "Real World",
+    "text": "Computer security has the same problem. An intrusion alarm that fires on just one in a thousand normal logins can still bury the few real attacks under false alarms.",
+    "visual": "Login stream: thousands of blue login dots, rare orange attack dots; aqua alarms mostly on blue.",
     "pause_after": 1.0
   },
   {
@@ -809,7 +858,7 @@
     "chapter": "Common Mistakes",
     "text": "Same test. Same result. The base rate changed everything.",
     "visual": "Side by side: 'base rate 1 in 100 → 8%' vs 'base rate 1 in 5 → 69%'.",
-    "pause_after": 1.5
+    "pause_after": 2.0
   },
   {
     "id": "s117",
@@ -900,7 +949,7 @@
     "chapter": "Recipe",
     "text": "A test result is a clue, not a verdict. Bayes tells you how much the clue is worth.",
     "visual": "Closing line types on in violet, centred.",
-    "pause_after": 1.5
+    "pause_after": 2.0
   },
   {
     "id": "s130",

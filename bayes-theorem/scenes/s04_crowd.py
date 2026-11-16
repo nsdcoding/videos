@@ -1,0 +1,331 @@
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+from common import *
+
+CELL = 0.17
+PX = 1.7     # left edge of the right-hand panel
+GRID_AT = LEFT * 2.6 + UP * 0.45
+
+
+def step_chip(n, text, color=INK):
+    num = TB(str(n), 34, BG)
+    disc = Circle(radius=0.3, stroke_width=0, fill_color=color, fill_opacity=1)
+    disc.qa_container = True
+    num.move_to(disc)
+    t = T(text, 30, color, weight=BOLD).next_to(disc, RIGHT, buff=0.2)
+    return VGroup(disc, num, t)
+
+
+def stacks_axes():
+    """Axes for the positive stacks: 5 people per row of squares, y counts people (0–100)."""
+    axg = xy_axes([0, 2, 1], [0, 120, 20], 4.6, 4.4, None, "people who tested positive", x_labels={}, font_size=22)
+    return axg
+
+
+def stack(ax, x, n, color, per_row=5):
+    pitch = (ax.c2p(0, 5)[1] - ax.c2p(0, 0)[1])     # one row = 5 people
+    g = VGroup()
+    x0 = ax.c2p(x, 0)[0] - (per_row - 1) / 2 * pitch
+    for k in range(n):
+        c, r = k % per_row, k // per_row
+        g.add(Square(pitch * 0.82, stroke_width=0, fill_color=color, fill_opacity=0.95)
+              .move_to([x0 + c * pitch, ax.c2p(0, 0)[1] + (r + 0.5) * pitch, 0]))
+    return g
+
+
+class S04Crowd(Base):
+    CHAPTER = "Count the Crowd"
+
+    def construct(self):
+        fr = self.camera.frame
+        # ── s026 one thousand people ──
+        self.at("s026", 0.0)
+        axg = xy_axes([0, COLS, 5], [0, ROWS, 5], COLS * CELL, ROWS * CELL, "column", "row", font_size=20, y_vertical=True)
+        axg.move_to(GRID_AT)
+        ax = axg.ax
+        grid = crowd(axg, CELL, color=MUTED, opacity=0.9)
+        self.play(Create(ax), FadeIn(axg.labs), FadeIn(axg.xt), FadeIn(axg.yt), run_time=0.8)
+        cnt = ValueTracker(0)
+        ctr = always_redraw(lambda: TB(f"{int(cnt.get_value()):,}", 64, INK).move_to(RIGHT * 4.2 + UP * 1.6))
+        clab = T("people", 30, INK2).move_to(RIGHT * 4.2 + UP * 0.85)
+        self.add(ctr)
+        self.play(LaggedStart(*[FadeIn(r, scale=0.3) for r in grid], lag_ratio=0.0025), cnt.animate.set_value(1000),
+                  FadeIn(clab), run_time=2.4, rate_func=linear)
+        ctr.clear_updaters()
+        # ── s027 one square = one person; 40 x 25 ──
+        self.at("s027", 0.0)
+        c0 = grid.cell[(0, ROWS - 1)]
+        axl = VGroup(axg.labs, axg.xt, axg.yt)
+        self.play(fr.animate.scale(0.38).move_to(c0.get_center() + RIGHT * 1.05 + DOWN * 0.55), axl.animate.set_opacity(0), run_time=1.0)
+        hl = Square(CELL * 1.25).set_stroke(INK, 3).move_to(c0)
+        one = T("one person", 13, INK, weight=BOLD)
+        onebox = pill("one person", INK, 13, pad=0.08).move_to(c0.get_center() + RIGHT * 1.0 + DOWN * 0.42)
+        self.qa_mute(grid)  # the label's opaque chip sits over the grid while zoomed
+        arr = Arrow(onebox.get_left(), hl.get_corner(DR), buff=0.04, stroke_width=2.5, color=INK, max_tip_length_to_length_ratio=0.18)
+        self.play(Create(hl), FadeIn(onebox), GrowArrow(arr), run_time=0.6)
+        self.until(word_time("s027", word_index("s027", "Forty")) - 0.2)
+        self.play(FadeOut(VGroup(hl, onebox, arr)), fr.animate.restore(), axl.animate.set_opacity(1), run_time=0.9)
+        self.qa_mute(grid, False)
+        eq = T("40 × 25 = 1,000", 40, INK, weight=BOLD).move_to(RIGHT * 4.2 + DOWN * 0.1)
+        row_hl = SurroundingRectangle(VGroup(*[grid.cell[(c, ROWS - 1)] for c in range(COLS)]), buff=0.03, color=INK, stroke_width=2)
+        col_hl = SurroundingRectangle(VGroup(*[grid.cell[(0, r)] for r in range(ROWS)]), buff=0.03, color=INK, stroke_width=2)
+        self.play(Create(row_hl), run_time=0.5)
+        self.play(Create(col_hl), Write(eq), run_time=0.8)
+        self.play(FadeOut(row_hl), FadeOut(col_hl), run_time=0.3)
+        # ── s028 step 1: ten have it ──
+        self.at("s028", 0.0)
+        st1 = step_chip(1, "Who has it?").move_to(RIGHT * 4.6 + UP * 2.6)
+        st1.align_to(RIGHT * PX, LEFT)
+        self.play(FadeOut(VGroup(ctr, clab, eq)), FadeIn(st1, shift=DOWN * 0.2), run_time=0.5)
+        sick = VGroup(*[grid.cell[k] for k in SICK])
+        self.until(word_time("s028", word_index("s028", "ten")) - 0.3)
+        self.play(LaggedStart(*[s.animate.set_fill(ORANGE_, 1) for s in sick], lag_ratio=0.08), run_time=0.9)
+        c_s = VGroup(TB("10", 56, ORANGE_), T("have it", 30, ORANGE_)).arrange(RIGHT, buff=0.25, aligned_edge=DOWN)
+        c_s.next_to(st1, DOWN, buff=0.55).align_to(st1, LEFT)
+        br = pill("base rate: 1 in 100", WARN, 26).next_to(c_s, DOWN, buff=0.3).align_to(st1, LEFT)
+        self.play(FadeIn(c_s, shift=LEFT * 0.2), FadeIn(br), Indicate(sick, color=ORANGE_, scale_factor=1.3), run_time=0.8)
+        # ── s029 990 healthy ──
+        self.at("s029", 0.0)
+        healthy = VGroup(*[grid.cell[k] for k in HEALTHY])
+        self.play(healthy.animate.set_fill(BLUE_, 1), run_time=0.8)
+        c_h = VGroup(TB("990", 56, BLUE_), T("healthy", 30, BLUE_)).arrange(RIGHT, buff=0.25, aligned_edge=DOWN)
+        c_h.next_to(br, DOWN, buff=0.45).align_to(st1, LEFT)
+        self.play(FadeIn(c_h, shift=LEFT * 0.2), run_time=0.5)
+        # ── s030 step 2: test the ten ──
+        self.at("s030", 0.0)
+        st2 = step_chip(2, "Test the 10").move_to(st1, aligned_edge=LEFT)
+        self.play(FadeOut(st1, shift=UP * 0.2), FadeIn(st2, shift=UP * 0.2), healthy.animate.set_fill(opacity=0.25),
+                  run_time=0.6)
+        self.qa_mute(healthy)
+        focus = VGroup(*[grid.cell[k] for k in SICK]).get_center()
+        side = VGroup(c_s, br, c_h)
+        self.play(fr.animate.scale(0.55).move_to(focus + RIGHT * 2.2), side.animate.set_opacity(0), axl.animate.set_opacity(0), run_time=1.0)
+        rings_tp = VGroup(*[ring(grid.cell[k], AQUA, 3, 0.03) for k in SICK[:9]])
+        self.until(word_time("s030", word_index("s030", "catches")) - 0.1)
+        self.play(LaggedStart(*[Create(r) for r in rings_tp], lag_ratio=0.18), run_time=1.6)
+        # ── s031 nine true positives, one missed ──
+        self.at("s031", 0.0)
+        lx = grid.cell[SICK[0]].get_right()[0] + 0.55
+        tp_l = pill("9 true positives", AQUA, 20, pad=0.12)
+        tp_l.move_to([lx + tp_l.width / 2, VGroup(*[grid.cell[k] for k in SICK[:9]]).get_center()[1], 0])
+        ms_l = pill("1 missed", MUTED, 20, pad=0.12)
+        ms_l.move_to([lx + ms_l.width / 2, grid.cell[MISSED].get_y() - 0.3, 0])
+        b9 = Brace(VGroup(*[grid.cell[k] for k in SICK[:9]]), RIGHT, buff=0.06, color=AQUA).stretch(0.7, 0)
+        b9.next_to(VGroup(*[grid.cell[k] for k in SICK[:9]]), RIGHT, buff=0.06)
+        tp_l.next_to(b9, RIGHT, buff=0.1)
+        ms_a = Arrow(ms_l.get_left(), grid.cell[MISSED].get_right(), buff=0.05, stroke_width=2.5, color=MUTED,
+                     max_tip_length_to_length_ratio=0.2)
+        self.play(GrowFromCenter(b9), FadeIn(tp_l, shift=LEFT * 0.1), run_time=0.6)
+        self.play(FadeIn(ms_l), GrowArrow(ms_a), run_time=0.6)
+        self.play(Indicate(grid.cell[MISSED], color=MUTED, scale_factor=1.6), run_time=0.7)
+        # ── s032 step 3: the healthy, 1 in 10 flagged ──
+        self.at("s032", 0.0)
+        st3 = step_chip(3, "Test the 990").move_to(st2, aligned_edge=LEFT)
+        self.play(FadeOut(VGroup(b9, tp_l, ms_l, ms_a)), fr.animate.restore(), axl.animate.set_opacity(1), run_time=0.8)
+        self.qa_mute(healthy, False)
+        self.play(FadeOut(st2, shift=UP * 0.2), FadeIn(st3, shift=UP * 0.2), healthy.animate.set_fill(opacity=1), run_time=0.6)
+        fpc = ValueTracker(0)
+        c_f = always_redraw(lambda: VGroup(TB(f"{int(fpc.get_value())}", 56, AQUA), T("false alarms", 30, AQUA))
+                            .arrange(RIGHT, buff=0.25, aligned_edge=DOWN).next_to(st3, DOWN, buff=0.55).align_to(st3, LEFT))
+        tp_c = VGroup(TB("9", 56, AQUA), T("true positives", 30, AQUA)).arrange(RIGHT, buff=0.25, aligned_edge=DOWN)
+        rings_fp = VGroup(*[ring(grid.cell[k], AQUA, 2.5, 0.025) for k in FALSE_POS])
+        self.add(c_f)
+        self.until(word_time("s032", word_index("s032", "wrongly")) - 0.1)
+        self.play(LaggedStart(*[Create(r) for r in rings_fp], lag_ratio=0.03), fpc.animate.set_value(99),
+                  run_time=3.6, rate_func=linear)
+        c_f.clear_updaters()
+        # ── s033 ninety-nine false alarms ──
+        self.at("s033", 0.0)
+        tp_c.next_to(c_f, DOWN, buff=0.45).align_to(st3, LEFT)
+        self.play(Indicate(c_f, color=AQUA, scale_factor=1.15), FadeIn(tp_c, shift=LEFT * 0.2), run_time=0.8)
+        # ── s034 look only at the positives ──
+        self.at("s034", 0.0)
+        pos_cells = [grid.cell[k] for k in SICK[:9]] + [grid.cell[k] for k in FALSE_POS]
+        pos_ids = set(map(id, pos_cells))
+        rest = VGroup(*[c for c in grid if id(c) not in pos_ids])
+        self.play(rest.animate.set_fill(opacity=0.12), run_time=1.0)
+        self.qa_mute(rest)
+        tot = T("108 positive results", 34, AQUA, weight=BOLD).next_to(tp_c, DOWN, buff=0.5).align_to(st3, LEFT)
+        self.play(FadeIn(tot, shift=UP * 0.2), run_time=0.5)
+        # ── s035 into two stacks ──
+        self.at("s035", 0.0)
+        sg = stacks_axes(); sg.move_to(RIGHT * 2.0 + UP * 0.25)
+        sax = sg.ax
+        st_s = stack(sax, 0.6, 9, ORANGE_)
+        st_h = stack(sax, 1.4, 99, BLUE_)
+        self.play(FadeOut(VGroup(st3, c_f, tp_c, tot)), FadeOut(rest), FadeOut(axg), FadeOut(rings_tp), FadeOut(rings_fp),
+                  run_time=0.6)
+        self.drop(rest)
+        pos_s = VGroup(*pos_cells[:9]); pos_h = VGroup(*pos_cells[9:])
+        self.qa_mute(VGroup(pos_s, pos_h))  # squares in flight
+        self.play(FadeIn(sg), run_time=0.4)
+        self.play(*[Transform(a, b) for a, b in zip(pos_s, st_s)], run_time=1.2, rate_func=smooth)
+        l9 = TB("9", 44, ORANGE_).next_to(st_s, UP, buff=0.18)
+        c9 = T("have it", 24, ORANGE_).next_to(sax.c2p(0.6, 0), DOWN, buff=0.2)
+        self.play(FadeIn(l9), FadeIn(c9), run_time=0.4)
+        self.until(word_time("s035", word_index("s035", "Ninety")) - 0.2)
+        self.play(*[Transform(a, b) for a, b in zip(pos_h, st_h)], run_time=1.4, rate_func=smooth)
+        self.qa_mute(VGroup(pos_s, pos_h), False)
+        l99 = TB("99", 44, BLUE_).next_to(st_h, UP, buff=0.18)
+        c99 = T("healthy", 24, BLUE_).next_to(sax.c2p(1.4, 0), DOWN, buff=0.2)
+        self.play(FadeIn(l99), FadeIn(c99), run_time=0.4)
+        tot2 = T("108 in total", 30, AQUA, weight=BOLD).move_to(RIGHT * 5.6 + UP * 0.4)
+        self.until(word_time("s035", word_index("s035", "One")) - 0.1)
+        self.play(FadeIn(tot2, shift=LEFT * 0.2), run_time=0.5)
+        # ── s036 you are one of these 108 ──
+        self.at("s036", 0.0)
+        both = VGroup(pos_s, pos_h, l9, l99)
+        self.play(VGroup(sg, pos_s, pos_h, l9, l99, c9, c99).animate.shift(LEFT * 4.3), FadeOut(tot2), run_time=0.8)
+        bracket = Brace(VGroup(pos_s, pos_h), RIGHT, buff=0.25, color=AQUA)
+        you = T("if you tested positive,\nyou are somewhere in here", 30, AQUA, line_spacing=0.9).next_to(bracket, RIGHT, buff=0.25)
+        self.play(GrowFromCenter(bracket), FadeIn(you, shift=LEFT * 0.2), run_time=0.8)
+        self.until(word_time("s036", word_index("s036", "only")) - 0.1)
+        g9 = SurroundingRectangle(pos_s, buff=0.08, color=ORANGE_, stroke_width=4)
+        self.play(Create(g9), Indicate(l9, color=ORANGE_), run_time=0.8)
+        # ── s037 9 / 108 = 1/12 ≈ 8% ──
+        self.at("s037", 0.0)
+        fr1 = MathTex(r"{9", r"\over", r"108}", r"=", r"{1 \over 12}", r"\approx", r"8\%", font_size=72)
+        fr1[0].set_color(ORANGE_); fr1[2].set_color(AQUA); fr1[4:].set_color(VIOLET)
+        fr1.move_to(RIGHT * 3.3 + UP * 0.9)
+        self.play(FadeOut(VGroup(bracket, you)), run_time=0.4)
+        self.play(TransformFromCopy(l9, fr1[0]), Write(fr1[1]), FadeIn(fr1[2]), run_time=0.9)
+        self.until(word_time("s037", word_index("s037", "one")) - 0.15)
+        self.play(Write(fr1[3:5]), run_time=0.7)
+        self.until(word_time("s037", word_index("s037", "eight")) - 0.15)
+        self.play(Write(fr1[5:]), run_time=0.6)
+        box8 = glow(SurroundingRectangle(fr1[4:], buff=0.18, color=VIOLET, stroke_width=4), VIOLET)
+        self.play(FadeIn(box8), run_time=0.5)
+        # ── s038 the test did its job ──
+        self.at("s038", 0.0)
+        job = VGroup(check(AQUA, 0.4), T("it caught 9 of the 10 who have it", 28, AQUA)).arrange(RIGHT, buff=0.25)
+        job.next_to(fr1, DOWN, buff=0.8)
+        self.play(FadeIn(job, shift=UP * 0.2), run_time=0.6)
+        # ── s039 balance beam: 10 vs 990, then 9 vs 99 ──
+        self.at("s039", 0.0)
+        self.play(FadeOut(VGroup(sg, pos_s, pos_h, l9, l99, c9, c99, g9, fr1, box8, job)), run_time=0.6)
+        bs, th, PL, PR = beam_scale(5.0)
+        bs.move_to(UP * 0.3)
+        lab_l = pill("10 have it", ORANGE_, 30); lab_r = pill("990 healthy", BLUE_, 30)
+        lab_l.add_updater(lambda m: m.next_to(PL[0], LEFT, buff=0.2))
+        lab_r.add_updater(lambda m: m.next_to(PR[0], RIGHT, buff=0.2))
+        self.play(FadeIn(bs), FadeIn(lab_l), FadeIn(lab_r), run_time=0.6)
+        self.play(th.animate.set_value(-0.3), run_time=0.7, rate_func=rate_functions.ease_out_bounce)
+        r99 = T("healthy outnumber sick 99 to 1", 32, BLUE_, weight=BOLD).move_to(UP * 2.6 + RIGHT * 1.0)
+        self.play(FadeIn(r99), run_time=0.4)
+        self.until(word_time("s039", word_index("s039", "even")) - 0.2)
+        nl_l = pill("9 real positives", ORANGE_, 30); nl_r = pill("99 false alarms", AQUA, 30)
+        nl_l.move_to(lab_l); nl_r.move_to(lab_r)
+        lab_l.clear_updaters(); lab_r.clear_updaters()
+        self.play(th.animate.set_value(0), lab_l.animate.move_to(lab_l.get_center()), run_time=0.5)
+        lab_l.add_updater(lambda m: m.next_to(PL[0], LEFT, buff=0.2)); lab_r.add_updater(lambda m: m.next_to(PR[0], RIGHT, buff=0.2))
+        self.play(Transform(lab_l, nl_l), Transform(lab_r, nl_r), FadeOut(r99), run_time=0.6)
+        self.play(th.animate.set_value(-0.24), run_time=0.8, rate_func=rate_functions.ease_out_bounce)
+        crowd_t = T("a crowd of false alarms", 34, AQUA, weight=BOLD).move_to(UP * 2.6 + RIGHT * 1.0)
+        self.play(FadeIn(crowd_t, shift=DOWN * 0.2), run_time=0.5)
+        # ── s040 eleven to one ──
+        self.at("s040", 0.0)
+        lab_l.clear_updaters(); lab_r.clear_updaters()
+        self.play(FadeOut(VGroup(bs, lab_l, lab_r, crowd_t)), run_time=0.5)
+        rows = VGroup()
+        for k in range(9):
+            r = VGroup(Square(0.3, stroke_width=0, fill_color=ORANGE_, fill_opacity=1),
+                       *[Square(0.3, stroke_width=0, fill_color=BLUE_, fill_opacity=1) for _ in range(11)]).arrange(RIGHT, buff=0.08)
+            r[0].shift(LEFT * 0.15)
+            rows.add(r)
+        rows.arrange(DOWN, buff=0.08).move_to(LEFT * 2.2 + UP * 0.35)
+        self.play(LaggedStart(*[FadeIn(r, shift=RIGHT * 0.4) for r in rows], lag_ratio=0.1), run_time=1.2)
+        eleven = VGroup(T("99 ÷ 9 = 11", 44, INK, weight=BOLD),
+                        T("11 false alarms\nfor every real case", 28, AQUA, line_spacing=0.9)).arrange(DOWN, buff=0.3)
+        eleven.move_to(RIGHT * 4.3 + UP * 0.35)
+        b11 = Brace(rows[0][1:], UP, buff=0.08, color=BLUE_)
+        t11 = T("11", 28, BLUE_, weight=BOLD).next_to(b11, UP, buff=0.08)
+        self.play(GrowFromCenter(b11), FadeIn(t11), Write(eleven[0]), run_time=0.8)
+        self.play(FadeIn(eleven[1]), run_time=0.4)
+        # ── s041 the test really is 90% accurate ──
+        self.at("s041", 0.0)
+        self.play(FadeOut(VGroup(rows, eleven, b11, t11)), run_time=0.5)
+        axg2 = xy_axes([0, COLS, 5], [0, ROWS, 5], COLS * CELL, ROWS * CELL, "column", "row", font_size=20, y_vertical=True)
+        axg2.move_to(GRID_AT)
+        g2 = crowd(axg2, CELL, color=BLUE_, opacity=1)
+        for k in SICK: g2.cell[k].set_fill(ORANGE_)
+        rf = VGroup(*[ring(g2.cell[k], AQUA, 2.5, 0.025) for k in FALSE_POS + SICK[:9]])
+        self.play(FadeIn(axg2), FadeIn(g2), FadeIn(rf), run_time=0.8)
+        wrong = [g2.cell[k] for k in FALSE_POS] + [g2.cell[MISSED]]
+        wid = set(map(id, wrong))
+        right = VGroup(*[c for c in g2 if id(c) not in wid])
+        self.until(word_time("s041", word_index("s041", "Nine")) - 0.1)
+        acc = VGroup(T("9 + 891", 44, INK, weight=BOLD), T("correct results", 28, INK2),
+                     T("= 900 of 1,000", 40, INK, weight=BOLD),
+                     TB("= 90% accurate", 40, AQUA)).arrange(DOWN, buff=0.28, aligned_edge=LEFT)
+        acc.move_to(UP * 0.8).align_to(RIGHT * PX, LEFT)
+        self.play(FadeIn(acc[0]), FadeIn(acc[1]), run_time=0.6)
+        self.play(VGroup(*wrong).animate.set_fill(opacity=0.15), FadeOut(rf), run_time=0.8)
+        self.qa_mute(VGroup(*wrong))
+        self.until(SEGS["s041"]["start"] + 0.68 * (SEGS["s041"]["end"] - SEGS["s041"]["start"]))
+        self.play(Write(acc[2]), run_time=0.7)
+        self.play(FadeIn(acc[3], scale=1.2), run_time=0.6)
+        note = T("true, but it answers\na different question", 26, MUTED, line_spacing=0.9).next_to(acc, DOWN, buff=0.35).align_to(acc, LEFT)
+        self.play(FadeIn(note), run_time=0.5)
+        # ── s042 meter: 1% → 1 in 12 ──
+        self.at("s042", 0.0)
+        self.play(FadeOut(VGroup(axg2, g2, acc, note)), run_time=0.5)
+        self.qa_mute(VGroup(*wrong), False)
+        self.drop(g2)
+        mt = meter(11.5, fs=22, title="chance you have it (zoomed in: 0–20%)", step=2, x_max=20).move_to(DOWN * 0.7)
+        self.play(Create(mt.nl), FadeIn(mt.nums, lag_ratio=0.05), FadeIn(mt.title), run_time=0.9)
+        p0 = marker(mt.nl, 1, WARN, "before: 1 in 100", height=0.9, fs=28)
+        p0.lab.shift(RIGHT * (p0.lab.width / 2 - 0.3))
+        self.until(word_time("s042", word_index("s042", "Before")) - 0.1)
+        self.play(FadeIn(p0, shift=DOWN * 0.3), run_time=0.5)
+        p1 = marker(mt.nl, 8.33, VIOLET, "after: 1 in 12", height=2.2, fs=30)
+        self.until(word_time("s042", word_index("s042", "After")) - 0.1)
+        self.play(FadeIn(p1, shift=DOWN * 0.3), run_time=0.6)
+        # ── s043 more than 8 times higher, far from certain ──
+        self.at("s043", 0.0)
+        a8 = CurvedArrow(mt.nl.n2p(1) + UP * 1.75, mt.nl.n2p(8.33) + UP * 1.75 + LEFT * 0.25, angle=-PI / 3, color=INK, stroke_width=4)
+        x8 = T("× 8.3", 36, INK, weight=BOLD).next_to(a8, UP, buff=0.1)
+        self.play(Create(a8), FadeIn(x8), run_time=0.8)
+        self.until(word_time("s043", word_index("s043", "didn't")) - 0.1)
+        far = VGroup(T("certain (100%) is far off to the right", 28, MUTED), Arrow(LEFT * 0.4, RIGHT * 0.4, color=MUTED, buff=0))
+        far.arrange(RIGHT, buff=0.2).move_to(UP * 2.95).align_to(mt.nl, RIGHT)
+        self.play(FadeIn(far, shift=RIGHT * 0.3), run_time=0.6)
+        # ── s044 negative result ──
+        self.at("s044", 0.0)
+        self.play(FadeOut(VGroup(mt, p0, p1, a8, x8, far)), run_time=0.5)
+        axg3 = xy_axes([0, COLS, 5], [0, ROWS, 5], COLS * CELL, ROWS * CELL, "column", "row", font_size=20, y_vertical=True)
+        axg3.move_to(GRID_AT)
+        g3 = crowd(axg3, CELL, color=BLUE_, opacity=1)
+        for k in SICK: g3.cell[k].set_fill(ORANGE_)
+        posk = set(FALSE_POS + SICK[:9])
+        negs = VGroup(*[g3.cell[k] for k in g3.cell if k not in posk])
+        poss = VGroup(*[g3.cell[k] for k in posk])
+        self.play(FadeIn(axg3), FadeIn(g3), run_time=0.6)
+        self.play(poss.animate.set_fill(opacity=0.12), run_time=0.6)
+        self.qa_mute(poss)
+        nt = VGroup(TB("892", 56, INK), T("tested negative", 30, INK2)).arrange(RIGHT, buff=0.25, aligned_edge=DOWN)
+        nt.move_to(UP * 1.9).align_to(RIGHT * PX, LEFT)
+        self.play(FadeIn(nt), run_time=0.4)
+        self.until(word_time("s044", word_index("s044", "just")) - 0.1)
+        mc = g3.cell[MISSED]
+        mring = Circle(radius=0.22, color=ORANGE_, stroke_width=4).move_to(mc)
+        n1 = VGroup(TB("1", 56, ORANGE_), T("has it", 30, ORANGE_)).arrange(RIGHT, buff=0.25, aligned_edge=DOWN)
+        n1.next_to(nt, DOWN, buff=0.45).align_to(nt, LEFT)
+        self.play(Create(mring), FadeIn(n1), run_time=0.6)
+        self.play(Indicate(mc, color=ORANGE_, scale_factor=2.0), run_time=0.7)
+        # ── s045 1 / 892 ≈ 0.1% ──
+        self.at("s045", 0.0)
+        f2 = MathTex(r"{1", r"\over", r"892}", r"\approx", r"0.1\%", font_size=72)
+        f2[0].set_color(ORANGE_); f2[3:].set_color(VIOLET)
+        f2.next_to(n1, DOWN, buff=0.5).align_to(nt, LEFT)
+        self.play(Write(f2), run_time=0.9)
+        dn = VGroup(T("1 in 100", 26, WARN), Arrow(LEFT * 0.3, RIGHT * 0.3, color=INK2, buff=0),
+                    T("about 1 in 900", 26, VIOLET, weight=BOLD)).arrange(RIGHT, buff=0.18)
+        dn.next_to(f2, DOWN, buff=0.45).align_to(nt, LEFT)
+        self.until(word_time("s045", word_index("s045", "one")) - 0.1)
+        self.play(FadeIn(dn[0]), GrowArrow(dn[1]), run_time=0.5)
+        self.play(FadeIn(dn[2], shift=LEFT * 0.2), run_time=0.5)
+        self.until(word_time("s045", word_index("s045", "reassuring")) - 0.2)
+        self.play(Circumscribe(dn[2], color=VIOLET), run_time=1.0)
+        self.until(SEGS["s045"]["end"] + 1.0)
+        self.play(FadeOut(VGroup(axg3, g3, mring, nt, n1, f2, dn)), run_time=0.5)
+        self.finish()

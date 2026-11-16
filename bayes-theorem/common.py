@@ -59,23 +59,6 @@ def glow(mob, color=None, layers=6, width=14, opacity=0.06):
     return grp
 
 
-def money_axis(x_max=240, step=20, length=12.2, label="Household income (thousand $)", label_every=1,
-               font_size=24):
-    ax = NumberLine(x_range=[0, x_max, step], length=length, color=INK2, stroke_width=3,
-                    include_tip=False, tick_size=0.09)
-    nums = VGroup()
-    for i, v in enumerate(np.arange(0, x_max + 0.1, step)):
-        if i % label_every: continue
-        n = T(f"{int(v):,}", size=font_size, color=INK2)
-        n.next_to(ax.n2p(v), DOWN, buff=0.18)
-        n.qa_clip_ok = True
-        nums.add(n)
-    title = T(label, size=26, color=MUTED).next_to(nums, DOWN, buff=0.2).align_to(ax, LEFT)
-    g = VGroup(ax, nums, title)
-    g.axis, g.nums, g.title = ax, nums, title
-    return g
-
-
 def dot(color=BLUE_, r=0.13):
     d = Dot(radius=r, color=color).set_stroke(BG, 2)
     d.qa_dot = True
@@ -89,27 +72,6 @@ def chip(text, color=INK, size=30, fill=None, pad=0.22):
     t.move_to(box)
     g = VGroup(box, t)
     box.qa_container = True
-    return g
-
-
-def house(w=0.62, color=INK2, mansion=False):
-    if mansion:
-        body = Rectangle(width=w * 1.9, height=w * 1.0)
-        roof = Polygon(body.get_corner(UL) + LEFT * 0.08, body.get_corner(UR) + RIGHT * 0.08,
-                       body.get_top() + UP * w * 0.55)
-        door = Rectangle(width=w * 0.24, height=w * 0.42).align_to(body, DOWN)
-        wins = VGroup(*[Square(w * 0.2).move_to(body.get_center() + np.array([dx, 0.12 * w, 0]))
-                        for dx in (-0.6 * w, -0.3 * w, 0.3 * w, 0.6 * w)])
-        cols = VGroup(*[Line(body.get_corner(DL) + RIGHT * dx, body.get_corner(UL) + RIGHT * dx)
-                        for dx in (w * 0.05, w * 1.85)])
-        g = VGroup(body, roof, door, wins, cols)
-    else:
-        body = Rectangle(width=w, height=w * 0.7)
-        roof = Polygon(body.get_corner(UL) + LEFT * 0.06, body.get_corner(UR) + RIGHT * 0.06,
-                       body.get_top() + UP * w * 0.45)
-        door = Rectangle(width=w * 0.22, height=w * 0.36).align_to(body, DOWN)
-        g = VGroup(body, roof, door)
-    g.set_stroke(color, 3).set_fill(BG, 1)
     return g
 
 
@@ -314,26 +276,6 @@ def word_index(sid, word):
     return ws.index(word.lower().strip(",.;:?!'"))
 
 
-def dot_plot(values, axis, colors, r=0.1, gap=0.02):
-    """Dots stacked upward where they would overlap, sitting on `axis` (a NumberLine)."""
-    placed, g = [], VGroup()
-    for v, c in zip(values, colors):
-        x = axis.n2p(v)[0]
-        lvl = 0
-        while any(abs(x - px) < 2 * r + gap and pl == lvl for px, pl in placed):
-            lvl += 1
-        placed.append((x, lvl))
-        d = dot(c, r).move_to(axis.n2p(v) + UP * (r + 0.06 + lvl * (2 * r + gap)))
-        d.value = v
-        g.add(d)
-    return g
-
-
-PINE = [30, 32, 35, 38, 40, 42, 45, 48, 230]
-MAPLE = [50, 52, 55, 58, 60, 62, 65, 68, 70]
-STREET = [42, 230, 35, 48, 30, 45, 38, 32, 40]
-
-
 def xy_axes(x_range, y_range, x_len, y_len, x_label, y_label, x_labels=None, font_size=22, y_vertical=False):
     """Axes with Inter tick labels and axis titles. x_labels: optional {value: text}."""
     ax = Axes(x_range=x_range, y_range=y_range, x_length=x_len, y_length=y_len,
@@ -361,20 +303,6 @@ def xy_axes(x_range, y_range, x_len, y_len, x_label, y_label, x_labels=None, fon
     g = VGroup(ax, labs, xt, yt)
     g.ax, g.labs, g.xt, g.yt = ax, labs, xt, yt
     return g
-
-
-def tile(v, color=INK, size=0.78, fs=30, fill="#22221f"):
-    sq = RoundedRectangle(corner_radius=0.1, width=size * (1.35 if v >= 100 else 1), height=size,
-                          stroke_color=color, stroke_width=2.5, fill_color=fill, fill_opacity=1)
-    sq.qa_container = True
-    t = T(str(v), fs, color, weight=BOLD).move_to(sq)
-    g = VGroup(sq, t); g.value = v
-    return g
-
-
-def tiles(values, colors=None, buff=0.18, **kw):
-    colors = colors or [BLUE_ if v < 100 else ORANGE_ for v in values]
-    return VGroup(*[tile(v, c, **kw) for v, c in zip(values, colors)]).arrange(RIGHT, buff=buff)
 
 
 def marker(axis, v, color, label, height=0.75, fs=28, side=UP, label_dir=UP):
@@ -416,32 +344,6 @@ def frac(num, den, color=INK, fs=72):
     return MathTex(r"{" + str(num) + r"\over " + str(den) + r"}", color=color, font_size=fs)
 
 
-def two_col(left_title, left_lines, right_title, right_lines, lc=WARN, rc=VIOLET, w=5.6):
-    cols = VGroup()
-    for title, lines, c in ((left_title, left_lines, lc), (right_title, right_lines, rc)):
-        tt = TB(title, 40, c)
-        ls = VGroup(*[T("• " + l, 28, INK) for l in lines]).arrange(DOWN, aligned_edge=LEFT, buff=0.22)
-        inner = VGroup(tt, ls).arrange(DOWN, aligned_edge=LEFT, buff=0.35)
-        box = RoundedRectangle(corner_radius=0.18, width=w, height=inner.height + 0.7, stroke_color=c,
-                               stroke_width=2.5, fill_color="#22221f", fill_opacity=1)
-        box.qa_container = True
-        inner.move_to(box).align_to(box, LEFT).shift(RIGHT * 0.4)
-        cols.add(VGroup(box, inner))
-    hmax = max(c[0].height for c in cols)
-    for c in cols:
-        c[0].stretch_to_fit_height(hmax); c[1].align_to(c[0], UP).shift(DOWN * 0.35)
-    return cols.arrange(RIGHT, buff=0.5)
-
-
-def hl(t, color, fill=0.22):
-    """Animations that highlight a tile (box + number) without filling over its number."""
-    return [t[0].animate.set_stroke(color).set_fill(color, fill), t[1].animate.set_color(color)]
-
-
-def unhl(t, color):
-    return [t[0].animate.set_stroke(color).set_fill("#22221f", 1), t[1].animate.set_color(color)]
-
-
 def logo_mark(size=1.0):
     """Channel mark: violet rounded square with a green bell curve (as in the Math Lab TV intro/outro)."""
     sq = RoundedRectangle(corner_radius=0.16 * size, width=size, height=size, stroke_color=VIOLET, stroke_width=5 * size,
@@ -463,3 +365,130 @@ def logo(size=1.0, tagline=False):
         tl.next_to(g, DOWN, buff=0.35 * size)
         g = VGroup(g, tl)
     return g
+
+
+# ───────────── Bayes helpers ─────────────
+# Running example: 1,000 people (40 x 25), 10 have the condition (column 1, top ten rows),
+# the test catches 9 of them; 99 of the 990 healthy get a false alarm.
+COLS, ROWS = 40, 25
+SICK = [(0, ROWS - 1 - k) for k in range(10)]          # (col, row) cells, row 0 at the bottom
+MISSED = SICK[9]
+
+
+def _healthy_cells():
+    sick = set(SICK)
+    return [(c, r) for r in range(ROWS - 1, -1, -1) for c in range(COLS) if (c, r) not in sick]
+
+
+HEALTHY = _healthy_cells()
+_rng = np.random.default_rng(7)
+FALSE_POS = [HEALTHY[k] for k in sorted(_rng.choice(990, 99, replace=False))]  # 99 of 990 healthy (1 in 10), scattered
+assert len(FALSE_POS) == 99
+
+
+def crowd_axes(cell=0.19, fs=20):
+    g = xy_axes([0, COLS, 5], [0, ROWS, 5], COLS * cell, ROWS * cell, "column", "row", font_size=fs)
+    return g
+
+
+def crowd(axg, cell=0.19, fill=0.82, color=INK2, opacity=0.9):
+    """Dict-like VGroup of 1,000 squares keyed by (col, row)."""
+    ax = axg.ax
+    g = VGroup(); g.cell = {}
+    for r in range(ROWS - 1, -1, -1):
+        for c in range(COLS):
+            sq = Square(cell * fill, stroke_width=0, fill_color=color, fill_opacity=opacity)
+            sq.move_to(ax.c2p(c + 0.5, r + 0.5))
+            g.add(sq); g.cell[(c, r)] = sq
+    return g
+
+
+def ring(sq, color=AQUA, width=3.5, pad=0.05):
+    r = Square(sq.width + 2 * pad, stroke_color=color, stroke_width=width, fill_opacity=0).move_to(sq)
+    return r
+
+
+def block(n, cols, color, cell=0.19, fill=0.82):
+    """n squares stacked in rows of `cols`, bottom-left first (for countable stacks)."""
+    g = VGroup()
+    for k in range(n):
+        c, r = k % cols, k // cols
+        sq = Square(cell * fill, stroke_width=0, fill_color=color, fill_opacity=0.95).move_to(
+            RIGHT * (c * cell) + UP * (r * cell))
+        g.add(sq)
+    return g
+
+
+def meter(length=10.0, fs=22, title="chance you have it", step=10, x_max=100):
+    nl = NumberLine(x_range=[0, x_max, step], length=length, color=INK2, stroke_width=3, include_tip=False, tick_size=0.09)
+    nums = VGroup()
+    for v in range(0, x_max + 1, step):
+        t = T(f"{v}%", fs, INK2).next_to(nl.n2p(v), DOWN, buff=0.16); nums.add(t)
+    tt = T(title, 24, MUTED).next_to(nums, DOWN, buff=0.2).align_to(nl, LEFT)
+    g = VGroup(nl, nums, tt); g.nl, g.nums, g.title = nl, nums, tt
+    return g
+
+
+def person(color=INK2, h=0.6, fill=0.0):
+    head = Circle(radius=h * 0.17).set_stroke(color, 3).set_fill(color, fill)
+    body = RoundedRectangle(corner_radius=h * 0.16, width=h * 0.55, height=h * 0.5).set_stroke(color, 3).set_fill(color, fill)
+    head.next_to(body, UP, buff=h * 0.05)
+    return VGroup(body, head)
+
+
+def pill(text, color=INK, size=28, pad=0.24, fill="#22221f"):
+    """Text chip whose box is sized from the text width."""
+    t = T(text, size, color, weight=BOLD)
+    box = RoundedRectangle(corner_radius=min(0.2, (t.height + 1.4 * pad) / 2), width=t.width + 2 * pad,
+                           height=t.height + 1.4 * pad, stroke_color=color, stroke_width=2.5, fill_color=fill, fill_opacity=1)
+    box.qa_container = True
+    t.move_to(box)
+    g = VGroup(box, t); g.box, g.text = box, t
+    return g
+
+
+def card(w, h, color=INK2, fill="#22221f"):
+    b = RoundedRectangle(corner_radius=0.18, width=w, height=h, stroke_color=color, stroke_width=2.5,
+                         fill_color=fill, fill_opacity=1)
+    b.qa_container = True
+    return b
+
+
+def check(color=AQUA, s=0.35):
+    m = VMobject(stroke_color=color, stroke_width=7).set_points_as_corners(
+        [LEFT * s * 0.5 + UP * s * 0.05, DOWN * s * 0.4, RIGHT * s * 0.6 + UP * s * 0.5])
+    return m
+
+
+def cross(color=RED_, s=0.3):
+    return VGroup(Line(UL * s, DR * s), Line(UR * s, DL * s)).set_stroke(color, 7)
+
+
+def bayes_title():
+    """Title card that ends the hook and opens the welcome scene (identical construction → seamless cut)."""
+    t = glow(TB("BAYES' THEOREM", 104, VIOLET), VIOLET)
+    sub = T("explained simply, with real examples", 44, INK).next_to(t, DOWN, buff=0.5)
+    return VGroup(t, sub).move_to(UP * 0.4)
+
+
+def beam_scale(width=6.0, color=INK2):
+    """Balance beam. Returns (group, theta tracker, left pan, right pan). Pans hang from the beam ends and stay level."""
+    th = ValueTracker(0.0)
+    piv = ORIGIN
+    base = Polygon(piv + DOWN * 0.05, piv + DOWN * 1.0 + LEFT * 0.5, piv + DOWN * 1.0 + RIGHT * 0.5).set_stroke(color, 4)
+    beam = always_redraw(lambda: Line(piv + width / 2 * np.array([-np.cos(th.get_value()), -np.sin(th.get_value()), 0]),
+                                      piv + width / 2 * np.array([np.cos(th.get_value()), np.sin(th.get_value()), 0])
+                                      ).shift(base.get_top() - piv).set_stroke(color, 6))
+    def pan():
+        plate = Arc(radius=0.9, start_angle=PI + 0.5, angle=PI - 1.0).set_stroke(color, 4)
+        plate.stretch(0.35, 1)
+        s1 = Line(plate.get_corner(UL), plate.get_corner(UL) + UP * 0.9 + RIGHT * 0.75).set_stroke(MUTED, 2)
+        s2 = Line(plate.get_corner(UR), plate.get_corner(UR) + UP * 0.9 + LEFT * 0.75).set_stroke(MUTED, 2)
+        g = VGroup(plate, s1, s2)
+        g.hook = lambda: s1.get_end()
+        return g
+    L, R = pan(), pan()
+    L.add_updater(lambda m: m.shift(beam.get_start() - m[1].get_end()))
+    R.add_updater(lambda m: m.shift(beam.get_end() - m[1].get_end()))
+    g = VGroup(base, beam, L, R)
+    return g, th, L, R

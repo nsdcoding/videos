@@ -1,0 +1,890 @@
+[
+ {
+  "id": "s001",
+  "text": "Imagine you go for a routine health check, and the doctor suggests a quick screening test.",
+  "heard": "Imagine you go for a routine health check and the doctor suggests a quick screening test.",
+  "diffs": []
+ },
+ {
+  "id": "s002",
+  "text": "It looks for a condition that is fairly rare. About one in every hundred people your age has it.",
+  "heard": "It looks for a condition that is fairly rare. About one in every hundred people your age has it.",
+  "diffs": []
+ },
+ {
+  "id": "s003",
+  "text": "The test is good. If you have the condition, it catches it nine times out of ten.",
+  "heard": "The test is good. If you have the condition, it catches it nine times out of ten.",
+  "diffs": []
+ },
+ {
+  "id": "s004",
+  "text": "And if you are healthy, it only gives a false alarm one time in ten.",
+  "heard": "And if you are healthy, it only gives a false alarm one time in ten.",
+  "diffs": []
+ },
+ {
+  "id": "s005",
+  "text": "A few days later, the result comes back. Positive.",
+  "heard": "A few days later the result comes back. Positive.",
+  "diffs": []
+ },
+ {
+  "id": "s006",
+  "text": "So, how worried should you be? What is the chance you actually have it?",
+  "heard": "So, how worried should you be? What is the chance you actually have it?",
+  "diffs": []
+ },
+ {
+  "id": "s006a",
+  "text": "Take a second, and make your own guess.",
+  "heard": "Take a second and make your own guess.",
+  "diffs": []
+ },
+ {
+  "id": "s007",
+  "text": "Most people say about ninety percent. After all, the test is ninety percent accurate.",
+  "heard": "Most people say about ninety percent. After all, the test is ninety percent accurate.",
+  "diffs": []
+ },
+ {
+  "id": "s008",
+  "text": "Here's the surprise. The real answer is about eight percent.",
+  "heard": "Here's the surprise. The real answer is about eight percent.",
+  "diffs": []
+ },
+ {
+  "id": "s009",
+  "text": "Not ninety. Eight. Less than one in ten.",
+  "heard": "Not ninety, eight. Less than one in ten.",
+  "diffs": []
+ },
+ {
+  "id": "s010",
+  "text": "Nothing in that story is a trick. The test really is good. Your gut just left out one number.",
+  "heard": "Nothing in that story is a trick. The test really is good. Your gut just left out one number.",
+  "diffs": []
+ },
+ {
+  "id": "s011",
+  "text": "How rare the condition was to begin with.",
+  "heard": "How rare the condition was to begin with.",
+  "diffs": []
+ },
+ {
+  "id": "s012",
+  "text": "The tool that puts that number back in is called Bayes' theorem. And by the end of this video, you will be able to do this in your head.",
+  "heard": "The tool that puts that number back in is called Bayes' Theorem. And by the end of this video, you will be able to do this in your head.",
+  "diffs": []
+ },
+ {
+  "id": "s013",
+  "text": "Welcome to Math Lab TV. Where math is something you can see.",
+  "heard": "Welcome to MathLab TV where math is something you can see.",
+  "diffs": [
+   [
+    "math lab",
+    "mathlab"
+   ]
+  ]
+ },
+ {
+  "id": "s014",
+  "text": "Today you will learn how to turn a test result into a real probability, just by counting people.",
+  "heard": "Today you will learn how to turn a test result into a real probability, just by counting people.",
+  "diffs": []
+ },
+ {
+  "id": "s015",
+  "text": "You will see Bayes' theorem as a formula, and exactly what every symbol means.",
+  "heard": "You will see Bayes' theorem as a formula and exactly what every symbol means.",
+  "diffs": []
+ },
+ {
+  "id": "s016",
+  "text": "And you will see how evidence adds up, in spam filters, fraud alerts and machine learning.",
+  "heard": "And you will see how evidence adds up in spam filters, fraud alerts, and machine learning.",
+  "diffs": []
+ },
+ {
+  "id": "s017",
+  "text": "This isn't just about medical tests.",
+  "heard": "This isn't just about medical tests.",
+  "diffs": []
+ },
+ {
+  "id": "s018",
+  "text": "Any time a rare thing meets an imperfect detector, the same trap is waiting.",
+  "heard": "Anytime a rare thing meets an imperfect detector, the same trap is waiting.",
+  "diffs": [
+   [
+    "any time",
+    "anytime"
+   ]
+  ]
+ },
+ {
+  "id": "s019",
+  "text": "A smoke alarm going off. An email flagged as spam. A message from your bank asking, was this you?",
+  "heard": "A smoke alarm going off, an email flagged as spam, a message from your bank asking, was this you?",
+  "diffs": []
+ },
+ {
+  "id": "s020",
+  "text": "Each one is a positive test. And each one asks the same question: given this alarm, how likely is the real thing?",
+  "heard": "Each one is a positive test, and each one asks the same question: Given this alarm, how likely is the real thing?",
+  "diffs": []
+ },
+ {
+  "id": "s021",
+  "text": "And smart people get this wrong. In one well known study, doctors were given a screening puzzle with numbers like ours.",
+  "heard": "And smart people get this wrong. In one well-known study, doctors were given a screening puzzle with numbers like ours.",
+  "diffs": []
+ },
+ {
+  "id": "s022",
+  "text": "Only about one in five picked the right answer. Almost half picked nine in ten.",
+  "heard": "Only about one of five picked the right answer. Almost half picked nine and ten.",
+  "diffs": []
+ },
+ {
+  "id": "s023",
+  "text": "That's not because doctors are bad at math. It's because the numbers came as percentages of percentages.",
+  "heard": "That's not because doctors are bad at math. It's because the numbers came as percentages of percentages.",
+  "diffs": []
+ },
+ {
+  "id": "s024",
+  "text": "Change the form, and the problem becomes easy. So here is the trick for this whole video: stop thinking in percentages, and start counting people.",
+  "heard": "Change the form and the problem becomes easy. So here is the trick for this whole video. Stop thinking in percentages and start counting people.",
+  "diffs": []
+ },
+ {
+  "id": "s025",
+  "text": "And Bayes isn't only about tests. It's a rule for changing your mind by the right amount when new evidence arrives. Not too little, and not too much.",
+  "heard": "Bayes isn't only about tests. It's a rule for changing your mind by the right amount when new evidence arrives. Not too little, and not too much.",
+  "diffs": []
+ },
+ {
+  "id": "s026",
+  "text": "Let's do it. Picture one thousand people, all taking the same test.",
+  "heard": "Let's do it. Picture one thousand people, all taking the same test.",
+  "diffs": []
+ },
+ {
+  "id": "s027",
+  "text": "Each little square is one person. Forty across, twenty five down. One thousand.",
+  "heard": "Each little square is one person. Forty across, twenty-five down, one thousand.",
+  "diffs": []
+ },
+ {
+  "id": "s028",
+  "text": "Step one. How many of them have the condition? One in a hundred. So, ten people.",
+  "heard": "Step one. How many of them have the condition? One in a hundred. So ten people.",
+  "diffs": []
+ },
+ {
+  "id": "s029",
+  "text": "The other nine hundred and ninety are healthy.",
+  "heard": "The other nine hundred and ninety are healthy.",
+  "diffs": []
+ },
+ {
+  "id": "s030",
+  "text": "Step two. Test the ten people who have the condition. It catches nine of them.",
+  "heard": "Step two, test the ten people who have the condition. It catches nine of them.",
+  "diffs": []
+ },
+ {
+  "id": "s031",
+  "text": "So, nine true positives, and one person the test misses.",
+  "heard": "So nine true positives and one person the test misses.",
+  "diffs": []
+ },
+ {
+  "id": "s032",
+  "text": "Step three. Test the nine hundred and ninety healthy people. It wrongly flags one in ten of them.",
+  "heard": "Step three. Test the nine hundred and ninety healthy people. It wrongly flags one in ten of them.",
+  "diffs": []
+ },
+ {
+  "id": "s033",
+  "text": "That's ninety nine false alarms.",
+  "heard": "That's ninety nine false alarms.",
+  "diffs": []
+ },
+ {
+  "id": "s034",
+  "text": "Now, look only at the people holding a positive result.",
+  "heard": "Now look only at the people holding a positive result.",
+  "diffs": []
+ },
+ {
+  "id": "s035",
+  "text": "Nine of them actually have the condition. Ninety nine are healthy. One hundred and eight positives in total.",
+  "heard": "Nine of them actually have the condition. Ninety-nine are healthy. One hundred and eight positives in total.",
+  "diffs": []
+ },
+ {
+  "id": "s036",
+  "text": "If your test is positive, you are one of these one hundred and eight. And only nine of them are sick.",
+  "heard": "If your test is positive, you are one of these one hundred and eight. And only nine of them are sick.",
+  "diffs": []
+ },
+ {
+  "id": "s037",
+  "text": "Nine out of one hundred and eight. That's one in twelve, about eight percent.",
+  "heard": "Nine out of one hundred and eight. That's one in twelve, about eight percent.",
+  "diffs": []
+ },
+ {
+  "id": "s038",
+  "text": "The test did its job. It caught almost everyone who was sick.",
+  "heard": "The test did its job. It caught almost everyone who was sick.",
+  "diffs": []
+ },
+ {
+  "id": "s039",
+  "text": "But healthy people outnumber sick people ninety nine to one. So even a small false alarm rate creates a crowd of false alarms.",
+  "heard": "But healthy people outnumber sick people ninety-nine to one. So even a small false alarm rate creates a crowd of false alarms.",
+  "diffs": []
+ },
+ {
+  "id": "s040",
+  "text": "Here, the false alarms outnumber the real cases eleven to one.",
+  "heard": "Here, the false alarms outnumber the real cases eleven to one.",
+  "diffs": []
+ },
+ {
+  "id": "s041",
+  "text": "And yes, the test really is ninety percent accurate overall. Nine true positives, plus eight hundred and ninety one healthy people correctly cleared. Nine hundred right answers out of a thousand.",
+  "heard": "And yes, the test really is ninety percent accurate overall. Nine true positives, plus eight hundred ninety-one healthy people correctly cleared. Nine hundred right answers out of a thousand.",
+  "diffs": []
+ },
+ {
+  "id": "s042",
+  "text": "And notice, the positive result still mattered. Before the test, your chance was one in a hundred. After it, one in twelve.",
+  "heard": "And notice, the positive result still mattered. Before the test, your chance was one in a hundred. After it, one in twelve.",
+  "diffs": []
+ },
+ {
+  "id": "s043",
+  "text": "That's more than eight times higher. The test moved you a lot. It just didn't move you anywhere near certain.",
+  "heard": "That's more than eight times higher. The test moved you a lot. It just didn't move you anywhere near certain.",
+  "diffs": []
+ },
+ {
+  "id": "s044",
+  "text": "And a negative result? Of the eight hundred and ninety two people who test negative, just one has the condition.",
+  "heard": "And a negative result? Of the eight hundred ninety-two people who test negative, just one has the condition.",
+  "diffs": []
+ },
+ {
+  "id": "s045",
+  "text": "So a negative test drops your chance from one in a hundred to about one in nine hundred. That's very reassuring.",
+  "heard": "So a negative test drops your chance from one in a hundred to about one in nine hundred. That's very reassuring.",
+  "diffs": []
+ },
+ {
+  "id": "s046",
+  "text": "What we just did, counting people, is exactly Bayes' theorem. Let's write it the way you'll see it in books.",
+  "heard": "What we just did, counting people, is exactly Bayes' theorem. Let's write it the way you'll see it in books.",
+  "diffs": []
+ },
+ {
+  "id": "s047",
+  "text": "Here is the same crowd as a tree. One thousand people split into ten who have it, and nine hundred and ninety who don't.",
+  "heard": "Here is the same crowd as a tree. One thousand people split into ten who have it and nine hundred and ninety who don't.",
+  "diffs": []
+ },
+ {
+  "id": "s048",
+  "text": "Then each branch splits again by the test result. Nine and one on top. Ninety nine and eight hundred and ninety one below.",
+  "heard": "Then each branch splits again by the test result. Nine and one on top, ninety-nine and eight hundred ninety-one below.",
+  "diffs": []
+ },
+ {
+  "id": "s049",
+  "text": "A positive result means you're on one of the two positive leaves. Nine, or ninety nine. That's all Bayes is doing.",
+  "heard": "A positive result means you're on one of the two positive leaves: nine, or ninety-nine. That's all Bayes is doing.",
+  "diffs": []
+ },
+ {
+  "id": "s050",
+  "text": "First, the symbols. A capital P, with brackets, means the probability of whatever is inside.",
+  "heard": "First, the symbols. A capital P with brackets means the probability of whatever is inside.",
+  "diffs": []
+ },
+ {
+  "id": "s051",
+  "text": "A means having the condition. B means testing positive.",
+  "heard": "A means having the condition. B means testing positive.",
+  "diffs": []
+ },
+ {
+  "id": "s052",
+  "text": "And this vertical bar means given. So, P of A given B is the chance you have the condition, given that you tested positive.",
+  "heard": "And this vertical bar means given. So P of A given B is the chance you have the condition, given that you tested positive.",
+  "diffs": []
+ },
+ {
+  "id": "s053",
+  "text": "That's the number we want. And here is Bayes' theorem.",
+  "heard": "That's the number we want. And here is Bayes' theorem.",
+  "diffs": []
+ },
+ {
+  "id": "s054",
+  "text": "P of A given B equals P of B given A, times P of A, divided by P of B.",
+  "heard": "P of A given B equals P of B given A times P of A divided by P of B",
+  "diffs": []
+ },
+ {
+  "id": "s055",
+  "text": "Now let's match each piece to our crowd.",
+  "heard": "Now let's match each piece to our crowd.",
+  "diffs": []
+ },
+ {
+  "id": "s056",
+  "text": "P of A is the base rate. How common the condition is before any test. Ten in a thousand.",
+  "heard": "P of A is the base rate. How common the condition is before any test. Ten in a thousand.",
+  "diffs": []
+ },
+ {
+  "id": "s057",
+  "text": "P of B given A is how good the test is at catching it. Nine out of ten.",
+  "heard": "P of B given A is how good the test is at catching it. Nine out of ten.",
+  "diffs": []
+ },
+ {
+  "id": "s058",
+  "text": "Multiply those two, and you get the true positives. Nine in a thousand.",
+  "heard": "Multiply those two and you get the true positives, nine in a thousand.",
+  "diffs": []
+ },
+ {
+  "id": "s059",
+  "text": "P of B, on the bottom, is the chance of testing positive at all. Real or false, that's one hundred and eight in a thousand.",
+  "heard": "P of B on the bottom is the chance of testing positive at all. Real or false, that's one hundred and eight in a thousand.",
+  "diffs": []
+ },
+ {
+  "id": "s060",
+  "text": "Divide, and the thousands cancel. Nine out of one hundred and eight. The same answer we got by counting.",
+  "heard": "Divide and the thousands cancel. Nine out of one hundred and eight. The same answer we got by counting.",
+  "diffs": []
+ },
+ {
+  "id": "s061",
+  "text": "So the formula is just a short way of saying: real positives, divided by all positives.",
+  "heard": "So the formula is just a short way of saying real positives divided by all positives.",
+  "diffs": []
+ },
+ {
+  "id": "s062",
+  "text": "The bottom part is where people slip. It hides the false alarms.",
+  "heard": "The bottom part is where people slip. It hides the false alarms.",
+  "diffs": []
+ },
+ {
+  "id": "s063",
+  "text": "Written out in full, P of B is the true positives from the sick, plus the false alarms from the healthy.",
+  "heard": "Written out in full, P of B is the true positives from the sick plus the false alarms from the healthy.",
+  "diffs": []
+ },
+ {
+  "id": "s064",
+  "text": "Three names you'll hear. The base rate is called the prior. The answer is called the posterior. And P of B given A is called the likelihood.",
+  "heard": "Three names you'll hear. The base rate is called the prior. The answer is called the posterior. And P of B given A is called the likelihood.",
+  "diffs": []
+ },
+ {
+  "id": "s065",
+  "text": "Prior means before the evidence. Posterior means after.",
+  "heard": "Prior means before the evidence. Posterior means after.",
+  "diffs": []
+ },
+ {
+  "id": "s066",
+  "text": "So you tested positive, and your chance is now about one in twelve. What would a sensible doctor do next?",
+  "heard": "So you tested positive and your chance is now about one in twelve. What would a sensible doctor do next?",
+  "diffs": []
+ },
+ {
+  "id": "s067",
+  "text": "Test again. And here is the beautiful part. The answer from the first test becomes the starting point for the second.",
+  "heard": "Test again. And here is the beautiful part. The answer from the first test becomes the starting point for the second.",
+  "diffs": []
+ },
+ {
+  "id": "s068",
+  "text": "Yesterday's posterior is today's prior.",
+  "heard": "Yesterday's posterior is today's prior.",
+  "diffs": []
+ },
+ {
+  "id": "s069",
+  "text": "Take our one hundred and eight positives. Nine are sick, ninety nine are healthy. They all take a second test.",
+  "heard": "Take our one hundred eight positives, nine are sick, ninety-nine are healthy. They all take a second test.",
+  "diffs": []
+ },
+ {
+  "id": "s070",
+  "text": "To avoid fractions of people, picture ten times as many. Ninety people who have it, and nine hundred and ninety who don't.",
+  "heard": "To avoid fractions of people, picture ten times as many. Ninety people who have it, and nine hundred and ninety who don't.",
+  "diffs": []
+ },
+ {
+  "id": "s071",
+  "text": "The test catches nine in ten of the sick, and wrongly flags one in ten of the healthy. Same as before.",
+  "heard": "The test catches nine in ten of the sick and wrongly flags one in ten of the healthy, same as before.",
+  "diffs": []
+ },
+ {
+  "id": "s072",
+  "text": "After a second positive: eighty one sick, and ninety nine healthy.",
+  "heard": "After a second positive, eighty-one sick and ninety-nine healthy.",
+  "diffs": []
+ },
+ {
+  "id": "s073",
+  "text": "Eighty one out of one hundred and eighty. That's forty five percent.",
+  "heard": "eighty-one out of one hundred and eighty. that's forty-five percent.",
+  "diffs": []
+ },
+ {
+  "id": "s074",
+  "text": "One percent, then eight, then forty five. Each positive pushes the number up.",
+  "heard": "One percent then eight then forty-five Each positive pushes the number up",
+  "diffs": []
+ },
+ {
+  "id": "s075",
+  "text": "There's a neat shortcut here. Compare sick to healthy as odds.",
+  "heard": "There's a neat shortcut here. Compare sick to healthy as odds.",
+  "diffs": []
+ },
+ {
+  "id": "s076",
+  "text": "Before any test, the odds are one sick person for every ninety nine healthy.",
+  "heard": "Before any test, the odds are one sick person for every ninety-nine healthy.",
+  "diffs": []
+ },
+ {
+  "id": "s077",
+  "text": "A sick person is nine times more likely to test positive than a healthy one. Ninety percent, versus ten.",
+  "heard": "A sick person is nine times more likely to test positive than a healthy one. Ninety percent versus ten percent.",
+  "diffs": [
+   [
+    "",
+    "percent"
+   ]
+  ]
+ },
+ {
+  "id": "s078",
+  "text": "So each positive multiplies the odds of having it by nine. One to ninety nine becomes nine to ninety nine, then eighty one to ninety nine.",
+  "heard": "So each positive multiplies the odds of having it by nine. One to ninety-nine becomes nine to ninety-nine, then eighty-one to ninety-nine.",
+  "diffs": []
+ },
+ {
+  "id": "s079",
+  "text": "A third positive makes it seven hundred and twenty nine to ninety nine. About eighty eight percent.",
+  "heard": "A third positive makes it seven hundred and twenty-nine to ninety-nine. About eighty-eight percent.",
+  "diffs": []
+ },
+ {
+  "id": "s080",
+  "text": "One important condition. This only works if the second test makes its mistakes independently of the first.",
+  "heard": "One important condition. This only works if the second test makes its mistakes independently of the first.",
+  "diffs": []
+ },
+ {
+  "id": "s081",
+  "text": "If you repeat the same test on the same sample, it might simply repeat the same false alarm. Then the second positive tells you much less.",
+  "heard": "If you repeat the same test on the same sample, it might simply repeat the same false alarm. Then the second positive tells you much less.",
+  "diffs": []
+ },
+ {
+  "id": "s082",
+  "text": "That's one reason doctors often confirm with a different kind of test.",
+  "heard": "That's one reason doctors often confirm with a different kind of test.",
+  "diffs": []
+ },
+ {
+  "id": "s083",
+  "text": "So what actually moves the answer? There are only three dials. The base rate, the hit rate, and the false alarm rate.",
+  "heard": "So what actually moves the answer? There are only three dials: the base rate, the hit rate, and the false alarm rate.",
+  "diffs": []
+ },
+ {
+  "id": "s084",
+  "text": "Let's turn the base rate dial first, and keep the test exactly the same.",
+  "heard": "Let's turn the base rate dial first and keep the test exactly the same.",
+  "diffs": []
+ },
+ {
+  "id": "s085",
+  "text": "At one in a hundred, we're at eight percent. At one in ten, it jumps to fifty percent.",
+  "heard": "At one in a hundred we're at eight percent. At one in ten it jumps to fifty percent.",
+  "diffs": []
+ },
+ {
+  "id": "s085a",
+  "text": "Let's check that middle one by counting. With one in ten, a thousand people means one hundred sick, and the test catches ninety of them.",
+  "heard": "Let's check that middle one by counting. With one in ten, a thousand people means one hundred sick, and the test catches ninety of them.",
+  "diffs": []
+ },
+ {
+  "id": "s085b",
+  "text": "Nine hundred healthy, and one in ten flagged. Ninety false alarms. Ninety real, ninety false. Fifty percent.",
+  "heard": "nine hundred healthy and one in ten flagged ninety false alarms ninety real ninety false fifty percent",
+  "diffs": []
+ },
+ {
+  "id": "s086",
+  "text": "And only when half the people have the condition does your gut's ninety percent finally become right.",
+  "heard": "And only when half the people have the condition does your guts ninety percent finally become right.",
+  "diffs": [
+   [
+    "gut's",
+    "guts"
+   ]
+  ]
+ },
+ {
+  "id": "s087",
+  "text": "The rarer the condition, the more the false alarms win.",
+  "heard": "The rarer the condition, the more the false alarms win.",
+  "diffs": []
+ },
+ {
+  "id": "s088",
+  "text": "Now turn the false alarm dial instead. Same base rate, one in a hundred, but a test that wrongly flags only one healthy person in a hundred.",
+  "heard": "Now turn to false alarm dial instead. Same base rate, one in a hundred, but a test that wrongly flags only one healthy person in a hundred.",
+  "diffs": []
+ },
+ {
+  "id": "s089",
+  "text": "Now there are about ten false alarms instead of ninety nine, and a positive means about forty eight percent.",
+  "heard": "Now there are about ten false alarms instead of ninety-nine, and a positive means about forty-eight percent.",
+  "diffs": []
+ },
+ {
+  "id": "s090",
+  "text": "And the hit rate dial? Push it from nine in ten all the way to perfect, and the answer barely moves. From about eight percent to about nine.",
+  "heard": "And the hit rate dial, push it from nine and ten all the way to perfect, and the answer barely moves. From about eight percent to about nine.",
+  "diffs": []
+ },
+ {
+  "id": "s091",
+  "text": "So, a rule of thumb. When the thing you're looking for is rare, the false alarm rate matters far more than the hit rate.",
+  "heard": "So, a rule of thumb. When the thing you're looking for is rare, the false alarm rate matters far more than the hit rate.",
+  "diffs": []
+ },
+ {
+  "id": "s092",
+  "text": "Now let's see where this shows up in the real world. The labels change, but the counting is the same.",
+  "heard": "Now let's see where this shows up in the real world. The labels change, but the counting is the same.",
+  "diffs": []
+ },
+ {
+  "id": "s093",
+  "text": "Machine learning. A classifier is just a test run by a computer.",
+  "heard": "Machine learning. A classifier is just a test run by a computer.",
+  "diffs": []
+ },
+ {
+  "id": "s094",
+  "text": "Engineers have names for our numbers. Catching nine out of ten sick people is called recall.",
+  "heard": "Engineers have names for our numbers. Catching nine out of ten sick people is called recall.",
+  "diffs": []
+ },
+ {
+  "id": "s095",
+  "text": "And nine out of one hundred and eight, the share of alarms that are real, is called precision.",
+  "heard": "And nine out of one hundred and eight, the share of alarms that are real is called precision.",
+  "diffs": []
+ },
+ {
+  "id": "s096",
+  "text": "When the thing you're looking for is rare, a model can have great recall and still terrible precision. That's the base rate at work.",
+  "heard": "When the thing you're looking for is rare, a model can have great recall and still terrible precision. That's the base rate at work.",
+  "diffs": []
+ },
+ {
+  "id": "s096a",
+  "text": "That's why teams measure precision on data with the real base rate. On a balanced test set, half positive and half negative, our same test would show ninety percent precision. In the real world, about eight percent.",
+  "heard": "That's why teams measure precision on data with the real base rate. On a balanced test set, half positive and half negative, our same test would show ninety percent precision. In the real world, about eight percent.",
+  "diffs": []
+ },
+ {
+  "id": "s097",
+  "text": "And here's a trap. A model that simply says healthy to everyone is ninety nine percent accurate, and completely useless.",
+  "heard": "And here's a trap. A model that simply says healthy to everyone is ninety-nine percent accurate and completely useless.",
+  "diffs": []
+ },
+ {
+  "id": "s098",
+  "text": "Data science. Bayes is the engine of Bayesian statistics.",
+  "heard": "Data science. Bayes is the engine of Bayesian statistics.",
+  "diffs": []
+ },
+ {
+  "id": "s099",
+  "text": "You start with a prior belief, say, about how often visitors to a website buy something, and update it as each day's data comes in.",
+  "heard": "You start with a prior belief, say, about how often visitors to a website buy something, and update it as each day's data comes in.",
+  "diffs": []
+ },
+ {
+  "id": "s100",
+  "text": "Each day's posterior becomes the next day's prior. Exactly like our second test.",
+  "heard": "Each day's posterior becomes the next day's prior exactly like our second test.",
+  "diffs": []
+ },
+ {
+  "id": "s100a",
+  "text": "And before trusting any automated flag on a dashboard, a good analyst asks: of all the past flags, how many were real? That's precision again, measured on real data.",
+  "heard": "And before trusting any automated flag on a dashboard, a good analyst asks, of all the past flags, how many were real? That's precision again, measured on real data.",
+  "diffs": []
+ },
+ {
+  "id": "s101",
+  "text": "Finance. Banks run fraud detectors on card payments.",
+  "heard": "Finance. Banks run fraud detectors on card payments.",
+  "diffs": []
+ },
+ {
+  "id": "s102",
+  "text": "Fraud is rare, far rarer than one in a hundred payments. So even a detector as good as our test would flag mostly honest payments.",
+  "heard": "Fraud is rare. Far rarer than one in a hundred payments. So even a detector as good as our test would flag mostly honest payments.",
+  "diffs": []
+ },
+ {
+  "id": "s103",
+  "text": "That's one reason many banks send a quick, was this you, message instead of simply blocking the card. In Bayes terms, your reply is a second, independent test.",
+  "heard": "That's one reason many banks send a quick was this you message instead of simply blocking the card. In Bayes' terms, your reply is a second, independent test.",
+  "diffs": []
+ },
+ {
+  "id": "s103a",
+  "text": "The same idea applies to market signals. A warning sign that fired before most crashes may also fire in many calm years. Always ask how often it fires when nothing happens.",
+  "heard": "The same idea applies to market signals. A warning sign that fired before most crashes may also fire in many calm years. Always ask how often it fires when nothing happens.",
+  "diffs": []
+ },
+ {
+  "id": "s104",
+  "text": "Computer science. Some of the first really effective spam filters were built on Bayes' theorem.",
+  "heard": "Computer science. Some of the first really effective spam filters were built on Bayes' theorem.",
+  "diffs": []
+ },
+ {
+  "id": "s105",
+  "text": "The prior is how much of all email is spam. The evidence is the words inside.",
+  "heard": "The prior is how much of all email is spam. The evidence is the words inside.",
+  "diffs": []
+ },
+ {
+  "id": "s106",
+  "text": "Each word nudges the odds up or down, just like each positive test. The filter multiplies them together.",
+  "heard": "Each word nudges the odds up or down, just like each positive test. The filter multiplies them together.",
+  "diffs": []
+ },
+ {
+  "id": "s107",
+  "text": "To keep it simple, it treats every word as independent of the others. That shortcut is why it's called naive Bayes. It isn't true, but it works surprisingly well.",
+  "heard": "To keep it simple, it treats every word as independent of the others. That shortcut is why it's called Naive Bayes. It isn't true, but it works surprisingly well.",
+  "diffs": []
+ },
+ {
+  "id": "s107a",
+  "text": "Computer security has the same problem. An intrusion alarm that fires on just one in a thousand normal logins can still bury the few real attacks under false alarms.",
+  "heard": "Computer security has the same problem. An intrusion alarm that fires on just one in a thousand normal logins can still bury the few real attacks under false alarms.",
+  "diffs": []
+ },
+ {
+  "id": "s108",
+  "text": "Before we wrap up, here are the three most common mistakes people make with Bayes.",
+  "heard": "Before we wrap up, here are the three most common mistakes people make with bays.",
+  "diffs": [
+   [
+    "bayes'",
+    "bays"
+   ]
+  ]
+ },
+ {
+  "id": "s109",
+  "text": "Mistake one: flipping the question.",
+  "heard": "Mistake one flipping the question",
+  "diffs": []
+ },
+ {
+  "id": "s110",
+  "text": "The chance of a positive test, if you're sick, is ninety percent. The chance you're sick, if you test positive, is about eight percent.",
+  "heard": "The chance of a positive test if you're sick is ninety percent the chance you're sick if you test positive is about eight percent",
+  "diffs": []
+ },
+ {
+  "id": "s111",
+  "text": "Same words, swapped around. Completely different numbers.",
+  "heard": "Same words, swapped around. Completely different numbers.",
+  "diffs": []
+ },
+ {
+  "id": "s112",
+  "text": "In courtrooms, this flip has a name: the prosecutor's fallacy. The chance of the evidence if someone is innocent is not the chance they're innocent, given the evidence.",
+  "heard": "In courtrooms this flip has a name the prosecutor's fallacy the chance of the evidence if someone is innocent is not the chance they're innocent given the evidence",
+  "diffs": []
+ },
+ {
+  "id": "s113",
+  "text": "Mistake two: ignoring the base rate.",
+  "heard": "Mistake two. Ignoring the base rate.",
+  "diffs": []
+ },
+ {
+  "id": "s114",
+  "text": "Take the same test, but give it only to patients who already have symptoms. Say one in five of them has the condition.",
+  "heard": "Take the same test but give it only to patients who already have symptoms. Say one in five of them has the condition.",
+  "diffs": []
+ },
+ {
+  "id": "s115",
+  "text": "Out of a thousand, that's one hundred and eighty true positives, against eighty false alarms. Now a positive means about seventy percent.",
+  "heard": "Out of a thousand, that's one hundred and eighty true positives against eighty false alarms. Now a positive means about seventy percent.",
+  "diffs": []
+ },
+ {
+  "id": "s116",
+  "text": "Same test. Same result. The base rate changed everything.",
+  "heard": "Same test. Same result. The base rate changed everything.",
+  "diffs": []
+ },
+ {
+  "id": "s117",
+  "text": "Mistake three: counting the same clue twice.",
+  "heard": "Mistake three counting the same clue twice",
+  "diffs": []
+ },
+ {
+  "id": "s118",
+  "text": "If two tests share the same weakness, or two news stories copy the same source, they are really one piece of evidence, not two.",
+  "heard": "If two tests share the same weakness, or two news stories copy the same source, they are really one piece of evidence, not two.",
+  "diffs": []
+ },
+ {
+  "id": "s119",
+  "text": "Multiply them as if they were independent, and you'll end up far too confident.",
+  "heard": "Multiply them as if they were independent, and you'll end up far too confident.",
+  "diffs": []
+ },
+ {
+  "id": "s120",
+  "text": "And a bonus mistake: deciding the test is useless because the answer was only eight percent.",
+  "heard": "In a bonus mistake, deciding to test is useless because the answer was only eight percent.",
+  "diffs": []
+ },
+ {
+  "id": "s121",
+  "text": "It isn't. A positive raised the chance more than eightfold, and a negative almost rules the condition out. A good test is a strong clue. It's just not a verdict.",
+  "heard": "It isn't. A positive raised the chance more than eightfold, and a negative almost rules the condition out. A good test is a strong clue, it's just not a verdict.",
+  "diffs": []
+ },
+ {
+  "id": "s122",
+  "text": "Let's turn all of that into a recipe you can use for any yes or no question.",
+  "heard": "Let's turn all of that into a recipe you can use for any yes or no question.",
+  "diffs": []
+ },
+ {
+  "id": "s123",
+  "text": "Step one: start with the base rate. How common is the thing, before any evidence?",
+  "heard": "Step one. Start with the base rate. How common is the thing before any evidence?",
+  "diffs": []
+ },
+ {
+  "id": "s124",
+  "text": "Step two: picture a crowd. One thousand people usually avoids fractions.",
+  "heard": "Step two. Picture a crowd. One thousand people usually avoids fractions.",
+  "diffs": []
+ },
+ {
+  "id": "s125",
+  "text": "Step three: split the crowd with the test. Count the true positives, and the false alarms.",
+  "heard": "Step three. Split the crowd with the test. Count the true positives, and the false alarms.",
+  "diffs": []
+ },
+ {
+  "id": "s126",
+  "text": "Step four: keep only the people who match the evidence, and divide. Real cases, over all positives.",
+  "heard": "Step four. Keep only the people who match the evidence, and divide real cases over all positives.",
+  "diffs": []
+ },
+ {
+  "id": "s127",
+  "text": "Step five: update. When new, independent evidence arrives, your answer becomes the new base rate.",
+  "heard": "Step five. Update. When new independent evidence arrives, your answer becomes the new base rate.",
+  "diffs": []
+ },
+ {
+  "id": "s128",
+  "text": "For our test: one in a hundred to start. Nine real positives, ninety nine false alarms. About eight percent.",
+  "heard": "For our test, one in a hundred to start. Nine real positives, ninety-nine false alarms. About eight percent.",
+  "diffs": []
+ },
+ {
+  "id": "s129",
+  "text": "A test result is a clue, not a verdict. Bayes tells you how much the clue is worth.",
+  "heard": "A test result is a clue, not a verdict. Bayes tells you how much the clue is worth.",
+  "diffs": []
+ },
+ {
+  "id": "s130",
+  "text": "Look around your world, and notice how many alarms are false alarms, and how rare the real thing usually is.",
+  "heard": "Look around your world and notice how many alarms are false alarms and how rare the real thing usually is.",
+  "diffs": []
+ },
+ {
+  "id": "s131",
+  "text": "If this lesson made things clear for you, please subscribe to Math Lab TV, so we can keep building together.",
+  "heard": "If this lesson made things clear for you, please subscribe to MathLab TV, so we can keep building together.",
+  "diffs": [
+   [
+    "math lab",
+    "mathlab"
+   ]
+  ]
+ },
+ {
+  "id": "s132",
+  "text": "But here's a puzzle for next time.",
+  "heard": "But here's a puzzle for next time.",
+  "diffs": []
+ },
+ {
+  "id": "s133",
+  "text": "Scientists often report a number called a p-value, and it's very often described as the chance that a result is a fluke.",
+  "heard": "Scientists often report a number called a P value, and it's very often described as the chance that a result is a fluke.",
+  "diffs": []
+ },
+ {
+  "id": "s134",
+  "text": "That description flips the question, just like mistake one.",
+  "heard": "That description flips the question, just like mistake one.",
+  "diffs": []
+ },
+ {
+  "id": "s135",
+  "text": "Next time, we'll see what a p-value really measures, and why Bayes is the missing piece.",
+  "heard": "Next time, we'll see what a p value really measures, and why bayes is the missing piece.",
+  "diffs": []
+ },
+ {
+  "id": "s136",
+  "text": "I will see you in the next video.",
+  "heard": "I will see you in the next video.",
+  "diffs": []
+ }
+]

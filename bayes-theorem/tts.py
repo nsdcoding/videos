@@ -20,6 +20,10 @@ URL = "https://texttospeech.googleapis.com/v1/text:synthesize"
 
 # Spelling fixes for words the voice mispronounces (spoken form only; subtitles keep the original).
 SPOKEN_FIXES = {}
+# Per-segment spoken spellings: {segment id: [(written, spoken), ...]}
+SPOKEN_FIXES_BY_ID = {
+    "s108": [("with Bayes.", "with Bays.")],   # heard as "bass" at the end of the sentence
+}
 
 
 def creds():
@@ -32,14 +36,16 @@ def creds():
     return c
 
 
-def spoken(text):
+def spoken(text, sid=None):
     for a, b in SPOKEN_FIXES.items():
+        text = text.replace(a, b)
+    for a, b in SPOKEN_FIXES_BY_ID.get(sid, []):
         text = text.replace(a, b)
     return text
 
 
-def synth(c, text, out):
-    body = {"input": {"text": spoken(text)},
+def synth(c, text, out, sid=None):
+    body = {"input": {"text": spoken(text, sid)},
             "voice": {"languageCode": "en-US", "name": VOICE},
             "audioConfig": {"audioEncoding": "LINEAR16", "sampleRateHertz": 24000}}
     for attempt in range(6):
@@ -66,11 +72,11 @@ if __name__ == "__main__":
         S = json.loads((HERE / "script.json").read_text())
         from concurrent.futures import ThreadPoolExecutor
         def job(s):
-            h = hashlib.sha1((VOICE + spoken(s["text"])).encode()).hexdigest()
+            h = hashlib.sha1((VOICE + spoken(s["text"], s["id"])).encode()).hexdigest()
             wav, hf = d / f"{s['id']}.wav", d / f"{s['id']}.hash"
             if wav.exists() and hf.exists() and hf.read_text() == h:
                 return
-            synth(c, s["text"], wav); hf.write_text(h); print(s["id"], flush=True)
+            synth(c, s["text"], wav, s["id"]); hf.write_text(h); print(s["id"], flush=True)
         with ThreadPoolExecutor(6) as ex:
             list(ex.map(job, S))
         print("all clips done")

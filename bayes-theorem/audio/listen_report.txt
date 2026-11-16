@@ -1,0 +1,7 @@
+s013 [('math lab', 'mathlab')]
+s018 [('any time', 'anytime')]
+s077 [('', 'percent')]
+s086 [("gut's", 'guts')]
+s108 [("bayes'", 'bays')]
+s131 [('math lab', 'mathlab')]
+137/143 clips match exactly
