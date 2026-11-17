@@ -1,0 +1,2192 @@
+{
+ "channel": "Math Lab TV",
+ "tagline": "where math is something you can see",
+ "statuses": {
+  "planned": "not started",
+  "scripted": "a draft script exists",
+  "in-production": "script approved, voice/animation under way",
+  "produced": "final MP4 + YouTube package ready, not yet linked",
+  "published": "live on YouTube (link recorded)"
+ },
+ "defaults": {
+  "target_minutes": "15-20",
+  "voice": "en-US-Chirp3-HD-Zubenelgenubi",
+  "prompt": "channel/PROMPT.md"
+ },
+ "series": [
+  {
+   "id": "ai-ml",
+   "name": "The Maths Under Machine Learning",
+   "blurb": "The statistics and linear algebra every model is made of. Thirty six lessons, in priority order."
+  },
+  {
+   "id": "seeing-why",
+   "name": "Seeing Why",
+   "blurb": "Short, surprising visual proofs. No prerequisites."
+  },
+  {
+   "id": "calculus",
+   "name": "Calculus, Built From Scratch",
+   "blurb": "The course, in the order it should have been taught."
+  },
+  {
+   "id": "linear-algebra",
+   "name": "Linear Algebra Is Geometry",
+   "blurb": "Matrices as motion, not arithmetic."
+  },
+  {
+   "id": "probability",
+   "name": "Probability That Breaks Your Intuition",
+   "blurb": "The results people argue about in the comments."
+  },
+  {
+   "id": "fourier",
+   "name": "Fourier and Waves",
+   "blurb": "The visual showpieces."
+  },
+  {
+   "id": "number-theory",
+   "name": "Number Theory and Primes",
+   "blurb": "The oldest questions, still open."
+  },
+  {
+   "id": "shapes-chaos",
+   "name": "Shapes, Chaos and Dimensions",
+   "blurb": "Where maths becomes art."
+  },
+  {
+   "id": "in-the-wild",
+   "name": "Maths in the Wild",
+   "blurb": "Applied, and aimed at the widest audience."
+  }
+ ],
+ "topics": [
+  {
+   "slug": "standard-deviation",
+   "title": "Standard Deviation and Variance, Explained From Scratch",
+   "series": "ai-ml",
+   "order": 1,
+   "phase": 1,
+   "status": "produced",
+   "visual": "two dot clouds with the same mean, one tight and one spread, every point's distance to the mean drawn as a bar that squares into a tile",
+   "covers": "spread as the question an average cannot answer, distance from the mean, why the deviations are squared instead of averaged raw, taking the square root to get back to the original units, a full worked calculation on five numbers, what one standard deviation covers on a bell curve, population versus sample and why the divisor changes",
+   "links": {
+    "builds_on": [
+     "mean-vs-median"
+    ],
+    "related": [
+     "histograms",
+     "random-variables"
+    ],
+    "overlaps": []
+   },
+   "production": {
+    "folder": null,
+    "branch": null,
+    "script": "channel/lesson-lab/standard-deviation/script.txt",
+    "callbacks": [
+     "mean-vs-median"
+    ]
+   },
+   "youtube": null,
+   "notes": "Made outside this repo (Lesson Lab script in channel/lesson-lab/standard-deviation). Mean vs Median's teaser leads here. Add the folder/branch if it lives elsewhere, and the YouTube link once uploaded."
+  },
+  {
+   "slug": "mean-vs-median",
+   "title": "Mean Versus Median: Which Average Is Lying to You?",
+   "series": "ai-ml",
+   "order": 2,
+   "phase": 1,
+   "status": "produced",
+   "visual": "incomes on a number line with the mean riding a seesaw and the median standing on the middle person, one outlier dragging the seesaw away",
+   "covers": "the mean as a balance point and the median as the middle value, both computed on the same small set, what a single extreme value does to each, skew, when the mode is the honest answer, how reported averages mislead about salaries and house prices",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "data-types",
+     "histograms",
+     "log-transformation",
+     "simpsons-paradox"
+    ],
+    "overlaps": []
+   },
+   "production": {
+    "folder": "mean-vs-median",
+    "branch": "claude/affectionate-allen-knz5iu",
+    "length": "15:50",
+    "video": "mean-vs-median/out/mean_vs_median.mp4",
+    "package": "mean-vs-median/out/youtube/",
+    "youtube_title": "Mean vs Median: Which Average Lies? | Machine Learning, Data Science, Finance & CS",
+    "running_example": "Two towns (Maple, Pine Hill), nine household incomes each; Pine Hill mean 60k vs median 40k",
+    "callbacks": [],
+    "teaser_next": "standard-deviation",
+    "hook": "Two towns report the same average income of 60 thousand; 8 of 9 Pine Hill families earn less"
+   },
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "bayes-examples",
+   "title": "Bayes Theorem Explained Simply, With Real Examples",
+   "series": "ai-ml",
+   "order": 3,
+   "phase": 1,
+   "status": "produced",
+   "visual": "a square of ten thousand people splitting by who is ill, then by who tests positive, the positive block separating into true and false",
+   "covers": "prior and likelihood and posterior in ordinary words, the formula read as a sentence, a medical test worked end to end with real numbers, why the base rate decides the answer, the same arithmetic on a spam filter, updating twice on two pieces of evidence",
+   "links": {
+    "builds_on": [
+     "probability-for-ml"
+    ],
+    "related": [
+     "confusion-matrix",
+     "hypothesis-testing",
+     "monty-hall",
+     "naive-bayes",
+     "prosecutors-fallacy"
+    ],
+    "overlaps": [
+     "bayes"
+    ]
+   },
+   "production": {
+    "folder": "bayes-theorem",
+    "branch": "claude/brave-allen-whwi2o",
+    "length": "15:12",
+    "video": "bayes-theorem/out/bayes_theorem.mp4",
+    "package": "bayes-theorem/out/youtube/",
+    "youtube_title": "Bayes' Theorem Explained Simply: Why a 90% Accurate Test Means 8% | ML, Data Science, Finance, CS",
+    "running_example": "Screening test, 1,000 people, condition 1 in 100, catches 9 of 10, false alarm 1 in 10: 9 real vs 99 false -> 1 in 12",
+    "callbacks": [],
+    "teaser_next": "hypothesis-testing",
+    "hook": "A positive result from a '90% accurate' test means only about an 8% chance"
+   },
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "linear-regression",
+   "title": "Linear Regression Explained: The Complete Beginner Guide",
+   "series": "ai-ml",
+   "order": 4,
+   "phase": 1,
+   "status": "planned",
+   "visual": "a scatter of house prices with a line pivoting and sliding, the vertical error bars shrinking as a running total of squared error ticks down",
+   "covers": "fitting a line to a cloud of points, residuals measured vertically and not perpendicular, why the errors are squared, slope and intercept read as plain meanings, a worked fit on five points, prediction versus extrapolation, why a fitted line says nothing about cause",
+   "links": {
+    "builds_on": [
+     "mean-vs-median",
+     "standard-deviation"
+    ],
+    "related": [
+     "gradient-descent",
+     "loss-functions",
+     "regression-metrics"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "gradient-descent",
+   "title": "Gradient Descent Visualized: How AI Actually Learns",
+   "series": "ai-ml",
+   "order": 5,
+   "phase": 1,
+   "status": "planned",
+   "visual": "a ball rolling down a bowl shaped error surface, the slope arrow shrinking at each step, then a second run with too large a step bouncing out of the bowl",
+   "covers": "a loss as a landscape, the gradient as the steepest uphill direction, stepping the other way, the learning rate and what too large and too small each look like, two descent steps worked by hand, local minima and flat regions, why real training takes a small batch at a time",
+   "links": {
+    "builds_on": [
+     "linear-regression",
+     "derivative"
+    ],
+    "related": [
+     "derivative",
+     "linear-regression",
+     "loss-functions",
+     "neural-nets",
+     "regularization"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "hypothesis-testing",
+   "title": "Hypothesis Testing and p Values Without the Confusion",
+   "series": "ai-ml",
+   "order": 6,
+   "phase": 1,
+   "status": "planned",
+   "visual": "a null distribution of coin flip results with the observed result landing out in the tail, that tail area filling in",
+   "covers": "the null hypothesis as the boring explanation, what a p value is and the three things it is not, the tail area picture, a significance level as a line somebody chose, a coin flipping test worked through, type one and type two errors, why a small p value says nothing about the size of an effect",
+   "links": {
+    "builds_on": [
+     "bayes-examples",
+     "probability-distributions",
+     "standard-deviation"
+    ],
+    "related": [
+     "bayes-examples",
+     "clt-visual",
+     "confidence-intervals",
+     "prosecutors-fallacy"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": "Promised as the next video at the end of Bayes' Theorem ('p-values ... flips the question, like mistake one'). Open with that callback."
+  },
+  {
+   "slug": "probability-for-ml",
+   "title": "Probability for Machine Learning: The Basics You Actually Need",
+   "series": "ai-ml",
+   "order": 7,
+   "phase": 1,
+   "status": "planned",
+   "visual": "a grid of outcomes shading in as events are joined and intersected, then the whole grid reweighting when a condition is applied",
+   "covers": "sample space and events, the addition and multiplication rules, independence tested rather than assumed, conditional probability as throwing away part of the grid, joint and marginal probability, a worked example on two features, where each of these is hiding inside a model",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "birthday-paradox",
+     "random-variables"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "confusion-matrix",
+   "title": "The Confusion Matrix Explained: Accuracy, Precision and Recall",
+   "series": "ai-ml",
+   "order": 8,
+   "phase": 1,
+   "status": "planned",
+   "visual": "a two by two grid of predictions filling with cases, then precision and recall lighting up a different column and row of the same grid",
+   "covers": "the four outcomes named carefully, accuracy and why it lies about a rare class, precision as a question about your alerts, recall as a question about what you missed, the f one score as a compromise, a worked screening example with real counts, choosing which of the two errors you would rather make",
+   "links": {
+    "builds_on": [
+     "bayes-examples"
+    ],
+    "related": [
+     "bayes-examples",
+     "logistic-regression",
+     "naive-bayes"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "matmul-for-ml",
+   "title": "Matrix Multiplication for Machine Learning: A Visual Guide",
+   "series": "ai-ml",
+   "order": 9,
+   "phase": 1,
+   "status": "planned",
+   "visual": "a batch of data rows sliding across a weight matrix, each dot product lighting the row and column it came from, the output shape assembling",
+   "covers": "the row by column rule shown as a row of dot products, shapes and why the inner dimensions must match, a worked two by three times three by two, one layer of a network as a single multiplication, why order matters, what the transpose is for, why hardware is built to do exactly this",
+   "links": {
+    "builds_on": [
+     "vectors-norms"
+    ],
+    "related": [
+     "neural-nets",
+     "why-linear-algebra"
+    ],
+    "overlaps": [
+     "matrix-multiplication"
+    ]
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "clt-visual",
+   "title": "The Central Limit Theorem Explained Visually",
+   "series": "ai-ml",
+   "order": 10,
+   "phase": 1,
+   "status": "planned",
+   "visual": "samples drawn from a deliberately lopsided distribution, each sample's mean dropping into a second histogram that grows into a bell",
+   "covers": "the distribution of the data against the distribution of its mean, many samples drawn from an ugly shape, the bell appearing anyway, the standard error shrinking with the square root of the sample size, what the theorem requires and what it does not promise, why confidence intervals and tests rest on it",
+   "links": {
+    "builds_on": [
+     "standard-deviation",
+     "histograms"
+    ],
+    "related": [
+     "hypothesis-testing"
+    ],
+    "overlaps": [
+     "central-limit"
+    ]
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "probability-distributions",
+   "title": "Probability Distributions for Data Science: Normal, Binomial and More",
+   "series": "ai-ml",
+   "order": 11,
+   "phase": 2,
+   "status": "planned",
+   "visual": "a shelf of distributions drawing themselves in turn, their parameters on sliders so each shape stretches and shifts",
+   "covers": "a distribution as a rule for how likely each outcome is, discrete against continuous, the binomial built from repeated trials, the normal and its two parameters, the Poisson for counts, the uniform and the exponential in a sentence each, picking one by asking what generated the data",
+   "links": {
+    "builds_on": [
+     "probability-for-ml",
+     "histograms"
+    ],
+    "related": [
+     "random-variables"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "confidence-intervals",
+   "title": "Confidence Intervals Explained Like You Are Twelve",
+   "series": "ai-ml",
+   "order": 12,
+   "phase": 2,
+   "status": "planned",
+   "visual": "a hundred samples drawn one after another, each drawing its own interval bar, about five of them missing the true value",
+   "covers": "estimating a whole from a sample, the interval as a range of plausible values, what ninety five percent confidence actually refers to, the wrong reading that the true value has a probability of sitting inside, margin of error, what makes an interval narrow, a worked interval on a poll",
+   "links": {
+    "builds_on": [
+     "clt-visual",
+     "standard-deviation"
+    ],
+    "related": [
+     "hypothesis-testing"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "vectors-norms",
+   "title": "Vectors, Norms and Distance for Machine Learning",
+   "series": "ai-ml",
+   "order": 13,
+   "phase": 2,
+   "status": "planned",
+   "visual": "one data point drawn as an arrow, its length measured three ways, the unit ball of each norm morphing from a diamond to a circle to a square",
+   "covers": "a row of data as a vector, adding and scaling, the dot product and what its sign tells you, the straight line norm, the city block norm, normalising to unit length and why models want that, distance against similarity",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "distance-metrics",
+     "fourth-dimension",
+     "pythagoras",
+     "vectors-matrices"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "loss-functions",
+   "title": "Loss Functions in Machine Learning Explained",
+   "series": "ai-ml",
+   "order": 14,
+   "phase": 2,
+   "status": "planned",
+   "visual": "one prediction sliding along a number line while three loss curves above it rise at different rates, squared error steepening fastest",
+   "covers": "a loss as the score for being wrong, mean squared error, mean absolute error and how differently each treats an outlier, cross entropy for probabilities and why a confident mistake is punished so hard, a loss worked on three predictions, choosing a loss as a statement about what you care about",
+   "links": {
+    "builds_on": [
+     "mean-vs-median",
+     "linear-regression"
+    ],
+    "related": [
+     "entropy-information-gain",
+     "gradient-descent",
+     "linear-regression",
+     "regression-metrics"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "logistic-regression",
+   "title": "Logistic Regression Explained: Who Survived the Titanic?",
+   "series": "ai-ml",
+   "order": 15,
+   "phase": 2,
+   "status": "planned",
+   "visual": "a straight line failing to fit labels pinned at zero and one, then bending into an s curve as passengers slide to their predicted probabilities",
+   "covers": "why a straight line cannot predict a yes or no, the sigmoid squashing any number into a probability, odds and log odds in plain words, reading a coefficient as a change in odds, the decision threshold as a separate choice, one passenger's prediction worked all the way through",
+   "links": {
+    "builds_on": [
+     "linear-regression",
+     "probability-for-ml"
+    ],
+    "related": [
+     "confusion-matrix",
+     "roc-curve"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "regression-metrics",
+   "title": "R Squared, MSE and RMSE: How Good Is Your Model?",
+   "series": "ai-ml",
+   "order": 16,
+   "phase": 2,
+   "status": "planned",
+   "visual": "a fitted line with its residuals squared into tiles, beside the same points fitted only by their mean, the two tiled areas compared",
+   "covers": "mean squared error and why its units are strange, taking the root to get back to real units, mean absolute error for contrast, r squared as the fraction of variation explained, the baseline it is measured against, why r squared always rises when you add a column, adjusted r squared, a full worked calculation",
+   "links": {
+    "builds_on": [
+     "linear-regression",
+     "standard-deviation"
+    ],
+    "related": [
+     "linear-regression",
+     "loss-functions"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "pca",
+   "title": "PCA Explained Simply: Principal Component Analysis for Beginners",
+   "series": "ai-ml",
+   "order": 17,
+   "phase": 2,
+   "status": "planned",
+   "visual": "an elongated cloud of points with a pair of axes rotating until the first lies along the longest spread, then the cloud flattening onto it",
+   "covers": "too many columns as the problem, variance treated as information, finding the direction of greatest spread, the second component being perpendicular, projecting the data down, choosing how many components to keep, why the components are hard to name, what is lost",
+   "links": {
+    "builds_on": [
+     "standard-deviation",
+     "eigenvectors",
+     "vectors-norms"
+    ],
+    "related": [
+     "distance-metrics",
+     "svd"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "roc-curve",
+   "title": "The ROC Curve Explained Simply",
+   "series": "ai-ml",
+   "order": 18,
+   "phase": 2,
+   "status": "planned",
+   "visual": "a threshold slider sweeping across two overlapping score distributions while the true and false positive rates trace a curve in a unit square",
+   "covers": "a classifier as scores before it is labels, the threshold as a dial, true positive rate and false positive rate, the curve traced as the dial turns, the diagonal as random guessing, the area under the curve and what it means, why it flatters a model on an imbalanced set, the precision recall curve as the honest alternative",
+   "links": {
+    "builds_on": [
+     "confusion-matrix"
+    ],
+    "related": [
+     "logistic-regression"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "histograms",
+   "title": "Histograms and Data Distributions Explained Simply",
+   "series": "ai-ml",
+   "order": 19,
+   "phase": 2,
+   "status": "planned",
+   "visual": "raw data points dropping into bins, the bin width widening and narrowing until a second peak appears and disappears",
+   "covers": "turning a list of numbers into a shape, bins and why the width changes the story, reading centre and spread and skew straight off the picture, bimodal data and what it usually means, long tails, histograms against bar charts, what a box plot shows that a histogram hides",
+   "links": {
+    "builds_on": [
+     "data-types"
+    ],
+    "related": [
+     "mean-vs-median",
+     "standard-deviation"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "random-variables",
+   "title": "Expected Value and Variance: Random Variables Made Easy",
+   "series": "ai-ml",
+   "order": 20,
+   "phase": 2,
+   "status": "planned",
+   "visual": "a spinner landing again and again, the running average settling onto a line while the individual results keep swinging wide",
+   "covers": "a random variable as a number attached to chance, expectation as a weighted average, a worked expected value for a dice game, variance as the expected squared distance from the mean, the standard deviation back in the original units, why expectations add, what happens to the mean and the spread when you add two variables",
+   "links": {
+    "builds_on": [
+     "probability-for-ml"
+    ],
+    "related": [
+     "probability-distributions",
+     "probability-for-ml",
+     "standard-deviation"
+    ],
+    "overlaps": [
+     "expected-value"
+    ]
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "data-types",
+   "title": "Types of Data in Statistics: Nominal, Ordinal, Interval and Ratio",
+   "series": "ai-ml",
+   "order": 21,
+   "phase": 2,
+   "status": "planned",
+   "visual": "a table's columns sorted into four trays, each tray gaining the operations it permits, an attempt to average a nominal column visibly breaking",
+   "covers": "the four scales with a real column for each, what nominal data forbids, ordinal data where the gaps are not equal, interval data with no true zero, ratio data where division finally makes sense, which summary and which plot each one allows, one hot encoding as what a model needs from a category",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "mean-vs-median"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "why-linear-algebra",
+   "title": "Why Machine Learning Needs Linear Algebra",
+   "series": "ai-ml",
+   "order": 22,
+   "phase": 2,
+   "status": "planned",
+   "visual": "a spreadsheet of data hardening into a matrix, then flowing through a weight matrix as one block instead of one row at a time",
+   "covers": "data as vectors and matrices, a whole batch handled in one operation, a model layer as a matrix times a vector plus a shift, loops replaced by multiplications, dimensions as the shape of the problem, the handful of operations that do nearly all of the work",
+   "links": {
+    "builds_on": [
+     "vectors-norms"
+    ],
+    "related": [
+     "matmul-for-ml"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "inverse-rank-determinant",
+   "title": "Matrix Inverse, Rank and Determinant Explained Simply",
+   "series": "ai-ml",
+   "order": 23,
+   "phase": 3,
+   "status": "planned",
+   "visual": "a grid transformed and then transformed back, then a second matrix flattening the same grid onto a line with no way home",
+   "covers": "the inverse as undoing a transformation, the determinant as the area scale factor, what a zero determinant means, rank as the number of independent directions, why a singular matrix cannot be inverted, a worked two by two inverse, when a system has one solution and none and infinitely many, why nearly singular data wrecks a regression",
+   "links": {
+    "builds_on": [
+     "matmul-for-ml"
+    ],
+    "related": [],
+    "overlaps": [
+     "determinant"
+    ]
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "naive-bayes",
+   "title": "How Spam Filters Work: Naive Bayes Explained",
+   "series": "ai-ml",
+   "order": 24,
+   "phase": 3,
+   "status": "planned",
+   "visual": "an email's words dropping into two tallies, each word swinging a needle toward spam or not spam, the final probability settling",
+   "covers": "words as evidence, the naive independence assumption stated and admitted to be false, multiplying likelihoods, the prior as how much spam you actually get, a three word email classified all the way through, why logs are used instead of products, why it works so well despite the wrong assumption",
+   "links": {
+    "builds_on": [
+     "bayes-examples"
+    ],
+    "related": [
+     "bayes-examples",
+     "confusion-matrix",
+     "tf-idf"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "tf-idf",
+   "title": "TF IDF Explained: How Search Engines Rank Words",
+   "series": "ai-ml",
+   "order": 25,
+   "phase": 3,
+   "status": "planned",
+   "visual": "a shelf of documents with one word's count rising inside one document while its presence across every document dims its weight",
+   "covers": "term frequency as how often a word appears, why a word common to everything has to be discounted, document frequency and the inverse log, the two multiplied, a worked score for one word in a tiny collection, documents turned into vectors, cosine similarity for ranking, what this cannot see",
+   "links": {
+    "builds_on": [
+     "vectors-norms"
+    ],
+    "related": [
+     "distance-metrics",
+     "naive-bayes"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "entropy-information-gain",
+   "title": "Entropy and Information Gain: How a Decision Tree Decides",
+   "series": "ai-ml",
+   "order": 26,
+   "phase": 3,
+   "status": "planned",
+   "visual": "a mixed bag of two coloured balls with an entropy meter beside it, a candidate split dividing the bag and the meter dropping",
+   "covers": "entropy as how surprised you expect to be, the entropy of a pure bag and of a fifty fifty bag, scoring a split by how much entropy it removes, information gain computed for two competing splits, gini impurity as the usual alternative, why greedy splitting can be fooled, where overfitting creeps in",
+   "links": {
+    "builds_on": [
+     "probability-for-ml"
+    ],
+    "related": [
+     "loss-functions"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "distance-metrics",
+   "title": "Distance in Machine Learning: Euclidean, Cosine and Mahalanobis",
+   "series": "ai-ml",
+   "order": 27,
+   "phase": 3,
+   "status": "planned",
+   "visual": "two points measured by a straight ruler, then by the angle between their arrows, then measured again on a stretched correlated cloud",
+   "covers": "straight line distance, city block distance, why raw scale ruins a distance and what standardising fixes, cosine similarity caring about direction and not length, why that is right for text, Mahalanobis distance accounting for correlation, picking a metric for a nearest neighbour model",
+   "links": {
+    "builds_on": [
+     "vectors-norms",
+     "standard-deviation"
+    ],
+    "related": [
+     "pca",
+     "tf-idf",
+     "vectors-norms"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "multiple-regression",
+   "title": "Multiple Regression and Dummy Variables Explained",
+   "series": "ai-ml",
+   "order": 28,
+   "phase": 3,
+   "status": "planned",
+   "visual": "a plane tilting through a three dimensional cloud, then a category switching on and shifting the whole plane upward",
+   "covers": "more than one predictor, a coefficient as an effect with the others held fixed, fitting a plane instead of a line, encoding a category as zero one dummies, the dropped baseline category and why one has to go, reading a coefficient table, correlated predictors and the confusion they cause",
+   "links": {
+    "builds_on": [
+     "linear-regression"
+    ],
+    "related": [
+     "regression-matrices"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "regularization",
+   "title": "Ridge, Lasso and Elastic Net: Regularization Explained",
+   "series": "ai-ml",
+   "order": 29,
+   "phase": 3,
+   "status": "planned",
+   "visual": "a wildly overfitted curve relaxing toward a straighter one as a penalty slider rises, coefficient bars shrinking and some snapping to zero",
+   "covers": "overfitting as memorising noise, a penalty on the size of the coefficients, ridge shrinking everything with squares, lasso driving some coefficients to exactly zero with absolute values, why that makes lasso a feature selector, elastic net as the blend, choosing the penalty by cross validation, why the columns must be scaled first",
+   "links": {
+    "builds_on": [
+     "multiple-regression",
+     "loss-functions"
+    ],
+    "related": [
+     "gradient-descent"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "convolutions",
+   "title": "Convolutions Explained: How Image Filters Work",
+   "series": "ai-ml",
+   "order": 30,
+   "phase": 3,
+   "status": "planned",
+   "visual": "a three by three kernel sliding over a grid of pixels, each window's weighted sum dropping into an output grid until the edges light up",
+   "covers": "a kernel as a small weighted window, sliding and multiplying and summing, a blur and an edge detector both worked by hand, stride and padding and what happens at the border, why the output comes out smaller, the same kernel finding the same feature anywhere in the picture, why a network learns its kernels instead of being handed them",
+   "links": {
+    "builds_on": [
+     "matmul-for-ml"
+    ],
+    "related": [
+     "fourier-transform",
+     "matrix-image-transforms"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "prosecutors-fallacy",
+   "title": "The Prosecutors Fallacy: The Statistics Trap Smart People Fall For",
+   "series": "ai-ml",
+   "order": 31,
+   "phase": 3,
+   "status": "planned",
+   "visual": "two conditional probabilities written as boxes and then swapped, a population square showing how many innocent people share the same evidence",
+   "covers": "the probability of the evidence given innocence against the probability of innocence given the evidence, why swapping them is not harmless, a one in a million match inside a large city, the population calculation worked out, how the same swap appears in medical testing, the base rate as the missing piece, how to catch the swap in any claim you are shown",
+   "links": {
+    "builds_on": [
+     "bayes-examples"
+    ],
+    "related": [
+     "bayes-examples",
+     "hypothesis-testing"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "matrix-image-transforms",
+   "title": "How Matrices Rotate and Scale Images",
+   "series": "ai-ml",
+   "order": 32,
+   "phase": 3,
+   "status": "planned",
+   "visual": "an image's corner points riding a transforming grid as it rotates, scales, shears and flips, each move with its matrix shown beside it",
+   "covers": "a pixel position as a vector, the rotation matrix built out of sine and cosine, the scaling and shearing and reflection matrices, composing two moves by multiplying, why the order changes the result, why translation needs an extra coordinate, why the output has to be resampled, where this shows up in training data",
+   "links": {
+    "builds_on": [
+     "matmul-for-ml"
+    ],
+    "related": [
+     "convolutions",
+     "vectors-matrices"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "log-transformation",
+   "title": "Log Transformation in Machine Learning: When and Why",
+   "series": "ai-ml",
+   "order": 33,
+   "phase": 3,
+   "status": "planned",
+   "visual": "a right skewed income histogram stretched out, then compressing into a nearly symmetric shape as the axis turns logarithmic",
+   "covers": "what a logarithm does to large numbers, right skew and long tails as the problem, the transform pulling the tail in, what it does to the assumptions under a regression, reading a coefficient on a logged column as a percentage change, the zero problem and the log of one plus x fix, when not to transform",
+   "links": {
+    "builds_on": [
+     "histograms",
+     "mean-vs-median"
+    ],
+    "related": [
+     "compound-interest",
+     "mean-vs-median",
+     "why-e"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "regression-matrices",
+   "title": "Linear Regression With Matrices: The Maths Behind the Model",
+   "series": "ai-ml",
+   "order": 34,
+   "phase": 4,
+   "status": "planned",
+   "visual": "a column of outcomes and a design matrix assembling, the exact solution landing in one step while a gradient descent path crawls to the same point",
+   "covers": "stacking the data into a design matrix, the model written as one matrix multiplication, squared error as a single expression, the normal equations and the closed form solution, projection onto the column space as the picture behind it, what an unstable inverse means in practice, when to solve directly and when to descend",
+   "links": {
+    "builds_on": [
+     "multiple-regression",
+     "matmul-for-ml",
+     "inverse-rank-determinant"
+    ],
+    "related": [
+     "multiple-regression"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "interaction-effects",
+   "title": "Interaction Effects in Regression Explained Simply",
+   "series": "ai-ml",
+   "order": 35,
+   "phase": 4,
+   "status": "planned",
+   "visual": "two fitted lines for two groups starting out parallel, then one tilting as an interaction term switches on",
+   "covers": "a main effect as one slope for everybody, an interaction as a slope that depends on another column, the product term that encodes it, reading all four coefficients of a two way interaction, a worked prediction for each group, why the main effects have to stay in the model, centring so the coefficients mean something, how fast interactions overfit",
+   "links": {
+    "builds_on": [
+     "multiple-regression"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "diff-in-diff",
+   "title": "Difference in Differences Explained: Causal Inference for Beginners",
+   "series": "ai-ml",
+   "order": 36,
+   "phase": 4,
+   "status": "planned",
+   "visual": "two outcome lines rising together before a policy date, one jumping after, the counterfactual carrying on as a dashed line while the gap is measured",
+   "covers": "why before and after alone is not evidence, why treated against untreated alone is not either, differencing both to cancel the fixed gap and the shared trend, the parallel trends assumption named as the thing that can fail, a two by two table of means worked out, checking the pre trends, what breaks it",
+   "links": {
+    "builds_on": [
+     "multiple-regression",
+     "interaction-effects"
+    ],
+    "related": [
+     "simpsons-paradox"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "pythagoras",
+   "title": "Why Does a Squared Plus b Squared Equal c Squared?",
+   "series": "seeing-why",
+   "order": 1,
+   "phase": null,
+   "status": "scripted",
+   "visual": "two squares on the legs shearing and sliding until they fill the square on the hypotenuse",
+   "covers": "what the theorem actually claims about areas rather than lengths, the shearing proof, why it fails for non-right triangles, the converse used for checking square corners",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "vectors-norms"
+    ],
+    "overlaps": []
+   },
+   "production": {
+    "script": "channel/lesson-lab/pythagoras/script.txt"
+   },
+   "youtube": null,
+   "notes": "Lesson Lab draft script (5-8 min, written for the old Lesson Lab); rewrite to the channel prompt when produced."
+  },
+  {
+   "slug": "gauss-sum",
+   "title": "Adding 1 to 100 Without Adding",
+   "series": "seeing-why",
+   "order": 2,
+   "phase": null,
+   "status": "planned",
+   "visual": "a staircase of dots duplicating, flipping and locking into a clean rectangle",
+   "covers": "the pairing trick, the rectangle picture, deriving n times n plus one over two, what happens for odd n",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "infinite-sum"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "circle-area",
+   "title": "Why Is a Circle's Area pi r Squared?",
+   "series": "seeing-why",
+   "order": 3,
+   "phase": null,
+   "status": "planned",
+   "visual": "concentric rings unrolling into stacked strips that settle into a triangle of height r and base two pi r",
+   "covers": "circumference as the definition of pi, unrolling rings, the triangle area, why the limit argument is honest",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "integral",
+     "pi-in-a-square"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "pi-in-a-square",
+   "title": "Pi Is Hiding Inside a Square",
+   "series": "seeing-why",
+   "order": 4,
+   "phase": null,
+   "status": "planned",
+   "visual": "random dots filling a square, the ones inside the quarter circle lighting up, the running ratio converging",
+   "covers": "area ratio equals pi over four, why random sampling estimates area, how fast it converges, Monte Carlo as a real method",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "buffon-needle",
+     "circle-area"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "infinite-sum",
+   "title": "The Square That Proves an Infinite Sum",
+   "series": "seeing-why",
+   "order": 5,
+   "phase": null,
+   "status": "planned",
+   "visual": "a unit square halved, then quartered, each piece shaded in turn, never quite finishing",
+   "covers": "one half plus one quarter plus one eighth equals one, what convergence means, a divergent example for contrast",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "gauss-sum",
+     "taylor"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "point-nine-repeating",
+   "title": "Why Zero Point Nine Repeating Equals One",
+   "series": "seeing-why",
+   "order": 6,
+   "phase": null,
+   "status": "planned",
+   "visual": "a number line zooming in forever and never finding a gap",
+   "covers": "the algebra argument, the no-gap argument, the usual objection answered, what a decimal expansion really means",
+   "links": {
+    "builds_on": [
+     "infinite-sum"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "handshakes",
+   "title": "The Handshake Problem",
+   "series": "seeing-why",
+   "order": 7,
+   "phase": null,
+   "status": "planned",
+   "visual": "people on a circle, every edge drawn one by one, the count ticking up",
+   "covers": "counting pairs, why you divide by two, n choose two, the same formula appearing in networks and tournaments",
+   "links": {
+    "builds_on": [
+     "gauss-sum"
+    ],
+    "related": [
+     "birthday-paradox",
+     "konigsberg"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "angle-trisection",
+   "title": "Why You Cannot Trisect an Angle",
+   "series": "seeing-why",
+   "order": 8,
+   "phase": null,
+   "status": "planned",
+   "visual": "a lattice of constructible points growing by compass and straightedge, never reaching the target",
+   "covers": "what the rules allow, doubling versus trisecting, why this is a statement about numbers not about drawing skill",
+   "links": {
+    "builds_on": [],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "derivative",
+   "title": "What a Derivative Really Is",
+   "series": "calculus",
+   "order": 1,
+   "phase": null,
+   "status": "planned",
+   "visual": "secant lines sweeping into a tangent as a graph is zoomed until the curve looks straight",
+   "covers": "average versus instant rate, local straightness, the limit of the slope, reading a derivative off a graph",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "gradient-descent"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "chain-rule",
+   "title": "The Chain Rule, Drawn as Gears",
+   "series": "calculus",
+   "order": 2,
+   "phase": null,
+   "status": "planned",
+   "visual": "nested gears turning at different speeds, their ratios multiplying",
+   "covers": "composition as a chain of rates, why the rates multiply, a worked example, the mistake of forgetting the inner derivative",
+   "links": {
+    "builds_on": [
+     "derivative"
+    ],
+    "related": [
+     "neural-nets"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "integral",
+   "title": "Integration Is Just Adding Slices",
+   "series": "calculus",
+   "order": 3,
+   "phase": null,
+   "status": "planned",
+   "visual": "rectangles under a curve narrowing until the gaps vanish",
+   "covers": "area as a sum, why thinner is better, the limit, a worked definite integral",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "circle-area"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "ftc",
+   "title": "The Fundamental Theorem, in One Animation",
+   "series": "calculus",
+   "order": 4,
+   "phase": null,
+   "status": "planned",
+   "visual": "area sweeping out under a curve while a second graph plots that area, its slope matching the first curve",
+   "covers": "why area and slope are inverse operations, the two statements of the theorem, why it makes integrals computable at all",
+   "links": {
+    "builds_on": [
+     "derivative",
+     "integral"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "taylor",
+   "title": "Building a Curve Out of Polynomials",
+   "series": "calculus",
+   "order": 5,
+   "phase": null,
+   "status": "planned",
+   "visual": "sine assembled term by term, each new degree hugging the true curve further out",
+   "covers": "matching value then slope then curvature, the sine series, radius of convergence, why calculators use this",
+   "links": {
+    "builds_on": [
+     "derivative"
+    ],
+    "related": [
+     "infinite-sum",
+     "why-e"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "why-e",
+   "title": "Why e Is Everywhere",
+   "series": "calculus",
+   "order": 6,
+   "phase": null,
+   "status": "planned",
+   "visual": "compound interest intervals shrinking toward a limit, then a curve whose height equals its own slope",
+   "covers": "the compounding limit, the self-derivative property, growth and decay, where e shows up outside maths class",
+   "links": {
+    "builds_on": [
+     "derivative"
+    ],
+    "related": [
+     "compound-interest",
+     "log-transformation",
+     "taylor"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "related-rates",
+   "title": "Related Rates Without Panic",
+   "series": "calculus",
+   "order": 7,
+   "phase": null,
+   "status": "planned",
+   "visual": "a ladder sliding down a wall and a cone filling with water, both with live measurements",
+   "covers": "naming the quantities, differentiating the relationship, substituting only at the end, a full worked problem",
+   "links": {
+    "builds_on": [
+     "chain-rule"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "epsilon-delta",
+   "title": "The Epsilon Delta Definition, Finally Visual",
+   "series": "calculus",
+   "order": 8,
+   "phase": null,
+   "status": "planned",
+   "visual": "a horizontal tube around the limit value shrinking, and a vertical band responding",
+   "covers": "the challenge and response game, why the order of the quantifiers matters, a limit that fails the test",
+   "links": {
+    "builds_on": [
+     "derivative"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "vectors-matrices",
+   "title": "Vectors Are Arrows, Matrices Are Motions",
+   "series": "linear-algebra",
+   "order": 1,
+   "phase": null,
+   "status": "planned",
+   "visual": "a grid stretching, rotating and shearing while the arrows ride along with it",
+   "covers": "a vector as arrow and as list, a matrix as what it does to the grid, where the columns come from",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "matrix-image-transforms",
+     "vectors-norms"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "determinant",
+   "title": "The Determinant Is How Much Area Got Stretched",
+   "series": "linear-algebra",
+   "order": 2,
+   "phase": null,
+   "status": "planned",
+   "visual": "a unit square deforming into a parallelogram, its area read out live, then flipping negative",
+   "covers": "area scale factor, what zero means, what a negative sign means, why singular matrices cannot be undone",
+   "links": {
+    "builds_on": [
+     "vectors-matrices"
+    ],
+    "related": [],
+    "overlaps": [
+     "inverse-rank-determinant"
+    ]
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "eigenvectors",
+   "title": "Eigenvectors: The Directions That Do Not Turn",
+   "series": "linear-algebra",
+   "order": 3,
+   "phase": null,
+   "status": "planned",
+   "visual": "a grid transforming while two special arrows only stretch, glowing as they hold their line",
+   "covers": "the defining equation in words, finding them for a two by two, eigenvalues as stretch factors, repeated application",
+   "links": {
+    "builds_on": [
+     "vectors-matrices"
+    ],
+    "related": [
+     "change-of-basis"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "matrix-multiplication",
+   "title": "Matrix Multiplication Is Composition",
+   "series": "linear-algebra",
+   "order": 4,
+   "phase": null,
+   "status": "planned",
+   "visual": "two transformations applied in sequence, then the single matrix that does both at once",
+   "covers": "why the row by column rule looks strange, why order matters, the identity, what inverses undo",
+   "links": {
+    "builds_on": [
+     "vectors-matrices"
+    ],
+    "related": [],
+    "overlaps": [
+     "matmul-for-ml"
+    ]
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "linear-dependence",
+   "title": "What Does Linearly Dependent Look Like?",
+   "series": "linear-algebra",
+   "order": 5,
+   "phase": null,
+   "status": "planned",
+   "visual": "three arrows in space, the span collapsing from a volume to a plane to a line",
+   "covers": "span, independence, rank as dimension of the output, why this decides whether a system has a solution",
+   "links": {
+    "builds_on": [
+     "vectors-matrices"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "change-of-basis",
+   "title": "Same Vector, Different Language",
+   "series": "linear-algebra",
+   "order": 6,
+   "phase": null,
+   "status": "planned",
+   "visual": "one fixed arrow with two different grids laid over it, each reading off different coordinates",
+   "covers": "coordinates as a description not a thing, translating between bases, why a good basis makes a problem easy",
+   "links": {
+    "builds_on": [
+     "vectors-matrices"
+    ],
+    "related": [
+     "eigenvectors"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "svd",
+   "title": "Every Matrix Is a Rotate, Stretch, Rotate",
+   "series": "linear-algebra",
+   "order": 7,
+   "phase": null,
+   "status": "planned",
+   "visual": "a circle becoming an ellipse in three staged moves",
+   "covers": "the three factors, singular values as the ellipse axes, low rank approximation, image compression",
+   "links": {
+    "builds_on": [
+     "eigenvectors",
+     "change-of-basis"
+    ],
+    "related": [
+     "compression",
+     "pca"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "neural-nets",
+   "title": "Why Neural Networks Are Mostly Linear Algebra",
+   "series": "linear-algebra",
+   "order": 8,
+   "phase": null,
+   "status": "planned",
+   "visual": "a layer bending a plane of coloured points until a straight line can separate them",
+   "covers": "a layer as matrix plus shift, why a nonlinearity is needed, what training changes, depth as repeated bending",
+   "links": {
+    "builds_on": [
+     "matrix-multiplication",
+     "chain-rule"
+    ],
+    "related": [
+     "chain-rule",
+     "gradient-descent",
+     "matmul-for-ml"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "monty-hall",
+   "title": "The Monty Hall Problem, One Thousand Games at Once",
+   "series": "probability",
+   "order": 1,
+   "phase": null,
+   "status": "scripted",
+   "visual": "a thousand tiny games playing in a grid, switchers and stayers keeping separate scores",
+   "covers": "the setup stated carefully, why the host's knowledge is the whole point, the two thirds result, the hundred door version",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "bayes-examples"
+    ],
+    "overlaps": []
+   },
+   "production": {
+    "script": "channel/lesson-lab/monty-hall/script.txt"
+   },
+   "youtube": null,
+   "notes": "Lesson Lab draft script (5-8 min, written for the old Lesson Lab); rewrite to the channel prompt when produced."
+  },
+  {
+   "slug": "birthday-paradox",
+   "title": "Twenty Three People, Fifty Fifty Odds",
+   "series": "probability",
+   "order": 2,
+   "phase": null,
+   "status": "planned",
+   "visual": "a room filling up, every pair of birthdays being compared, the probability curve climbing",
+   "covers": "counting pairs not people, computing the complement, the curve, why it feels wrong",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "handshakes",
+     "probability-for-ml",
+     "shuffling"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "bayes",
+   "title": "Bayes Theorem as Shrinking Boxes",
+   "series": "probability",
+   "order": 3,
+   "phase": null,
+   "status": "planned",
+   "visual": "a population square split by illness, then by test result, the true positives shrinking to a sliver",
+   "covers": "base rates, false positives, the medical test shock, updating on evidence in plain words",
+   "links": {
+    "builds_on": [],
+    "related": [],
+    "overlaps": [
+     "bayes-examples"
+    ]
+   },
+   "production": null,
+   "youtube": null,
+   "notes": "Overlaps the produced Bayes video: if made, use a different running example and link back to bayes-examples."
+  },
+  {
+   "slug": "central-limit",
+   "title": "Why the Bell Curve Appears Out of Nowhere",
+   "series": "probability",
+   "order": 4,
+   "phase": null,
+   "status": "planned",
+   "visual": "a Galton board dropping thousands of beads into a shape nobody designed",
+   "covers": "averaging anything, the shape it tends to, what the theorem does and does not promise, why it is everywhere",
+   "links": {
+    "builds_on": [],
+    "related": [],
+    "overlaps": [
+     "clt-visual"
+    ]
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "simpsons-paradox",
+   "title": "Simpsons Paradox: When the Trend Reverses",
+   "series": "probability",
+   "order": 5,
+   "phase": null,
+   "status": "planned",
+   "visual": "two scatter groups each sloping up, their combined cloud sloping down",
+   "covers": "a worked table, the hidden variable, real admissions and treatment examples, how to avoid being fooled",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "diff-in-diff",
+     "mean-vs-median"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "gamblers-ruin",
+   "title": "The Gamblers Ruin",
+   "series": "probability",
+   "order": 6,
+   "phase": null,
+   "status": "planned",
+   "visual": "dozens of random walks racing, most drifting to zero",
+   "covers": "fair games still ending badly, why the house edge compounds, bankroll as the real variable",
+   "links": {
+    "builds_on": [
+     "expected-value"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "buffon-needle",
+   "title": "Finding Pi by Dropping Sticks",
+   "series": "probability",
+   "order": 7,
+   "phase": null,
+   "status": "planned",
+   "visual": "needles raining onto ruled lines, crossings counted, the estimate settling near pi",
+   "covers": "the setup, why pi appears from angles, the running estimate, randomness as a measuring tool",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "pi-in-a-square"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "expected-value",
+   "title": "Expected Value Versus What Happens to You",
+   "series": "probability",
+   "order": 8,
+   "phase": null,
+   "status": "planned",
+   "visual": "a long run average flattening while individual runs swing wildly",
+   "covers": "how to compute it, why it is not a prediction, the lottery, when a positive expectation still ruins you",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "optimal-stopping"
+    ],
+    "overlaps": [
+     "random-variables"
+    ]
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "epicycles",
+   "title": "Any Shape, Drawn With Circles",
+   "series": "fourier",
+   "order": 1,
+   "phase": null,
+   "status": "planned",
+   "visual": "a chain of rotating circles tracing a signature, then a face, in one continuous line",
+   "covers": "adding rotations, amplitude and frequency and phase, why enough circles draw anything",
+   "links": {
+    "builds_on": [],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "fourier-transform",
+   "title": "What a Fourier Transform Actually Does",
+   "series": "fourier",
+   "order": 2,
+   "phase": null,
+   "status": "planned",
+   "visual": "a signal winding around a circle at varying speeds, the centre of mass spiking at the true frequencies",
+   "covers": "the winding machine idea, why resonance spikes, reading a spectrum, time domain versus frequency domain",
+   "links": {
+    "builds_on": [
+     "epicycles"
+    ],
+    "related": [
+     "convolutions"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "compression",
+   "title": "Why Your Music Files Are So Small",
+   "series": "fourier",
+   "order": 3,
+   "phase": null,
+   "status": "planned",
+   "visual": "a spectrum with small components switched off one by one while the waveform barely changes",
+   "covers": "throwing away what you cannot hear, lossy versus lossless, the same trick in images",
+   "links": {
+    "builds_on": [
+     "fourier-transform"
+    ],
+    "related": [
+     "svd"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "heat-equation",
+   "title": "The Heat Equation and Fouriers Big Idea",
+   "series": "fourier",
+   "order": 4,
+   "phase": null,
+   "status": "planned",
+   "visual": "a hot rod cooling, its temperature profile decomposed into waves that each fade at their own rate",
+   "covers": "how heat spreads, why waves are the natural pieces, high frequencies dying first, smoothing",
+   "links": {
+    "builds_on": [
+     "fourier-transform",
+     "derivative"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "harmonics",
+   "title": "Why a Violin and a Flute Sound Different",
+   "series": "fourier",
+   "order": 5,
+   "phase": null,
+   "status": "planned",
+   "visual": "a string vibrating in modes, each harmonic stacking into the final messy waveform",
+   "covers": "standing waves, the harmonic series, timbre as a recipe of overtones, why the same note is not the same sound",
+   "links": {
+    "builds_on": [
+     "fourier-transform"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "uncertainty",
+   "title": "The Uncertainty Principle Is Just Maths",
+   "series": "fourier",
+   "order": 6,
+   "phase": null,
+   "status": "planned",
+   "visual": "a pulse narrowing in time while its spectrum spreads out",
+   "covers": "the time frequency trade off, short notes having fuzzy pitch, where the physics version comes from",
+   "links": {
+    "builds_on": [
+     "fourier-transform"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "sieve",
+   "title": "The Sieve of Eratosthenes",
+   "series": "number-theory",
+   "order": 1,
+   "phase": null,
+   "status": "planned",
+   "visual": "a grid of numbers with multiples blinking out, primes left standing",
+   "covers": "the algorithm, why you can stop at the square root, how primes thin out",
+   "links": {
+    "builds_on": [],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "infinite-primes",
+   "title": "Why There Are Infinitely Many Primes",
+   "series": "number-theory",
+   "order": 2,
+   "phase": null,
+   "status": "planned",
+   "visual": "a finite list of primes multiplied together and nudged by one, the contradiction landing",
+   "covers": "proof by contradiction in plain words, Euclid's argument step by step, what it does not tell us",
+   "links": {
+    "builds_on": [],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "modular",
+   "title": "Maths on a Clock",
+   "series": "number-theory",
+   "order": 3,
+   "phase": null,
+   "status": "planned",
+   "visual": "a clock face wrapping as numbers march past twelve",
+   "covers": "remainders, adding and multiplying on the clock, checking digits, days of the week",
+   "links": {
+    "builds_on": [],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "rsa",
+   "title": "How RSA Encryption Works, With Small Numbers",
+   "series": "number-theory",
+   "order": 4,
+   "phase": null,
+   "status": "planned",
+   "visual": "a padlock closing with one key and opening with another, backed by a worked numeric example",
+   "covers": "easy one way, hard the other, public and private keys, a full tiny worked example, why factoring size matters",
+   "links": {
+    "builds_on": [
+     "modular",
+     "infinite-primes"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "collatz",
+   "title": "The Collatz Conjecture: Nobody Knows Why",
+   "series": "number-theory",
+   "order": 5,
+   "phase": null,
+   "status": "planned",
+   "visual": "a tree growing backwards from one, swallowing every number tried so far",
+   "covers": "the rule, sample trajectories, what has been checked, why it is unsolved",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "logistic-map"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "fibonacci",
+   "title": "Fibonacci, the Golden Ratio and Sunflowers",
+   "series": "number-theory",
+   "order": 6,
+   "phase": null,
+   "status": "planned",
+   "visual": "spiral seed packing, with ratios of consecutive terms converging",
+   "covers": "the sequence, the ratio limit, why plants use it, where the mysticism is overstated",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "honeycomb"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "riemann",
+   "title": "The Riemann Hypothesis, Explained Honestly",
+   "series": "number-theory",
+   "order": 7,
+   "phase": null,
+   "status": "planned",
+   "visual": "the zeta landscape with zeros lining up along the critical line",
+   "covers": "the prime counting connection, what the zeros are, what the hypothesis claims, why it matters, what is unknown",
+   "links": {
+    "builds_on": [
+     "infinite-primes",
+     "sieve"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "fractals",
+   "title": "Shapes With Fractional Dimension",
+   "series": "shapes-chaos",
+   "order": 1,
+   "phase": null,
+   "status": "planned",
+   "visual": "Koch snowflake and Sierpinski triangle building through iterations",
+   "covers": "self similarity, infinite perimeter with finite area, what a fractional dimension measures, coastlines",
+   "links": {
+    "builds_on": [],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "mandelbrot",
+   "title": "The Mandelbrot Set: Infinite Zoom, One Rule",
+   "series": "shapes-chaos",
+   "order": 2,
+   "phase": null,
+   "status": "planned",
+   "visual": "a deep continuous zoom revealing the same shapes again",
+   "covers": "the iteration rule, what the colours mean, escape versus capture, self similarity at every scale",
+   "links": {
+    "builds_on": [
+     "fractals"
+    ],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "chaos",
+   "title": "Why Weather Cannot Be Predicted",
+   "series": "shapes-chaos",
+   "order": 3,
+   "phase": null,
+   "status": "planned",
+   "visual": "two Lorenz trajectories starting almost together and ending up nowhere near each other",
+   "covers": "sensitivity to initial conditions, deterministic but unpredictable, the forecast horizon, strange attractors",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "traffic"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "logistic-map",
+   "title": "One Equation, Infinite Complexity",
+   "series": "shapes-chaos",
+   "order": 4,
+   "phase": null,
+   "status": "planned",
+   "visual": "the bifurcation diagram drawing itself as the parameter sweeps",
+   "covers": "a population model, period doubling, the route to chaos, order hiding inside it",
+   "links": {
+    "builds_on": [
+     "chaos"
+    ],
+    "related": [
+     "collatz"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "mobius",
+   "title": "A Shape With Only One Side",
+   "series": "shapes-chaos",
+   "order": 5,
+   "phase": null,
+   "status": "planned",
+   "visual": "a strip twisted and joined, a pen tracing both faces without lifting",
+   "covers": "orientability, what cutting it does, the Klein bottle, why topology ignores distance",
+   "links": {
+    "builds_on": [],
+    "related": [],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "konigsberg",
+   "title": "Seven Bridges and the Birth of Graph Theory",
+   "series": "shapes-chaos",
+   "order": 6,
+   "phase": null,
+   "status": "planned",
+   "visual": "a city map dissolving into dots and lines, degrees counted",
+   "covers": "the original puzzle, why it is impossible, the odd degree rule, modern routing",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "handshakes",
+     "pagerank"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "fourth-dimension",
+   "title": "What a Four Dimensional Cube Looks Like",
+   "series": "shapes-chaos",
+   "order": 7,
+   "phase": null,
+   "status": "planned",
+   "visual": "a tesseract rotating, its shadow folding through itself",
+   "covers": "building up by analogy from point to line to square to cube, counting its parts, what a shadow of a shadow means",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "vectors-norms"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "non-euclidean",
+   "title": "When Parallel Lines Meet",
+   "series": "shapes-chaos",
+   "order": 8,
+   "phase": null,
+   "status": "planned",
+   "visual": "a triangle drawn on a sphere with angles summing past one hundred and eighty degrees",
+   "covers": "the parallel postulate, sphere and saddle geometry, triangle angle sums, why this is the geometry of the universe",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "gps"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "gps",
+   "title": "How GPS Does Geometry to Find You",
+   "series": "in-the-wild",
+   "order": 1,
+   "phase": null,
+   "status": "planned",
+   "visual": "expanding spheres from satellites intersecting at one point",
+   "covers": "distance from timing, why three is not quite enough, the clock correction, why relativity shows up",
+   "links": {
+    "builds_on": [
+     "pythagoras",
+     "distance-metrics"
+    ],
+    "related": [
+     "non-euclidean"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "honeycomb",
+   "title": "Why Honeycombs Are Hexagons",
+   "series": "in-the-wild",
+   "order": 2,
+   "phase": null,
+   "status": "planned",
+   "visual": "circles packing, then relaxing into hexagons, perimeters compared",
+   "covers": "which shapes tile, the perimeter cost of each, what the bees are minimising, the proved result",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "fibonacci"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "pagerank",
+   "title": "The Maths Behind Googles Search Ranking",
+   "series": "in-the-wild",
+   "order": 3,
+   "phase": null,
+   "status": "planned",
+   "visual": "a web of pages with importance flowing along links until it settles",
+   "covers": "links as votes, the random surfer, why it converges, its connection to eigenvectors",
+   "links": {
+    "builds_on": [
+     "eigenvectors"
+    ],
+    "related": [
+     "konigsberg"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "shuffling",
+   "title": "When Is a Deck Truly Shuffled?",
+   "series": "in-the-wild",
+   "order": 4,
+   "phase": null,
+   "status": "planned",
+   "visual": "card order as a heat strip, disorder spreading with each riffle",
+   "covers": "measuring randomness, the seven shuffles result, why overhand shuffling fails, casino practice",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "birthday-paradox"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "traffic",
+   "title": "Why Traffic Jams Form With No Accident",
+   "series": "in-the-wild",
+   "order": 5,
+   "phase": null,
+   "status": "planned",
+   "visual": "a ring of cars where one brake tap travels backwards as a wave",
+   "covers": "the simple rules, the backward travelling wave, critical density, why smooth driving helps everyone",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "chaos"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "optimal-stopping",
+   "title": "The Thirty Seven Percent Rule",
+   "series": "in-the-wild",
+   "order": 6,
+   "phase": null,
+   "status": "planned",
+   "visual": "a row of candidates being revealed one at a time, the success rate peaking at a clear cutoff",
+   "covers": "the look then leap strategy, where the number comes from, house hunting and hiring, the honest limits",
+   "links": {
+    "builds_on": [
+     "expected-value"
+    ],
+    "related": [
+     "expected-value"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  },
+  {
+   "slug": "compound-interest",
+   "title": "How Compound Interest Quietly Wins",
+   "series": "in-the-wild",
+   "order": 7,
+   "phase": null,
+   "status": "planned",
+   "visual": "two stacks growing side by side, linear against exponential, until one leaves the screen",
+   "covers": "the formula in words, the rule of seventy two, time beating rate, debt running the same way",
+   "links": {
+    "builds_on": [],
+    "related": [
+     "log-transformation",
+     "why-e"
+    ],
+    "overlaps": []
+   },
+   "production": null,
+   "youtube": null,
+   "notes": ""
+  }
+ ]
+}

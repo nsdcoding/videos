@@ -1,0 +1,15 @@
+{
+  "slug": "standard-deviation",
+  "title": "Standard Deviation and Variance Explained in Ten Minutes",
+  "series": "The Maths Under Machine Learning",
+  "model": "gemini-3.1-pro-preview",
+  "level": "beginner",
+  "target_minutes": 18,
+  "target_words": 2700,
+  "words": 2785,
+  "minutes": 18.6,
+  "errors": [],
+  "warnings": [],
+  "generated": "2026-11-14 11:16:27",
+  "wpm": 150
+}

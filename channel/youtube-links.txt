@@ -1,0 +1,8 @@
+# Math Lab TV: YouTube links for uploaded videos.
+# One line per video:   slug = https://youtu.be/VIDEO_ID
+# The slug is the code in channel/README.md (e.g. bayes-examples, mean-vs-median).
+# Adding a line marks the video "published", and the link is pulled into the
+# "related videos" section of every connected video's description.
+#
+# Example (remove the leading # to use it):
+# mean-vs-median = https://youtu.be/XXXXXXXXXXX

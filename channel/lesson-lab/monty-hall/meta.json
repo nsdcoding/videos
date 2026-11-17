@@ -1,0 +1,15 @@
+{
+  "slug": "monty-hall",
+  "title": "The Monty Hall Problem, One Thousand Games at Once",
+  "series": "Probability That Breaks Your Intuition",
+  "model": "gemini-3.1-pro-preview",
+  "level": "school",
+  "target_minutes": 7,
+  "target_words": 1050,
+  "words": 1216,
+  "minutes": 8.1,
+  "errors": [],
+  "warnings": [],
+  "generated": "2026-10-16 21:35:06",
+  "wpm": 150
+}

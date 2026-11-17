@@ -3,7 +3,8 @@
 import math, pathlib
 from common import CHAPTERS, TIM, SEGS
 
-HERE = pathlib.Path(__file__).parent
+HERE = pathlib.Path(__file__).resolve().parent
+SLUG = "bayes-examples"   # this video's id in channel/catalog.json
 OUT = HERE / "out" / "youtube"; OUT.mkdir(parents=True, exist_ok=True)
 
 TITLES = [
@@ -47,6 +48,11 @@ def chapters():
 def main():
     total = TIM["total"]
     mins = round(total / 60)
+    # related-video links come from the channel tracker (channel/catalog.json + channel/youtube-links.txt)
+    import sys as _s; _s.path.insert(0, str(HERE.parent / "channel"))
+    import channel as _ch
+    related = _ch.desc_block(_ch.load(), SLUG)
+    related = related + "\n\n" if related else ""
     ch = chapters()
     at = lambda sid: ts(SEGS[sid]["start"])
     desc = f"""Bayes' theorem explained simply, with real examples from Machine Learning (ML), Data Science (DS), Finance and Computer Science (CS).
@@ -90,7 +96,7 @@ You take a screening test that catches 9 out of 10 people who have a condition a
 5. Update: when new, independent evidence arrives, the answer becomes the next base rate
 "A test result is a clue, not a verdict."
 
-▶ NEXT VIDEO: p-values. A p-value is often described as "the chance the result is a fluke", but that flips the question, exactly like mistake one. Next time: what a p-value really measures, and why Bayes is the missing piece.
+{related}▶ NEXT VIDEO: p-values. A p-value is often described as "the chance the result is a fluke", but that flips the question, exactly like mistake one. Next time: what a p-value really measures, and why Bayes is the missing piece.
 
 #machinelearning #datascience #statistics
 """

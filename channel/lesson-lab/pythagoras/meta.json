@@ -1,0 +1,15 @@
+{
+  "slug": "pythagoras",
+  "title": "Why Does a Squared Plus b Squared Equal c Squared?",
+  "series": "Seeing Why",
+  "model": "gemini-3.1-pro-preview",
+  "level": "beginner",
+  "target_minutes": 5,
+  "target_words": 750,
+  "words": 876,
+  "minutes": 5.8,
+  "errors": [],
+  "warnings": [],
+  "generated": "2026-10-16 21:33:22",
+  "wpm": 150
+}

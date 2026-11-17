@@ -1,0 +1,33 @@
+Almost everyone can recite the famous equation for a right triangle. But ask someone why adding two squares together magically gives you a third square, and they usually draw a blank. What is actually happening behind those letters?
+
+Welcome to Math Lab T V, where math is something you can see. By the end of this video, you will know exactly why this famous rule is true without memorizing a single thing.
+
+Usually, we are taught this as a formula about lengths. We start with the lengths of two shorter sides of a right triangle. We call them a and b. Then we plug them into an equation to find the longest side, called the hypotenuse. The problem is that thinking only about lengths hides the real secret. The theorem is not actually about lengths at all, but about area.
+
+Look at the right triangle on screen. Let us draw a square on the side called a. The area of this square is a times a, which is a squared. Now we draw another square on the side called b. Its area is b squared. Finally, we draw a big square on the longest side, which is c. This gives it an area of c squared.
+
+The famous equation says you can add the area of the two smaller squares together. It claims they will perfectly fill the big square. Let us see if that is true. We will draw straight lines up from the edges of the bottom square to make a vertical column. Watch what happens to the square on the side called a. We can pull its top corners sideways. This shears the square into a slanted parallelogram that fits inside our new lines.
+
+Notice that the base of this shape stayed the same. Its height stayed the same too. That means its area has not changed at all. It takes up the exact same amount of space as the original square. Now watch as this slanted shape slides down the column. It slides right into the big square at the bottom. It fills up the left side perfectly.
+
+Now look at the second small square on the side called b. We do the exact same thing. We shear it sideways into a parallelogram, keeping its base and height identical. The area remains completely unchanged. Then we slide it down. It fills the empty space on the right side of the big square.
+
+The two smaller squares have transformed and moved. But they have not lost or gained a single drop of area. Together, they fill the giant square exactly. That is what a squared plus b squared equals c squared really means. The area of the two smaller squares equals the area of the large one.
+
+Let us test this with real numbers. Imagine a right triangle where the shortest side is three inches long. The square attached to it has an area of three times three. That gives us nine square inches. The other short side is four inches long. Its square has an area of four times four, which is sixteen square inches.
+
+Now we add those two areas together. Nine plus sixteen equals twenty five. So the big square must have an area of twenty five square inches. To find the length of that longest side, we ask a question. What number times itself equals twenty five? The square root of twenty five is five. This means the longest side is exactly five inches long.
+
+But what happens if our triangle does not have a perfect ninety degree right angle? Watch the screen as we stretch the triangle. We will make the corner angle wider. The longest side gets longer. The square attached to it grows much bigger. Now, the two smaller squares do not have enough area to fill the big one.
+
+If we squish the angle to make it sharp and narrow, the side shrinks. Now the big square is too small. The two smaller squares spill over its edges. The perfect match only happens when the angle is exactly ninety degrees.
+
+Because this match is so perfect, you can use it backwards. If you have a triangle with sides of three, four, and five, you know something. The angle between the short sides is exactly ninety degrees. If the areas match, the corner must be square.
+
+Builders and carpenters use this trick every single day. They lay out the foundation for a house and need the corners to be perfect. Otherwise the walls will sit crooked. They measure three feet down one wall and four feet down the other. If the diagonal line between those points is exactly five feet, the corner is true.
+
+It also works in navigation. A ship might travel thirty miles east and forty miles north. The captain does not need to guess how far they are from home. They can imagine squares on those distances to find the direct path back.
+
+The famous equation is not a random rule about numbers, but a physical truth about space.
+
+Next time you see a formula, ask yourself what shapes are hiding behind the letters. Subscribe to the channel and join us for the next lesson to keep seeing the why behind the math.

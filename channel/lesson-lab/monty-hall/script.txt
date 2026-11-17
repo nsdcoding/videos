@@ -1,0 +1,43 @@
+Imagine you are on a game show and pick a door to win a car. The host opens a different door to show a goat, and offers you a trade. If you trust your gut, you will probably lose.
+
+Welcome to Math Lab T V, where math is something you can see. By the end of this video, you will know exactly why switching doors doubles your chances of winning.
+
+Most people hear this puzzle and immediately think the odds are fifty fifty. There are two doors left closed. One hides a car and one hides a goat. It feels like a coin flip. The common wrong idea is that the host opening a door resets the game into a pure fifty fifty guess. But that leaves people confused when the math says otherwise. Let us look at why human intuition fails here.
+
+Let us state the rules of the game carefully. There are three doors. Behind one is a car. Behind the other two are goats. You choose a door. The host, who knows what is behind every door, opens one of the other two doors. He always reveals a goat. Then he asks if you want to stay with your first choice or switch to the last closed door.
+
+The host opening a door is not a random event. The host's knowledge is the whole point. If he did not know where the car was, and opened a door at random, he might accidentally reveal the car. If he accidentally revealed a goat by pure luck, the odds really would be fifty fifty. But he is not guessing. His choice is restricted by the rules. The host acts like a filter, actively hiding the car and showing you the garbage.
+
+Let us play this game one thousand times at once. Look at the screen. We have a grid of one thousand tiny games playing out. In every single game, the player picks door number one. The car is placed randomly in each game. Sometimes it is behind door one, sometimes two, sometimes three.
+
+Now watch what happens as the host does his job. We will split the board into two teams. The top half are the stayers. They never change their original choice. The bottom half are the switchers. They always take the host up on his offer.
+
+Look at the top half first. These are the stayers. They win if they picked the car on their very first guess. The chance of picking the car out of three doors is one out of three. Watch their games finish. Out of five hundred stayers, about one hundred and sixty seven win a car. They win one third of the time. The host showing a goat changed absolutely nothing for them. Their first guess was a long shot, and it stayed a long shot.
+
+Now watch the switchers on the bottom half. This is where the math feels like magic. A switcher only loses if their first choice was the car. If they picked the car first, the host reveals a goat. They switch, and they get the other goat. They lose. But think about how rare that is. They only pick the car first one third of the time. What happens the rest of the time?
+
+The rest of the time, they pick a goat first. The chance of picking a goat first is two out of three. Look at those specific games lighting up in blue now. The player picks a goat. The host must reveal the other goat. That leaves only the car behind the last closed door. The switcher moves to that door and they win.
+
+Every single time a switcher starts with a goat, they win the car. Because they start with a goat two thirds of the time, they win the car two thirds of the time. Notice the final score on the bottom half of the board. Out of five hundred switchers, about three hundred and thirty three win. They win twice as often as the stayers. The animation shows it clearly. The blue squares dominate the bottom half.
+
+Let us walk through the math with exact numbers to make it solid. Imagine we play exactly three hundred games. In one hundred games, the car is behind door one. In another one hundred games, the car is behind door two. In the final one hundred games, the car is behind door three.
+
+Assume you always pick door one, and assume you always switch. In the first one hundred games, you picked door one, and the car is behind door one. The host opens door two or three. You switch. You get a goat. You lose one hundred times.
+
+In the next one hundred games, you picked door one, but the car is behind door two. The host cannot open door one, because you picked it. He cannot open door two, because the car is there. He must open door three. You switch to door two, and you win one hundred times.
+
+In the final one hundred games, the car is behind door three. You picked door one. The host must open door two. You switch to door three. You win another one hundred times.
+
+Add up your wins. You won one hundred times when the car was behind door two. You won one hundred times when the car was behind door three. That is two hundred wins out of three hundred games. Two hundred divided by three hundred is two thirds. Switching literally doubles your wins.
+
+If it still feels like a coin flip, let us scale the game up. Imagine one hundred doors instead of three. You pick door number one. Your chance of winning right now is one in one hundred. Your chance of being wrong is ninety nine in one hundred.
+
+Now the host, who knows where the car is, opens ninety eight other doors. He reveals ninety eight goats. Only your door and door number seventy three are left closed.
+
+Think about what happened. Did your random first guess suddenly become a fifty fifty chance? No. It is almost certain you picked a goat on your first try. The host filtered out all the other goats for you. He left the car sitting right there behind door seventy three. In this version, switching wins ninety nine percent of the time.
+
+This kind of probability trap shows up in the real world whenever hidden variables filter our choices. In medical testing, a doctor uses Bayz theorem to update the chance you have a disease after a test comes back positive. The test result acts like the host opening a door, changing the odds based on new information. In spam filters, an email is not merely guessed to be spam or not. The filter looks at words to eliminate possibilities, updating the probability it is junk mail exactly like the host eliminates goats.
+
+The host is not giving you a new game, he is giving you the answer to the old game.
+
+If this helped you see the math clearly, please subscribe to Math Lab T V for more. Next time you face a probability puzzle, remember that intuition is a good starting point, but probability is the tool that tells you where you actually stand.

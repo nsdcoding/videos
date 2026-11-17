@@ -50,6 +50,9 @@ You take a screening test that catches 9 out of 10 people who have a condition a
 5. Update: when new, independent evidence arrives, the answer becomes the next base rate
 "A test result is a clue, not a verdict."
 
+📺 RELATED VIDEOS
+• Next: Hypothesis Testing and p Values Without the Confusion (coming soon, subscribe so you don't miss it)
+
 ▶ NEXT VIDEO: p-values. A p-value is often described as "the chance the result is a fluke", but that flips the question, exactly like mistake one. Next time: what a p-value really measures, and why Bayes is the missing piece.
 
 #machinelearning #datascience #statistics
