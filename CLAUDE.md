@@ -3,6 +3,11 @@
 Math Lab TV is a YouTube channel of math explainers for people who are NOT good at math.
 Claude makes every video end to end: script → voice-over → Manim video → YouTube package.
 
+**To make a video, use the `math-lab-video` skill** (`.claude/skills/math-lab-video/`), e.g.
+`/math-lab-video hypothesis testing 15-20`. It holds the full production prompt (SKILL.md), the pipeline
+template, `scripts/new_video.py` (topic + duration → folder, brief, tracker status) and `scripts/sticker.py`
+(generated images). The rest of this file is the summary.
+
 ## Start here: the channel tracker (`channel/`)
 
 | file | what it is |
@@ -10,7 +15,7 @@ Claude makes every video end to end: script → voice-over → Manim video → Y
 | `channel/catalog.json` | **source of truth**: all 96 planned videos in 9 series, their status, what each must cover, the planned visual, and how the videos connect (`builds_on`, `related`, `overlaps`), plus production details of every finished video |
 | `channel/README.md` | the tracker as a page (generated: `python3 channel/channel.py render`; never edit by hand) |
 | `channel/youtube-links.txt` | the owner pastes `slug = URL` here after uploading; a line there = published |
-| `channel/PROMPT.md` | the owner's standing production prompt (structure, checklists, checkpoints, style). Follow it for every video |
+| `.claude/skills/math-lab-video/SKILL.md` | the owner's standing production prompt (structure, checklists, checkpoints, style). Follow it for every video |
 | `channel/lesson-lab/<slug>/` | older draft scripts from the Lesson Lab app (reference only) |
 | `channel/channel.py` | `status`, `show`, `refs`, `next`, `set`, `link`, `desc-block`, `render` |
 
@@ -28,10 +33,9 @@ Claude makes every video end to end: script → voice-over → Manim video → Y
    - `prerequisites_not_made`: give a 1–2 sentence intuition instead of assuming it.
    - `tease_next`: default topic for the NEXT TIME teaser. Confirm it at checkpoint 1.
    - The topic's own `covers` and `visual` in the catalog are the beats and picture the owner planned.
-3. Run `python3 channel/channel.py set <slug> in-production`, then follow `channel/PROMPT.md`
-   exactly (both ⏸ checkpoints). Work in a new folder named after the topic, reusing the newest video
-   folder's pipeline (currently `bayes-theorem/`: script_src.py, tts.py, assemble_audio.py,
-   listen_check.py, common.py, scenes/, build.py, render_all.sh, package.py, thumbs.py).
+3. Run `.claude/skills/math-lab-video/scripts/new_video.py <topic> <duration>` (creates the folder from the
+   template, writes BRIEF.md, sets the topic in-production), then follow the skill's SKILL.md exactly (both
+   ⏸ checkpoints). `bayes-theorem/` is the most recent complete example of every file.
 4. **Description**: `package.py` must include `channel.desc_block(...)` (see `bayes-theorem/package.py`):
    links to connected videos that are live, and the next video.
 5. **When the final video is done**, fill the topic's `production` record in `catalog.json`
@@ -43,8 +47,10 @@ Claude makes every video end to end: script → voice-over → Manim video → Y
 
 ## Owner preferences (keep these)
 
-- **Never use Nano Banana or any image/video generator without the owner's permission.** Draw
-  illustrations in code (SVG/Manim) unless they say otherwise.
+- **Images: Manim/SVG first.** Gemini 2.5 Flash Image ("Nano Banana") is allowed only through the skill's
+  `scripts/sticker.py`, only where Manim is not enough (relatable people, real-world objects, recurring
+  characters), and only for images listed in the visual plan the owner approves at checkpoint 1. Never for
+  numbers, charts, formulas or text, and never outside that workflow without asking.
 - Voice: Google Cloud TTS `en-US-Chirp3-HD-Zubenelgenubi`. Credentials: `GCP_SA_KEY_B64`.
 - Text must never touch frame edges or box borders; the overlap checker in `common.py` enforces it.
 - Thumbnails: keyword headline (e.g. "BAYES' THEOREM / EXPLAINED VISUALLY"), the key formula, a real

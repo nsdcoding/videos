@@ -11,7 +11,7 @@
  "defaults": {
   "target_minutes": "15-20",
   "voice": "en-US-Chirp3-HD-Zubenelgenubi",
-  "prompt": "channel/PROMPT.md"
+  "prompt": ".claude/skills/math-lab-video/SKILL.md"
  },
  "series": [
   {

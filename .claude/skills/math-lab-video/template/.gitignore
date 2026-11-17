@@ -1,0 +1,6 @@
+audio/*.wav
+audio/clips/
+audio/proc/
+build/
+media/
+audio/stt_cache/

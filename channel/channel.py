@@ -105,7 +105,7 @@ def refs(c, slug):
     made = lambda s: c["by"][s]["status"] in DONE
     teaser = (t.get("production") or {}).get("teaser_next")
     return dict(
-        callbacks=[s for s in L["builds_on"] + L["related"] + L["overlaps"] if made(s)],
+        callbacks=list(dict.fromkeys(s for s in L["builds_on"] + L["related"] + L["overlaps"] if made(s))),
         prerequisites_not_made=[s for s in L["builds_on"] if not made(s)],
         promised_by=[x["slug"] for x in c["topics"] if (x.get("production") or {}).get("teaser_next") == slug],
         overlaps=L["overlaps"],
