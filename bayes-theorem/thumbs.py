@@ -3,8 +3,8 @@
 
 Both lead with the keyword headline "BAYES' THEOREM / EXPLAINED VISUALLY" and the colour-coded formula
 (typeset with LaTeX -> SVG), plus a relatable picture from the running example:
-  A: a worried person holding a POSITIVE result (illustration generated with gen.py, background cut out),
-     "90%?" (gut) vs "real chance: 8%".
+  A: where you'll use it: Machine Learning, Data Science, Finance and CS tiles with hand-drawn SVG icons,
+     plus the hook "a positive test: 90% → 8%".
   B: the 1,000-person grid from the video (9 real positives, 99 false alarms lit up) -> 9 vs 99 -> 8%.
 """
 import json, pathlib, re, subprocess
@@ -15,7 +15,6 @@ OUT = HERE / "out" / "youtube"; OUT.mkdir(parents=True, exist_ok=True)
 MINS = round(json.loads((HERE / "timings.json").read_text())["total"] / 60)
 C = dict(bg="#1a1a19", blue="#3987e5", orange="#d95926", aqua="#199e70", violet="#9085e9", warn="#fab219",
          ink="#f0efec", ink2="#c3c2b7", muted="#898781", red="#d03b3b", card="#22221f")
-PERSON = (HERE / "assets" / "worried_cut.png").resolve()
 
 # Same crowd as the video (common.py): 40 x 25, sick = column 0 top ten rows, 99 scattered false alarms
 COLS, ROWS = 40, 25
@@ -67,6 +66,46 @@ def crowd_svg(cell):
     return "\n".join(out), COLS * cell, ROWS * cell
 
 
+def tile(title, outcome, col, icon):
+    return f"""<div style="width:250px;height:200px;background:{C['card']};border:3px solid {col};border-radius:20px;position:relative;box-sizing:border-box">
+  <svg style="position:absolute;left:0;right:0;margin:auto;top:16px" width="110" height="80" viewBox="0 0 110 80">{icon(col)}</svg>
+  <div style="position:absolute;left:0;right:0;top:110px;text-align:center;font-size:21px;font-weight:900;white-space:nowrap;letter-spacing:0;color:{col}">{title}</div>
+  <div style="position:absolute;left:0;right:0;top:148px;text-align:center;font-size:18px;font-weight:600;white-space:nowrap;color:{C['ink2']}">{outcome}</div>
+</div>"""
+
+
+def ICON_ML(col):   # small neural network: 3 -> 4 -> 2 nodes
+    L = [[(15, y) for y in (16, 40, 64)], [(55, y) for y in (10, 30, 50, 70)], [(95, y) for y in (28, 52)]]
+    lines = "".join(f'<line x1="{a[0]}" y1="{a[1]}" x2="{b[0]}" y2="{b[1]}" stroke="{C["muted"]}" stroke-width="1.5"/>'
+                    for l1, l2 in zip(L, L[1:]) for a in l1 for b in l2)
+    dots = "".join(f'<circle cx="{x}" cy="{y}" r="7" fill="{col}"/>' for l in L for x, y in l)
+    return lines + dots
+
+
+def ICON_DS(col):   # prior (wide) narrowing into posterior (tall)
+    import math
+    def path(mu, sd, peak):
+        pts = [(x, 72 - peak * math.exp(-0.5 * ((x - mu) / sd) ** 2)) for x in range(4, 107, 3)]
+        return "M" + " L".join(f"{x:.0f},{y:.1f}" for x, y in pts)
+    return (f'<line x1="4" y1="72" x2="106" y2="72" stroke="{C["ink2"]}" stroke-width="3"/>'
+            f'<path d="{path(62, 22, 26)}" fill="none" stroke="{C["warn"]}" stroke-width="4"/>'
+            f'<path d="{path(48, 9, 60)}" fill="none" stroke="{C["violet"]}" stroke-width="4"/>')
+
+
+def ICON_FIN(col):  # credit card with an alert badge
+    return (f'<rect x="6" y="14" width="76" height="50" rx="8" fill="none" stroke="{col}" stroke-width="4"/>'
+            f'<rect x="6" y="26" width="76" height="10" fill="{col}" opacity="0.7"/>'
+            f'<circle cx="86" cy="58" r="17" fill="{C["red"]}"/>'
+            f'<rect x="83.5" y="47" width="5" height="13" rx="2" fill="{C["ink"]}"/><circle cx="86" cy="66" r="3" fill="{C["ink"]}"/>')
+
+
+def ICON_CS(col):   # envelope with a red flag
+    return (f'<rect x="8" y="18" width="70" height="48" rx="5" fill="none" stroke="{col}" stroke-width="4"/>'
+            f'<polyline points="8,20 43,46 78,20" fill="none" stroke="{col}" stroke-width="4"/>'
+            f'<line x1="92" y1="10" x2="92" y2="70" stroke="{C["ink2"]}" stroke-width="4"/>'
+            f'<polygon points="92,10 108,17 92,26" fill="{C["red"]}"/>')
+
+
 BASE = """<!doctype html><html><head><meta charset="utf-8"><style>
 html,body{margin:0;width:1280px;height:720px;background:%(bg)s;overflow:hidden;font-family:'Inter','Inter Display',sans-serif;color:%(ink)s}
 .h{font-family:'Inter Display','Inter';font-weight:900;letter-spacing:-2px;line-height:.9}
@@ -89,15 +128,16 @@ def thumb_a():
   <div class="lab" style="position:absolute;left:420px;bottom:16px;color:{C['warn']}">base rate</div>
 </div>
 <div style="position:absolute;left:54px;top:{362 + fh + 92 + 26:.0f}px" class="badge">Explained in {MINS} minutes</div>
-<img src="file://{PERSON}" style="position:absolute;left:760px;top:150px;height:390px">
-<div style="position:absolute;left:820px;top:378px;transform:rotate(-8deg);border:5px solid {C['aqua']};color:{C['aqua']};
-  background:{C['bg']};border-radius:12px;padding:4px 16px;font-size:44px;font-weight:900;letter-spacing:1px">POSITIVE</div>
-<div style="position:absolute;left:740px;top:40px;width:262px;height:100px;border-radius:50px;background:{C['card']};border:3px solid {C['muted']};
-  display:flex;align-items:center;justify-content:center"><span class="h" style="font-size:66px;color:{C['muted']};text-decoration:line-through;
-  text-decoration-color:{C['red']};text-decoration-thickness:8px">90%?</span></div>
-<div style="position:absolute;left:1030px;top:50px;width:210px;text-align:center">
-  <div class="lab" style="color:{C['violet']};font-size:26px">real chance</div>
-  <div class="h" style="font-size:96px;color:{C['violet']}">8%</div></div>"""
+<div style="position:absolute;left:720px;top:40px;font-size:30px;font-weight:900;letter-spacing:1px;color:{C['ink2']}">WHERE YOU'LL USE IT</div>
+<div style="position:absolute;left:720px;top:96px;display:grid;grid-template-columns:250px 250px;gap:18px">
+  {tile("MACHINE LEARNING", "precision vs recall", C['violet'], ICON_ML)}
+  {tile("DATA SCIENCE", "update beliefs with data", C['aqua'], ICON_DS)}
+  {tile("FINANCE", "fraud alerts &amp; signals", C['warn'], ICON_FIN)}
+  {tile("COMPUTER SCIENCE", "naive Bayes spam filters", C['blue'], ICON_CS)}
+</div>
+<div style="position:absolute;left:720px;top:532px;font-size:30px;font-weight:800;color:{C['ink']}">
+  a <span style="color:{C['aqua']}">positive</span> test: <span style="color:{C['muted']};text-decoration:line-through;text-decoration-color:{C['red']};text-decoration-thickness:4px">90%</span>
+  → <span style="color:{C['violet']}">8%</span></div>"""
     return BASE % dict(C, body=body)
 
 
