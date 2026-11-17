@@ -32,6 +32,8 @@
 - Never generate images without the owner's approval at checkpoint 1.
 
 ## Repo / GitHub
-- The default branch is `claude/stoic-fermi-aw89bv`; links to files on the work branch must include the branch
-  (`https://github.com/nsdcoding/videos/blob/<branch>/<path>`), or the owner sees "not found".
+- The repo holds several channels. Math Lab TV lives only in `math-lab-tv/` (+ this skill); other channels'
+  folders, branches, `gen.py` and `skills/motion-video-style` are not Math Lab TV's and are never touched.
+- Links to files must include the branch (`https://github.com/nsdcoding/videos/blob/<branch>/<path>`), or the
+  owner sees "not found".
 - Files under 100 MB can be committed (a 15-min 1080p MP4 is ~60 MB).

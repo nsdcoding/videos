@@ -1,0 +1,106 @@
+[
+ {
+  "id": "s017",
+  "text": "What tells these towns apart is comparing two kinds of average: the mean, and the median.",
+  "heard": "what's obvious to us apart is comparing two kinds of average the mean an immediate",
+  "diffs": [
+   [
+    "what tells these towns",
+    "what's obvious us"
+   ],
+   [
+    "median",
+    "immediate"
+   ]
+  ]
+ },
+ {
+  "id": "s017a",
+  "text": "Welcome to Math Lab TV. Where math is something you can see.",
+  "heard": "welcome to my flat t v or math is something you can see",
+  "diffs": [
+   [
+    "math lab tv where",
+    "my flat t v or"
+   ]
+  ]
+ },
+ {
+  "id": "s017b",
+  "text": "Today you will learn exactly what the mean and the median are, and how each one is calculated.",
+  "heard": "today you would learn exactly what that means and the media and are and how each one is calculated",
+  "diffs": [
+   [
+    "will",
+    "would"
+   ],
+   [
+    "mean median",
+    "means media"
+   ]
+  ]
+ },
+ {
+  "id": "s017c",
+  "text": "You will see why one rich family can make an average lie.",
+  "heard": "you will see why one rich family can make an average guy",
+  "diffs": [
+   [
+    "lie",
+    "guy"
+   ]
+  ]
+ },
+ {
+  "id": "s017d",
+  "text": "And you will learn how to pick the right one, every time.",
+  "heard": "and you learn how to pick the right one every time",
+  "diffs": [
+   [
+    "will",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "s162a",
+  "text": "Look around your world, and notice which kind of average people quote to you.",
+  "heard": "look around your world and notice which kind of average people quote see you",
+  "diffs": [
+   [
+    "",
+    "see"
+   ]
+  ]
+ },
+ {
+  "id": "s162b",
+  "text": "If this lesson made things clear for you, please subscribe to Math Lab TV, so we can keep building together.",
+  "heard": "if this lesson made things kill for you please subscribe to meth lab tv so we can keep bidding to get out",
+  "diffs": [
+   [
+    "clear",
+    "kill"
+   ],
+   [
+    "math",
+    "meth"
+   ],
+   [
+    "building together",
+    "bidding get out"
+   ]
+  ]
+ },
+ {
+  "id": "s167",
+  "text": "I will see you in the next video.",
+  "heard": "i was see you in the next video",
+  "diffs": [
+   [
+    "will",
+    "was"
+   ]
+  ]
+ }
+]

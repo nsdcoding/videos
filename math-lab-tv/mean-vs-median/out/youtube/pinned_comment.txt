@@ -1,0 +1,7 @@
+📌 Quick summary: the MEAN is the "fair share" (add everything up, split it evenly). The MEDIAN is the "typical one" (the middle value once you sort). In Pine Hill the mean is $60k but the median is $40k, because one very rich family drags the mean up (6:35).
+
+Two clarifications:
+1️⃣ "Mean much bigger than median means a right tail" is a rule of thumb, not a law. With oddly shaped or lumpy data it can fail, so always look at the actual values (6:35).
+2️⃣ "Minimising absolute error gives the median": with an even number of values, ANY guess between the two middle values gives the same smallest total, and the median (their midpoint) is one of them (10:22).
+
+Which "average" have you seen in the news that you now suspect is the mean? 👇

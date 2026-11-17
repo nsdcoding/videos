@@ -1,0 +1,51 @@
+Mean vs median explained simply, with real uses in Machine Learning, Data Science (DS), Finance and Computer Science (CS).
+Learn which average to trust: MSE vs MAE loss in machine learning, outliers in data science, median income in finance, p50 latency in CS.
+
+Two towns both report an average household income of $60,000. In one of them, 8 out of 9 families earn less than that "average". In this 16-minute explainer for people who don't think of themselves as "math people", we work through ONE example step by step and find out which average tells the truth.
+
+⏱ CHAPTERS
+0:00 Two towns, same average: the hook
+1:08 Welcome to Math Lab TV + what you'll learn
+1:27 Why the wrong average misleads you
+2:03 The mean: formula, fair shares & balance beam
+4:44 The median: sort, find the middle, even counts
+6:35 Outliers, robustness & skewed data
+8:51 Which average to use (totals vs typical)
+10:22 Finance, computer science, data science & ML
+13:01 3 common mistakes
+14:18 Recipe recap
+15:14 Look around your world + subscribe
+15:26 Next: standard deviation
+
+🌍 WHERE YOU'LL USE IT
+• Finance (10:27): median household income, median house prices, and why "average salary" can mislead
+• Computer Science / CS (10:56): p50 (median) and p99 latency instead of mean response time
+• Data Science / DS (11:26): spotting typos and outliers, filling missing values with the median
+• Machine Learning / ML (11:54): loss functions; minimising MSE gives the mean, minimising MAE gives the median
+
+📐 KEY FORMULAS
+• Mean: x̄ = (Σ xᵢ) / n → add all the values, divide by how many there are
+  (Σ "sigma" = add them all up · xᵢ = one value · n = how many values · x̄ "x-bar" = the mean)
+• Median: sort the values and take the middle one. Even count: (middle₁ + middle₂) / 2
+• Trimmed mean: drop the most extreme values at each end, then take the mean of the rest
+• Minimising squared error (MSE) → the mean · minimising absolute error (MAE) → the median
+
+✅ WORKED EXAMPLE: PINE HILL (incomes in $ thousands)
+30, 32, 35, 38, 40, 42, 45, 48, 230
+• Mean = 540 ÷ 9 = 60 → $60,000 (only 1 of the 9 families is above it)
+• Median = 40 → $40,000 (4 families below, 4 above)
+• With a 10th family earning 50: median = (40 + 42) ÷ 2 = 41, mean = 590 ÷ 10 = 59
+• If the top income jumps to 2,300: mean = 2,610 ÷ 9 = 290, median is still 40
+• Trimmed mean (drop 30 and 230): 280 ÷ 7 = 40
+Maple (50, 52, 55, 58, 60, 62, 65, 68, 70) is symmetric, so its mean and median are both 60.
+
+🧭 THE RECIPE
+1. Sort the values
+2. Find the mean (add up ÷ how many)
+3. Find the median (the middle value)
+4. Compare them. If the mean is much bigger, a few large values are pulling it up (a rule of thumb, not a law)
+5. Match the question: totals & fair shares → mean · a typical person → median · unsure → report both
+
+▶ NEXT VIDEO: Two towns can have the same mean AND the same median and still be completely different places to live. Next time: standard deviation, how far values typically sit from the middle, and why it squares the distances first.
+
+#machinelearning #datascience #statistics

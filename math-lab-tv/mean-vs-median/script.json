@@ -1,0 +1,1206 @@
+[
+  {
+    "id": "s001",
+    "chapter": "Two Towns",
+    "text": "Imagine you're moving, and you've narrowed it down to two towns.",
+    "visual": "Two line-art town skylines draw on, left and right; a little moving truck rolls in between them.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s002",
+    "chapter": "Two Towns",
+    "text": "Maple, and Pine Hill.",
+    "visual": "Name plates pop under each skyline: MAPLE (left), PINE HILL (right).",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s003",
+    "chapter": "Two Towns",
+    "text": "You look up the numbers, and both towns report the same average household income.",
+    "visual": "A stat card drops under each town: 'Average household income'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s004",
+    "chapter": "Two Towns",
+    "text": "Sixty thousand dollars a year.",
+    "visual": "Both cards count up 0 → $60k in warn yellow, in sync.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s005",
+    "chapter": "Two Towns",
+    "text": "Same average. So, same kind of town, right?",
+    "visual": "An '=' sign pulses between the cards, then a '?' bounces onto it.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s006",
+    "chapter": "Two Towns",
+    "text": "Let's actually meet the families.",
+    "visual": "Camera pushes into Maple; skyline breaks into 9 house icons.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s007",
+    "chapter": "Two Towns",
+    "text": "Maple has nine households.",
+    "visual": "Nine houses line up; a counter '9 households' ticks 1…9 as each lights.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s008",
+    "chapter": "Two Towns",
+    "text": "Their incomes, in thousands of dollars, are fifty, fifty-two, fifty-five, fifty-eight, sixty, sixty-two, sixty-five, sixty-eight, and seventy.",
+    "visual": "Number line appears: x-axis 'Household income (thousand $)', ticks 0–240 every 20. Each house drops a dot onto its value as it is spoken.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s009",
+    "chapter": "Two Towns",
+    "text": "Everyone is fairly close to sixty.",
+    "visual": "Aqua bracket spans 50–70 above the cluster: 'all within 10 of 60'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s010",
+    "chapter": "Two Towns",
+    "text": "Now Pine Hill. Also nine households.",
+    "visual": "Camera pans right to Pine Hill: eight small houses and one mansion.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s011",
+    "chapter": "Two Towns",
+    "text": "Eight of them earn between thirty and forty-eight thousand.",
+    "visual": "Eight blue dots drop onto a second number line (same axis) at 30, 32, 35, 38, 40, 42, 45, 48.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s012",
+    "chapter": "Two Towns",
+    "text": "And one family earns two hundred thirty thousand dollars a year.",
+    "visual": "Mansion's dot (orange) flies far right to 230; camera zooms out to keep it in frame.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s013",
+    "chapter": "Two Towns",
+    "text": "Add it all up and divide, and yes, Pine Hill's average is also sixty.",
+    "visual": "Warn-yellow triangle marker slides in at 60, labelled 'average = 60'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s014",
+    "chapter": "Two Towns",
+    "text": "But look where the families actually are.",
+    "visual": "Camera zooms to the left cluster; the eight blue dots pulse.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s015",
+    "chapter": "Two Towns",
+    "text": "Eight out of nine households earn less than the average.",
+    "visual": "Counter '8 of 9 below the average' builds dot by dot.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s016",
+    "chapter": "Two Towns",
+    "text": "The average isn't technically wrong. But it describes a family that doesn't live there.",
+    "visual": "Dashed red box around the empty zone 49–229 near the marker: 'nobody lives near here'.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s017",
+    "chapter": "Two Towns",
+    "text": "What tells these towns apart is comparing two kinds of average: the mean, and the median.",
+    "visual": "Title card: 'MEAN' (warn) vs 'MEDIAN' (violet) slide together; subtitle 'Which average is lying to you?'",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s017a",
+    "chapter": "Welcome",
+    "text": "Welcome to Math Lab TV. Where math is something you can see.",
+    "visual": "Logo (violet rounded square with a green bell curve) + MATH LAB TV + tagline 'where math is something you can see'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s017b",
+    "chapter": "Welcome",
+    "text": "Today you will learn exactly what the mean and the median are, and how each one is calculated.",
+    "visual": "Preview ① : x-bar formula morphs beside a sorted row whose middle tile glows violet.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s017c",
+    "chapter": "Welcome",
+    "text": "You will see why one rich family can make an average lie.",
+    "visual": "Preview ② : Pine Hill dot plot; the orange outlier drags the warn mean marker; median stays.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s017d",
+    "chapter": "Welcome",
+    "text": "And you will learn how to pick the right one, every time.",
+    "visual": "Preview ③ : the two signposts TOTALS → mean / TYPICAL → median.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s019",
+    "chapter": "Why It Matters",
+    "text": "This isn't just a puzzle about two made-up towns.",
+    "visual": "Towns shrink into the top-right; three headline cards fly in.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s020",
+    "chapter": "Why It Matters",
+    "text": "Every week, you hear averages in the news.",
+    "visual": "Headline cards stack: 'Average salary rises', 'Average home price hits record', 'Average wait time up'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s021",
+    "chapter": "Why It Matters",
+    "text": "Average salary. Average house price. Average wait time at the hospital.",
+    "visual": "Each card highlights in turn with a small icon (wallet, house, clock).",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s022",
+    "chapter": "Why It Matters",
+    "text": "Each of those is one number standing in for thousands of people.",
+    "visual": "Hundreds of tiny dots funnel into a single big number on one card.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s023",
+    "chapter": "Why It Matters",
+    "text": "If it's the wrong kind of average, it can push you into a bad decision.",
+    "visual": "The big number flickers; a red warning triangle appears beside it.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s024",
+    "chapter": "Why It Matters",
+    "text": "Like moving to Pine Hill expecting to earn what your neighbours earn.",
+    "visual": "Pine Hill dot line returns; a 'you' dot drops at 60, alone, far from the cluster.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s025",
+    "chapter": "Why It Matters",
+    "text": "Or opening a fancy restaurant there, counting on sixty-thousand-dollar customers who mostly aren't there.",
+    "visual": "Restaurant icon with price tag; arrows point to the 60 marker, then swing to the real crowd at 30–48.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s026",
+    "chapter": "Why It Matters",
+    "text": "The good news: telling the two averages apart takes a few minutes, and no fancy math.",
+    "visual": "Stopwatch icon spins; 'no fancy math' badge.",
+    "pause_after": 0.6
+  },
+  {
+    "id": "s027",
+    "chapter": "The Mean",
+    "text": "Let's start with the one you already know: the mean.",
+    "visual": "Word 'MEAN' writes on in warn yellow.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s028",
+    "chapter": "The Mean",
+    "text": "The mean is what most people call 'the average'.",
+    "visual": "Equation card: mean = “the average”.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s029",
+    "chapter": "The Mean",
+    "text": "To find it, add up all the values, then divide by how many there are.",
+    "visual": "Two step chips: ① add them all  ② divide by how many.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s030",
+    "chapter": "The Mean",
+    "text": "Let's do it for Pine Hill.",
+    "visual": "Nine number tiles for Pine Hill slide in: 30 32 35 38 40 42 45 48 230.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s031",
+    "chapter": "The Mean",
+    "text": "Thirty, plus thirty-two, plus thirty-five, and so on, all the way up to two hundred thirty.",
+    "visual": "Tiles fly one by one into a running-total counter: 30 → 62 → 97 → 135 → 175 → 217 → 262 → 310 → 540.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s032",
+    "chapter": "The Mean",
+    "text": "The total is five hundred forty.",
+    "visual": "Counter lands on 540 with a bounce.",
+    "pause_after": 0.6
+  },
+  {
+    "id": "s033",
+    "chapter": "The Mean",
+    "text": "There are nine households, so we divide by nine.",
+    "visual": "540 slides up into a fraction 540 over 9 (LaTeX).",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s034",
+    "chapter": "The Mean",
+    "text": "Five hundred forty divided by nine is sixty.",
+    "visual": "'= 60' appears in warn yellow; marker drops onto the number line at 60.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s035",
+    "chapter": "The Mean",
+    "text": "In math books, you'll see this written as a formula. Let's decode it, one symbol at a time.",
+    "visual": "Formula appears in grey: x̄ = (Σ xᵢ) / n (LaTeX fraction).",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s036",
+    "chapter": "The Mean",
+    "text": "The letter x stands for one value. Here, one household's income.",
+    "visual": "'x' lights up; arrow points to the 42 tile: 'x = one income'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s037",
+    "chapter": "The Mean",
+    "text": "The small i underneath means 'which one'. x one is the first household, x two is the second, and so on.",
+    "visual": "Labels x₁, x₂, x₃… hop onto the tiles left to right.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s038",
+    "chapter": "The Mean",
+    "text": "This big zigzag letter is the Greek capital sigma. It just means: add them all up.",
+    "visual": "Σ lights up and grows; definition card: 'Σ (sigma) = add them all up'.",
+    "pause_after": 0.8
+  },
+  {
+    "id": "s039",
+    "chapter": "The Mean",
+    "text": "The letter n means how many values there are. For Pine Hill, n is nine.",
+    "visual": "'n' lights up; card: 'n = how many = 9'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s040",
+    "chapter": "The Mean",
+    "text": "And the x with a bar on top, called x bar, is the name for the mean.",
+    "visual": "'x̄' lights up; card: 'x̄ (x-bar) = the mean'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s041",
+    "chapter": "The Mean",
+    "text": "So the whole formula says: add up every value, then divide by how many there are.",
+    "visual": "Plain-English captions snap under each part of the formula.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s042",
+    "chapter": "The Mean",
+    "text": "But what is the mean, really? Here are two ways to picture it.",
+    "visual": "Split screen preview: left a water tank, right a see-saw.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s043",
+    "chapter": "The Mean",
+    "text": "Picture one: fair shares.",
+    "visual": "Wipe to bar chart: x-axis 'Household' 1–9, y-axis 'Income (thousand $)' 0–240 every 40.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s044",
+    "chapter": "The Mean",
+    "text": "Here are Pine Hill's nine incomes, as bars.",
+    "visual": "Bars grow: eight blue short bars, one tall orange bar at 230.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s045",
+    "chapter": "The Mean",
+    "text": "Imagine all nine families pour their income into one shared pot.",
+    "visual": "Bars turn aqua and drain like water into a tank at the right; tank fill level counts to 540.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s046",
+    "chapter": "The Mean",
+    "text": "Then the pot is shared out equally, so every family gets the same amount.",
+    "visual": "Water flows back out into nine equal columns.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s047",
+    "chapter": "The Mean",
+    "text": "Every bar ends up at exactly sixty. That's the mean.",
+    "visual": "All nine bars settle at 60; warn line across at y = 60, labelled 'mean = 60'.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s048",
+    "chapter": "The Mean",
+    "text": "So the mean answers one question: if everything were shared out evenly, how much would each get?",
+    "visual": "Question card under the chart; the levelled bars glow.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s049",
+    "chapter": "The Mean",
+    "text": "Picture two: a balance beam.",
+    "visual": "Number line (0–240, every 20) thickens into a beam on a triangle pivot.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s050",
+    "chapter": "The Mean",
+    "text": "Put each household on the line as an equal weight, sitting at its income.",
+    "visual": "Nine identical blocks drop onto the beam at 30…48 and 230.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s051",
+    "chapter": "The Mean",
+    "text": "Where should the support go, so the beam balances perfectly?",
+    "visual": "Pivot slides back and forth under the beam; beam tilts as it moves.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s052",
+    "chapter": "The Mean",
+    "text": "Try forty. The beam tips to the right, because that one family is so far out.",
+    "visual": "Pivot stops at 40; beam rotates clockwise, right end down; red 'tips' label.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s053",
+    "chapter": "The Mean",
+    "text": "Try sixty, and it balances.",
+    "visual": "Pivot slides to 60; beam swings level; warn marker 'mean = 60'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s054",
+    "chapter": "The Mean",
+    "text": "Here's why. Measure how far each family is from sixty.",
+    "visual": "Camera zooms in; distance arrows grow from 60 to each block.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s055",
+    "chapter": "The Mean",
+    "text": "The eight families on the left are thirty, twenty-eight, twenty-five, twenty-two, twenty, eighteen, fifteen, and twelve below.",
+    "visual": "Blue arrows labelled −30 −28 −25 −22 −20 −18 −15 −12 appear one by one.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s056",
+    "chapter": "The Mean",
+    "text": "Together, that's one hundred seventy below.",
+    "visual": "Blue labels collapse into one counter: '−170'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s057",
+    "chapter": "The Mean",
+    "text": "And the one family on the right is one hundred seventy above.",
+    "visual": "Camera pans right; long orange arrow '+170'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s058",
+    "chapter": "The Mean",
+    "text": "The distances below and above cancel out exactly. That's what the mean always does.",
+    "visual": "'−170 + 170 = 0' assembles centre screen.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s059",
+    "chapter": "The Mean",
+    "text": "And notice: one family, far enough away, balances eight families all by itself.",
+    "visual": "Split highlight: 8 blue blocks vs 1 orange block on the level beam.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s060",
+    "chapter": "The Mean",
+    "text": "That's the mean's big weakness. Every value pulls on it, and the farther away a value is, the harder it pulls.",
+    "visual": "Rope from the 230 block tugs the warn marker; tension lines; label 'far values pull harder'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s061",
+    "chapter": "The Median",
+    "text": "Now, the second kind of average: the median.",
+    "visual": "Word 'MEDIAN' writes on in violet.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s062",
+    "chapter": "The Median",
+    "text": "The median is the middle value, once the values are in order.",
+    "visual": "Card: median = the middle value (after sorting).",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s063",
+    "chapter": "The Median",
+    "text": "Step one: sort. Line the incomes up from smallest to largest.",
+    "visual": "Tiles in street order 42 230 35 48 30 45 38 32 40 shuffle into sorted order.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s064",
+    "chapter": "The Median",
+    "text": "Thirty, thirty-two, thirty-five, thirty-eight, forty, forty-two, forty-five, forty-eight, two hundred thirty.",
+    "visual": "Sorted tiles highlight left to right in time with speech.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s065",
+    "chapter": "The Median",
+    "text": "Step two: find the middle. Cross one off each end, again and again, walking inward.",
+    "visual": "Two walker markers appear at each end of the row.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s066",
+    "chapter": "The Median",
+    "text": "Thirty and two hundred thirty go. Then thirty-two and forty-eight. Then thirty-five and forty-five. Then thirty-eight and forty-two.",
+    "visual": "Pairs are struck through and fade, in sync; walkers step inward.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s067",
+    "chapter": "The Median",
+    "text": "One value is left standing: forty.",
+    "visual": "40 tile glows violet and lifts.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s068",
+    "chapter": "The Median",
+    "text": "The median income in Pine Hill is forty thousand dollars.",
+    "visual": "'median = 40' card; violet diamond marker on the number line at 40.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s069",
+    "chapter": "The Median",
+    "text": "Four families earn less, and four earn more. That's the median's promise: it splits the group in half.",
+    "visual": "Split line at 40: '4 below' (blue) | '4 above' (orange).",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s070",
+    "chapter": "The Median",
+    "text": "Compare that with the mean of sixty, where eight families were below and only one was above.",
+    "visual": "Both markers on one axis: mean 60 '8 below | 1 above' vs median 40 '4 | 4'.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s071",
+    "chapter": "The Median",
+    "text": "In Maple, the middle value is sixty, exactly the same as its mean.",
+    "visual": "Maple dot line: violet and warn markers overlap at 60.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s072",
+    "chapter": "The Median",
+    "text": "You'll also hear the median called the fiftieth percentile, or p fifty, because it sits halfway through the sorted list.",
+    "visual": "Sorted row with a 0%–100% ruler above it; 40 sits at the 50% mark; label 'p50'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s073",
+    "chapter": "The Median",
+    "text": "But what if there's an even number of values? Then there's no single middle.",
+    "visual": "Card with '?' and an even row of placeholder tiles.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s074",
+    "chapter": "The Median",
+    "text": "Say a new family moves to Pine Hill, earning fifty thousand.",
+    "visual": "New house slides in; new tile '50' joins the sorted row between 48 and 230.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s075",
+    "chapter": "The Median",
+    "text": "Now there are ten households.",
+    "visual": "Counter 'n = 10'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s076",
+    "chapter": "The Median",
+    "text": "Cross off from both ends again, and this time two values are left in the middle: forty and forty-two.",
+    "visual": "Crossing-off animation; 40 and 42 remain.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s077",
+    "chapter": "The Median",
+    "text": "The rule: take the halfway point between them. Add the two, and divide by two.",
+    "visual": "Fraction (40 + 42) over 2 (LaTeX).",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s078",
+    "chapter": "The Median",
+    "text": "Forty plus forty-two is eighty-two. Half of that is forty-one.",
+    "visual": "'= 41' violet; marker sits between the 40 and 42 dots.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s079",
+    "chapter": "The Median",
+    "text": "So with ten families, the median is forty-one thousand.",
+    "visual": "'median = 41' card.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s080",
+    "chapter": "The Median",
+    "text": "And the mean? Five hundred ninety, divided by ten, which is fifty-nine.",
+    "visual": "Fraction 590 over 10 = 59; warn marker at 59.",
+    "pause_after": 0.6
+  },
+  {
+    "id": "s081",
+    "chapter": "The Median",
+    "text": "For the rest of this video, let's go back to our original nine households.",
+    "visual": "New house slides back out; 'n = 9'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s082",
+    "chapter": "Stress Test",
+    "text": "So which average is more trustworthy? Let's stress test them.",
+    "visual": "Two gauges labelled MEAN and MEDIAN, needles at 60 and 40.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s083",
+    "chapter": "Stress Test",
+    "text": "Suppose Pine Hill's richest family has an amazing year.",
+    "visual": "Mansion icon sparkles orange.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s084",
+    "chapter": "Stress Test",
+    "text": "Their income jumps from two hundred thirty thousand to two point three million. Ten times more.",
+    "visual": "Camera zooms out as the axis rescales to 0–2400 (ticks every 400); the orange dot slides to 2300.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s085",
+    "chapter": "Stress Test",
+    "text": "Nobody else's income changes at all.",
+    "visual": "Eight blue dots stay put, tagged 'unchanged'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s086",
+    "chapter": "Stress Test",
+    "text": "The new total is two thousand six hundred ten. Divided by nine, the mean becomes two hundred ninety thousand dollars.",
+    "visual": "Fraction 2610 over 9 = 290; warn marker races right to 290.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s087",
+    "chapter": "Stress Test",
+    "text": "According to the mean, the typical family is now almost five times richer. Yet not one of the other eight got a raise.",
+    "visual": "'≈ ×4.8' badge on the mean gauge; eight blue dots each show '+0'.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s088",
+    "chapter": "Stress Test",
+    "text": "And the median? Sort, cross off, and the middle is still forty.",
+    "visual": "Violet marker stays at 40; median gauge needle doesn't move.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s089",
+    "chapter": "Stress Test",
+    "text": "The median doesn't care how far away an extreme value is, only which side of the middle it's on.",
+    "visual": "Left/right halves shaded; the 2300 dot just counts as '1 on the right'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s090",
+    "chapter": "Stress Test",
+    "text": "Values that sit far away from the rest are called outliers.",
+    "visual": "Orange ring around the 2300 dot, label 'outlier'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s091",
+    "chapter": "Stress Test",
+    "text": "The mean gets dragged toward outliers. The median hardly notices them. Statisticians call that being robust.",
+    "visual": "Tug-of-war: outlier rope drags the warn marker; violet marker anchored. Card 'robust = hardly moved by outliers'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s092",
+    "chapter": "Stress Test",
+    "text": "But being robust has a cost. Let's go back to two hundred thirty thousand, and this time, the poorest family's income falls from thirty thousand to ten.",
+    "visual": "Axis zooms back to 0–240; orange dot returns to 230; the leftmost blue dot slides 30 → 10.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s093",
+    "chapter": "Stress Test",
+    "text": "Their life just got much harder. The mean dips, to about fifty-seven point eight.",
+    "visual": "Warn marker slides 60 → 57.8.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s094",
+    "chapter": "Stress Test",
+    "text": "The median stays at forty. It doesn't see the change at all.",
+    "visual": "Violet marker frozen at 40; red label 'missed it'.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s095",
+    "chapter": "Stress Test",
+    "text": "The median ignores how far values are from the middle. The mean uses every bit of that. Each choice has a cost.",
+    "visual": "Two-column card: MEAN 'uses every value / dragged by outliers' — MEDIAN 'robust / ignores distance'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s096",
+    "chapter": "Stress Test",
+    "text": "Now let's put everything back as it was, and step back to look at the shape of the data.",
+    "visual": "Poorest dot returns to 30; Maple and Pine Hill dot lines stack, top and bottom.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s097",
+    "chapter": "Stress Test",
+    "text": "Maple's incomes are spread evenly around the middle. The left side is a mirror image of the right.",
+    "visual": "Mirror line at 60 on Maple; left dots reflect onto right dots (−10↔+10, −8↔+8 …).",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s098",
+    "chapter": "Stress Test",
+    "text": "We call that symmetric. And for symmetric data, the mean and the median land in the same spot.",
+    "visual": "Both markers overlap at 60; label 'symmetric: mean = median'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s099",
+    "chapter": "Stress Test",
+    "text": "Pine Hill is lopsided: a crowd on the left, and a long, thin tail stretching off to the right.",
+    "visual": "Orange shaded arrow along Pine Hill from 48 to 230: 'long tail'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s100",
+    "chapter": "Stress Test",
+    "text": "That's called right-skewed. And in right-skewed data, the mean usually gets pulled toward the tail, past the median.",
+    "visual": "Warn marker at 60 with an arrow toward the tail; violet marker at 40.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s101",
+    "chapter": "Stress Test",
+    "text": "Flip it, with the tail on the left, and the mean usually lands below the median.",
+    "visual": "Pine Hill's dot pattern mirrors horizontally on a schematic axis (labelled 'shape only'): tail now left, mean marker left of median.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s102",
+    "chapter": "Stress Test",
+    "text": "So here's a handy warning light: if the mean is much bigger than the median, a few large values are probably pulling it up.",
+    "visual": "Dashboard warning light: 'mean much bigger than median → look for big values'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s103",
+    "chapter": "Stress Test",
+    "text": "One honest caveat: this is a rule of thumb, not a law. With oddly shaped data, it can fail. So always look at the actual values too.",
+    "visual": "'RULE OF THUMB' stamp lands on the warning light; small dot plot beside it.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s104",
+    "chapter": "Which One to Trust",
+    "text": "So which average should you use? It depends on the question you're asking.",
+    "visual": "Road splits into two paths with signposts.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s105",
+    "chapter": "Which One to Trust",
+    "text": "If your question is about totals, use the mean.",
+    "visual": "Left signpost lights warn: 'TOTALS → mean'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s106",
+    "chapter": "Which One to Trust",
+    "text": "Say Pine Hill's town council wants to plan a budget from a two percent local income tax.",
+    "visual": "Town hall icon; badge '2% tax'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s107",
+    "chapter": "Which One to Trust",
+    "text": "Total income is the mean times the number of households. Sixty times nine is five hundred forty thousand.",
+    "visual": "60 × 9 = 540 builds from nine blocks of 60.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s108",
+    "chapter": "Which One to Trust",
+    "text": "Two percent of that is ten thousand eight hundred dollars a year.",
+    "visual": "Coin stack counter → $10,800.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s109",
+    "chapter": "Which One to Trust",
+    "text": "And the richest family alone pays more than forty percent of it. The council needs that outlier counted.",
+    "visual": "Pie of the $10,800: orange slice '$4,600' (43%) vs blue rest.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s110",
+    "chapter": "Which One to Trust",
+    "text": "The median can't do this. Forty times nine is three hundred sixty, which misses a third of the real total.",
+    "visual": "Bar 540 (warn) next to bar 360 (violet); red gap '180 missing = 1/3'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s111",
+    "chapter": "Which One to Trust",
+    "text": "But if your question is, what's life like for a typical family here, use the median.",
+    "visual": "Right signpost lights violet: 'TYPICAL → median'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s112",
+    "chapter": "Which One to Trust",
+    "text": "If you move to Pine Hill, forty thousand is a far better guess for your neighbours' income than sixty.",
+    "visual": "'you' dot among the cluster; short gaps to neighbours at 40 vs long gaps at 60.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s113",
+    "chapter": "Which One to Trust",
+    "text": "And the mean and the median aren't the only options.",
+    "visual": "Shelf of three cards appears: mean, median, + 'others'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s114",
+    "chapter": "Which One to Trust",
+    "text": "There's the mode, the value that appears most often. But no income in Pine Hill repeats, so here there isn't one.",
+    "visual": "Mode card; dots check for twins one by one: 'no repeats → no mode'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s115",
+    "chapter": "Which One to Trust",
+    "text": "There's also the trimmed mean: drop the most extreme values at each end, then take the mean of what's left.",
+    "visual": "Scissors snip the 30 and 230 tiles off the row.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s116",
+    "chapter": "Which One to Trust",
+    "text": "Trim one from each end of Pine Hill, and the remaining seven add up to two hundred eighty. Divide by seven, and you get forty.",
+    "visual": "Fraction 280 over 7 = 40 (aqua).",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s117",
+    "chapter": "Which One to Trust",
+    "text": "Here it happens to match the median exactly. In general, a trimmed mean sits somewhere between the two ideas: it uses most of the values, but one extreme one can't hijack it.",
+    "visual": "Slider from MEAN to MEDIAN with 'trimmed mean' in between.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s118",
+    "chapter": "Which One to Trust",
+    "text": "And when in doubt, report both the mean and the median. The gap between them tells you something too.",
+    "visual": "'mean 60 | median 40' side by side; aqua brace 'gap = 20 → skewed'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s119",
+    "chapter": "Real World",
+    "text": "This choice shows up everywhere data is used. Let's visit four places.",
+    "visual": "Four tiles: Finance, Computer Science, Data Science, Machine Learning.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s120",
+    "chapter": "Real World",
+    "text": "First, money.",
+    "visual": "Finance tile zooms to fill the screen.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s121",
+    "chapter": "Real World",
+    "text": "Incomes and house prices usually have a long right tail, just like Pine Hill: lots of ordinary values, and a few huge ones.",
+    "visual": "Pine Hill dot line morphs into a right-skewed outline (labelled 'shape like Pine Hill').",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s122",
+    "chapter": "Real World",
+    "text": "That's why the U.S. Census Bureau headlines median household income, not the mean.",
+    "visual": "Report card mock-up (no logos): 'Median household income'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s123",
+    "chapter": "Real World",
+    "text": "And why housing reports usually quote the median sale price.",
+    "visual": "House card: 'Median sale price'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s124",
+    "chapter": "Real World",
+    "text": "If a company advertises its average salary, ask whether the boss's pay is in there. One huge salary can lift the mean, just like Pine Hill's richest family.",
+    "visual": "Org-chart dots; one far-right 'CEO' dot tugs a warn marker, echoing the 230 dot.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s125",
+    "chapter": "Real World",
+    "text": "Next, computer science. Think about how long a website takes to respond.",
+    "visual": "CS tile; browser window with a loading spinner.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s126",
+    "chapter": "Real World",
+    "text": "Most requests are quick, but now and then one gets stuck and takes ages.",
+    "visual": "Response-time dot plot on schematic axis 'response time' — crowd left, rare dots far right.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s127",
+    "chapter": "Real World",
+    "text": "It's the Pine Hill pattern again. A few slow requests drag the mean up, so it no longer describes a normal visit.",
+    "visual": "Warn marker dragged right by the slow dots; violet marker stays with the crowd.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s128",
+    "chapter": "Real World",
+    "text": "So engineers track the median, which they call p fifty, alongside the slow tail, such as p ninety-nine: the time that ninety-nine percent of requests beat or match.",
+    "visual": "Markers 'p50' (violet) and 'p99' (orange) on the axis; 99% of dots shaded left of p99.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s129",
+    "chapter": "Real World",
+    "text": "In data science, one of the first jobs with new data is cleaning it.",
+    "visual": "Spreadsheet grid with Pine Hill's nine incomes.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s130",
+    "chapter": "Real World",
+    "text": "Suppose the richest family's income was typed with one extra zero: two point three million instead of two hundred thirty thousand.",
+    "visual": "Cell '230,000' gains a red extra '0' → '2,300,000'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s131",
+    "chapter": "Real World",
+    "text": "As we saw, that one typo drags the mean to two hundred ninety thousand. The median doesn't flinch.",
+    "visual": "Mini gauges: mean 60 → 290 (warn), median 40 → 40 (violet).",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s132",
+    "chapter": "Real World",
+    "text": "So data scientists compare the mean and median as a quick check for typos and outliers. And when filling in missing values in skewed data, they often use the median.",
+    "visual": "Checklist ticks: 'mean vs median gap check'; empty cell fills with '40' (violet).",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s133",
+    "chapter": "Real World",
+    "text": "Finally, machine learning. Here, the choice hides inside something called a loss function.",
+    "visual": "ML tile; card 'loss function = how we score mistakes'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s134",
+    "chapter": "Real World",
+    "text": "Imagine a model that must make one single guess for every Pine Hill family's income. What's the best guess?",
+    "visual": "Guess slider (aqua line) on the Pine Hill number line.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s135",
+    "chapter": "Real World",
+    "text": "It depends on how you score the mistakes.",
+    "visual": "Two empty score panels appear.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s136",
+    "chapter": "Real World",
+    "text": "Score one: add up how far off the guess is for each family. That's called absolute error.",
+    "visual": "Plot: x 'guess (thousand $)' 0–120, y 'total distance' 0–800; distance lines from the guess to each dot.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s137",
+    "chapter": "Real World",
+    "text": "Slide the guess along, and the total distance is smallest at forty. The median.",
+    "visual": "Point traces the V-shaped curve; minimum at 40 (total 230) glows violet.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s138",
+    "chapter": "Real World",
+    "text": "Score two: square each distance before adding, so big misses count extra. That's called squared error.",
+    "visual": "Second plot: y 'total squared distance (thousands)' 0–70; squares drawn on the distances, equal x/y scale.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s139",
+    "chapter": "Real World",
+    "text": "Now the best guess is sixty. The mean.",
+    "visual": "Point traces the U-shaped curve; minimum at 60 (≈ 32.8 thousand) glows warn.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s140",
+    "chapter": "Real World",
+    "text": "This works for any data, not just Pine Hill. Minimising squared error lands on the mean. Minimising absolute error lands on the median, or with an even count, anywhere between the two middle values.",
+    "visual": "Rule card: 'squared error → mean' / 'absolute error → median'.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s141",
+    "chapter": "Real World",
+    "text": "So when someone trains a model with mean squared error or mean absolute error, they're choosing whether it aims for a mean or a median.",
+    "visual": "'MSE → aims for the mean', 'MAE → aims for the median'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s142",
+    "chapter": "Real World",
+    "text": "Squared error chases outliers. Absolute error shrugs them off. Same trade-off, new setting.",
+    "visual": "Outlier dot yanks the MSE curve's minimum; MAE minimum stays put.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s143",
+    "chapter": "Common Mistakes",
+    "text": "Before we wrap up, here are the three most common mistakes people make with averages.",
+    "visual": "Three red cards face down.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s144",
+    "chapter": "Common Mistakes",
+    "text": "Mistake one: taking the middle without sorting first.",
+    "visual": "Card 1 flips: 'Not sorting'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s145",
+    "chapter": "Common Mistakes",
+    "text": "Here are Pine Hill's incomes in the order the houses sit on the street: forty-two, two hundred thirty, thirty-five, forty-eight, thirty, forty-five, thirty-eight, thirty-two, and forty.",
+    "visual": "Street of houses with tiles above, unsorted.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s146",
+    "chapter": "Common Mistakes",
+    "text": "The middle of that list is thirty. That's not the median. It's just whoever lives in the middle house.",
+    "visual": "Middle tile 30 circled red with a cross.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s147",
+    "chapter": "Common Mistakes",
+    "text": "Always sort first. Sorted, the middle is forty.",
+    "visual": "Tiles sort; 40 glows violet with a tick.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s148",
+    "chapter": "Common Mistakes",
+    "text": "Mistake two: assuming half the people are above the average.",
+    "visual": "Card 2 flips: 'Half are above average?'",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s149",
+    "chapter": "Common Mistakes",
+    "text": "That's true for the median, by design. It's not true for the mean.",
+    "visual": "'half above: median ✓, mean ✗'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s150",
+    "chapter": "Common Mistakes",
+    "text": "In Pine Hill, only one family out of nine is above the mean. So if you're below average there, you're in very good company.",
+    "visual": "Pine Hill dots: 8 blue below the warn marker, 1 orange above.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s151",
+    "chapter": "Common Mistakes",
+    "text": "Mistake three: deciding the median is always better, and that outliers should just be deleted.",
+    "visual": "Card 3 flips: 'Delete the outlier?'",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s152",
+    "chapter": "Common Mistakes",
+    "text": "That rich family is real. Their income is real money, and the town's tax budget depends on it.",
+    "visual": "Mansion and the $4,600 tax coin.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s153",
+    "chapter": "Common Mistakes",
+    "text": "Remove a value only when you have evidence it's an error, like that extra zero. Otherwise keep it, and choose the average that fits your question.",
+    "visual": "Checklist: 'evidence of error? → fix it. Otherwise → keep it'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s154",
+    "chapter": "Common Mistakes",
+    "text": "And a bonus mistake: with an even count, picking one of the two middle numbers instead of the halfway point between them.",
+    "visual": "40 and 42 tiles; red cross on '40' and '42', violet tick on '41'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s155",
+    "chapter": "Recipe",
+    "text": "Let's turn all of that into a recipe you can use on any set of numbers.",
+    "visual": "Recipe card frame unrolls.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s156",
+    "chapter": "Recipe",
+    "text": "Step one: sort the values, from smallest to largest.",
+    "visual": "Item 1 writes on with a mini sorted row.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s157",
+    "chapter": "Recipe",
+    "text": "Step two: find the mean. Add them all up, and divide by how many there are.",
+    "visual": "Item 2 with mini formula x̄ = Σx / n.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s158",
+    "chapter": "Recipe",
+    "text": "Step three: find the median, the middle value. With an even count, take the halfway point of the middle two.",
+    "visual": "Item 3 with mini row and violet middle.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s159",
+    "chapter": "Recipe",
+    "text": "Step four: compare them. If they're close, the data is probably fairly balanced. If the mean is much bigger, look for large values pulling it up.",
+    "visual": "Item 4 with tiny warning light.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s160",
+    "chapter": "Recipe",
+    "text": "Step five: match the average to your question. Totals and fair shares: the mean. A typical person or thing: the median. Not sure? Report both.",
+    "visual": "Item 5 with the two signposts.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s161",
+    "chapter": "Recipe",
+    "text": "For Pine Hill, the mean is sixty, and the median is forty. Both are correct. They answer different questions.",
+    "visual": "Final card: 'Pine Hill — mean 60 (fair share) | median 40 (typical family)'.",
+    "pause_after": 1.0
+  },
+  {
+    "id": "s162",
+    "chapter": "Recipe",
+    "text": "An average only lies when you ask it the wrong question.",
+    "visual": "Line types on in violet, centred.",
+    "pause_after": 1.5
+  },
+  {
+    "id": "s162a",
+    "chapter": "Subscribe",
+    "text": "Look around your world, and notice which kind of average people quote to you.",
+    "visual": "Four everyday cards (salary, house price, wait time, page load), each stamped 'mean or median?'.",
+    "pause_after": 0.6
+  },
+  {
+    "id": "s162b",
+    "chapter": "Subscribe",
+    "text": "If this lesson made things clear for you, please subscribe to Math Lab TV, so we can keep building together.",
+    "visual": "Logo + red SUBSCRIBE button; a cursor clicks it; it turns grey 'SUBSCRIBED ✓' and 'so we can keep building together' appears.",
+    "pause_after": 0.8
+  },
+  {
+    "id": "s163",
+    "chapter": "Next Time",
+    "text": "But here's a puzzle for next time.",
+    "visual": "Puzzle-piece icon.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s164",
+    "chapter": "Next Time",
+    "text": "Two towns can have the same mean and the same median, and still be completely different places to live.",
+    "visual": "Maple (50–70) vs a new town 'Cedar' (10, 20, 30, 45, 60, 75, 90, 100, 110): both markers at 60 on both lines.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s165",
+    "chapter": "Next Time",
+    "text": "The missing piece is spread: how far values typically sit from the middle.",
+    "visual": "Spread arrows: short for Maple, long for Cedar.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s166",
+    "chapter": "Next Time",
+    "text": "Next time, we'll measure it with the standard deviation, and see why it squares the distances first.",
+    "visual": "Card: 'Next: Standard Deviation'.",
+    "pause_after": 0.35
+  },
+  {
+    "id": "s167",
+    "chapter": "Next Time",
+    "text": "I will see you in the next video.",
+    "visual": "Logo stays at the top; 'next: standard deviation' chip; Maple vs Cedar spread visual holds.",
+    "pause_after": 2.0
+  }
+]

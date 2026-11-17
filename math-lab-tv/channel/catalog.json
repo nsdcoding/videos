@@ -11,7 +11,9 @@
  "defaults": {
   "target_minutes": "15-20",
   "voice": "en-US-Chirp3-HD-Zubenelgenubi",
-  "prompt": ".claude/skills/math-lab-video/SKILL.md"
+  "prompt": ".claude/skills/math-lab-video/SKILL.md",
+  "home": "math-lab-tv/",
+  "home_branch": null
  },
  "series": [
   {
@@ -83,7 +85,7 @@
    "production": {
     "folder": null,
     "branch": null,
-    "script": "channel/lesson-lab/standard-deviation/script.txt",
+    "script": "math-lab-tv/channel/lesson-lab/standard-deviation/script.txt",
     "callbacks": [
      "mean-vs-median"
     ]
@@ -112,10 +114,10 @@
    },
    "production": {
     "folder": "mean-vs-median",
-    "branch": "claude/affectionate-allen-knz5iu",
+    "branch": null,
     "length": "15:50",
-    "video": "mean-vs-median/out/mean_vs_median.mp4",
-    "package": "mean-vs-median/out/youtube/",
+    "video": "math-lab-tv/mean-vs-median/out/mean_vs_median.mp4",
+    "package": "math-lab-tv/mean-vs-median/out/youtube/",
     "youtube_title": "Mean vs Median: Which Average Lies? | Machine Learning, Data Science, Finance & CS",
     "running_example": "Two towns (Maple, Pine Hill), nine household incomes each; Pine Hill mean 60k vs median 40k",
     "callbacks": [],
@@ -151,10 +153,10 @@
    },
    "production": {
     "folder": "bayes-theorem",
-    "branch": "claude/brave-allen-whwi2o",
+    "branch": null,
     "length": "15:12",
-    "video": "bayes-theorem/out/bayes_theorem.mp4",
-    "package": "bayes-theorem/out/youtube/",
+    "video": "math-lab-tv/bayes-theorem/out/bayes_theorem.mp4",
+    "package": "math-lab-tv/bayes-theorem/out/youtube/",
     "youtube_title": "Bayes' Theorem Explained Simply: Why a 90% Accurate Test Means 8% | ML, Data Science, Finance, CS",
     "running_example": "Screening test, 1,000 people, condition 1 in 100, catches 9 of 10, false alarm 1 in 10: 9 real vs 99 false -> 1 in 12",
     "callbacks": [],
@@ -958,7 +960,7 @@
     "overlaps": []
    },
    "production": {
-    "script": "channel/lesson-lab/pythagoras/script.txt"
+    "script": "math-lab-tv/channel/lesson-lab/pythagoras/script.txt"
    },
    "youtube": null,
    "notes": "Lesson Lab draft script (5-8 min, written for the old Lesson Lab); rewrite to the channel prompt when produced."
@@ -1472,7 +1474,7 @@
     "overlaps": []
    },
    "production": {
-    "script": "channel/lesson-lab/monty-hall/script.txt"
+    "script": "math-lab-tv/channel/lesson-lab/monty-hall/script.txt"
    },
    "youtube": null,
    "notes": "Lesson Lab draft script (5-8 min, written for the old Lesson Lab); rewrite to the channel prompt when produced."

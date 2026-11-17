@@ -1,28 +1,38 @@
 ---
 name: math-lab-video
-description: Make a complete Math Lab TV video end to end from a topic name and a duration. Writes the script, voices it with Google Cloud TTS, builds a Manim video, and produces the YouTube package (title, description, chapters, tags, thumbnails, pinned comment). Keeps the channel tracker in channel/ up to date, so each video calls back to earlier ones, pays off promised teasers and teases a connected next video. Use when the owner asks for a Math Lab TV video, says "make the video for <topic>", "next video", or types /math-lab-video <topic> [duration].
-argument-hint: "<topic name> [duration, e.g. 15-20 or 12]"
+description: Make the next Math Lab TV video end to end. Recommends what to make next from the channel tracker (what has been made, promised teasers, connected topics), lets the owner pick and set the duration, then writes the script, voices it with Google Cloud TTS, builds a Manim video and produces the YouTube package, and updates the tracker in math-lab-tv/channel/. Only for the Math Lab TV channel (everything lives in math-lab-tv/), not for other channels in this repo. Use when the owner types /math-lab-video or asks for the next Math Lab TV video.
 ---
 
 # Math Lab TV video, end to end
 
 Math Lab TV: math explainers for people who are NOT good at math. Channel line: "where math is something you
-can see". You run the whole job: **script → voice-over → Manim video → YouTube package**, stopping for the
-owner's approval at the two ⏸ checkpoints. Arguments: `$ARGUMENTS` = topic words + optional duration
-(default 15–20 min).
+can see". You run the whole job: **recommend the topic → script → voice-over → Manim video → YouTube package →
+tracker**, stopping for the owner's approval at the two ⏸ checkpoints.
 
-## Step 0: set up and read the brief
+**This skill is only for Math Lab TV.** Everything for the channel lives in `math-lab-tv/` (tracker in
+`math-lab-tv/channel/`, one folder per video, `math-lab-tv/CLAUDE.md`). The repo also holds other channels'
+work (their own folders, branches and skills such as `skills/motion-video-style`, `gen.py`): never read from,
+write to, or reuse their files, branches, styles or voices for Math Lab TV, and never put Math Lab TV files
+outside `math-lab-tv/` (except this skill). See "Where the work lives" at the end.
+
+## Step 0: recommend the topic, then ask for the duration
 
 1. **Tools** (fresh container): see `reference/setup.md` (manim, LaTeX, google-auth, the `srt` build fix,
    Inter fonts, Playwright). Credentials: `GCP_SA_KEY_B64` (base64 service-account JSON).
-2. **Resolve the topic and create the folder:**
-   `python3 .claude/skills/math-lab-video/scripts/new_video.py <topic words> <duration> --dry-run`
-   - Exit code 2 = ambiguous: ask the owner which candidate they mean (AskUserQuestion), then pass `--slug`.
-   - Not in the catalog at all: confirm a title and series with the owner, then use `--new "Title" <series-id>`.
-   - Already produced: tell the owner and ask whether to remake it before continuing.
-   - Then run it without `--dry-run`. It copies `template/` into a new folder named after the topic, writes
-     `<folder>/BRIEF.md` and marks the topic `in-production` in `channel/catalog.json`.
-3. **Read `BRIEF.md`**: the owner's planned beats (`covers`) and picture (`visual`), plus the connections:
+2. **Recommend.** Run `python3 math-lab-tv/channel/channel.py recommend 3`. It ranks every unmade topic from
+   what has been made: a topic promised in a previous video's teaser comes first, then topics whose
+   prerequisites are made, connected topics, and the ML series' phase order. Ask the owner with
+   AskUserQuestion: one option per recommendation, labelled with the short title, the description = the
+   reasons (e.g. "Promised at the end of Bayes · builds on Standard Deviation"). Mark the first one
+   "(Recommended)". The owner may type another topic instead ("Other"): find it in
+   `math-lab-tv/channel/catalog.json` by its title; if it isn't there, confirm a title and series with them
+   and use `--new "Title" <series-id>` below. Do not start anything until the owner has chosen.
+3. **Duration.** Then ask the owner for the length with AskUserQuestion: "15–20 min (Recommended)",
+   "12–15 min", "8–10 min" (they can type their own). Never assume it.
+4. **Create the video folder:**
+   `python3 .claude/skills/math-lab-video/scripts/new_video.py --slug <slug> --minutes <lo-hi>`
+   It copies `template/` into `math-lab-tv/<slug>/`, writes `BRIEF.md` and marks the topic `in-production`.
+5. **Read `BRIEF.md`**: the owner's planned beats (`covers`) and picture (`visual`), plus the connections:
    - **Pay off this promise**: an earlier video's teaser promised this one. Open the lesson by paying it off
      ("Last time, we saw that a p-value flips the question. Today, let's see what it really measures.").
    - **Callbacks**: finished videos to reference naturally, 1–3 times, in narration and on screen
@@ -31,8 +41,8 @@ owner's approval at the two ⏸ checkpoints. Arguments: `$ARGUMENTS` = topic wor
    - **Prerequisites not made yet**: give a 1–2 sentence intuition instead of assuming them.
    - **Default teaser**: the NEXT TIME topic; confirm it with the owner at checkpoint 1.
    - **Leads to**: plant a seed for those later videos where natural.
-4. Look at the newest finished video folder (see `channel/catalog.json` → production.folder; currently
-   `bayes-theorem/`) for working examples of every file in the template.
+6. Look at the newest finished video folder (`math-lab-tv/<folder>` from `production.folder` in the catalog;
+   currently `math-lab-tv/bayes-theorem/`) for working examples of every file in the template.
 
 ## Step 1: write the script
 
@@ -198,17 +208,22 @@ full render.
      320×180. A generated sticker may add a human element only if the owner approved it.
 6. A pinned comment: a short summary, plus clarifications worth adding, with timestamps.
 
-## Step 5: update the channel tracker
+## Step 5: update the channel tracker (`math-lab-tv/channel/`)
 
-- Fill the topic's `production` record in `channel/catalog.json`: folder, branch, length, video, package,
+- Fill the topic's `production` record in `math-lab-tv/channel/catalog.json`: folder, branch, length, video, package,
   youtube_title, running_example, hook, callbacks (slugs referenced), teaser_next (slug teased).
-- `python3 channel/channel.py set <slug> produced` and `render`.
-- When the owner later sends the YouTube URL: `python3 channel/channel.py link <slug> <url>`, re-run
+- `python3 math-lab-tv/channel/channel.py set <slug> produced` and `render`.
+- When the owner later sends the YouTube URL: `python3 math-lab-tv/channel/channel.py link <slug> <url>`, re-run
   `package.py` of every video the command lists (their descriptions gain the link), commit and push.
 
-## Delivery
+## Delivery and where the work lives
 
-Commit and push the code, script, timings, final MP4, captions, package and tracker to the working branch at
-each milestone (checkpoint 1, checkpoint 2, final). Send the owner the MP4, the .srt, both thumbnails and the
-description. At the end, list the file paths, the final length, the connections used, and anything to check
-by ear. The repo's default branch is `claude/stoic-fermi-aw89bv`; tell the owner which branch holds the work.
+- All Math Lab TV files live in `math-lab-tv/` (videos, tracker, CLAUDE.md); the skill itself in
+  `.claude/skills/math-lab-video/`. Commit only those paths for this channel.
+- Branch: Math Lab TV has its own home (see `defaults.home_branch` in `math-lab-tv/channel/catalog.json`).
+  Work on the session's working branch and, when the owner approves, merge or push to that home. Never commit
+  Math Lab TV work to another channel's branch, and never bring another channel's files into `math-lab-tv/`.
+- Commit and push at each milestone (checkpoint 1, checkpoint 2, final): code, script, timings, final MP4,
+  captions, package and tracker. Send the owner the MP4, the .srt, both thumbnails and the description. At the
+  end, list the file paths, the final length, the connections used, and anything to check by ear. GitHub links
+  must include the branch name.
