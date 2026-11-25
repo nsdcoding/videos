@@ -2,7 +2,7 @@ const {chromium}=require('playwright');const {spawn}=require('child_process');
 (async()=>{
  const mode=process.argv[2];const b=await chromium.launch();const p=await b.newPage({viewport:{width:1920,height:1080}});
  p.on('console',m=>console.log('console:',m.text()));p.on('pageerror',e=>console.log('ERR',e.message));
- await p.goto('file://'+__dirname+'/promo.html');await p.evaluate(()=>document.fonts.ready);
+ await p.goto('file://'+__dirname+'/'+(process.env.PAGE||'promo.html'));await p.evaluate(()=>document.fonts.ready);
  await p.evaluate(()=>Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>i.onload=r))));
  await p.waitForTimeout(500);
  if(mode==='test'){for(const t of process.argv.slice(3)){await p.evaluate(t=>render(+t),t);await p.screenshot({path:`test_${t}.png`});}}

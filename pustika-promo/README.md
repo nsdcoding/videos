@@ -1,4 +1,6 @@
-# Pustika promo (21 s, 1920x1080)
+# Pustika promo
+
+Current cut: `pustika_promo_7s.mp4` (7 s, voice only, from `promo2.html` + `v/vo2t.wav` placed at 0.5 s). Older 21 s cut: `pustika_promo.mp4`.
 
 - `pustika_promo.mp4` — final video
 - `promo.html` — the animation; `render(t)` draws frame at time t
