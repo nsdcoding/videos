@@ -1,0 +1,94 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts/mukta.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:transparent;font-family:'Mukta',sans-serif}
+body.green{background:#00FF00}
+#wrap{position:absolute;left:70px;top:858px;width:1180px;height:168px}
+#bar{position:absolute;left:0;top:0;width:1180px;height:168px;border-radius:30px;overflow:hidden;
+ background:linear-gradient(100deg,#3B1747 0%,#5C2664 45%,#7A3384 100%);box-shadow:0 18px 40px rgba(20,0,30,.45);border:2px solid rgba(231,199,122,.35)}
+#shine{position:absolute;top:-30%;width:220px;height:160%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:skewX(-20deg)}
+canvas{position:absolute;left:0;top:0}
+#prog{position:absolute;left:0;bottom:0;height:5px;background:linear-gradient(90deg,#E7C77A,#F6E3B0)}
+#logo{position:absolute;left:16px;top:16px;width:136px;height:136px;border-radius:32px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.35);z-index:3}
+#logo img{width:100%;height:100%}
+.msg{position:absolute;left:180px;top:0;height:168px;width:660px;display:flex;flex-direction:column;justify-content:center;color:#FFF6E8}
+.msg .k{font-size:24px;font-weight:600;color:#E7C77A;letter-spacing:0}
+.msg .m{font-size:62px;font-weight:800;line-height:1.05;white-space:nowrap}
+.msg .m .g{color:#E7C77A}
+#m3 .m{display:flex;align-items:center;gap:16px}
+#pill{display:flex;align-items:center;gap:14px;background:#FFF8EE;border-radius:40px;padding:4px 30px 8px 20px;color:#5C2664}
+#pill .tld{color:#6C4EAE}
+#caret{display:inline-block;width:4px;height:52px;background:#6C4EAE;margin-left:3px;border-radius:2px;vertical-align:middle}
+.ic{display:inline-flex;vertical-align:middle;margin-right:10px}
+.wave{display:inline-flex;gap:4px;align-items:center;height:44px;margin-left:12px;vertical-align:middle}
+.wave i{display:block;width:5px;border-radius:3px;background:#E7C77A}
+.cover{position:absolute;width:84px;height:126px;border-radius:7px;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.4)}
+.cover img{width:100%;height:100%}
+</style></head>
+<body><div id="wrap">
+ <div id="bar"><canvas id="pc" width="1180" height="168"></canvas><div id="shine"></div>
+  <div class="msg" id="m1"><div class="k">हिंदी किताबें • सारांश • ऑडियो</div><div class="m"><span class="g" id="cnt">0</span> हिंदी किताबें</div></div>
+  <div class="msg" id="m2"><div class="k">एक ऐप, दो अंदाज़</div><div class="m">
+   <span class="ic"><svg width="56" height="42" viewBox="0 0 120 90" fill="none" stroke="#E7C77A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M60 18 C45 8 22 8 6 14 V80 C22 74 45 74 60 84 C75 74 98 74 114 80 V14 C98 8 75 8 60 18 Z M60 18 V84"/></svg></span>पढ़िए भी, <span id="sun">सुनिए भी</span><span class="wave" id="wave"></span></div></div>
+  <div class="msg" id="m3"><div class="k">अभी विज़िट करें</div><div class="m"><div id="pill">
+   <svg width="44" height="44" viewBox="0 0 70 70" fill="none" stroke="#6C4EAE" stroke-width="6"><circle cx="35" cy="35" r="29"/><ellipse cx="35" cy="35" rx="13" ry="29"/><path d="M6 35 H64"/></svg><span id="url"></span></div></div></div>
+  <div id="covers"></div>
+  <div id="prog"></div>
+ </div>
+ <div id="logo"><img src="a/logo_sq.png"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),P=(t,a,b)=>clamp((t-a)/(b-a)),lerp=(a,b,k)=>a+(b-a)*k;
+const eOut=k=>1-Math.pow(1-k,3),eIO=k=>k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+const eBack=k=>{const c1=1.7,c3=c1+1;return 1+c3*Math.pow(k-1,3)+c1*Math.pow(k-1,2)};
+let s=11;const R=()=>{s=(s*16807)%2147483647;return (s-1)/2147483646};
+const parts=[...Array(40)].map(()=>({x:R()*1180,y:R()*168,r:.8+R()*2,sp:6+R()*14,p:R()*6.28,a:.2+R()*.5}));
+const wv=[...Array(9)].map(()=>{const i=document.createElement('i');$('wave').appendChild(i);return i});
+const CS=['c_chanakya','c_dhamma','c_randomwalk','c_tidy','c_atomic','c_analects'];
+const cov=CS.map(c=>{const d=document.createElement('div');d.className='cover';d.innerHTML=`<img src="a/${c}.png">`;$('covers').appendChild(d);return d});
+const D=8.0;
+function render(t){
+ // open / close
+ const op=eOut(P(t,.15,.85)), cl=eIO(P(t,D-.75,D-.15));
+ const w=lerp(168,1180,op*(1-cl));
+ $('bar').style.clipPath=`inset(0 ${1180-w}px 0 0 round 30px)`;
+ $('bar').style.opacity=clamp(P(t,0,.15))*(1-P(t,D-.2,D));
+ const lg=eBack(P(t,0,.45)), lgo=eIO(P(t,D-.3,D));
+ $('logo').style.transform=`scale(${lerp(.2,1,lg)*(1-lgo)}) rotate(${(1-eOut(P(t,0,.45)))*-25}deg)`;
+ $('logo').style.opacity=clamp(P(t,0,.12))*(1-lgo);
+ $('shine').style.left=lerp(-300,1400,eIO(P(t,.9,1.9)))+'px';
+ if(t>5.2) $('shine').style.left=lerp(-300,1400,eIO(P(t,5.6,6.6)))+'px';
+ $('prog').style.width=(1180*P(t,.85,D-.75))+'px';
+ const c=$('pc').getContext('2d');c.clearRect(0,0,1180,168);
+ for(const q of parts){const x=((q.x+t*q.sp)%1200)-10,y=q.y+Math.sin(t*1.3+q.p)*6;c.globalAlpha=q.a*(.6+.4*Math.sin(t*2.5+q.p));c.fillStyle='#E7C77A';c.beginPath();c.arc(x,y,q.r,0,6.283);c.fill()}
+ // messages: m1 0.7-2.9, m2 2.9-5.0, m3 5.0-end
+ const msg=(el,a,b)=>{const i=eOut(P(t,a,a+.45)),o=eIO(P(t,b-.35,b));
+  el.style.opacity=i*(1-o);el.style.transform=`translateY(${(1-i)*50-o*50}px)`;el.style.clipPath='inset(0 0 0 0)'};
+ msg($('m1'),.7,2.9);msg($('m2'),2.9,5.0);msg($('m3'),5.0,D+1);
+ const n=Math.round(eOut(P(t,.8,1.9))*1000);$('cnt').textContent=n>=1000?'1000+':n;
+ $('sun').style.color=t>3.5?'#E7C77A':'#FFF6E8';
+ wv.forEach((b,i)=>{const a=P(t,3.4,3.7);b.style.height=(6+a*(Math.abs(Math.sin(t*8+i*.9))*24+Math.abs(Math.sin(t*4+i*2))*12))+'px'});
+ const full='pustika.co.in',nc=Math.floor(clamp((t-5.35)/.9)*full.length),u=full.slice(0,nc);
+ const blink=t>6.3?(Math.floor(t*2.5)%2?0:1):1;
+ $('url').innerHTML=u.slice(0,7)+(u.length>7?`<span class="tld">${u.slice(7)}</span>`:'')+`<span id="caret" style="opacity:${blink}"></span>`;
+ if(t>6.3){$('pill').style.transform=`scale(${1+Math.sin((t-6.3)*4)*.025})`}
+ // covers on right: three visible, rotating set each message
+ const set=t<2.9?0:t<5.0?1:2;
+ cov.forEach((el,i)=>{
+  const slot=i%3, grp=Math.floor(i/3);       // two groups of 3
+  const g=(set===1)?1:0;                     // group shown: 0,1,0
+  const sw=set===1?eIO(P(t,2.75,3.2)):set===2?1-eIO(P(t,4.85,5.3)):0; // 0 = group0, 1 = group1
+  const vis=grp===0?1-sw:sw;
+  const k=eBack(P(t,.9+slot*.12,1.4+slot*.12));
+  const x=880+slot*88, y=21+Math.sin(t*1.8+i)*4+(1-vis)*170;
+  el.style.left='0';el.style.top='0';
+  el.style.transform=`translate(${x+(1-k)*120}px,${y}px) rotate(${(slot-1)*6}deg) scale(${lerp(.4,1,k)})`;
+  el.style.opacity=clamp(k*2)*vis*(1-cl);
+  el.style.zIndex=slot;
+ });
+}
+window.render=render;
+</script></body></html>
