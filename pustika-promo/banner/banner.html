@@ -29,7 +29,7 @@ canvas{position:absolute;left:0;top:0}
 </style></head>
 <body><div id="wrap">
  <div id="bar"><canvas id="pc" width="1180" height="168"></canvas><div id="shine"></div>
-  <div class="msg" id="m1"><div class="k">हिंदी किताबें • सारांश • ऑडियो</div><div class="m"><span class="g" id="cnt">0</span> हिंदी किताबें</div></div>
+  <div class="msg" id="m1"><div class="k">हिंदी किताबें • सारांश • उपन्यास • ऑडियो</div><div class="m"><span class="g" id="cnt">0</span> हिंदी किताबें</div></div>
   <div class="msg" id="m2"><div class="k">एक ऐप, दो अंदाज़</div><div class="m">
    <span class="ic"><svg width="56" height="42" viewBox="0 0 120 90" fill="none" stroke="#E7C77A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M60 18 C45 8 22 8 6 14 V80 C22 74 45 74 60 84 C75 74 98 74 114 80 V14 C98 8 75 8 60 18 Z M60 18 V84"/></svg></span>पढ़िए भी, <span id="sun">सुनिए भी</span><span class="wave" id="wave"></span></div></div>
   <div class="msg" id="m3"><div class="k">अभी विज़िट करें</div><div class="m"><div id="pill">
@@ -49,8 +49,9 @@ const parts=[...Array(40)].map(()=>({x:R()*1180,y:R()*168,r:.8+R()*2,sp:6+R()*14
 const wv=[...Array(9)].map(()=>{const i=document.createElement('i');$('wave').appendChild(i);return i});
 const CS=['c_chanakya','c_dhamma','c_randomwalk','c_tidy','c_atomic','c_analects'];
 const cov=CS.map(c=>{const d=document.createElement('div');d.className='cover';d.innerHTML=`<img src="a/${c}.png">`;$('covers').appendChild(d);return d});
-const D=8.0;
+const D=8.0, SLOW=1.75;
 function render(t){
+ t=t/SLOW;
  // open / close
  const op=eOut(P(t,.15,.85)), cl=eIO(P(t,D-.75,D-.15));
  const w=lerp(168,1180,op*(1-cl));
