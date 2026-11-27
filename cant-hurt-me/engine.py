@@ -12,7 +12,8 @@ import cairo
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-W, H, FPS = 1920, 1080, 30
+SHORT = os.environ.get("FORMAT") == "short"  # vertical 9:16 for YouTube Shorts
+W, H, FPS = (1080, 1920, 30) if SHORT else (1920, 1080, 30)
 ASPECT = H / W
 HERE = os.path.dirname(os.path.abspath(__file__))
 INK = (0.08, 0.08, 0.08)
@@ -289,7 +290,10 @@ def rgb255(c):
     return tuple(int(v * 255) for v in c)
 
 
-SAFE_X, SAFE_TOP, SAFE_BOTTOM = 0.04, 0.05, 0.13  # frame margins; the bottom leaves room for subtitles
+# frame margins; the bottom leaves room for subtitles (and, in a Short, the player's own buttons)
+SAFE_X, SAFE_TOP, SAFE_BOTTOM = (0.06, 0.19, 0.36) if SHORT else (0.04, 0.05, 0.13)
+# a tall frame shows only the middle of a wide panel; reach sideways for that panel's own labels
+REACH_X = 0.9 if SHORT else 0.0
 
 
 def keep_in_frame(cx, cy, w, h, cam):
@@ -301,7 +305,8 @@ def keep_in_frame(cx, cy, w, h, cam):
     """
     vx, vy, vw = cam
     vh = vw * ASPECT
-    fx = clamp((min(cx + w / 2, vx + vw / 2) - max(cx - w / 2, vx - vw / 2)) / w)
+    reach = vw / 2 * (1 + 2 * REACH_X)
+    fx = clamp((min(cx + w / 2, vx + reach) - max(cx - w / 2, vx - reach)) / w)
     fy = clamp((min(cy + h / 2, vy + vh / 2) - max(cy - h / 2, vy - vh / 2)) / h)
     seen = fx * fy
     if seen <= 0:
@@ -560,7 +565,7 @@ class Hill(Item):
 
 
 # ---------------------------------------------------------------- subtitles
-def split_sub(parts, maxc=46):
+def split_sub(parts, maxc=28 if SHORT else 46):
     out = []
     for t0, t1, txt in parts:
         words = txt.split()
@@ -588,10 +593,10 @@ def split_sub(parts, maxc=46):
 
 @lru_cache(maxsize=512)
 def sub_surface(text):
-    f = font("sub", 38)
+    f = font("sub", 52 if SHORT else 38)
     l, t, r, b = f.getbbox(text)
     padx, pady = 28, 14
-    tw, th = r - l, 46
+    tw, th = r - l, (62 if SHORT else 46)
     im = Image.new("RGBA", (tw + 2 * padx, th + 2 * pady), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     d.rounded_rectangle((0, 0, im.width - 1, im.height - 1), radius=10, fill=(16, 16, 16, 205))
@@ -606,7 +611,7 @@ def draw_subs(ctx, t, subs):
             a = min(clamp((t - t0 + 0.12) / 0.18), clamp((t1 + 0.12 - t) / 0.18))
             s, sw, sh = sub_surface(txt)
             ctx.save()
-            ctx.translate((W - sw) / 2, H - sh - 46 + 8 * (1 - a))
+            ctx.translate((W - sw) / 2, (H * 0.70 if SHORT else H - sh - 46) + 8 * (1 - a))
             ctx.set_source_surface(s, 0, 0)
             ctx.paint_with_alpha(a)
             ctx.restore()
