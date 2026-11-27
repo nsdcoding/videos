@@ -1,10 +1,8 @@
 # YouTube upload kit: Can't Hurt Me (Hindi summary)
 
-## Title (pick one; all under 100 characters)
+## Title
 
-1. **Can't Hurt Me Summary in Hindi | डेविड गॉगिंस: तुम मुझे तोड़ नहीं सकते**  ← recommended
-2. 130 किलो से नेवी सील तक | Can't Hurt Me – David Goggins Book Summary in Hindi
-3. 40% नियम: दिमाग़ आपको रोकता है | Can't Hurt Me Hindi Book Summary
+**दुनिया का सबसे सख़्त आदमी | Can't Hurt Me in Hindi**
 
 ## Description (paste as-is)
 
