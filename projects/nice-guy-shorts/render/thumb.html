@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+html,body{margin:0}
+#t{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:'Baloo 2';background:#c9a04a}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.8)}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(38,57,43,.85) 0%,rgba(38,57,43,.25) 45%,rgba(38,57,43,.1) 70%,rgba(38,57,43,.7) 100%)}
+.grain{position:absolute;inset:0;background:url(grain.png);mix-blend-mode:overlay;opacity:.25}
+.top{position:absolute;top:150px;left:0;right:0;text-align:center}
+.book{display:inline-block;background:#26392b;color:#f3e7cf;font-size:40px;font-weight:700;padding:6px 30px 2px;border-radius:14px;border:4px solid #d4a640}
+.h1{margin-top:40px;font-size:150px;font-weight:800;line-height:1.02;color:#f3e7cf;text-shadow:8px 8px 0 #26392b,-3px -3px 0 #26392b,3px -3px 0 #26392b,-3px 3px 0 #26392b}
+.h2{font-size:150px;font-weight:800;line-height:1.02;color:#d4a640;text-shadow:8px 8px 0 #26392b,-3px -3px 0 #26392b,3px -3px 0 #26392b,-3px 3px 0 #26392b}
+.hero{position:absolute;left:50%;transform:translateX(-50%);filter:drop-shadow(14px 14px 0 rgba(38,57,43,.55))}
+.prop{position:absolute;filter:drop-shadow(10px 10px 0 rgba(38,57,43,.5))}
+.badge{position:absolute;left:50%;bottom:200px;transform:translateX(-50%) rotate(-3deg);white-space:nowrap;background:#b5522f;color:#f3e7cf;font-size:76px;font-weight:800;padding:12px 50px 4px;border-radius:22px;border:7px solid #26392b;box-shadow:12px 12px 0 #26392b}
+.chip{position:absolute;background:#f3e7cf;color:#26392b;font-size:56px;font-weight:800;padding:6px 26px 0;border-radius:14px;border:5px solid #26392b;box-shadow:7px 7px 0 #26392b}
+</style></head><body><div id="t"></div>
+<script>
+const A=n=>`../../nice-guy/assets/${n}.png`;
+const T={
+ 1:{bg:'bg_living',h1:'छिपा हुआ',h2:'अनुबंध',hero:'head_angry',prop:['contract',900,1000,250,12],badge:'सब करके भी नाराज़?'},
+ 2:{bg:'bg_cafe',h1:'क्या आप भी',h2:'Nice Guy हैं?',hero:'head_tired',prop:['magnifier',910,1000,240,25],badge:'ये 5 संकेत देखिए'},
+ 3:{bg:'bg_park',h1:'लोग मन नहीं',h2:'पढ़ सकते!',hero:'head_calm',q:true,badge:'शिकायत नहीं, माँग'},
+ 4:{bg:'bg_office',h1:'हर बात पर',h2:'हाँ?',hero:'head_tired',prop:['fence',540,1560,520,0],chips:['हाँ!','हाँ!','हाँ!'],badge:'सीमा के 3 नियम'},
+ 5:{bg:'bg_living',h1:'मदद के बाद',h2:'नाराज़गी?',hero:'head_angry',prop:['gift',910,1050,220,12],badge:'देना या छिपा सौदा?'},
+ 6:{bg:'bg_office',h1:'हर बात पर',h2:'सॉरी?',hero:'head',chips:['सॉरी!','सॉरी!','सॉरी!'],badge:'पहले यह सवाल पूछिए'},
+ 7:{bg:'bg_office',h1:'मेहनत आपकी,',h2:'तरक़्क़ी किसी और की?',small:true,hero:'head_tired',prop:['trophy_env',915,1050,220,12],badge:'ये 4 आदतें छोड़िए'},
+ 8:{bg:'bg_childhome',h1:'यह आदत',h2:'आती कहाँ से?',hero:'kid',kid:true,badge:'जड़: बचपन'},
+};
+const c=T[+new URLSearchParams(location.search).get('n')], t=document.getElementById('t');
+let h=`<img class="bg" src="${A(c.bg)}"><div class="shade"></div>`;
+h+=c.kid?`<img class="hero" src="${A('kid')}" style="top:760px;height:860px">`
+        :`<img class="hero" src="${A(c.hero)}" style="top:${c.small?820:760}px;width:${c.small?480:520}px">`;
+if(c.prop){const[n,x,y,w,r]=c.prop;h+=`<img class="prop" src="${A(n)}" style="left:${x-w/2}px;top:${y-w/2}px;width:${w}px;transform:rotate(${r}deg)">`;}
+if(c.chips)[[40,880,-10],[820,860,9],[50,1240,8]].forEach(([x,y,r],k)=>h+=`<div class="chip" style="left:${x}px;top:${y}px;transform:rotate(${r}deg)">${c.chips[k]}</div>`);
+if(c.q)[[90,900,-12,200],[850,860,14,220]].forEach(([x,y,r,s])=>h+=`<div style="position:absolute;left:${x}px;top:${y}px;font-family:'Rozha One';font-size:${s}px;color:#b5522f;transform:rotate(${r}deg);text-shadow:8px 8px 0 #26392b">?</div>`);
+h+=`<div class="top"><div class="book">No More Mr Nice Guy · हिंदी</div><div class="h1">${c.h1}</div><div class="h2" style="${c.small?'font-size:104px':''}">${c.h2}</div></div>`;
+h+=`<div class="badge">${c.badge}</div><div class="grain"></div>`;
+t.innerHTML=h;
+document.fonts.ready.then(()=>Promise.all([...document.images].map(i=>i.complete?0:new Promise(r=>{i.onload=i.onerror=r})))).then(()=>window.READY=true);
+</script></body></html>

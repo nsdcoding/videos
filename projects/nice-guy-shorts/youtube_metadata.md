@@ -13,7 +13,7 @@ no more mr nice guy, no more mr nice guy hindi, robert glover, nice guy syndrome
 
 ---
 
-## 1. छिपा हुआ अनुबंध (`nice-guy-short/out/nice_guy_short_with_promo.mp4`)
+## 1. छिपा हुआ अनुबंध (`final/short_1_with_promo.mp4`, thumbnail `final/thumbnails/short_1_thumbnail.jpg`)
 **Title:** सबके लिए सब कुछ करते हो, फिर भी नाराज़? 😶 #Shorts
 
 **Description:**
@@ -30,7 +30,7 @@ no more mr nice guy, no more mr nice guy hindi, robert glover, nice guy syndrome
 
 ---
 
-## 2. पाँच संकेत (`s2/out/s2_with_promo.mp4`)
+## 2. पाँच संकेत (`final/short_2_with_promo.mp4`, thumbnail `final/thumbnails/short_2_thumbnail.jpg`)
 **Title:** क्या आप भी 'Nice Guy' हैं? ये 5 संकेत बता देंगे 🔍 #Shorts
 
 **Description:**
@@ -49,7 +49,7 @@ no more mr nice guy, no more mr nice guy hindi, robert glover, nice guy syndrome
 
 ---
 
-## 3. शिकायत नहीं, माँग (`s3/out/s3_with_promo.mp4`)
+## 3. शिकायत नहीं, माँग (`final/short_3_with_promo.mp4`, thumbnail `final/thumbnails/short_3_thumbnail.jpg`)
 **Title:** "तुम मेरा ध्यान नहीं रखते" कभी काम क्यों नहीं करता? 💬 #Shorts
 
 **Description:**
@@ -65,7 +65,7 @@ no more mr nice guy, no more mr nice guy hindi, robert glover, nice guy syndrome
 
 ---
 
-## 4. सीमा के तीन नियम (`s4/out/s4_with_promo.mp4`)
+## 4. सीमा के तीन नियम (`final/short_4_with_promo.mp4`, thumbnail `final/thumbnails/short_4_thumbnail.jpg`)
 **Title:** हर किसी को हाँ कहते थक गए? सीमा के 3 नियम 🚧 #Shorts
 
 **Description:**
@@ -82,7 +82,7 @@ no more mr nice guy, no more mr nice guy hindi, robert glover, nice guy syndrome
 
 ---
 
-## 5. देना या छिपा सौदा? (`s5/out/s5_with_promo.mp4`)
+## 5. देना या छिपा सौदा? (`final/short_5_with_promo.mp4`, thumbnail `final/thumbnails/short_5_thumbnail.jpg`)
 **Title:** मदद के बाद नाराज़गी होती है? यह सवाल पूछिए 🎁 #Shorts
 
 **Description:**
@@ -98,7 +98,7 @@ no more mr nice guy, no more mr nice guy hindi, robert glover, nice guy syndrome
 
 ---
 
-## 6. हर बात पर सॉरी? (`s6/out/s6_with_promo.mp4`)
+## 6. हर बात पर सॉरी? (`final/short_6_with_promo.mp4`, thumbnail `final/thumbnails/short_6_thumbnail.jpg`)
 **Title:** हर बात पर "सॉरी" बोलते हो? पहले यह सवाल पूछो 🙏 #Shorts
 
 **Description:**
@@ -114,7 +114,7 @@ no more mr nice guy, no more mr nice guy hindi, robert glover, nice guy syndrome
 
 ---
 
-## 7. दफ़्तर वाला Nice Guy (`s7/out/s7_with_promo.mp4`)
+## 7. दफ़्तर वाला Nice Guy (`final/short_7_with_promo.mp4`, thumbnail `final/thumbnails/short_7_thumbnail.jpg`)
 **Title:** मेहनत आपकी, तरक़्क़ी किसी और की? 💼 ये 4 आदतें छोड़िए #Shorts
 
 **Description:**
@@ -132,7 +132,7 @@ no more mr nice guy, no more mr nice guy hindi, robert glover, nice guy syndrome
 
 ---
 
-## 8. यह आदत आती कहाँ से है? (`s8/out/s8_with_promo.mp4`)
+## 8. यह आदत आती कहाँ से है? (`final/short_8_with_promo.mp4`, thumbnail `final/thumbnails/short_8_thumbnail.jpg`)
 **Title:** सबको ख़ुश रखने की आदत कहाँ से आती है? 🧒 #Shorts
 
 **Description:**
