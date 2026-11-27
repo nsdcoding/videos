@@ -53,7 +53,7 @@
 ## Tags (paste into the Tags box; comma-separated, under YouTube's 500-character limit)
 
 ```
-can't hurt me, cant hurt me, can't hurt me summary, can't hurt me hindi, can't hurt me book summary in hindi, david goggins, david goggins hindi, david goggins motivation, david goggins story, book summary in hindi, hindi book summary, 40 percent rule, 40% rule david goggins, navy seal, hell week, accountability mirror, cookie jar method, callused mind, mental toughness, discipline vs motivation, self discipline hindi, motivational video hindi, self improvement hindi, तुम मुझे तोड़ नहीं सकते, डेविड गॉगिंस, हिंदी सारांश
+can't hurt me, can't hurt me summary, can't hurt me hindi, can't hurt me book summary in hindi, david goggins, david goggins hindi, david goggins motivation, book summary in hindi, hindi book summary, 40 percent rule, 40% rule david goggins, navy seal, hell week, accountability mirror, cookie jar method, callused mind, mental toughness, discipline vs motivation, motivational video hindi, self improvement hindi, तुम मुझे तोड़ नहीं सकते, डेविड गॉगिंस, हिंदी सारांश
 ```
 
 ## Keywords (for title/description SEO and research)
