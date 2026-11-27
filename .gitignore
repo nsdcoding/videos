@@ -18,3 +18,5 @@ projects/mind-tricks/out/*.mp4
 projects/nice-guy-short/render/node_modules/
 projects/nice-guy-short/out/seg/
 projects/nice-guy-short/out/short_main.mp4
+projects/nice-guy-shorts/*/out/
+projects/nice-guy-shorts/vo/
