@@ -1,6 +1,6 @@
 // YouTube Short (1080x1920): "छिपा हुआ अनुबंध" from the No More Mr Nice Guy video.
 // Safe area: content kept between y≈220 and y≈1380 (Shorts UI covers top and bottom), x≈70–940.
-const SH_END = 43.6;
+const SH_END = 39.7;
 
 function big(parent, s, x, y, size, color = INK, css = {}) {
   return text(parent, s, x, y, Object.assign({ fontSize: size + 'px', color, whiteSpace: 'normal', width: '940px', lineHeight: 1.15 }, css));
@@ -96,7 +96,7 @@ function build() {
   }
   // 7–10 — the cure: give without conditions, ask clearly, people can't read minds
   {
-    const s = S(7); const L = layer(s.a - 0.2, S(11).a - 0.2, 'iris', 'bg_paper');
+    const s = S(7); const L = layer(s.a - 0.2, SH_END, 'iris', 'bg_paper');
     camMove(L, { scale: 1.06 }, { scale: 1.0 });
     rise(big(L.cam, 'इलाज सीधा है', 540, 280, 110, INK), s.a + 0.05);
     draw(inkPath(L.cam, 'M240 360 Q540 390 840 352', {}, { color: RUST, width: 12 }), s.a + 0.4, 0.5);
@@ -115,16 +115,6 @@ function build() {
     const hd = img(L.cam, 'head_calm', 540, 1290, 190); TL.set(hd, { autoAlpha: 0 }, 0); pop(hd, t10);
     [[380, 1250], [700, 1230]].forEach(([x, y], k) => { const q = text(L.cam, '?', x, y, { fontSize: '120px', color: RUST, fontFamily: "'Rozha One'", fontWeight: 400 }); pop(q, t10 + 0.2 + k * 0.15, { rot: 18 }); });
     const lab = tag(L.cam, 'लोग मन नहीं पढ़ सकते', 540, 1100, { fontSize: '50px', background: RUST, color: CREAM }); pop(lab, W_(10, 'मन नहीं'));
-  }
-  // 11 — bridge to the promo
-  {
-    const s = S(11); const L = layer(s.a - 0.2, SH_END, 'zoom', 'bg_paper');
-    camMove(L, { scale: 1.06 }, { scale: 1.0 });
-    const bk = img(L.cam, 'book', 540, 760, 400); pop(bk, s.a + 0.05); float(bk, s.a, L.t1, 7, 1);
-    rise(big(L.cam, 'पूरा सारांश', 540, 300, 110, INK), s.a + 0.1);
-    pop(tag(L.cam, 'हिंदी में', 540, 455, { fontSize: '56px', background: MUSTARD }), W_(11, 'हिंदी'));
-    rise(big(L.cam, 'पढ़िए भी, सुनिए भी', 540, 1120, 80, RUST), W_(11, 'पढ़िए'));
-    pop(tag(L.cam, 'पुस्तिका', 540, 1260, { fontSize: '64px', background: INK, color: CREAM }), W_(11, 'पुस्तिका'));
   }
   window.VIDEO_END = SH_END;
   buildSubs(1e9);
