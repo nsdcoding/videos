@@ -510,9 +510,10 @@ class Runner(Item):
 class Bar(Item):
     """Outlined bar that fills from f0 to f1 (fractions) between t0 and t0 + dur."""
 
-    def __init__(self, x, y, w, h, t0, dur, f0=0.0, f1=1.0, color=RED, t1=1e9, z=6, steps=None):
+    def __init__(self, x, y, w, h, t0, dur, f0=0.0, f1=1.0, color=RED, t1=1e9, z=6, steps=None,
+                 vertical=False):
         self.x, self.y, self.w, self.h, self.t0, self.dur, self.f0, self.f1 = x, y, w, h, t0, dur, f0, f1
-        self.color, self.t1, self.z, self.steps = color, t1, z, steps
+        self.color, self.t1, self.z, self.steps, self.vertical = color, t1, z, steps, vertical
 
     def bbox(self, t):
         return (self.x, self.y, self.x + self.w, self.y + self.h)
@@ -522,14 +523,18 @@ class Bar(Item):
             return
         a = clamp((t - self.t0) * 3) * (1 - ramp(t, self.t1, 0.5))
         f = self.f0 + (self.f1 - self.f0) * ease_io((t - self.t0 - 0.3) / self.dur)
-        lw = self.h * 0.08
+        lw = min(self.w, self.h) * 0.08
         ctx.set_source_rgba(*INK, a)
         ctx.set_line_width(lw)
         ctx.rectangle(self.x, self.y, self.w, self.h)
         ctx.stroke()
         pad = lw * 1.8
         ctx.set_source_rgba(*self.color, a)
-        ctx.rectangle(self.x + pad, self.y + pad, max(0, (self.w - 2 * pad) * f), self.h - 2 * pad)
+        if self.vertical:  # fills from the bottom up
+            fh = max(0, (self.h - 2 * pad) * f)
+            ctx.rectangle(self.x + pad, self.y + self.h - pad - fh, self.w - 2 * pad, fh)
+        else:
+            ctx.rectangle(self.x + pad, self.y + pad, max(0, (self.w - 2 * pad) * f), self.h - 2 * pad)
         ctx.fill()
 
 
